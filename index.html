@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex des dresseurs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1 class="brand">Pokédex des dresseurs</h1>
+
+      <div class="field">
+        <label for="trainer-id-input">Ouvrir un dresseur par identifiant</label>
+        <div class="field-row">
+          <input id="trainer-id-input" type="text" placeholder="ex. 482910168273" />
+          <button id="trainer-id-go">Ouvrir</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="pokemon-search-input">Retrouver un Pokémon (tous dresseurs)</label>
+        <input id="pokemon-search-input" type="text" placeholder="ex. Dracaufeu" />
+      </div>
+
+      <div class="trainer-list-wrap">
+        <p class="section-label">Dresseurs avec une collection</p>
+        <ul id="trainer-list" class="trainer-list"></ul>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header id="content-header" class="content-header">
+        <h2>Choisis un dresseur</h2>
+        <p class="muted">Sélectionne un identifiant à gauche, ou lance une recherche de Pokémon.</p>
+      </header>
+
+      <div class="toolbar" id="toolbar" hidden>
+        <input id="filter-input" type="text" placeholder="Filtrer cette collection par nom" />
+        <span id="filter-count" class="muted"></span>
+      </div>
+
+      <div id="grid" class="grid"></div>
+      <p id="empty-state" class="empty-state" hidden>Aucun Pokémon ne correspond à cette recherche.</p>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
