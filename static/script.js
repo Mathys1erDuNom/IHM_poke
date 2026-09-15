@@ -31,68 +31,89 @@ const STAT_LABELS = {
 const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"];
 const STAT_MAX = 150; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
 
+const trainerButtonsEl = document.getElementById("trainer-buttons");
 const filterInput = document.getElementById("filter-input");
+const screenTitleEl = document.getElementById("screen-title");
+const placeholderEl = document.getElementById("placeholder");
 const loadingStateEl = document.getElementById("loading-state");
 const emptyStateEl = document.getElementById("empty-state");
-const collectionsEl = document.getElementById("collections");
+const gridEl = document.getElementById("grid");
 
-let allCollections = []; // [{ user_id, pokemons: [...] }, ...] chargé une seule fois
+let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
+let currentTrainer = null; // user_id actuellement affiché
 
 init();
 
 async function init() {
+  loadingStateEl.hidden = false;
+  placeholderEl.hidden = true;
+
   try {
     allCollections = await fetchJSON("/api/collections");
   } catch (err) {
-    loadingStateEl.textContent = "Impossible de charger les collections. Vérifie la connexion à la base.";
+    loadingStateEl.textContent = "Impossible de charger les dresseurs. Vérifie la connexion à la base.";
     return;
   }
 
   loadingStateEl.hidden = true;
 
   if (allCollections.length === 0) {
-    emptyStateEl.textContent = "Aucune collection pour l'instant. Elle apparaîtra ici dès qu'un Pokémon aura été capturé.";
-    emptyStateEl.hidden = false;
+    placeholderEl.hidden = false;
+    placeholderEl.querySelector("p").textContent =
+      "Aucun dresseur pour l'instant. Une collection apparaîtra ici dès qu'un Pokémon aura été capturé.";
     return;
   }
 
-  renderAll();
-  filterInput.addEventListener("input", () => renderAll());
+  placeholderEl.hidden = false;
+  renderTrainerButtons();
+  filterInput.addEventListener("input", () => renderGrid());
 }
 
-function renderAll() {
-  const filterText = filterInput.value.trim().toLowerCase();
-  collectionsEl.innerHTML = "";
-  let visibleSections = 0;
-
+function renderTrainerButtons() {
+  trainerButtonsEl.innerHTML = "";
   allCollections.forEach((trainer) => {
-    const pokemons = filterText
-      ? trainer.pokemons.filter((p) => p.name.toLowerCase().includes(filterText))
-      : trainer.pokemons;
+    const btn = document.createElement("button");
+    btn.className = "trainer-btn";
+    btn.dataset.userId = trainer.user_id;
+    btn.innerHTML = `
+      <span class="dot"></span>
+      <span>Dresseur ${shortId(trainer.user_id)}</span>
+      <span class="count">${trainer.pokemons.length}</span>
+    `;
+    btn.addEventListener("click", () => selectTrainer(trainer.user_id));
+    trainerButtonsEl.appendChild(btn);
+  });
+}
 
-    if (pokemons.length === 0) return;
-    visibleSections += 1;
-    collectionsEl.appendChild(buildTrainerSection(trainer.user_id, pokemons));
+function selectTrainer(userId) {
+  currentTrainer = userId;
+
+  [...trainerButtonsEl.children].forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.userId === String(userId));
   });
 
-  emptyStateEl.hidden = visibleSections > 0;
+  const trainer = allCollections.find((t) => String(t.user_id) === String(userId));
+  screenTitleEl.textContent = `Dresseur ${shortId(userId)} · ${trainer.pokemons.length} Pokémon`;
+
+  placeholderEl.hidden = true;
+  filterInput.hidden = false;
+  filterInput.value = "";
+
+  renderGrid();
 }
 
-function buildTrainerSection(userId, pokemons) {
-  const section = document.createElement("section");
-  section.className = "trainer-section";
+function renderGrid() {
+  if (!currentTrainer) return;
 
-  const header = document.createElement("div");
-  header.className = "trainer-section-header";
-  header.innerHTML = `<h2>Dresseur ${shortId(userId)}</h2><span class="muted">${pokemons.length} Pokémon</span>`;
+  const trainer = allCollections.find((t) => String(t.user_id) === String(currentTrainer));
+  const filterText = filterInput.value.trim().toLowerCase();
+  const visible = filterText
+    ? trainer.pokemons.filter((p) => p.name.toLowerCase().includes(filterText))
+    : trainer.pokemons;
 
-  const grid = document.createElement("div");
-  grid.className = "grid";
-  pokemons.forEach((p) => grid.appendChild(buildCard(p)));
-
-  section.appendChild(header);
-  section.appendChild(grid);
-  return section;
+  gridEl.innerHTML = "";
+  emptyStateEl.hidden = visible.length > 0;
+  visible.forEach((p) => gridEl.appendChild(buildCard(p)));
 }
 
 function buildCard(pokemon) {
