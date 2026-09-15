@@ -32,8 +32,6 @@ const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defens
 const STAT_MAX = 150; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
 
 const trainerListEl = document.getElementById("trainer-list");
-const trainerIdInput = document.getElementById("trainer-id-input");
-const trainerIdGoBtn = document.getElementById("trainer-id-go");
 const pokemonSearchInput = document.getElementById("pokemon-search-input");
 const filterInput = document.getElementById("filter-input");
 const filterCountEl = document.getElementById("filter-count");
@@ -48,15 +46,13 @@ let currentMode = "empty"; // "trainer" | "search"
 init();
 
 async function init() {
-  await loadTrainerList();
+  const trainers = await loadTrainerList();
 
-  trainerIdGoBtn.addEventListener("click", () => {
-    const id = trainerIdInput.value.trim();
-    if (id) openTrainer(id);
-  });
-  trainerIdInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") trainerIdGoBtn.click();
-  });
+  if (trainers.length > 0) {
+    openTrainer(trainers[0].user_id);
+  } else {
+    headerEl.innerHTML = `<h2>Aucun dresseur pour l'instant</h2><p class="muted">Les collections apparaîtront ici dès qu'un Pokémon aura été capturé.</p>`;
+  }
 
   let searchTimer = null;
   pokemonSearchInput.addEventListener("input", () => {
@@ -79,11 +75,11 @@ async function loadTrainerList() {
     li.addEventListener("click", () => openTrainer(t.user_id));
     trainerListEl.appendChild(li);
   });
+  return trainers;
 }
 
 async function openTrainer(userId) {
   currentMode = "trainer";
-  trainerIdInput.value = userId;
   pokemonSearchInput.value = "";
 
   [...trainerListEl.children].forEach((li) => {
