@@ -10,7 +10,7 @@ NB_POKEMON = 20
 # Dossier de destination (doit correspondre à celui utilisé par l'appli web).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DOSSIER = os.path.join(SCRIPT_DIR, "images", "GIF")
+DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif")
 
 os.makedirs(DOSSIER, exist_ok=True)
 

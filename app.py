@@ -11,7 +11,7 @@ load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "GIF")
+IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "gif")
 
 app = Flask(
     __name__,
@@ -68,9 +68,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/images/GIF/<path:filename>")
+@app.route("/images/gif/<path:filename>")
 def pokemon_gif(filename):
-    """Sert les GIF de Pokémon depuis le dossier images/GIF (à côté de app.py)."""
+    """Sert les gif de Pokémon depuis le dossier images/gif (à côté de app.py)."""
     return send_from_directory(IMAGES_GIF_DIR, filename)
 
 
