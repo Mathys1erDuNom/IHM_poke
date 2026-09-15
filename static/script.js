@@ -156,7 +156,7 @@ function buildCard(pokemon) {
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
 
-  const gifSrc = `/images/GIF/${slugifyName(pokemon.name)}.gif`;
+  const gifSrc = `/images/gif/${slugifyName(pokemon.name)}.gif`;
   const fallbackSrc = escapeHtml(pokemon.image || "");
 
   card.innerHTML = `

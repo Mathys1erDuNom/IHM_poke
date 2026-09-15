@@ -5,7 +5,7 @@ import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request, send_from_directory
-#sszd
+
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -70,7 +70,7 @@ def index():
 
 @app.route("/images/gif/<path:filename>")
 def pokemon_gif(filename):
-    """Sert les gif de Pokémon depuis le dossier images/gif (à côté de app.py)."""
+    """Sert les gif de Pokémon depuis le dossier images/gif  (à côté de app.py)."""
     return send_from_directory(IMAGES_GIF_DIR, filename)
 
 
