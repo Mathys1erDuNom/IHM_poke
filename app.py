@@ -5,7 +5,7 @@ import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template, request, send_from_directory
-
+#sszd
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
