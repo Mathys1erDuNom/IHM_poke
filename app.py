@@ -4,13 +4,14 @@ from contextlib import contextmanager
 import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, send_from_directory
 
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "GIF")
 
 app = Flask(
     __name__,
@@ -31,9 +32,46 @@ def get_cursor():
         conn.close()
 
 
+def ensure_table_exists():
+    """
+    Crée la table new_captures si elle n'existe pas encore sur cette base
+    (même schéma que le bot Discord). Évite un 500 si l'appli web pointe
+    vers une base fraîchement créée ou pas encore initialisée par le bot.
+    """
+    conn = psycopg2.connect(DATABASE_URL, sslmode="require")
+    try:
+        cur = conn.cursor()
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS new_captures (
+                user_id     TEXT,
+                name        TEXT,
+                ivs         JSONB,
+                stats       JSONB,
+                image       TEXT,
+                type        JSONB,
+                attacks     JSONB,
+                current_xp  INT DEFAULT 0,
+                xp_evo      INT DEFAULT 0,
+                evo         JSONB DEFAULT '{"name": "pas evo", "file": "pas evo"}'::jsonb
+            );
+        """)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+ensure_table_exists()
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/images/GIF/<path:filename>")
+def pokemon_gif(filename):
+    """Sert les GIF de Pokémon depuis le dossier images/GIF (à côté de app.py)."""
+    return send_from_directory(IMAGES_GIF_DIR, filename)
 
 
 @app.route("/api/collections")

@@ -146,9 +146,13 @@ function buildCard(pokemon) {
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
 
+  const gifSrc = `/images/GIF/${slugifyName(pokemon.name)}.gif`;
+  const fallbackSrc = escapeHtml(pokemon.image || "");
+
   card.innerHTML = `
     <div class="card-art" style="background:radial-gradient(circle at 50% 35%, ${artColor}55, transparent 70%)">
-      <img src="${pokemon.image}" alt="${escapeHtml(pokemon.name)}" loading="lazy" />
+      <img src="${gifSrc}" alt="${escapeHtml(pokemon.name)}" loading="lazy"
+           onerror="this.onerror=null; this.src='${fallbackSrc}';" />
     </div>
     <div class="card-body">
       <h3 class="card-name">${escapeHtml(pokemon.name)}</h3>
@@ -192,6 +196,14 @@ async function fetchJSON(url) {
 function shortId(id) {
   const s = String(id);
   return s.length > 6 ? `#${s.slice(0, 4)}…${s.slice(-4)}` : `#${s}`;
+}
+
+function slugifyName(name) {
+  return String(name)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // enlève les accents (é, â, ...)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ""); // enlève espaces, apostrophes, points, tirets
 }
 
 function escapeHtml(str) {
