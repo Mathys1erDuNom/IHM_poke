@@ -10,36 +10,16 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h1 class="brand">Pokédex des dresseurs</h1>
+  <header class="topbar">
+    <h1 class="brand">Pokédex des dresseurs</h1>
+    <input id="filter-input" type="text" placeholder="Filtrer par nom de Pokémon (tous dresseurs)" />
+  </header>
 
-      <div class="field">
-        <label for="pokemon-search-input">Retrouver un Pokémon (tous dresseurs)</label>
-        <input id="pokemon-search-input" type="text" placeholder="ex. Dracaufeu" />
-      </div>
-
-      <div class="trainer-list-wrap">
-        <p class="section-label">Dresseurs</p>
-        <ul id="trainer-list" class="trainer-list"></ul>
-      </div>
-    </aside>
-
-    <main class="content">
-      <header id="content-header" class="content-header">
-        <h2>Chargement…</h2>
-        <p class="muted"></p>
-      </header>
-
-      <div class="toolbar" id="toolbar" hidden>
-        <input id="filter-input" type="text" placeholder="Filtrer cette collection par nom" />
-        <span id="filter-count" class="muted"></span>
-      </div>
-
-      <div id="grid" class="grid"></div>
-      <p id="empty-state" class="empty-state" hidden>Aucun Pokémon ne correspond à cette recherche.</p>
-    </main>
-  </div>
+  <main class="content">
+    <p id="loading-state" class="muted">Chargement des collections…</p>
+    <p id="empty-state" class="empty-state" hidden>Aucune collection ne correspond à ce filtre.</p>
+    <div id="collections"></div>
+  </main>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

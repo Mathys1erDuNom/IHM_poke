@@ -31,97 +31,68 @@ const STAT_LABELS = {
 const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"];
 const STAT_MAX = 150; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
 
-const trainerListEl = document.getElementById("trainer-list");
-const pokemonSearchInput = document.getElementById("pokemon-search-input");
 const filterInput = document.getElementById("filter-input");
-const filterCountEl = document.getElementById("filter-count");
-const toolbarEl = document.getElementById("toolbar");
-const gridEl = document.getElementById("grid");
+const loadingStateEl = document.getElementById("loading-state");
 const emptyStateEl = document.getElementById("empty-state");
-const headerEl = document.getElementById("content-header");
+const collectionsEl = document.getElementById("collections");
 
-let currentPokemons = []; // ce qui est affiché en ce moment (collection ou résultats de recherche)
-let currentMode = "empty"; // "trainer" | "search"
+let allCollections = []; // [{ user_id, pokemons: [...] }, ...] chargé une seule fois
 
 init();
 
 async function init() {
-  const trainers = await loadTrainerList();
-
-  if (trainers.length > 0) {
-    openTrainer(trainers[0].user_id);
-  } else {
-    headerEl.innerHTML = `<h2>Aucun dresseur pour l'instant</h2><p class="muted">Les collections apparaîtront ici dès qu'un Pokémon aura été capturé.</p>`;
+  try {
+    allCollections = await fetchJSON("/api/collections");
+  } catch (err) {
+    loadingStateEl.textContent = "Impossible de charger les collections. Vérifie la connexion à la base.";
+    return;
   }
 
-  let searchTimer = null;
-  pokemonSearchInput.addEventListener("input", () => {
-    clearTimeout(searchTimer);
-    const q = pokemonSearchInput.value.trim();
-    if (!q) return;
-    searchTimer = setTimeout(() => runPokemonSearch(q), 300);
-  });
+  loadingStateEl.hidden = true;
 
-  filterInput.addEventListener("input", () => renderGrid());
-}
-
-async function loadTrainerList() {
-  const trainers = await fetchJSON("/api/trainers");
-  trainerListEl.innerHTML = "";
-  trainers.forEach((t) => {
-    const li = document.createElement("li");
-    li.dataset.userId = t.user_id;
-    li.innerHTML = `<span>Dresseur ${shortId(t.user_id)}</span><span class="count">${t.total}</span>`;
-    li.addEventListener("click", () => openTrainer(t.user_id));
-    trainerListEl.appendChild(li);
-  });
-  return trainers;
-}
-
-async function openTrainer(userId) {
-  currentMode = "trainer";
-  pokemonSearchInput.value = "";
-
-  [...trainerListEl.children].forEach((li) => {
-    li.classList.toggle("active", li.dataset.userId === String(userId));
-  });
-
-  const pokemons = await fetchJSON(`/api/trainers/${encodeURIComponent(userId)}/pokemons`);
-  currentPokemons = pokemons;
-
-  headerEl.innerHTML = `<h2>Dresseur ${shortId(userId)}</h2><p class="muted">${pokemons.length} Pokémon dans la collection</p>`;
-  toolbarEl.hidden = false;
-  filterInput.value = "";
-  filterInput.placeholder = "Filtrer cette collection par nom";
-  renderGrid();
-}
-
-async function runPokemonSearch(query) {
-  currentMode = "search";
-  [...trainerListEl.children].forEach((li) => li.classList.remove("active"));
-
-  const results = await fetchJSON(`/api/search?q=${encodeURIComponent(query)}`);
-  currentPokemons = results;
-
-  headerEl.innerHTML = `<h2>Résultats pour « ${escapeHtml(query)} »</h2><p class="muted">${results.length} Pokémon trouvé(s), tous dresseurs confondus</p>`;
-  toolbarEl.hidden = true;
-  renderGrid();
-}
-
-function renderGrid() {
-  const filterText = currentMode === "trainer" ? filterInput.value.trim().toLowerCase() : "";
-  const visible = filterText
-    ? currentPokemons.filter((p) => p.name.toLowerCase().includes(filterText))
-    : currentPokemons;
-
-  if (currentMode === "trainer") {
-    filterCountEl.textContent = `${visible.length} / ${currentPokemons.length} affiché(s)`;
+  if (allCollections.length === 0) {
+    emptyStateEl.textContent = "Aucune collection pour l'instant. Elle apparaîtra ici dès qu'un Pokémon aura été capturé.";
+    emptyStateEl.hidden = false;
+    return;
   }
 
-  gridEl.innerHTML = "";
-  emptyStateEl.hidden = visible.length > 0;
+  renderAll();
+  filterInput.addEventListener("input", () => renderAll());
+}
 
-  visible.forEach((p) => gridEl.appendChild(buildCard(p)));
+function renderAll() {
+  const filterText = filterInput.value.trim().toLowerCase();
+  collectionsEl.innerHTML = "";
+  let visibleSections = 0;
+
+  allCollections.forEach((trainer) => {
+    const pokemons = filterText
+      ? trainer.pokemons.filter((p) => p.name.toLowerCase().includes(filterText))
+      : trainer.pokemons;
+
+    if (pokemons.length === 0) return;
+    visibleSections += 1;
+    collectionsEl.appendChild(buildTrainerSection(trainer.user_id, pokemons));
+  });
+
+  emptyStateEl.hidden = visibleSections > 0;
+}
+
+function buildTrainerSection(userId, pokemons) {
+  const section = document.createElement("section");
+  section.className = "trainer-section";
+
+  const header = document.createElement("div");
+  header.className = "trainer-section-header";
+  header.innerHTML = `<h2>Dresseur ${shortId(userId)}</h2><span class="muted">${pokemons.length} Pokémon</span>`;
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+  pokemons.forEach((p) => grid.appendChild(buildCard(p)));
+
+  section.appendChild(header);
+  section.appendChild(grid);
+  return section;
 }
 
 function buildCard(pokemon) {
@@ -153,9 +124,6 @@ function buildCard(pokemon) {
   const attacksLine = (pokemon.attacks || []).length
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
-  const ownerLine = currentMode === "search"
-    ? `<div class="card-owner">Dresseur ${shortId(pokemon.user_id)}</div>`
-    : "";
 
   card.innerHTML = `
     <div class="card-art" style="background:radial-gradient(circle at 50% 35%, ${artColor}55, transparent 70%)">
@@ -167,7 +135,6 @@ function buildCard(pokemon) {
       <div class="stats">${statRows}</div>
       ${xpBlock}
       ${attacksLine}
-      ${ownerLine}
       ${evoBlock}
     </div>
   `;

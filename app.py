@@ -36,6 +36,35 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/api/collections")
+def list_collections():
+    """
+    Retourne, en un seul appel, la collection complète de chaque dresseur.
+    Format : [{ "user_id": "...", "pokemons": [...] }, ...]
+    Les dresseurs sont triés par taille de collection décroissante.
+    """
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT user_id, name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo
+            FROM new_captures
+            ORDER BY user_id, name ASC
+        """)
+        rows = cur.fetchall()
+
+    grouped = {}
+    for row in rows:
+        user_id = row.pop("user_id")
+        grouped.setdefault(user_id, []).append(row)
+
+    collections = [
+        {"user_id": user_id, "pokemons": pokemons}
+        for user_id, pokemons in grouped.items()
+    ]
+    collections.sort(key=lambda c: len(c["pokemons"]), reverse=True)
+
+    return jsonify(collections)
+
+
 @app.route("/api/trainers")
 def list_trainers():
     """Retourne chaque dresseur (user_id) présent dans la table, avec son nombre de Pokémon."""
