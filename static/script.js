@@ -28,6 +28,15 @@ const STAT_LABELS = {
   speed: "Vitesse",
 };
 
+const STAT_COLORS = {
+  hp: "#ff5959",
+  attack: "#f5a531",
+  defense: "#ffd23f",
+  special_attack: "#5a9bf8",
+  special_defense: "#6fce6f",
+  speed: "#ff6ac1",
+};
+
 const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"];
 const STAT_MAX = 150; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
 
@@ -131,10 +140,11 @@ function buildCard(pokemon) {
     .map((key) => {
       const value = pokemon.stats[key];
       const pct = Math.min(100, Math.round((value / STAT_MAX) * 100));
+      const color = STAT_COLORS[key] || "#8b8fae";
       return `
         <div class="stat-row">
           <span>${STAT_LABELS[key]}</span>
-          <span class="stat-track"><span class="stat-fill" style="width:${pct}%"></span></span>
+          <span class="stat-track"><span class="stat-fill" style="width:${pct}%; background:${color}"></span></span>
           <span class="stat-value">${value}</span>
         </div>`;
     })
@@ -146,7 +156,7 @@ function buildCard(pokemon) {
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
 
-  const gifSrc = `/images/gif/${slugifyName(pokemon.name)}.gif`;
+  const gifSrc = `/images/GIF/${slugifyName(pokemon.name)}.gif`;
   const fallbackSrc = escapeHtml(pokemon.image || "");
 
   card.innerHTML = `
