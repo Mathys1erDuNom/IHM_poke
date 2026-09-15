@@ -6,21 +6,44 @@
   <title>Pokédex des dresseurs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2" />
 </head>
 <body>
-  <header class="topbar">
-    <h1 class="brand">Pokédex des dresseurs</h1>
-    <input id="filter-input" type="text" placeholder="Filtrer par nom de Pokémon (tous dresseurs)" />
-  </header>
+  <div class="device">
+    <div class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span>
+        <span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span>
+        <span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Pokédex des dresseurs</h1>
+    </div>
 
-  <main class="content">
-    <p id="loading-state" class="muted">Chargement des collections…</p>
-    <p id="empty-state" class="empty-state" hidden>Aucune collection ne correspond à ce filtre.</p>
-    <div id="collections"></div>
-  </main>
+    <div class="picker">
+      <p class="picker-label">Choisis un dresseur</p>
+      <div id="trainer-buttons" class="trainer-buttons"></div>
+    </div>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="screen">
+      <div class="screen-topline">
+        <span id="screen-title">En attente d'un dresseur…</span>
+        <input id="filter-input" type="text" placeholder="Filtrer par nom" hidden />
+      </div>
+
+      <div class="screen-body">
+        <div id="placeholder" class="placeholder">
+          <span class="pokeball" aria-hidden="true"></span>
+          <p>Appuie sur un dresseur ci-dessus pour voir sa collection.</p>
+        </div>
+        <p id="loading-state" class="muted" hidden>Chargement des dresseurs…</p>
+        <p id="empty-state" class="muted" hidden>Aucun Pokémon ne correspond à ce filtre.</p>
+        <div id="grid" class="grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}?v=2"></script>
 </body>
 </html>
