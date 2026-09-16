@@ -19,14 +19,14 @@ os.makedirs(DOSSIER, exist_ok=True)
 # --- Réglages de la normalisation des tailles ---
 
 # Taille du canevas final (carré, en pixels) sur lequel chaque Pokémon est posé.
-CANVAS = (200, 200)
+CANVAS = (250, 250)
 
 # Plage de tailles à l'écran (en pixels) vers laquelle on projette les tailles réelles.
 # Le plus petit Pokémon du jeu occupera PX_MIN, le plus grand (après écrêtage) PX_MAX.
 # PX_MIN est volontairement assez haut : même le plus petit Pokémon doit rester visible
 # et occuper une bonne partie du canevas, pas juste quelques pixels.
-PX_MIN = 70
-PX_MAX = 190
+PX_MIN = 90
+PX_MAX = 240
 
 # Écrêtage de la taille réelle (en mètres) : au-delà de cette hauteur, on n'agrandit plus.
 # 2.5 m couvre déjà la quasi-totalité des Pokémon "normaux" ; les quelques géants
