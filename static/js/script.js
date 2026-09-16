@@ -28,17 +28,19 @@ const STAT_LABELS = {
   speed: "Vitesse",
 };
 
-const STAT_COLORS = {
-  hp: "#ff5959",
-  attack: "#f5a531",
-  defense: "#ffd23f",
-  special_attack: "#5a9bf8",
-  special_defense: "#6fce6f",
-  speed: "#ff6ac1",
-};
+const STAT_TIERS = [
+  { max: 50,  color: "#e04b4b" }, // rouge
+  { max: 100, color: "#f0913a" }, // orange
+  { max: 150, color: "#5eb85e" }, // vert
+  { max: Infinity, color: "#4c8fd1" }, // bleu
+];
+
+function statColor(value) {
+  return STAT_TIERS.find((t) => value < t.max).color;
+}
 
 const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"];
-const STAT_MAX = 150; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
+const STAT_MAX = 200; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
 
 const trainerButtonsEl = document.getElementById("trainer-buttons");
 const filterInput = document.getElementById("filter-input");
