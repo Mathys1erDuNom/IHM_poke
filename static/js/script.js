@@ -127,6 +127,7 @@ function renderGrid() {
   visible.forEach((p) => gridEl.appendChild(buildCard(p)));
 }
 
+
 function buildCard(pokemon) {
   const card = document.createElement("div");
   card.className = "card";
@@ -138,22 +139,34 @@ function buildCard(pokemon) {
     .map((t) => `<span class="type-chip" style="background:${TYPE_COLORS[t] || "#8b8fae"}">${t}</span>`)
     .join("");
 
+  // =========================
+  // STATS
+  // =========================
   const statRows = STAT_ORDER.filter((key) => pokemon.stats && key in pokemon.stats)
     .map((key) => {
       const value = pokemon.stats[key];
       const pct = Math.min(100, Math.round((value / STAT_MAX) * 100));
       const color = statColor(value);
+
       return `
         <div class="stat-row">
           <span>${STAT_LABELS[key]}</span>
-          <span class="stat-track"><span class="stat-fill" style="width:${pct}%; background:${color}"></span></span>
+          <span class="stat-track">
+            <span class="stat-fill" style="width:${pct}%; background:${color}"></span>
+          </span>
           <span class="stat-value">${value}</span>
         </div>`;
     })
     .join("");
 
+  // =========================
+  // IV
+  // =========================
+  const ivRows = buildIvRows(pokemon);
+
   const xpBlock = buildXpBlock(pokemon);
   const evoBlock = buildEvoBlock(pokemon);
+
   const attacksLine = (pokemon.attacks || []).length
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
@@ -166,17 +179,93 @@ function buildCard(pokemon) {
       <img src="${gifSrc}" alt="${escapeHtml(pokemon.name)}" loading="lazy"
            onerror="this.onerror=null; this.src='${fallbackSrc}';" />
     </div>
+
     <div class="card-body">
       <h3 class="card-name">${escapeHtml(pokemon.name)}</h3>
+
       <div class="type-chips">${typeChips}</div>
-      <div class="stats">${statRows}</div>
+
+      <!-- STATS -->
+      <div class="stats">
+        ${statRows}
+      </div>
+
+      <!-- IV -->
+      ${ivRows}
+
+      <!-- XP -->
       ${xpBlock}
+
+      <!-- ATTAQUES -->
       ${attacksLine}
+
+      <!-- ÉVOLUTION -->
       ${evoBlock}
     </div>
   `;
+
   return card;
 }
+
+
+function buildIvRows(pokemon) {
+  if (!pokemon.ivs || typeof pokemon.ivs !== "object") {
+    return "";
+  }
+
+  const ivRows = STAT_ORDER
+    .filter((key) => key in pokemon.ivs)
+    .map((key) => {
+      const value = Number(pokemon.ivs[key]);
+
+      // IV maximum = 31
+      const pct = Math.min(100, Math.round((value / 31) * 100));
+
+      // Couleur selon la valeur de l'IV
+      let color;
+
+      if (value <= 7) {
+        color = "#e04b4b";       // rouge
+      } else if (value <= 15) {
+        color = "#f0913a";       // orange
+      } else if (value <= 23) {
+        color = "#e0c23e";       // jaune
+      } else {
+        color = "#5eb85e";       // vert
+      }
+
+      return `
+        <div class="stat-row iv-row">
+          <span>${STAT_LABELS[key]}</span>
+
+          <span class="stat-track">
+            <span
+              class="stat-fill"
+              style="width:${pct}%; background:${color}">
+            </span>
+          </span>
+
+          <span class="stat-value">${value}/31</span>
+        </div>
+      `;
+    })
+    .join("");
+
+  if (!ivRows) {
+    return "";
+  }
+
+  return `
+    <div class="iv-section">
+      <div class="iv-title">IV</div>
+      <div class="ivs">
+        ${ivRows}
+      </div>
+    </div>
+  `;
+}
+
+
 
 function buildXpBlock(pokemon) {
   if (pokemon.xp_evo === -1) {
