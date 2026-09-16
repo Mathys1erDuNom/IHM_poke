@@ -378,6 +378,22 @@ body {
   color: var(--muted);
 }
 
+.back-button {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  color: white;
+  background: #e63946;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
 /* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
@@ -399,3 +415,4 @@ body {
     width: 100%;
   }
 }
+
