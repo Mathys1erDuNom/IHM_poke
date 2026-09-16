@@ -331,6 +331,7 @@ body {
 }
 
 .stat-fill {
+  display: block; /* ou inline-block */
   height: 100%;
   border-radius: 3px;
 }
