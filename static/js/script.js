@@ -260,7 +260,7 @@ function buildIvRows(pokemon) {
 
   return `
     <div class="iv-section">
-      <div class="iv-title">IV</div>
+      <div class="iv-title">IVs</div>
       <div class="ivs">
         ${ivRows}
       </div>
