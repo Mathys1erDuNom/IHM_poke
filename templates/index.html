@@ -54,12 +54,11 @@
             Consulte les collections des différents dresseurs.
           </p>
 
-          <a
-            href="{{ url_for('pokedex') }}"
-            class="pokedex-button"
-          >
-            📖 Ouvrir le Pokédex
-          </a>
+          <form action="{{ url_for('pokedex') }}" method="get">
+              <button type="submit" class="pokedex-button">
+                  📖 Ouvrir le Pokédex
+              </button>
+          </form>
 
         </div>
 
@@ -71,4 +70,4 @@
 
 </body>
 </html>
-```
+

@@ -394,6 +394,28 @@ body {
   transform: translateY(-2px);
   opacity: 0.9;
 }
+
+.pokedex-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  background: #e63946;
+  color: white;
+  font-family: "Fredoka", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pokedex-button:hover {
+  transform: translateY(-2px);
+}
+
+.pokedex-button:active {
+  transform: translateY(1px);
+}
 /* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
