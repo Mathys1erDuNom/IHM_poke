@@ -7,7 +7,7 @@ import requests
 from PIL import Image, ImageSequence
 
 # Nombre de Pokémon à télécharger, à partir du n°1
-NB_POKEMON = 12
+NB_POKEMON = 9
 
 # Dossier de destination (doit correspondre à celui utilisé par l'appli web).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
@@ -19,20 +19,28 @@ os.makedirs(DOSSIER, exist_ok=True)
 # --- Réglages de la normalisation des tailles ---
 
 # Taille du canevas final (carré, en pixels) sur lequel chaque Pokémon est posé.
-CANVAS = (160, 160)
+CANVAS = (200, 200)
 
 # Plage de tailles à l'écran (en pixels) vers laquelle on projette les tailles réelles.
 # Le plus petit Pokémon du jeu occupera PX_MIN, le plus grand (après écrêtage) PX_MAX.
-PX_MIN = 28
-PX_MAX = 150
+# PX_MIN est volontairement assez haut : même le plus petit Pokémon doit rester visible
+# et occuper une bonne partie du canevas, pas juste quelques pixels.
+PX_MIN = 70
+PX_MAX = 190
 
 # Écrêtage de la taille réelle (en mètres) : au-delà de cette hauteur, on n'agrandit plus.
-# Sans ça, Wailord (14.5 m) écraserait visuellement tout le reste à une échelle inutilisable
-# (Pichu ferait moins de 3 px de haut). 6 m couvre déjà la quasi-totalité des Pokémon
-# "normaux" ; les quelques géants au-delà (Wailord, Steelix, Onix...) sont simplement
-# affichés à la taille maximale, comme "très grands" sans essayer d'être proportionnels
-# à l'extrême.
-HAUTEUR_MAX_M = 6.0
+# 2.5 m couvre déjà la quasi-totalité des Pokémon "normaux" ; les quelques géants
+# au-delà (Wailord, Steelix, Onix, Groudon...) plafonnent simplement à la taille max,
+# comme "très grands", sans écraser l'échelle pour tous les autres.
+HAUTEUR_MAX_M = 2.5
+
+# Exposant de compression de l'échelle (0 < GAMMA <= 1).
+# GAMMA = 1 donnerait une interpolation strictement linéaire, ce qui écrase les
+# Pokémon "normaux" tout en bas de l'échelle pour laisser de la place aux géants.
+# GAMMA < 1 gonfle les tailles petites/moyennes (proches de PX_MIN) tout en gardant
+# le bon ordre relatif, pour que la grande majorité des Pokémon restent grands et
+# lisibles à l'écran.
+GAMMA = 0.55
 
 
 def slugify(nom):
@@ -80,7 +88,7 @@ def taille_cible_px(hauteur_m, hauteur_min_m, hauteur_max_m):
     if hauteur_max_m <= hauteur_min_m:
         return PX_MAX
     ratio = (hauteur_m - hauteur_min_m) / (hauteur_max_m - hauteur_min_m)
-    ratio = max(0.0, min(1.0, ratio))
+    ratio = max(0.0, min(1.0, ratio)) ** GAMMA
     return round(PX_MIN + ratio * (PX_MAX - PX_MIN))
 
 
