@@ -186,8 +186,11 @@ function buildCard(pokemon) {
       <div class="type-chips">${typeChips}</div>
 
       <!-- STATS -->
-      <div class="stats">
-        ${statRows}
+      <div class="iv-section">
+        <div class="iv-title">Statistiques</div>
+        <div class="stats">
+          ${statRows}
+        </div>
       </div>
 
       <!-- IV -->
