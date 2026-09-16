@@ -142,7 +142,7 @@ function buildCard(pokemon) {
     .map((key) => {
       const value = pokemon.stats[key];
       const pct = Math.min(100, Math.round((value / STAT_MAX) * 100));
-      const color = STAT_COLORS[key] || "#8b8fae";
+      const color = statColor(value);
       return `
         <div class="stat-row">
           <span>${STAT_LABELS[key]}</span>
