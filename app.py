@@ -68,6 +68,11 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/pokedex")
+def pokedex():
+    return render_template("pokedex.html")
+
+
 @app.route("/images/gif/<path:filename>")
 def pokemon_gif(filename):
     """Sert les gif de Pokémon depuis le dossier images/gif  (à côté de app.py)."""
@@ -146,6 +151,7 @@ def search_pokemon():
         """, (f"%{query}%",))
         rows = cur.fetchall()
     return jsonify(rows)
+
 
 
 if __name__ == "__main__":
