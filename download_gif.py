@@ -7,7 +7,7 @@ import requests
 from PIL import Image, ImageSequence
 
 # Nombre de Pokémon à télécharger, à partir du n°1
-NB_POKEMON = 9
+NB_POKEMON = 649
 
 # Dossier de destination (doit correspondre à celui utilisé par l'appli web).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
