@@ -53,6 +53,9 @@ const gridEl = document.getElementById("grid");
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
 
+const sortButtonsEl = document.getElementById("sort-buttons");
+let currentSort = "recent"; // "recent" ou "alpha"
+
 init();
 
 async function init() {
@@ -78,6 +81,16 @@ async function init() {
   placeholderEl.hidden = false;
   renderTrainerButtons();
   filterInput.addEventListener("input", () => renderGrid());
+
+  sortButtonsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest(".sort-btn");
+    if (!btn) return;
+
+    currentSort = btn.dataset.sort;
+    [...sortButtonsEl.children].forEach((b) => b.classList.toggle("active", b === btn));
+
+    renderGrid();
+  });
 }
 
 function renderTrainerButtons() {
@@ -109,8 +122,40 @@ function selectTrainer(userId) {
   placeholderEl.hidden = true;
   filterInput.hidden = false;
   filterInput.value = "";
+  sortButtonsEl.hidden = false; 
 
   renderGrid();
+}
+function getTimestamp(pokemon) {
+  // On essaie plusieurs noms de champs possibles pour la date de capture.
+  const candidats = [pokemon.caught_at, pokemon.created_at, pokemon.captured_at, pokemon.date, pokemon.timestamp];
+  for (const c of candidats) {
+    if (c) {
+      const t = new Date(c).getTime();
+      if (!isNaN(t)) return t;
+    }
+  }
+  return null;
+}
+
+function sortPokemons(list, mode) {
+  const arr = [...list];
+
+  if (mode === "alpha") {
+    arr.sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+    return arr;
+  }
+
+  // mode "recent" : le plus récent en premier
+  const toutesLesDates = arr.every((p) => getTimestamp(p) !== null);
+  if (toutesLesDates) {
+    arr.sort((a, b) => getTimestamp(b) - getTimestamp(a));
+  } else {
+    // Pas de champ date dans les données : on suppose que le tableau
+    // arrive déjà dans l'ordre de capture (ancien -> récent), donc on inverse.
+    arr.reverse();
+  }
+  return arr;
 }
 
 function renderGrid() {
@@ -118,9 +163,12 @@ function renderGrid() {
 
   const trainer = allCollections.find((t) => String(t.user_id) === String(currentTrainer));
   const filterText = filterInput.value.trim().toLowerCase();
-  const visible = filterText
+
+  let visible = filterText
     ? trainer.pokemons.filter((p) => p.name.toLowerCase().includes(filterText))
     : trainer.pokemons;
+
+  visible = sortPokemons(visible, currentSort); // <-- ajouté
 
   gridEl.innerHTML = "";
   emptyStateEl.hidden = visible.length > 0;

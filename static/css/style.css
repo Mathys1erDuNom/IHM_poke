@@ -417,6 +417,27 @@ body {
 .pokedex-button:active {
   transform: translateY(1px);
 }
+
+.sort-buttons {
+  display: flex;
+  gap: 6px;
+}
+.sort-btn {
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.sort-btn.active {
+  background: #4c8fd1;
+  color: white;
+  border-color: #4c8fd1;
+}
+
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
