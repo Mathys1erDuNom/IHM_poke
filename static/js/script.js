@@ -171,7 +171,10 @@ function buildCard(pokemon) {
     ? `<div class="attacks">${pokemon.attacks.join(" · ")}</div>`
     : "";
 
-  const gifSrc = `/images/gif/${slugifyName(pokemon.name)}.gif`;
+  const isShiny = /_shiny$/i.test(pokemon.name);
+  const baseName = isShiny ? pokemon.name.replace(/_shiny$/i, "") : pokemon.name;
+  const gifFolder = isShiny ? "shiny" : "normal";
+  const gifSrc = `/images/gif/${gifFolder}/${slugifyName(baseName)}.gif`;
   const fallbackSrc = escapeHtml(pokemon.image || "");
 
   card.innerHTML = `

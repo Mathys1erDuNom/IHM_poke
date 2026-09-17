@@ -13,8 +13,9 @@ NB_POKEMON = 9
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif", "normal")
+DOSSIER_SHINY = os.path.join(SCRIPT_DIR, "images", "gif", "shiny")
 
-os.makedirs(DOSSIER, exist_ok=True)
+os.makedirs(DOSSIER_SHINY, exist_ok=True)
 
 # --- Réglages de la normalisation des tailles ---
 
@@ -163,34 +164,52 @@ print(f"Hauteur d'écrêtage (au-delà, taille max à l'écran) : {HAUTEUR_MAX_M
 
 # --- Étape 2 : télécharger chaque gif et le normaliser ---
 
+# --- Étape 2 : télécharger chaque gif (normal + shiny) et le normaliser ---
+
+def telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=False):
+    sous_dossier = "shiny" if shiny else ""
+    dossier_cible = DOSSIER_SHINY if shiny else DOSSIER
+    label = "shiny" if shiny else "normal"
+
+    url_gif = (
+        f"https://raw.githubusercontent.com/PokeAPI/sprites/"
+        f"master/sprites/pokemon/other/showdown/{sous_dossier + '/' if shiny else ''}{pokemon_id}.gif"
+    )
+    chemin = os.path.join(dossier_cible, f"{slug}.gif")
+
+    print(f"Téléchargement de {nom} ({label}) (#{pokemon_id}) -> {slug}.gif ...")
+
+    reponse = requests.get(url_gif, timeout=30)
+    reponse.raise_for_status()
+
+    px = taille_cible_px(hauteur_m, hauteur_min_m, HAUTEUR_MAX_M)
+    gif_normalise = normaliser_gif(reponse.content, px)
+
+    with open(chemin, "wb") as fichier:
+        fichier.write(gif_normalise)
+
+    print(f"✅ [{label}] {slug}.gif enregistré (hauteur réelle {hauteur_m} m -> {px}px)")
+
+
 for pokemon_id, info in infos.items():
     nom = info["nom"]
     slug = info["slug"]
     hauteur_m = info["hauteur_m"]
 
     try:
-        url_gif = (
-            f"https://raw.githubusercontent.com/PokeAPI/sprites/"
-            f"master/sprites/pokemon/other/showdown/{pokemon_id}.gif"
-        )
-        chemin = os.path.join(DOSSIER, f"{slug}.gif")
-
-        print(f"Téléchargement de {nom} (#{pokemon_id}) -> {slug}.gif ...")
-
-        reponse = requests.get(url_gif, timeout=30)
-        reponse.raise_for_status()
-
-        px = taille_cible_px(hauteur_m, hauteur_min_m, HAUTEUR_MAX_M)
-        gif_normalise = normaliser_gif(reponse.content, px)
-
-        with open(chemin, "wb") as fichier:
-            fichier.write(gif_normalise)
-
-        print(f"✅ {slug}.gif enregistré (hauteur réelle {hauteur_m} m -> {px}px)")
-
+        telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=False)
     except requests.RequestException as erreur:
-        print(f"❌ Erreur de téléchargement pour {nom} (#{pokemon_id}) : {erreur}")
-    except Exception as erreur:  # sécurité : un gif corrompu ne doit pas arrêter le script
-        print(f"❌ Erreur de traitement pour {nom} (#{pokemon_id}) : {erreur}")
+        print(f"❌ Erreur de téléchargement (normal) pour {nom} (#{pokemon_id}) : {erreur}")
+    except Exception as erreur:
+        print(f"❌ Erreur de traitement (normal) pour {nom} (#{pokemon_id}) : {erreur}")
+
+    try:
+        telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=True)
+    except requests.RequestException as erreur:
+        print(f"❌ Erreur de téléchargement (shiny) pour {nom} (#{pokemon_id}) : {erreur}")
+    except Exception as erreur:
+        print(f"❌ Erreur de traitement (shiny) pour {nom} (#{pokemon_id}) : {erreur}")
+
+
 
 print("\nTéléchargement terminé !")
