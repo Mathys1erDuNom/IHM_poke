@@ -216,6 +216,39 @@ body {
   color: var(--muted);
 }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(28, 37, 65, 0.12);
+}
+
+.page-btn {
+  border: none;
+  border-radius: 999px;
+  background: var(--shell-red);
+  color: var(--text-light);
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#page-indicator {
+  min-width: 90px;
+  text-align: center;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
 /* ---------- Placeholder ---------- */
 
 .placeholder {

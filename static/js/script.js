@@ -41,6 +41,7 @@ function statColor(value) {
 
 const STAT_ORDER = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"];
 const STAT_MAX = 200; // borne d'affichage des barres, les IV/EV peuvent dépasser 100
+const PAGE_SIZE = 25;
 
 const trainerButtonsEl = document.getElementById("trainer-buttons");
 const filterInput = document.getElementById("filter-input");
@@ -49,9 +50,14 @@ const placeholderEl = document.getElementById("placeholder");
 const loadingStateEl = document.getElementById("loading-state");
 const emptyStateEl = document.getElementById("empty-state");
 const gridEl = document.getElementById("grid");
+const prevPageBtn = document.getElementById("prev-page");
+const nextPageBtn = document.getElementById("next-page");
+const pageIndicatorEl = document.getElementById("page-indicator");
+const paginationEl = document.getElementById("pagination");
 
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
+let currentPage = 1;
 
 const sortButtonsEl = document.getElementById("sort-buttons");
 let currentSort = "recent"; // "recent" ou "alpha"
@@ -80,7 +86,27 @@ async function init() {
 
   placeholderEl.hidden = false;
   renderTrainerButtons();
-  filterInput.addEventListener("input", () => renderGrid());
+  filterInput.addEventListener("input", () => {
+    currentPage = 1;
+    renderGrid();
+  });
+
+  prevPageBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage -= 1;
+      renderGrid();
+    }
+  });
+
+  nextPageBtn.addEventListener("click", () => {
+    const trainer = allCollections.find((t) => String(t.user_id) === String(currentTrainer));
+    const total = trainer ? trainer.pokemons.length : 0;
+    const maxPage = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (currentPage < maxPage) {
+      currentPage += 1;
+      renderGrid();
+    }
+  });
 
   sortButtonsEl.addEventListener("click", (e) => {
     const btn = e.target.closest(".sort-btn");
@@ -88,6 +114,7 @@ async function init() {
 
     currentSort = btn.dataset.sort;
     [...sortButtonsEl.children].forEach((b) => b.classList.toggle("active", b === btn));
+    currentPage = 1;
 
     renderGrid();
   });
@@ -111,6 +138,7 @@ function renderTrainerButtons() {
 
 function selectTrainer(userId) {
   currentTrainer = userId;
+  currentPage = 1;
 
   [...trainerButtonsEl.children].forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.userId === String(userId));
@@ -163,12 +191,36 @@ function renderGrid() {
 
   const trainer = allCollections.find((t) => String(t.user_id) === String(currentTrainer));
   const filterText = filterInput.value.trim().toLowerCase();
+  const hasFilter = filterText.length > 0;
 
-  let visible = filterText
-    ? trainer.pokemons.filter((p) => p.name.toLowerCase().includes(filterText))
-    : trainer.pokemons;
+  let visible = trainer.pokemons.filter((p) => {
+    if (!p || !p.name) return false;
+    return !hasFilter || p.name.toLowerCase().includes(filterText);
+  });
 
-  visible = sortPokemons(visible, currentSort); // <-- ajouté
+  visible = sortPokemons(visible, currentSort);
+
+  if (!hasFilter) {
+    const maxPage = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
+    currentPage = Math.min(currentPage, maxPage);
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const paged = visible.slice(start, start + PAGE_SIZE);
+
+    paginationEl.hidden = visible.length <= PAGE_SIZE;
+    prevPageBtn.disabled = currentPage <= 1;
+    nextPageBtn.disabled = currentPage >= maxPage;
+    pageIndicatorEl.textContent = `Page ${currentPage}/${maxPage}`;
+
+    gridEl.innerHTML = "";
+    emptyStateEl.hidden = paged.length > 0;
+    paged.forEach((p) => gridEl.appendChild(buildCard(p)));
+    return;
+  }
+
+  paginationEl.hidden = true;
+  prevPageBtn.disabled = true;
+  nextPageBtn.disabled = true;
+  pageIndicatorEl.textContent = "Page 1";
 
   gridEl.innerHTML = "";
   emptyStateEl.hidden = visible.length > 0;
