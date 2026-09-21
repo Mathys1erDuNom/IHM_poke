@@ -55,6 +55,12 @@ def ensure_table_exists():
                 evo         JSONB DEFAULT '{"name": "pas evo", "file": "pas evo"}'::jsonb
             );
         """)
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS argent (
+                user_id TEXT PRIMARY KEY,
+                balance INTEGER DEFAULT 0
+            );
+        """)
         conn.commit()
     finally:
         conn.close()
@@ -65,7 +71,16 @@ ensure_table_exists()
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT user_id, balance
+            FROM argent
+            ORDER BY balance DESC, user_id ASC
+            LIMIT 10
+        """)
+        leaderboard = cur.fetchall()
+
+    return render_template("index.html", leaderboard=leaderboard)
 
 
 @app.route("/pokedex")

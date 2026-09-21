@@ -451,6 +451,72 @@ body {
   transform: translateY(1px);
 }
 
+.leaderboard-box {
+  margin-top: 26px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(28, 37, 65, 0.08);
+  border-radius: 18px;
+  padding: 18px 18px 10px;
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: "Fredoka", sans-serif;
+}
+
+.leaderboard-title {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.leaderboard-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leaderboard-item {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  background: rgba(28, 37, 65, 0.04);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.leaderboard-rank {
+  font-weight: 700;
+  color: var(--shell-red);
+}
+
+.leaderboard-user {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.leaderboard-balance {
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.leaderboard-empty {
+  margin: 0;
+  color: var(--muted);
+}
+
 .sort-buttons {
   display: flex;
   gap: 6px;

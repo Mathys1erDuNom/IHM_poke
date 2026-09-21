@@ -60,6 +60,27 @@
               </button>
           </form>
 
+          <div class="leaderboard-box">
+            <div class="leaderboard-header">
+              <span class="leaderboard-title">🏆 Classement du serveur</span>
+              <span class="leaderboard-subtitle">Les plus riches</span>
+            </div>
+
+            {% if leaderboard %}
+              <ol class="leaderboard-list">
+                {% for item in leaderboard %}
+                  <li class="leaderboard-item">
+                    <span class="leaderboard-rank">#{{ loop.index }}</span>
+                    <span class="leaderboard-user">Dresseur {{ item.user_id[:4] }}…{{ item.user_id[-4:] if item.user_id|length > 8 else '' }}</span>
+                    <span class="leaderboard-balance">{{ item.balance }} ₽</span>
+                  </li>
+                {% endfor %}
+              </ol>
+            {% else %}
+              <p class="leaderboard-empty">Aucun solde enregistré pour le moment.</p>
+            {% endif %}
+          </div>
+
         </div>
 
       </div>
