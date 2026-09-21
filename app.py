@@ -10,6 +10,17 @@ load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
+# Remplacement manuel de certains IDs Discord par des pseudos affichés dans l'interface.
+# Clé : id Discord (chaîne), Valeur : pseudo affiché.
+DISCORD_NAME_OVERRIDES = {
+    "456489148061319179": "CrocoBien",
+    "457837540452335636": "Le grand Mamba",
+    "387534030536704001": "Hepok",
+    "763820311098425356": "Maelys",
+    "280745299981500418": "Jean Prout",
+    "406861648415031297": "TurbbbooGlen",
+}
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "gif")
 
@@ -66,6 +77,12 @@ def ensure_table_exists():
         conn.close()
 
 
+def get_display_name(user_id):
+    """Retourne le pseudo override si défini, sinon l'ID brut."""
+    user_id_str = str(user_id)
+    return DISCORD_NAME_OVERRIDES.get(user_id_str, user_id_str)
+
+
 ensure_table_exists()
 
 
@@ -79,6 +96,15 @@ def index():
             LIMIT 10
         """)
         leaderboard = cur.fetchall()
+
+    leaderboard = [
+        {
+            "user_id": row["user_id"],
+            "balance": row["balance"],
+            "display_name": get_display_name(row["user_id"]),
+        }
+        for row in leaderboard
+    ]
 
     return render_template("index.html", leaderboard=leaderboard)
 

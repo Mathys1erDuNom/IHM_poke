@@ -71,7 +71,7 @@
                 {% for item in leaderboard %}
                   <li class="leaderboard-item">
                     <span class="leaderboard-rank">#{{ loop.index }}</span>
-                    <span class="leaderboard-user">Dresseur {{ item.user_id[:4] }}…{{ item.user_id[-4:] if item.user_id|length > 8 else '' }}</span>
+                    <span class="leaderboard-user">{{ item.display_name }}</span>
                     <span class="leaderboard-balance">{{ item.balance }} ₽</span>
                   </li>
                 {% endfor %}
