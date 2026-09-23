@@ -111,7 +111,10 @@ def index():
 
 @app.route("/pokedex")
 def pokedex():
-    return render_template("pokedex.html")
+    return render_template(
+        "pokedex.html",
+        discord_name_overrides=DISCORD_NAME_OVERRIDES,
+    )
 
 
 @app.route("/images/gif/<path:filename>")
@@ -141,7 +144,11 @@ def list_collections():
         grouped.setdefault(user_id, []).append(row)
 
     collections = [
-        {"user_id": user_id, "pokemons": pokemons}
+        {
+            "user_id": user_id,
+            "display_name": get_display_name(user_id),
+            "pokemons": pokemons,
+        }
         for user_id, pokemons in grouped.items()
     ]
     collections.sort(key=lambda c: len(c["pokemons"]), reverse=True)

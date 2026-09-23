@@ -58,6 +58,7 @@ const paginationEl = document.getElementById("pagination");
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
 let currentPage = 1;
+const DISCORD_NAME_OVERRIDES = window.DISCORD_NAME_OVERRIDES || {};
 
 const sortButtonsEl = document.getElementById("sort-buttons");
 let currentSort = "recent"; // "recent" ou "alpha"
@@ -120,15 +121,21 @@ async function init() {
   });
 }
 
+function getDisplayName(userId) {
+  const id = String(userId);
+  return DISCORD_NAME_OVERRIDES[id] || shortId(id);
+}
+
 function renderTrainerButtons() {
   trainerButtonsEl.innerHTML = "";
   allCollections.forEach((trainer) => {
     const btn = document.createElement("button");
     btn.className = "trainer-btn";
     btn.dataset.userId = trainer.user_id;
+    const displayName = trainer.display_name || getDisplayName(trainer.user_id);
     btn.innerHTML = `
       <span class="dot"></span>
-      <span>Dresseur ${shortId(trainer.user_id)}</span>
+      <span>${escapeHtml(displayName)}</span>
       <span class="count">${trainer.pokemons.length}</span>
     `;
     btn.addEventListener("click", () => selectTrainer(trainer.user_id));
@@ -145,7 +152,8 @@ function selectTrainer(userId) {
   });
 
   const trainer = allCollections.find((t) => String(t.user_id) === String(userId));
-  screenTitleEl.textContent = `Dresseur ${shortId(userId)} · ${trainer.pokemons.length} Pokémon`;
+  const trainerName = trainer?.display_name || getDisplayName(userId);
+  screenTitleEl.textContent = `${trainerName} · ${trainer.pokemons.length} Pokémon`;
 
   placeholderEl.hidden = true;
   filterInput.hidden = false;

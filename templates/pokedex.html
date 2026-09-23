@@ -81,7 +81,10 @@
 
   </div>
 
-  <script src="{{ url_for('static', filename='js/script.js') }}?v=3"></script>
+  <script>
+    window.DISCORD_NAME_OVERRIDES = {{ discord_name_overrides | tojson }};
+  </script>
+  <script src="{{ url_for('static', filename='js/script.js') }}?v=4"></script>
 
 </body>
 </html>
