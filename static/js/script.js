@@ -58,7 +58,14 @@ const paginationEl = document.getElementById("pagination");
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
 let currentPage = 1;
-const DISCORD_NAME_OVERRIDES = window.DISCORD_NAME_OVERRIDES || {};
+const DISCORD_NAME_OVERRIDES = {
+  "456489148061319179": "CrocoBien",
+  "457837540452335636": "Le grand Mamba",
+  "387534030536704001": "Hepok",
+  "763820311098425356": "Maelys",
+  "280745299981500418": "Jean Prout",
+  "406861648415031297": "TurbbbooGlen",
+};
 
 const sortButtonsEl = document.getElementById("sort-buttons");
 let currentSort = "recent"; // "recent" ou "alpha"

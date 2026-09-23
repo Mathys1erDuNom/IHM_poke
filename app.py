@@ -111,10 +111,7 @@ def index():
 
 @app.route("/pokedex")
 def pokedex():
-    return render_template(
-        "pokedex.html",
-        discord_name_overrides=DISCORD_NAME_OVERRIDES,
-    )
+    return render_template("pokedex.html")
 
 
 @app.route("/images/gif/<path:filename>")
