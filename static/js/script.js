@@ -54,6 +54,7 @@ const prevPageBtn = document.getElementById("prev-page");
 const nextPageBtn = document.getElementById("next-page");
 const pageIndicatorEl = document.getElementById("page-indicator");
 const paginationEl = document.getElementById("pagination");
+const personalUserId = document.currentScript?.dataset.userId || "";
 
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
@@ -77,9 +78,14 @@ async function init() {
   placeholderEl.hidden = true;
 
   try {
-    allCollections = await fetchJSON("/api/collections");
+    if (personalUserId) {
+      const pokemons = await fetchJSON(`/api/trainers/${encodeURIComponent(personalUserId)}/pokemons`);
+      allCollections = [{ user_id: personalUserId, display_name: getDisplayName(personalUserId), pokemons }];
+    } else {
+      allCollections = await fetchJSON("/api/collections");
+    }
   } catch (err) {
-    loadingStateEl.textContent = "Impossible de charger les dresseurs. Vérifie la connexion à la base.";
+    loadingStateEl.textContent = "Impossible de charger la collection. Vérifie la connexion à la base.";
     return;
   }
 
@@ -93,7 +99,11 @@ async function init() {
   }
 
   placeholderEl.hidden = false;
-  renderTrainerButtons();
+  if (personalUserId) {
+    selectTrainer(personalUserId);
+  } else {
+    renderTrainerButtons();
+  }
   filterInput.addEventListener("input", () => {
     currentPage = 1;
     renderGrid();
@@ -154,7 +164,7 @@ function selectTrainer(userId) {
   currentTrainer = userId;
   currentPage = 1;
 
-  [...trainerButtonsEl.children].forEach((btn) => {
+  [...(trainerButtonsEl?.children || [])].forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.userId === String(userId));
   });
 

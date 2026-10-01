@@ -26,23 +26,25 @@
         <span class="lens lens-small lens-green"></span>
       </div>
 
-      <h1 class="brand">Pokédex des dresseurs</h1>
+      <h1 class="brand">{{ 'Mes Pokémon' if user_id else 'Pokédex des dresseurs' }}</h1>
 
       <a href="{{ url_for('index') }}" class="back-button">
-        ← Retour
+        ← Accueil
       </a>
 
     </div>
 
-    <div class="picker">
-      <p class="picker-label">Choisis un dresseur</p>
-      <div id="trainer-buttons" class="trainer-buttons"></div>
-    </div>
+    {% if not user_id %}
+      <div class="picker">
+        <p class="picker-label">Choisis un dresseur</p>
+        <div id="trainer-buttons" class="trainer-buttons"></div>
+      </div>
+    {% endif %}
 
     <div class="screen">
 
       <div class="screen-topline">
-        <span id="screen-title">En attente d'un dresseur…</span>
+        <span id="screen-title">{{ 'Chargement de ta collection…' if user_id else "En attente d'un dresseur…" }}</span>
 
         <div id="sort-buttons" class="sort-buttons" hidden>
           <button class="sort-btn active" data-sort="recent">Récent</button>
@@ -56,7 +58,7 @@
 
         <div id="placeholder" class="placeholder">
           <span class="pokeball" aria-hidden="true"></span>
-          <p>Appuie sur un dresseur ci-dessus pour voir sa collection.</p>
+          <p>{{ 'Chargement de ta collection…' if user_id else 'Appuie sur un dresseur ci-dessus pour voir sa collection.' }}</p>
         </div>
 
         <p id="loading-state" class="muted" hidden>
@@ -81,7 +83,7 @@
 
   </div>
 
-  <script src="{{ url_for('static', filename='js/script.js') }}?v=5"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}?v=6" data-user-id="{{ user_id or '' }}"></script>
 
 </body>
 </html>

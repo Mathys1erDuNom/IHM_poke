@@ -451,6 +451,55 @@ body {
   transform: translateY(1px);
 }
 
+.login-button {
+  margin-left: 10px;
+  text-align: center;
+}
+
+.login-content {
+  padding: 28px;
+}
+
+.home-title {
+  margin: 0 0 8px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.5rem;
+}
+
+.home-description {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.login-form {
+  display: grid;
+  gap: 10px;
+  max-width: 460px;
+}
+
+.login-form label {
+  font-weight: 600;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.login-form .pokedex-button {
+  justify-self: start;
+  margin-top: 6px;
+}
+
+.login-error {
+  margin: 0;
+  color: var(--shell-red-dark);
+  font-weight: 600;
+}
+
 .leaderboard-box {
   margin-top: 26px;
   background: rgba(255, 255, 255, 0.7);

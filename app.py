@@ -4,7 +4,7 @@ from contextlib import contextmanager
 import psycopg2
 import psycopg2.extras
 from dotenv import load_dotenv
-from flask import Flask, jsonify, render_template, request, send_from_directory
+from flask import Flask, jsonify, redirect, render_template, request, send_from_directory, url_for
 
 load_dotenv()
 
@@ -112,6 +112,22 @@ def index():
 @app.route("/pokedex")
 def pokedex():
     return render_template("pokedex.html")
+
+
+@app.route("/connexion", methods=["GET", "POST"])
+def connexion():
+    error = None
+    if request.method == "POST":
+        user_id = request.form.get("user_id", "").strip()
+        if user_id.isascii() and user_id.isdigit():
+            return redirect(url_for("mes_pokemons", user_id=user_id))
+        error = "Saisis un identifiant Discord composé uniquement de chiffres."
+    return render_template("connexion.html", error=error)
+
+
+@app.route("/mes-pokemons/<user_id>")
+def mes_pokemons(user_id):
+    return render_template("pokedex.html", user_id=user_id)
 
 
 @app.route("/images/gif/<path:filename>")

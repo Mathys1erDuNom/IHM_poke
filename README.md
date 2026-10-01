@@ -39,6 +39,9 @@ Puis ouvre http://localhost:5000 dans ton navigateur.
 - **Recherche globale** : le champ « Retrouver un Pokémon » cherche un nom
   de Pokémon chez tous les dresseurs à la fois (utile pour retrouver qui a
   capturé quoi).
+- **Connexion** : depuis l’accueil, saisis ton ID Discord pour afficher ta
+  collection sur une page dédiée. L’ID n’est pas vérifié par Discord ; il ne
+  s’agit pas d’une authentification OAuth.
 
 ## Endpoints API (réutilisables ailleurs)
 

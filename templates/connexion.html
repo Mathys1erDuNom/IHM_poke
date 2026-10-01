@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion · Pokédex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3" />
+</head>
+<body>
+  <div class="device">
+    <div class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span>
+        <span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span>
+        <span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Connexion</h1>
+      <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
+    </div>
+
+    <div class="screen">
+      <div class="screen-topline"><span>Retrouve ta collection</span></div>
+      <div class="screen-body login-content">
+        <h2 class="home-title">Ton identifiant Discord</h2>
+        <p class="home-description">Saisis ton ID Discord pour afficher les Pokémon associés. Cet identifiant n’est pas vérifié auprès de Discord.</p>
+
+        <form action="{{ url_for('connexion') }}" method="post" class="login-form">
+          <label for="user_id">ID Discord</label>
+          <input
+            id="user_id"
+            name="user_id"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            pattern="[0-9]+"
+            placeholder="Ex. 123456789012345678"
+            required
+          />
+          {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
+          <button type="submit" class="pokedex-button">Voir mes Pokémon</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
