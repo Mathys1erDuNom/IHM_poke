@@ -26,15 +26,17 @@
         <span class="lens lens-small lens-green"></span>
       </div>
 
-      <h1 class="brand">{{ 'Mes Pokémon' if user_id else 'Pokédex des dresseurs' }}</h1>
+      <h1 class="brand">{{ 'Mes Pokémon' if discord_user else 'Pokédex des dresseurs' }}</h1>
 
-      <a href="{{ url_for('index') }}" class="back-button">
-        ← Accueil
-      </a>
+      {% if discord_user %}
+        <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>
+      {% else %}
+        <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
+      {% endif %}
 
     </div>
 
-    {% if not user_id %}
+    {% if not discord_user %}
       <div class="picker">
         <p class="picker-label">Choisis un dresseur</p>
         <div id="trainer-buttons" class="trainer-buttons"></div>
@@ -44,7 +46,7 @@
     <div class="screen">
 
       <div class="screen-topline">
-        <span id="screen-title">{{ 'Chargement de ta collection…' if user_id else "En attente d'un dresseur…" }}</span>
+        <span id="screen-title">{{ 'Chargement de ta collection…' if discord_user else "En attente d'un dresseur…" }}</span>
 
         <div id="sort-buttons" class="sort-buttons" hidden>
           <button class="sort-btn active" data-sort="recent">Récent</button>
@@ -58,7 +60,7 @@
 
         <div id="placeholder" class="placeholder">
           <span class="pokeball" aria-hidden="true"></span>
-          <p>{{ 'Chargement de ta collection…' if user_id else 'Appuie sur un dresseur ci-dessus pour voir sa collection.' }}</p>
+          <p>{{ 'Chargement de ta collection…' if discord_user else 'Appuie sur un dresseur ci-dessus pour voir sa collection.' }}</p>
         </div>
 
         <p id="loading-state" class="muted" hidden>
@@ -83,7 +85,7 @@
 
   </div>
 
-  <script src="{{ url_for('static', filename='js/script.js') }}?v=6" data-user-id="{{ user_id or '' }}"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}?v=7" data-user-id="{{ discord_user.id if discord_user else '' }}" data-display-name="{{ discord_user.name if discord_user else '' }}"></script>
 
 </body>
 </html>

@@ -25,24 +25,10 @@
     <div class="screen">
       <div class="screen-topline"><span>Retrouve ta collection</span></div>
       <div class="screen-body login-content">
-        <h2 class="home-title">Ton identifiant Discord</h2>
-        <p class="home-description">Saisis ton ID Discord pour afficher les Pokémon associés. Cet identifiant n’est pas vérifié auprès de Discord.</p>
-
-        <form action="{{ url_for('connexion') }}" method="post" class="login-form">
-          <label for="user_id">ID Discord</label>
-          <input
-            id="user_id"
-            name="user_id"
-            type="text"
-            inputmode="numeric"
-            autocomplete="off"
-            pattern="[0-9]+"
-            placeholder="Ex. 123456789012345678"
-            required
-          />
-          {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
-          <button type="submit" class="pokedex-button">Voir mes Pokémon</button>
-        </form>
+        <h2 class="home-title">Connecte ton compte Discord</h2>
+        <p class="home-description">Discord te demandera d’autoriser l’accès à ton identifiant public pour retrouver ta collection.</p>
+        {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
+        <a href="{{ url_for('discord_login') }}" class="pokedex-button discord-button">Se connecter avec Discord</a>
       </div>
     </div>
   </div>

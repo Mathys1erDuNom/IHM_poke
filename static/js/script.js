@@ -55,6 +55,7 @@ const nextPageBtn = document.getElementById("next-page");
 const pageIndicatorEl = document.getElementById("page-indicator");
 const paginationEl = document.getElementById("pagination");
 const personalUserId = document.currentScript?.dataset.userId || "";
+const personalDisplayName = document.currentScript?.dataset.displayName || "";
 
 let allCollections = []; // [{ user_id, pokemons: [...] }, ...]
 let currentTrainer = null; // user_id actuellement affiché
@@ -79,8 +80,8 @@ async function init() {
 
   try {
     if (personalUserId) {
-      const pokemons = await fetchJSON(`/api/trainers/${encodeURIComponent(personalUserId)}/pokemons`);
-      allCollections = [{ user_id: personalUserId, display_name: getDisplayName(personalUserId), pokemons }];
+      const pokemons = await fetchJSON("/api/me/pokemons");
+      allCollections = [{ user_id: personalUserId, display_name: personalDisplayName || getDisplayName(personalUserId), pokemons }];
     } else {
       allCollections = await fetchJSON("/api/collections");
     }

@@ -16,10 +16,20 @@ Crée un fichier `.env` à la racine du dossier (à côté de `app.py`) :
 
 ```
 DATABASE_URL=postgresql://user:password@host:port/dbname
+FLASK_SECRET_KEY=une-cle-aleatoire-longue
+DISCORD_CLIENT_ID=identifiant-de-ton-application-discord
+DISCORD_CLIENT_SECRET=secret-de-ton-application-discord
+DISCORD_REDIRECT_URI=http://localhost:5000/connexion/discord/callback
 ```
 
 C'est la même variable que celle utilisée par ton bot, donc tu peux copier
 la même valeur.
+
+Dans le [portail développeur Discord](https://discord.com/developers/applications),
+crée une application et ajoute exactement la valeur de `DISCORD_REDIRECT_URI`
+dans **OAuth2 > Redirects**. Le secret client reste côté serveur et ne doit
+jamais être publié. Pour générer `FLASK_SECRET_KEY`, utilise
+`python -c "import secrets; print(secrets.token_hex(32))"`.
 
 ## Lancer l'appli
 
@@ -40,8 +50,7 @@ Puis ouvre http://localhost:5000 dans ton navigateur.
   de Pokémon chez tous les dresseurs à la fois (utile pour retrouver qui a
   capturé quoi).
 - **Connexion** : depuis l’accueil, saisis ton ID Discord pour afficher ta
-  collection sur une page dédiée. L’ID n’est pas vérifié par Discord ; il ne
-  s’agit pas d’une authentification OAuth.
+  collection sur une page dédiée après autorisation OAuth2 Discord (`identify`).
 
 ## Endpoints API (réutilisables ailleurs)
 

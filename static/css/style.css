@@ -451,6 +451,12 @@ body {
   transform: translateY(1px);
 }
 
+.discord-button {
+  background: #5865f2;
+  color: #fff;
+  text-decoration: none;
+}
+
 .login-button {
   margin-left: 10px;
   text-align: center;

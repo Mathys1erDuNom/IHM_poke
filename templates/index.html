@@ -60,9 +60,12 @@
               </button>
           </form>
 
-          <a href="{{ url_for('connexion') }}" class="back-button login-button">
-            Connexion
-          </a>
+          {% if discord_user %}
+            <a href="{{ url_for('mes_pokemons') }}" class="back-button login-button">Ma collection</a>
+            <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>
+          {% else %}
+            <a href="{{ url_for('connexion') }}" class="back-button login-button">Connexion avec Discord</a>
+          {% endif %}
 
           <div class="leaderboard-box">
             <div class="leaderboard-header">
