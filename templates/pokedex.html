@@ -29,6 +29,7 @@
       <h1 class="brand">{{ 'Mes Pokémon' if discord_user else 'Pokédex des dresseurs' }}</h1>
 
       {% if discord_user %}
+        <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
         <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>
       {% else %}
         <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
