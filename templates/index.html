@@ -54,12 +54,6 @@
             Consulte les collections des différents dresseurs.
           </p>
 
-          <form action="{{ url_for('pokedex') }}" method="get">
-              <button type="submit" class="pokedex-button">
-                  📖 Ouvrir le Pokédex
-              </button>
-          </form>
-
           {% if discord_user %}
             <a href="{{ url_for('mes_pokemons') }}" class="back-button login-button">Ma collection</a>
             <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>

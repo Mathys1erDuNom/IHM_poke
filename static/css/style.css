@@ -462,6 +462,11 @@ body {
   text-align: center;
 }
 
+.login-return-button {
+  display: table;
+  margin-top: 14px;
+}
+
 .login-content {
   padding: 28px;
 }

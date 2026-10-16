@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4" />
 </head>
 <body>
   <div class="device">
@@ -19,7 +19,6 @@
         <span class="lens lens-small lens-green"></span>
       </div>
       <h1 class="brand">Connexion</h1>
-      <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
     </div>
 
     <div class="screen">
@@ -29,6 +28,7 @@
         <p class="home-description">Discord te demandera d’autoriser l’accès à ton identifiant public pour retrouver ta collection.</p>
         {% if error %}<p class="login-error" role="alert">{{ error }}</p>{% endif %}
         <a href="{{ url_for('discord_login') }}" class="pokedex-button discord-button">Se connecter avec Discord</a>
+        <a href="{{ url_for('index') }}" class="back-button login-return-button">← Retour à l’accueil</a>
       </div>
     </div>
   </div>
