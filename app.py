@@ -327,6 +327,14 @@ def quiz_answer():
             existing_count = cur.fetchone()["total"]
             final_name = pokemon_name if existing_count == 0 else f"{pokemon_name}{existing_count + 1}"
             evo = reward.get("evo", {"name": "pas evo", "file": "pas evo"})
+            initial_ivs = {
+                stat: secrets.randbelow(32)
+                for stat in reward["stats"]
+            }
+            initial_stats = {
+                stat: int(base_value) + initial_ivs[stat]
+                for stat, base_value in reward["stats"].items()
+            }
             cur.execute("""
                 INSERT INTO new_captures
                     (user_id, name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo)
@@ -334,8 +342,8 @@ def quiz_answer():
             """, (
                 user_id,
                 final_name,
-                psycopg2.extras.Json({stat: 0 for stat in reward["stats"]}),
-                psycopg2.extras.Json(reward["stats"]),
+                psycopg2.extras.Json(initial_ivs),
+                psycopg2.extras.Json(initial_stats),
                 reward.get("image", ""),
                 psycopg2.extras.Json(reward.get("type", [])),
                 psycopg2.extras.Json(reward.get("attacks", [])),
