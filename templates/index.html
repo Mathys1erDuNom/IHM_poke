@@ -39,7 +39,7 @@
     <div class="screen">
 
       <div class="screen-topline">
-        <span>Bienvenue</span>
+        <span>Bienvenue{% if discord_user %}, {{ discord_user.name }}{% endif %}</span>
       </div>
 
       <div class="screen-body">

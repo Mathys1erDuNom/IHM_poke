@@ -103,6 +103,7 @@ ensure_table_exists()
 
 @app.route("/")
 def index():
+    discord_user = session.get("discord_user")
     with get_cursor() as cur:
         cur.execute("""
             SELECT user_id, balance
@@ -116,12 +117,16 @@ def index():
         {
             "user_id": row["user_id"],
             "balance": row["balance"],
-            "display_name": get_display_name(row["user_id"]),
+            "display_name": (
+                discord_user["name"]
+                if discord_user and str(row["user_id"]) == discord_user["id"]
+                else get_display_name(row["user_id"])
+            ),
         }
         for row in leaderboard
     ]
 
-    return render_template("index.html", leaderboard=leaderboard, discord_user=session.get("discord_user"))
+    return render_template("index.html", leaderboard=leaderboard, discord_user=discord_user)
 
 
 @app.route("/pokedex")
