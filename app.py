@@ -98,12 +98,7 @@ def get_display_name(user_id):
     return DISCORD_NAME_OVERRIDES.get(user_id_str, user_id_str)
 
 
-ensure_table_exists()
-
-
-@app.route("/")
-def index():
-    discord_user = session.get("discord_user")
+def get_leaderboard(discord_user=None):
     with get_cursor() as cur:
         cur.execute("""
             SELECT user_id, balance
@@ -111,9 +106,9 @@ def index():
             ORDER BY balance DESC, user_id ASC
             LIMIT 10
         """)
-        leaderboard = cur.fetchall()
+        rows = cur.fetchall()
 
-    leaderboard = [
+    return [
         {
             "user_id": row["user_id"],
             "balance": row["balance"],
@@ -123,10 +118,33 @@ def index():
                 else get_display_name(row["user_id"])
             ),
         }
-        for row in leaderboard
+        for row in rows
     ]
 
-    return render_template("index.html", leaderboard=leaderboard, discord_user=discord_user)
+
+ensure_table_exists()
+
+
+@app.route("/")
+def index():
+    discord_user = session.get("discord_user")
+    return render_template(
+        "index.html",
+        leaderboard=get_leaderboard(discord_user),
+        discord_user=discord_user,
+    )
+
+
+@app.route("/compte")
+def compte():
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return redirect(url_for("connexion"))
+    return render_template(
+        "compte.html",
+        leaderboard=get_leaderboard(discord_user),
+        discord_user=discord_user,
+    )
 
 
 @app.route("/pokedex")
@@ -225,7 +243,7 @@ def discord_callback():
         "id": discord_id,
         "name": profile.get("global_name") or profile.get("username") or discord_id,
     }
-    return redirect(url_for("mes_pokemons"))
+    return redirect(url_for("compte"))
 
 
 @app.route("/deconnexion")

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mon compte · Pokédex</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=2" />
+</head>
+<body>
+  <div class="device">
+    <div class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span>
+        <span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span>
+        <span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Mon compte</h1>
+      <a href="{{ url_for('index') }}" class="back-button">← Accueil</a>
+      <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>
+    </div>
+
+    <div class="screen">
+      <div class="screen-topline">
+        <span>Bienvenue, {{ discord_user.name }}</span>
+      </div>
+      <div class="screen-body">
+        <div class="home-content">
+          <h2 class="home-title">Espace dresseur</h2>
+          <p class="home-description">Consulte le classement du serveur ou retrouve ta collection.</p>
+          <a href="{{ url_for('mes_pokemons') }}" class="back-button login-button">Ma collection</a>
+          {% include "_leaderboard.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

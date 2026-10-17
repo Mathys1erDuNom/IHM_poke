@@ -55,32 +55,13 @@
           </p>
 
           {% if discord_user %}
-            <a href="{{ url_for('mes_pokemons') }}" class="back-button login-button">Ma collection</a>
+            <a href="{{ url_for('compte') }}" class="back-button login-button">Mon compte</a>
             <a href="{{ url_for('deconnexion') }}" class="back-button">Déconnexion</a>
           {% else %}
             <a href="{{ url_for('connexion') }}" class="back-button login-button">Connexion avec Discord</a>
           {% endif %}
 
-          <div class="leaderboard-box">
-            <div class="leaderboard-header">
-              <span class="leaderboard-title">🏆 Classement du serveur</span>
-              <span class="leaderboard-subtitle">Les plus riches</span>
-            </div>
-
-            {% if leaderboard %}
-              <ol class="leaderboard-list">
-                {% for item in leaderboard %}
-                  <li class="leaderboard-item">
-                    <span class="leaderboard-rank">#{{ loop.index }}</span>
-                    <span class="leaderboard-user">{{ item.display_name }}</span>
-                    <span class="leaderboard-balance">{{ item.balance }} ₽</span>
-                  </li>
-                {% endfor %}
-              </ol>
-            {% else %}
-              <p class="leaderboard-empty">Aucun solde enregistré pour le moment.</p>
-            {% endif %}
-          </div>
+          {% include "_leaderboard.html" %}
 
         </div>
 
