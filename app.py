@@ -160,6 +160,18 @@ def load_pokemon_catalog():
     return pokemons
 
 
+def choose_random_pokemon_reward():
+    shiny_reward = secrets.randbelow(64) == 0
+    pokemon_pool = [
+        pokemon
+        for pokemon in load_pokemon_catalog()
+        if pokemon["name"].lower().endswith("_shiny") == shiny_reward
+    ]
+    if not pokemon_pool:
+        raise ValueError("Aucun Pokémon disponible pour cette variante.")
+    return secrets.choice(pokemon_pool)
+
+
 ensure_table_exists()
 
 
@@ -216,7 +228,7 @@ def quiz():
         return redirect(url_for("connexion"))
 
     quiz_question = secrets.choice(load_quiz_questions())
-    random_reward = secrets.choice(load_pokemon_catalog())
+    random_reward = choose_random_pokemon_reward()
     challenge_id = secrets.token_urlsafe(24)
     session["quiz_challenge"] = {
         "id": challenge_id,
