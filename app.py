@@ -1,4 +1,6 @@
 import os
+import hmac
+import json
 import secrets
 from contextlib import contextmanager
 from datetime import timedelta
@@ -31,6 +33,7 @@ DISCORD_NAME_OVERRIDES = {
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "gif")
+QUIZ_QUESTIONS_PATH = os.path.join(BASE_DIR, "quiz_questions.json")
 
 app = Flask(
     __name__,
@@ -122,6 +125,19 @@ def get_leaderboard(discord_user=None):
     ]
 
 
+def quiz_answer_digest(challenge_id, answer):
+    message = f"{challenge_id}:{answer}".encode("utf-8")
+    return hmac.new(app.secret_key.encode("utf-8"), message, "sha256").hexdigest()
+
+
+def load_quiz_questions():
+    with open(QUIZ_QUESTIONS_PATH, encoding="utf-8") as questions_file:
+        questions = json.load(questions_file)
+    if not isinstance(questions, list) or not questions:
+        raise ValueError("Le fichier du quiz doit contenir au moins une question.")
+    return questions
+
+
 ensure_table_exists()
 
 
@@ -169,6 +185,82 @@ def mes_pokemons():
     if not discord_user:
         return redirect(url_for("connexion"))
     return render_template("pokedex.html", discord_user=discord_user)
+
+
+@app.route("/quiz")
+def quiz():
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return redirect(url_for("connexion"))
+
+    quiz_question = secrets.choice(load_quiz_questions())
+    challenge_id = secrets.token_urlsafe(24)
+    session["quiz_challenge"] = {
+        "id": challenge_id,
+        "answer_digest": quiz_answer_digest(challenge_id, quiz_question["answer"]),
+        "pokemon": quiz_question["pokemon"],
+    }
+    question = {
+        "question": quiz_question["question"],
+        "options": quiz_question["options"],
+    }
+    return render_template(
+        "quiz.html",
+        discord_user=discord_user,
+        question=question,
+        challenge_id=challenge_id,
+    )
+
+
+@app.route("/quiz/repondre", methods=["POST"])
+def quiz_answer():
+    if not session.get("discord_user"):
+        return jsonify({"message": "Connecte-toi pour jouer."}), 401
+
+    payload = request.get_json(silent=True)
+    challenge = session.get("quiz_challenge")
+    if (
+        not isinstance(payload, dict)
+        or not isinstance(challenge, dict)
+        or payload.get("challenge_id") != challenge.get("id")
+        or not isinstance(payload.get("answer"), str)
+    ):
+        return jsonify({"message": "Cette question n'est plus active. Recharge le quiz."}), 409
+
+    submitted_digest = quiz_answer_digest(challenge["id"], payload["answer"])
+    if not hmac.compare_digest(submitted_digest, challenge["answer_digest"]):
+        return jsonify({"correct": False, "message": "Mauvaise réponse, essaie encore."})
+
+    reward = challenge["pokemon"]
+    user_id = session["discord_user"]["id"]
+    pokemon_name = reward["name"]
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT COUNT(*) AS total
+            FROM new_captures
+            WHERE user_id = %s AND name LIKE %s || '%%'
+        """, (user_id, pokemon_name))
+        existing_count = cur.fetchone()["total"]
+        final_name = pokemon_name if existing_count == 0 else f"{pokemon_name}{existing_count + 1}"
+        cur.execute("""
+            INSERT INTO new_captures (user_id, name, ivs, stats, image, type, attacks)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
+        """, (
+            user_id,
+            final_name,
+            psycopg2.extras.Json(reward.get("ivs", {})),
+            psycopg2.extras.Json(reward.get("stats", {})),
+            reward.get("image", ""),
+            psycopg2.extras.Json(reward.get("type", [])),
+            psycopg2.extras.Json(reward.get("attacks", [])),
+        ))
+
+    session.pop("quiz_challenge", None)
+    return jsonify({
+        "correct": True,
+        "message": f"{final_name} a rejoint ta collection !",
+        "pokemon": {"name": final_name, "image": reward.get("image", "")},
+    })
 
 
 @app.route("/connexion/discord")

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Pokémon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3" />
+</head>
+<body>
+  <div class="device">
+    <div class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span>
+        <span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span>
+        <span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Quiz Pokémon</h1>
+      <a href="{{ url_for('compte') }}" class="back-button">← Retour</a>
+    </div>
+
+    <div class="screen">
+      <div class="screen-topline"><span>Une bonne réponse te fait gagner un Pokémon</span></div>
+      <div class="screen-body">
+        <main class="quiz-content" id="quiz-app"
+              data-endpoint="{{ url_for('quiz_answer') }}"
+              data-challenge-id="{{ challenge_id }}">
+          <h2 class="quiz-question">{{ question.question }}</h2>
+          <div class="quiz-options" role="group" aria-label="Propositions de réponse">
+            {% for option in question.options %}
+              <button class="quiz-option" type="button" data-answer="{{ option }}">{{ option }}</button>
+            {% endfor %}
+          </div>
+          <p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite"></p>
+
+          <section class="quiz-reward" id="quiz-reward" hidden aria-live="polite">
+            <div class="quiz-capsule" aria-hidden="true"><span></span></div>
+            <img class="quiz-pokemon" id="quiz-pokemon" alt="" />
+            <p class="quiz-reward-message" id="quiz-reward-message"></p>
+            <a href="{{ url_for('mes_pokemons') }}" class="back-button">Voir ma collection</a>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js/quiz.js') }}?v=1" defer></script>
+</body>
+</html>
