@@ -1,0 +1,2796 @@
+[
+    {
+        "name": "Tortipouss_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/387.png",
+        "attacks": [
+            "Charge",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 68,
+            "defense": 64,
+            "special_attack": 45,
+            "special_defense": 55,
+            "speed": 31
+        },
+        "current_xp": 0,
+        "xp_evo": 318,
+        "evo": {
+            "name": "Boskara_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Boskara_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/388.png",
+        "attacks": [
+            "Charge",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 89,
+            "defense": 85,
+            "special_attack": 55,
+            "special_defense": 65,
+            "speed": 36
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Torterra_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Torterra_shiny",
+        "type": [
+            "plante",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/389.png",
+        "attacks": [
+            "Tempete Verte",
+            "Morsure",
+            "Seisme"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 109,
+            "defense": 105,
+            "special_attack": 75,
+            "special_defense": 85,
+            "speed": 56
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ouisticram_shiny",
+        "type": [
+            "feu"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/390.png",
+        "attacks": [
+            "Flammeche",
+            "Griffe"
+        ],
+        "stats": {
+            "hp": 44,
+            "attack": 58,
+            "defense": 44,
+            "special_attack": 58,
+            "special_defense": 44,
+            "speed": 61
+        },
+        "current_xp": 0,
+        "xp_evo": 309,
+        "evo": {
+            "name": "Chimpenfeu_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Chimpenfeu_shiny",
+        "type": [
+            "feu",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/391.png",
+        "attacks": [
+            "Flammeche",
+            "Griffe"
+        ],
+        "stats": {
+            "hp": 64,
+            "attack": 78,
+            "defense": 52,
+            "special_attack": 78,
+            "special_defense": 52,
+            "speed": 81
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Simiabraz_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Simiabraz_shiny",
+        "type": [
+            "feu",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/392.png",
+        "attacks": [
+            "Flammeche",
+            "Griffe",
+            "Poing Feu",
+            "Close Combat"
+        ],
+        "stats": {
+            "hp": 76,
+            "attack": 104,
+            "defense": 71,
+            "special_attack": 104,
+            "special_defense": 71,
+            "speed": 108
+        },
+        "current_xp": 0,
+        "xp_evo": 534,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tiplouf_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/393.png",
+        "attacks": [
+            "Pistolet à O",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 53,
+            "attack": 51,
+            "defense": 53,
+            "special_attack": 61,
+            "special_defense": 56,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 314,
+        "evo": {
+            "name": "Prinplouf_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Prinplouf_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/394.png",
+        "attacks": [
+            "Pistolet à O",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 64,
+            "attack": 66,
+            "defense": 68,
+            "special_attack": 81,
+            "special_defense": 76,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Pingoléon_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Pingoléon_shiny",
+        "type": [
+            "eau",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/395.png",
+        "attacks": [
+            "Pistolet à O",
+            "Griffe Acier",
+            "Surf",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 84,
+            "attack": 86,
+            "defense": 88,
+            "special_attack": 111,
+            "special_defense": 101,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Étourmi_shiny",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/396.png",
+        "attacks": [
+            "Coupe",
+            "Cru-Ailes"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 55,
+            "defense": 30,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 245,
+        "evo": {
+            "name": "Étourvol_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Étourvol_shiny",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/397.png",
+        "attacks": [
+            "Coupe",
+            "Cru-Ailes"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 75,
+            "defense": 50,
+            "special_attack": 40,
+            "special_defense": 40,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 340,
+        "evo": {
+            "name": "Étouraptor_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Étouraptor_shiny",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/398.png",
+        "attacks": [
+            "Coupe",
+            "Cru-Ailes",
+            "Close Combat"
+        ],
+        "stats": {
+            "hp": 85,
+            "attack": 120,
+            "defense": 70,
+            "special_attack": 50,
+            "special_defense": 60,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Keunotor_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/399.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 59,
+            "attack": 45,
+            "defense": 40,
+            "special_attack": 35,
+            "special_defense": 40,
+            "speed": 31
+        },
+        "current_xp": 0,
+        "xp_evo": 250,
+        "evo": {
+            "name": "Castorno_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Castorno_shiny",
+        "type": [
+            "normal",
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/400.png",
+        "attacks": [
+            "Charge",
+            "Surf"
+        ],
+        "stats": {
+            "hp": 79,
+            "attack": 85,
+            "defense": 60,
+            "special_attack": 55,
+            "special_defense": 60,
+            "speed": 71
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Crikzik_shiny",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/401.png",
+        "attacks": [
+            "Écras’Face",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 37,
+            "attack": 25,
+            "defense": 41,
+            "special_attack": 25,
+            "special_defense": 41,
+            "speed": 25
+        },
+        "current_xp": 0,
+        "xp_evo": 194,
+        "evo": {
+            "name": "Mélokrik_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Mélokrik_shiny",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/402.png",
+        "attacks": [
+            "Piqure",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 77,
+            "attack": 85,
+            "defense": 51,
+            "special_attack": 55,
+            "special_defense": 51,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 384,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Lixy_shiny",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/403.png",
+        "attacks": [
+            "Charge",
+            "Eclair"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 65,
+            "defense": 34,
+            "special_attack": 40,
+            "special_defense": 34,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 263,
+        "evo": {
+            "name": "Luxio_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Luxio_shiny",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/404.png",
+        "attacks": [
+            "Charge",
+            "Eclair"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 85,
+            "defense": 49,
+            "special_attack": 60,
+            "special_defense": 49,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 363,
+        "evo": {
+            "name": "Luxray_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Luxray_shiny",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/405.png",
+        "attacks": [
+            "Croc Eclair",
+            "Griffe Acier",
+            "Morsure",
+            "Tonnerre"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 120,
+            "defense": 79,
+            "special_attack": 95,
+            "special_defense": 79,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 523,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Rozbouton_shiny",
+        "type": [
+            "plante",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/406.png",
+        "attacks": [
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 30,
+            "defense": 35,
+            "special_attack": 50,
+            "special_defense": 70,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 280,
+        "evo": {
+            "name": "Rosélia_shiny",
+            "file": "pokemon_gen3_shiny.json"
+        }
+    },
+    {
+        "name": "Roserade_shiny",
+        "type": [
+            "plante",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/407.png",
+        "attacks": [
+            "Fouet Lianes",
+            "Bombe-Beurk",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 70,
+            "defense": 65,
+            "special_attack": 125,
+            "special_defense": 105,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 515,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Kranidos_shiny",
+        "type": [
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/408.png",
+        "attacks": [
+            "Eboulement",
+            "Charge",
+            "Coup d'Boule"
+        ],
+        "stats": {
+            "hp": 67,
+            "attack": 125,
+            "defense": 40,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 58
+        },
+        "current_xp": 0,
+        "xp_evo": 350,
+        "evo": {
+            "name": "Charkos_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Charkos_shiny",
+        "type": [
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/409.png",
+        "attacks": [
+            "Eboulement",
+            "Charge",
+            "Coup d'Boule"
+        ],
+        "stats": {
+            "hp": 97,
+            "attack": 165,
+            "defense": 60,
+            "special_attack": 65,
+            "special_defense": 50,
+            "speed": 58
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Dinoclier_shiny",
+        "type": [
+            "roche",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/410.png",
+        "attacks": [
+            "Eboulement",
+            "Charge",
+            "Coup d'Boule"
+        ],
+        "stats": {
+            "hp": 30,
+            "attack": 42,
+            "defense": 118,
+            "special_attack": 42,
+            "special_defense": 88,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 350,
+        "evo": {
+            "name": "Bastiodon_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Bastiodon_shiny",
+        "type": [
+            "roche",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/411.png",
+        "attacks": [
+            "Eboulement",
+            "Charge",
+            "Coup d'Boule"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 52,
+            "defense": 168,
+            "special_attack": 47,
+            "special_defense": 138,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Cheniti_shiny",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/412.png",
+        "attacks": [
+            "Charge",
+            "Piqure"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 29,
+            "defense": 45,
+            "special_attack": 29,
+            "special_defense": 45,
+            "speed": 36
+        },
+        "current_xp": 0,
+        "xp_evo": 224,
+        "evo": {
+            "name": "Cheniselle_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Cheniselle_shiny",
+        "type": [
+            "insecte",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/413.png",
+        "attacks": [
+            "Charge",
+            "Piqure"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 59,
+            "defense": 85,
+            "special_attack": 79,
+            "special_defense": 105,
+            "speed": 36
+        },
+        "current_xp": 0,
+        "xp_evo": 424,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Papilord_shiny",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/414.png",
+        "attacks": [
+            "Vent Violent",
+            "Bourdon",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 94,
+            "defense": 50,
+            "special_attack": 94,
+            "special_defense": 50,
+            "speed": 66
+        },
+        "current_xp": 0,
+        "xp_evo": 424,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Apitrini_shiny",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/415.png",
+        "attacks": [
+            "Tornade",
+            "Bourdon",
+            "Meteores"
+        ],
+        "stats": {
+            "hp": 30,
+            "attack": 30,
+            "defense": 42,
+            "special_attack": 30,
+            "special_defense": 42,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 244,
+        "evo": {
+            "name": "Apireine_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Apireine_shiny",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/416.png",
+        "attacks": [
+            "Tornade",
+            "Bourdon",
+            "Meteores"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 80,
+            "defense": 102,
+            "special_attack": 80,
+            "special_defense": 102,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 474,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Pachirisu_shiny",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/417.png",
+        "attacks": [
+            "Eclair",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 45,
+            "defense": 70,
+            "special_attack": 45,
+            "special_defense": 90,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mustébouée_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/418.png",
+        "attacks": [
+            "Charge",
+            "Surf"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 65,
+            "defense": 35,
+            "special_attack": 60,
+            "special_defense": 30,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Mustéflott_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Mustéflott_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/419.png",
+        "attacks": [
+            "Charge",
+            "Surf"
+        ],
+        "stats": {
+            "hp": 85,
+            "attack": 105,
+            "defense": 55,
+            "special_attack": 85,
+            "special_defense": 50,
+            "speed": 115
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ceribou_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/420.png",
+        "attacks": [
+            "Charge",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 35,
+            "defense": 45,
+            "special_attack": 62,
+            "special_defense": 53,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 275,
+        "evo": {
+            "name": "Ceriflor_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Ceriflor_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/421.png",
+        "attacks": [
+            "Charge",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 60,
+            "defense": 70,
+            "special_attack": 87,
+            "special_defense": 78,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 450,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Sancoki_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/422.png",
+        "attacks": [
+            "Surf",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 76,
+            "attack": 48,
+            "defense": 48,
+            "special_attack": 57,
+            "special_defense": 62,
+            "speed": 34
+        },
+        "current_xp": 0,
+        "xp_evo": 325,
+        "evo": {
+            "name": "Tritosor_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Tritosor_shiny",
+        "type": [
+            "eau",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/423.png",
+        "attacks": [
+            "Surf",
+            "Charge",
+            "Seisme"
+        ],
+        "stats": {
+            "hp": 111,
+            "attack": 83,
+            "defense": 68,
+            "special_attack": 92,
+            "special_defense": 82,
+            "speed": 39
+        },
+        "current_xp": 0,
+        "xp_evo": 475,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Capidextre_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/424.png",
+        "attacks": [
+            "Poing Feu",
+            "Poing Glace",
+            "Poing Eclair",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 100,
+            "defense": 66,
+            "special_attack": 60,
+            "special_defense": 66,
+            "speed": 115
+        },
+        "current_xp": 0,
+        "xp_evo": 482,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Baudrive_shiny",
+        "type": [
+            "spectre",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/425.png",
+        "attacks": [
+            "Tornade",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 50,
+            "defense": 34,
+            "special_attack": 60,
+            "special_defense": 44,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 348,
+        "evo": {
+            "name": "Grodrive_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Grodrive_shiny",
+        "type": [
+            "spectre",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/426.png",
+        "attacks": [
+            "Coupe",
+            "Tornade",
+            "Vol"
+        ],
+        "stats": {
+            "hp": 150,
+            "attack": 80,
+            "defense": 44,
+            "special_attack": 90,
+            "special_defense": 54,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 498,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Laporeille_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/427.png",
+        "attacks": [
+            "Écras’Face",
+            "Ultimapoing",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 66,
+            "defense": 44,
+            "special_attack": 44,
+            "special_defense": 56,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 350,
+        "evo": {
+            "name": "Lockpin_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Lockpin_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/428.png",
+        "attacks": [
+            "Écras’Face",
+            "Ultimapoing",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 76,
+            "defense": 84,
+            "special_attack": 54,
+            "special_defense": 96,
+            "speed": 105
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Magirêve_shiny",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/429.png",
+        "attacks": [
+            "Balle Ombre",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 60,
+            "defense": 60,
+            "special_attack": 105,
+            "special_defense": 105,
+            "speed": 105
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Corboss_shiny",
+        "type": [
+            "tenebres",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/430.png",
+        "attacks": [
+            "Tornade",
+            "Cru-Ailes",
+            "Tranche-Nuit"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 125,
+            "defense": 52,
+            "special_attack": 105,
+            "special_defense": 52,
+            "speed": 71
+        },
+        "current_xp": 0,
+        "xp_evo": 505,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Chaglam_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/431.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 49,
+            "attack": 55,
+            "defense": 42,
+            "special_attack": 42,
+            "special_defense": 37,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "Chaffreux_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Chaffreux_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/432.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 71,
+            "attack": 82,
+            "defense": 64,
+            "special_attack": 64,
+            "special_defense": 59,
+            "speed": 112
+        },
+        "current_xp": 0,
+        "xp_evo": 452,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Korillon_shiny",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/433.png",
+        "attacks": [
+            "Charge",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 30,
+            "defense": 50,
+            "special_attack": 65,
+            "special_defense": 50,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 285,
+        "evo": {
+            "name": "Eoko_shiny",
+            "file": "pokemon_gen3_shiny.json"
+        }
+    },
+    {
+        "name": "Moufouette_shiny",
+        "type": [
+            "poison",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/434.png",
+        "attacks": [
+            "Griffe",
+            "Bombe-Beurk",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 63,
+            "attack": 63,
+            "defense": 47,
+            "special_attack": 41,
+            "special_defense": 41,
+            "speed": 74
+        },
+        "current_xp": 0,
+        "xp_evo": 329,
+        "evo": {
+            "name": "Moufflair_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Moufflair_shiny",
+        "type": [
+            "poison",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/435.png",
+        "attacks": [
+            "Griffe",
+            "Bombe-Beurk",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 103,
+            "attack": 93,
+            "defense": 67,
+            "special_attack": 71,
+            "special_defense": 61,
+            "speed": 84
+        },
+        "current_xp": 0,
+        "xp_evo": 479,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Archéomire_shiny",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/436.png",
+        "attacks": [
+            "Charge",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 57,
+            "attack": 24,
+            "defense": 86,
+            "special_attack": 24,
+            "special_defense": 86,
+            "speed": 23
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Archéodong_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Archéodong_shiny",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/437.png",
+        "attacks": [
+            "Charge",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 67,
+            "attack": 89,
+            "defense": 116,
+            "special_attack": 79,
+            "special_defense": 116,
+            "speed": 33
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Manzaï_shiny",
+        "type": [
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/438.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 80,
+            "defense": 95,
+            "special_attack": 10,
+            "special_defense": 45,
+            "speed": 10
+        },
+        "current_xp": 0,
+        "xp_evo": 290,
+        "evo": {
+            "name": "Simularbre_shiny",
+            "file": "pokemon_gen2_shiny.json"
+        }
+    },
+    {
+        "name": "Mime Jr._shiny",
+        "type": [
+            "psy",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/439.png",
+        "attacks": [
+            "Écras’Face",
+            "Rafale Psy",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 20,
+            "attack": 25,
+            "defense": 45,
+            "special_attack": 70,
+            "special_defense": 90,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "M. Mime_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Ptiravi_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/440.png",
+        "attacks": [
+            "Écras’Face",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 5,
+            "defense": 5,
+            "special_attack": 15,
+            "special_defense": 65,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 220,
+        "evo": {
+            "name": "Leveinard_shiny",
+            "file": "pokemon_gen1_shiny.json"
+        }
+    },
+    {
+        "name": "Pijako_shiny",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/441.png",
+        "attacks": [
+            "Charge",
+            "Cru-Ailes"
+        ],
+        "stats": {
+            "hp": 76,
+            "attack": 65,
+            "defense": 45,
+            "special_attack": 92,
+            "special_defense": 42,
+            "speed": 91
+        },
+        "current_xp": 0,
+        "xp_evo": 411,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Spiritomb_shiny",
+        "type": [
+            "spectre",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/442.png",
+        "attacks": [
+            "Vibrobscur",
+            "Balle Ombre",
+            "Rafale Psy"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 92,
+            "defense": 108,
+            "special_attack": 92,
+            "special_defense": 108,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Griknot_shiny",
+        "type": [
+            "dragon",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/443.png",
+        "attacks": [
+            "Coupe",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 58,
+            "attack": 70,
+            "defense": 45,
+            "special_attack": 40,
+            "special_defense": 45,
+            "speed": 42
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Carmache_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Carmache_shiny",
+        "type": [
+            "dragon",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/444.png",
+        "attacks": [
+            "Coupe",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 68,
+            "attack": 90,
+            "defense": 65,
+            "special_attack": 50,
+            "special_defense": 55,
+            "speed": 82
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "Carchacrok_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Carchacrok_shiny",
+        "type": [
+            "dragon",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/445.png",
+        "attacks": [
+            "Coupe",
+            "Dracochoc",
+            "Dracogriffe",
+            "Seisme"
+        ],
+        "stats": {
+            "hp": 108,
+            "attack": 130,
+            "defense": 95,
+            "special_attack": 80,
+            "special_defense": 85,
+            "speed": 102
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Goinfrex_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/446.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 135,
+            "attack": 85,
+            "defense": 40,
+            "special_attack": 40,
+            "special_defense": 85,
+            "speed": 5
+        },
+        "current_xp": 0,
+        "xp_evo": 390,
+        "evo": {
+            "name": "Ronflex_shiny",
+            "file": "pokemon_gen1_shiny.json"
+        }
+    },
+    {
+        "name": "Riolu_shiny",
+        "type": [
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/447.png",
+        "attacks": [
+            "Ultimapoing",
+            "Close Combat",
+            "Griffe Acier"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 70,
+            "defense": 40,
+            "special_attack": 35,
+            "special_defense": 40,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 285,
+        "evo": {
+            "name": "Lucario_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Lucario_shiny",
+        "type": [
+            "combat",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/448.png",
+        "attacks": [
+            "Ultimapoing",
+            "Close Combat",
+            "Griffe Acier"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 110,
+            "defense": 70,
+            "special_attack": 115,
+            "special_defense": 70,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Hippopotas_shiny",
+        "type": [
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/449.png",
+        "attacks": [
+            "Seisme",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 68,
+            "attack": 72,
+            "defense": 78,
+            "special_attack": 38,
+            "special_defense": 42,
+            "speed": 32
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Hippodocus_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Hippodocus_shiny",
+        "type": [
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/450.png",
+        "attacks": [
+            "Seisme",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 108,
+            "attack": 112,
+            "defense": 118,
+            "special_attack": 68,
+            "special_defense": 72,
+            "speed": 47
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Rapion_shiny",
+        "type": [
+            "poison",
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/451.png",
+        "attacks": [
+            "Dard-Venin",
+            "Pique",
+            "Bombe-Beurk"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 50,
+            "defense": 90,
+            "special_attack": 30,
+            "special_defense": 55,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Drascore_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Drascore_shiny",
+        "type": [
+            "poison",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/452.png",
+        "attacks": [
+            "Dard-Venin",
+            "Pique",
+            "Bombe-Beurk"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 90,
+            "defense": 110,
+            "special_attack": 60,
+            "special_defense": 75,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Cradopaud_shiny",
+        "type": [
+            "poison",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/453.png",
+        "attacks": [
+            "Direct Toxik",
+            "Close Combat",
+            "Bombe-Beurk"
+        ],
+        "stats": {
+            "hp": 48,
+            "attack": 61,
+            "defense": 40,
+            "special_attack": 61,
+            "special_defense": 40,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Coatox_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Coatox_shiny",
+        "type": [
+            "poison",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/454.png",
+        "attacks": [
+            "Direct Toxik",
+            "Close Combat",
+            "Bombe-Beurk"
+        ],
+        "stats": {
+            "hp": 83,
+            "attack": 106,
+            "defense": 65,
+            "special_attack": 86,
+            "special_defense": 65,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Vortente_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/455.png",
+        "attacks": [
+            "Charge",
+            "Morsure",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 74,
+            "attack": 100,
+            "defense": 72,
+            "special_attack": 90,
+            "special_defense": 72,
+            "speed": 46
+        },
+        "current_xp": 0,
+        "xp_evo": 454,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Écayon_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/456.png",
+        "attacks": [
+            "Pistolet à O",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 49,
+            "attack": 49,
+            "defense": 56,
+            "special_attack": 49,
+            "special_defense": 61,
+            "speed": 66
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Luminéon_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Luminéon_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/457.png",
+        "attacks": [
+            "Pistolet à O",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 69,
+            "attack": 69,
+            "defense": 76,
+            "special_attack": 69,
+            "special_defense": 86,
+            "speed": 91
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Babimanta_shiny",
+        "type": [
+            "eau",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/458.png",
+        "attacks": [
+            "Cru-Ailes",
+            "Pistolet à O",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 20,
+            "defense": 50,
+            "special_attack": 60,
+            "special_defense": 120,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 345,
+        "evo": {
+            "name": "Demanta_shiny",
+            "file": "pokemon_gen2_shiny.json"
+        }
+    },
+    {
+        "name": "Blizzi_shiny",
+        "type": [
+            "plante",
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/459.png",
+        "attacks": [
+            "Tempete Verte",
+            "Vent Glace"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 62,
+            "defense": 50,
+            "special_attack": 62,
+            "special_defense": 60,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 334,
+        "evo": {
+            "name": "Blizzaroi_shiny",
+            "file": "pokemon_gen4_shiny.json"
+        }
+    },
+    {
+        "name": "Blizzaroi_shiny",
+        "type": [
+            "plante",
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/460.png",
+        "attacks": [
+            "Tempete Verte",
+            "Vent Glace"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 92,
+            "defense": 75,
+            "special_attack": 92,
+            "special_defense": 85,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 494,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Dimoret_shiny",
+        "type": [
+            "tenebres",
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/461.png",
+        "attacks": [
+            "Tranche-Nuit",
+            "Vent Glace",
+            "Griffe",
+            "Griffe Acier"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 120,
+            "defense": 65,
+            "special_attack": 45,
+            "special_defense": 85,
+            "speed": 125
+        },
+        "current_xp": 0,
+        "xp_evo": 510,
+        "evo": {
+            "name": "Farfuret_shiny",
+            "file": "pokemon_gen2_shiny.json"
+        }
+    },
+    {
+        "name": "Magnézone_shiny",
+        "type": [
+            "electrique",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/462.png",
+        "attacks": [
+            "Tonnerre",
+            "Luminocanon"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 70,
+            "defense": 115,
+            "special_attack": 130,
+            "special_defense": 90,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 535,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Coudlangue_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/463.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 110,
+            "attack": 85,
+            "defense": 95,
+            "special_attack": 80,
+            "special_defense": 95,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 515,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Rhinastoc_shiny",
+        "type": [
+            "sol",
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/464.png",
+        "attacks": [
+            "Seisme",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 115,
+            "attack": 140,
+            "defense": 130,
+            "special_attack": 55,
+            "special_defense": 55,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 535,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Bouldeneu_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/465.png",
+        "attacks": [
+            "Fouet Lianes",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 125,
+            "special_attack": 110,
+            "special_defense": 50,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 535,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Élekable_shiny",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/466.png",
+        "attacks": [
+            "Poing Eclair",
+            "Tonnerre",
+            "Giga Impact"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 123,
+            "defense": 67,
+            "special_attack": 95,
+            "special_defense": 85,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 540,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Maganon_shiny",
+        "type": [
+            "feu"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/467.png",
+        "attacks": [
+            "Lance-Flammes",
+            "Poing Feu",
+            "Close Combat"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 95,
+            "defense": 67,
+            "special_attack": 125,
+            "special_defense": 95,
+            "speed": 83
+        },
+        "current_xp": 0,
+        "xp_evo": 540,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Togekiss_shiny",
+        "type": [
+            "fee",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/468.png",
+        "attacks": [
+            "Écras’Face",
+            "Cru-Ailes",
+            "Pouvoir Lunaire"
+        ],
+        "stats": {
+            "hp": 85,
+            "attack": 50,
+            "defense": 95,
+            "special_attack": 120,
+            "special_defense": 115,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 545,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Yanmega_shiny",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/469.png",
+        "attacks": [
+            "Bourdon",
+            "Cru-Ailes"
+        ],
+        "stats": {
+            "hp": 86,
+            "attack": 76,
+            "defense": 86,
+            "special_attack": 116,
+            "special_defense": 56,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 515,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Phyllali_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/470.png",
+        "attacks": [
+            "Tempete Verte",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 110,
+            "defense": 130,
+            "special_attack": 60,
+            "special_defense": 65,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Givrali_shiny",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/471.png",
+        "attacks": [
+            "Vent Glace",
+            "Charge",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 60,
+            "defense": 110,
+            "special_attack": 130,
+            "special_defense": 95,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Scorvol_shiny",
+        "type": [
+            "sol",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/472.png",
+        "attacks": [
+            "Guillotine",
+            "Seisme",
+            "Coupe",
+            "Cru-Ailes"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 95,
+            "defense": 125,
+            "special_attack": 45,
+            "special_defense": 75,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 510,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mammochon_shiny",
+        "type": [
+            "glace",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/473.png",
+        "attacks": [
+            "Laser Glace",
+            "Seisme",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 110,
+            "attack": 130,
+            "defense": 80,
+            "special_attack": 70,
+            "special_defense": 60,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Porygon-Z_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/474.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 85,
+            "attack": 80,
+            "defense": 70,
+            "special_attack": 135,
+            "special_defense": 75,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 535,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Gallame_shiny",
+        "type": [
+            "psy",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/475.png",
+        "attacks": [
+            "Ultimapoing",
+            "Rafale Psy",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 68,
+            "attack": 125,
+            "defense": 65,
+            "special_attack": 65,
+            "special_defense": 115,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 518,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tarinorme_shiny",
+        "type": [
+            "roche",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/476.png",
+        "attacks": [
+            "Eboulement",
+            "Charge",
+            "Luminocanon"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 55,
+            "defense": 145,
+            "special_attack": 75,
+            "special_defense": 150,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Noctunoir_shiny",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/477.png",
+        "attacks": [
+            "Poing Eclair",
+            "Poing Feu",
+            "Poing Glace",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 100,
+            "defense": 135,
+            "special_attack": 65,
+            "special_defense": 135,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 525,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Momartik_shiny",
+        "type": [
+            "glace",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/478.png",
+        "attacks": [
+            "Poing Glace",
+            "Laser Glace",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 80,
+            "defense": 70,
+            "special_attack": 80,
+            "special_defense": 70,
+            "speed": 110
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Motisma_shiny",
+        "type": [
+            "electrique",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/479.png",
+        "attacks": [
+            "Eclair",
+            "Tonnerre",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 50,
+            "defense": 77,
+            "special_attack": 95,
+            "special_defense": 77,
+            "speed": 91
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Créhelf_shiny",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/480.png",
+        "attacks": [
+            "Rafale Psy",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 75,
+            "defense": 130,
+            "special_attack": 75,
+            "special_defense": 130,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Créfollet_shiny",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/481.png",
+        "attacks": [
+            "Rafale Psy",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 105,
+            "defense": 105,
+            "special_attack": 105,
+            "special_defense": 105,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Créfadet_shiny",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/482.png",
+        "attacks": [
+            "Rafale Psy",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 125,
+            "defense": 70,
+            "special_attack": 125,
+            "special_defense": 70,
+            "speed": 115
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Dialga_shiny",
+        "type": [
+            "acier",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/483.png",
+        "attacks": [
+            "Hurle-Temps",
+            "Dracogriffe",
+            "Griffe Acier",
+            "Luminocanon"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 120,
+            "defense": 120,
+            "special_attack": 150,
+            "special_defense": 100,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 680,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Palkia_shiny",
+        "type": [
+            "eau",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/484.png",
+        "attacks": [
+            "Hydrocanon",
+            "Spatio-Rift",
+            "Telluriforce",
+            "Aurasphere"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 120,
+            "defense": 100,
+            "special_attack": 150,
+            "special_defense": 120,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 680,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Heatran_shiny",
+        "type": [
+            "feu",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/485.png",
+        "attacks": [
+            "Cannicule",
+            "Telluriforce",
+            "Lame de Roc",
+            "Griffe Acier"
+        ],
+        "stats": {
+            "hp": 91,
+            "attack": 90,
+            "defense": 106,
+            "special_attack": 130,
+            "special_defense": 106,
+            "speed": 77
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Regigigas_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/486.png",
+        "attacks": [
+            "Giga Impact",
+            "Ultimapoing",
+            "Poing Feu",
+            "Vent Glace"
+        ],
+        "stats": {
+            "hp": 110,
+            "attack": 160,
+            "defense": 110,
+            "special_attack": 80,
+            "special_defense": 110,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 670,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Giratina_shiny",
+        "type": [
+            "spectre",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/487.png",
+        "attacks": [
+            "Telluriforce",
+            "Dracogriffe",
+            "Balle Ombre",
+            "Aurasphere"
+        ],
+        "stats": {
+            "hp": 150,
+            "attack": 100,
+            "defense": 120,
+            "special_attack": 100,
+            "special_defense": 120,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 680,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Cresselia_shiny",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/488.png",
+        "attacks": [
+            "Rafale Psy",
+            "Balle Ombre",
+            "Eclat Magique",
+            "Tonnerre"
+        ],
+        "stats": {
+            "hp": 120,
+            "attack": 70,
+            "defense": 110,
+            "special_attack": 75,
+            "special_defense": 120,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Phione_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/489.png",
+        "attacks": [
+            "Surf",
+            "Vent Glace",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 80,
+            "defense": 80,
+            "special_attack": 80,
+            "special_defense": 80,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Manaphy_shiny",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/490.png",
+        "attacks": [
+            "Surf",
+            "Vent Glace",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 100,
+            "special_attack": 100,
+            "special_defense": 100,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Darkrai_shiny",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/491.png",
+        "attacks": [
+            "Vibrobscur",
+            "Balle Ombre",
+            "Bombe-Beurk",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 90,
+            "defense": 90,
+            "special_attack": 135,
+            "special_defense": 90,
+            "speed": 125
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Shaymin_shiny",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/492.png",
+        "attacks": [
+            "Tempete Verte",
+            "Psyko",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 100,
+            "special_attack": 100,
+            "special_defense": 100,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Arceus_shiny",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/493.png",
+        "attacks": [
+            "Jugement",
+            "Balle Ombre",
+            "Bourdon",
+            "Cannicule"
+        ],
+        "stats": {
+            "hp": 120,
+            "attack": 120,
+            "defense": 120,
+            "special_attack": 120,
+            "special_defense": 120,
+            "speed": 120
+        },
+        "current_xp": 0,
+        "xp_evo": 720,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    }
+]

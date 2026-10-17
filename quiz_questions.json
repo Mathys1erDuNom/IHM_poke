@@ -2,45 +2,21 @@
   {
     "question": "Quel Pokémon est la mascotte emblématique de la série ?",
     "options": ["Pikachu", "Évoli", "Salamèche", "Carapuce"],
-    "answer": "Pikachu",
-    "pokemon": {
-      "name": "Pikachu",
-      "image": "/images/gif/normal/pikachu.gif",
-      "type": ["electrik"],
-      "attacks": []
-    }
+    "answer": "Pikachu"
   },
   {
     "question": "Quel Pokémon de départ de Kanto est de type Plante ?",
     "options": ["Bulbizarre", "Salamèche", "Carapuce", "Pikachu"],
-    "answer": "Bulbizarre",
-    "pokemon": {
-      "name": "Bulbizarre",
-      "image": "/images/gif/normal/bulbizarre.gif",
-      "type": ["plante"],
-      "attacks": []
-    }
+    "answer": "Bulbizarre"
   },
   {
     "question": "Quel Pokémon évolue en Tortank ?",
     "options": ["Carabaffe", "Carapuce", "Aquali", "Lokhlass"],
-    "answer": "Carabaffe",
-    "pokemon": {
-      "name": "Carabaffe",
-      "image": "/images/gif/normal/carabaffe.gif",
-      "type": ["eau"],
-      "attacks": []
-    }
+    "answer": "Carabaffe"
   },
   {
     "question": "Quelle évolution d'Évoli obtient-on avec une Pierre Eau ?",
     "options": ["Aquali", "Voltali", "Pyroli", "Mentali"],
-    "answer": "Aquali",
-    "pokemon": {
-      "name": "Aquali",
-      "image": "/images/gif/normal/aquali.gif",
-      "type": ["eau"],
-      "attacks": []
-    }
+    "answer": "Aquali"
   }
 ]

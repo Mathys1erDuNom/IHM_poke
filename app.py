@@ -33,6 +33,7 @@ DISCORD_NAME_OVERRIDES = {
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 IMAGES_GIF_DIR = os.path.join(BASE_DIR, "images", "gif")
+POKEMON_DATA_DIR = os.path.join(BASE_DIR, "POKEMON")
 QUIZ_QUESTIONS_PATH = os.path.join(BASE_DIR, "quiz_questions.json")
 
 app = Flask(
@@ -138,6 +139,27 @@ def load_quiz_questions():
     return questions
 
 
+def load_pokemon_catalog():
+    pokemons = []
+    for filename in sorted(os.listdir(POKEMON_DATA_DIR)):
+        if not filename.lower().endswith(".json"):
+            continue
+        file_path = os.path.join(POKEMON_DATA_DIR, filename)
+        with open(file_path, encoding="utf-8") as pokemon_file:
+            entries = json.load(pokemon_file)
+        if isinstance(entries, list):
+            pokemons.extend(
+                pokemon for pokemon in entries
+                if isinstance(pokemon, dict)
+                and pokemon.get("name")
+                and pokemon.get("stats")
+            )
+
+    if not pokemons:
+        raise ValueError("Aucun Pokémon valide dans le dossier POKEMON.")
+    return pokemons
+
+
 ensure_table_exists()
 
 
@@ -194,11 +216,12 @@ def quiz():
         return redirect(url_for("connexion"))
 
     quiz_question = secrets.choice(load_quiz_questions())
+    random_reward = secrets.choice(load_pokemon_catalog())
     challenge_id = secrets.token_urlsafe(24)
     session["quiz_challenge"] = {
         "id": challenge_id,
         "answer_digest": quiz_answer_digest(challenge_id, quiz_question["answer"]),
-        "pokemon": quiz_question["pokemon"],
+        "pokemon": random_reward,
     }
     question = {
         "question": quiz_question["question"],
@@ -236,29 +259,84 @@ def quiz_answer():
     pokemon_name = reward["name"]
     with get_cursor() as cur:
         cur.execute("""
-            SELECT COUNT(*) AS total
+            SELECT name, ivs, stats
             FROM new_captures
             WHERE user_id = %s AND name LIKE %s || '%%'
-        """, (user_id, pokemon_name))
-        existing_count = cur.fetchone()["total"]
-        final_name = pokemon_name if existing_count == 0 else f"{pokemon_name}{existing_count + 1}"
-        cur.execute("""
-            INSERT INTO new_captures (user_id, name, ivs, stats, image, type, attacks)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
-        """, (
-            user_id,
-            final_name,
-            psycopg2.extras.Json(reward.get("ivs", {})),
-            psycopg2.extras.Json(reward.get("stats", {})),
-            reward.get("image", ""),
-            psycopg2.extras.Json(reward.get("type", [])),
-            psycopg2.extras.Json(reward.get("attacks", [])),
-        ))
+            ORDER BY CASE WHEN name = %s THEN 0 ELSE 1 END, name
+            FOR UPDATE
+        """, (user_id, pokemon_name, pokemon_name))
+        candidates = cur.fetchall()
+        owned_pokemon = next((row for row in candidates if (
+            row["name"] == pokemon_name
+            or (
+                row["name"].startswith(pokemon_name)
+                and row["name"][len(pokemon_name):].isdigit()
+            )
+        )), None)
+
+        if owned_pokemon:
+            current_ivs = owned_pokemon["ivs"] or {}
+            current_stats = owned_pokemon["stats"] or {}
+            improved_ivs = {}
+            improved_stats = {}
+            total_iv_gain = 0
+
+            for stat, base_value in reward["stats"].items():
+                old_iv = int(current_ivs.get(stat, 0) or 0)
+                new_iv = min(31, old_iv + 4)
+                iv_gain = new_iv - old_iv
+                current_stat = int(current_stats.get(stat, base_value + old_iv))
+                improved_ivs[stat] = new_iv
+                improved_stats[stat] = current_stat + iv_gain
+                total_iv_gain += iv_gain
+
+            cur.execute("""
+                UPDATE new_captures
+                SET ivs = %s, stats = %s
+                WHERE user_id = %s AND name = %s
+            """, (
+                psycopg2.extras.Json(improved_ivs),
+                psycopg2.extras.Json(improved_stats),
+                user_id,
+                owned_pokemon["name"],
+            ))
+            final_name = owned_pokemon["name"]
+            message = (
+                f"Les IV de {final_name} sont déjà au maximum."
+                if total_iv_gain == 0
+                else f"{final_name} gagne +{total_iv_gain} IV au total !"
+            )
+        else:
+            cur.execute("""
+                SELECT COUNT(*) AS total
+                FROM new_captures
+                WHERE user_id = %s AND name LIKE %s || '%%'
+            """, (user_id, pokemon_name))
+            existing_count = cur.fetchone()["total"]
+            final_name = pokemon_name if existing_count == 0 else f"{pokemon_name}{existing_count + 1}"
+            evo = reward.get("evo", {"name": "pas evo", "file": "pas evo"})
+            cur.execute("""
+                INSERT INTO new_captures
+                    (user_id, name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (
+                user_id,
+                final_name,
+                psycopg2.extras.Json({stat: 0 for stat in reward["stats"]}),
+                psycopg2.extras.Json(reward["stats"]),
+                reward.get("image", ""),
+                psycopg2.extras.Json(reward.get("type", [])),
+                psycopg2.extras.Json(reward.get("attacks", [])),
+                reward.get("current_xp", 0),
+                reward.get("xp_evo", 0),
+                psycopg2.extras.Json(evo),
+            ))
+            message = f"{final_name} a rejoint ta collection !"
 
     session.pop("quiz_challenge", None)
     return jsonify({
         "correct": True,
-        "message": f"{final_name} a rejoint ta collection !",
+        "message": message,
         "pokemon": {"name": final_name, "image": reward.get("image", "")},
     })
 

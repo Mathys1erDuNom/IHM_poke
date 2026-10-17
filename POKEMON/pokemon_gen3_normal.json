@@ -1,0 +1,3461 @@
+[
+    {
+        "name": "Arcko",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/252.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 45,
+            "defense": 35,
+            "special_attack": 65,
+            "special_defense": 55,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "Massko",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Massko",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/253.png",
+        "attacks": [
+            "Charge",
+            "Canon Graine"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 65,
+            "defense": 45,
+            "special_attack": 85,
+            "special_defense": 65,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Jungko",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Jungko",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/254.png",
+        "attacks": [
+            "Ecras’Face",
+            "Ultimapoing",
+            "Canon Graine"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 85,
+            "defense": 65,
+            "special_attack": 105,
+            "special_defense": 85,
+            "speed": 120
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Poussifeu",
+        "type": [
+            "feu"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/255.png",
+        "attacks": [
+            "Griffe"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 60,
+            "defense": 40,
+            "special_attack": 70,
+            "special_defense": 50,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "Galifeu",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Galifeu",
+        "type": [
+            "feu",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/256.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 85,
+            "defense": 60,
+            "special_attack": 85,
+            "special_defense": 60,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Braségali",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Brasegali",
+        "type": [
+            "feu",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/257.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Eclair"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 120,
+            "defense": 70,
+            "special_attack": 110,
+            "special_defense": 70,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Gobou",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/258.png",
+        "attacks": [
+            "Ecrasement",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 70,
+            "defense": 50,
+            "special_attack": 50,
+            "special_defense": 50,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "Flobio",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Flobio",
+        "type": [
+            "eau",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/259.png",
+        "attacks": [
+            "Pistolet a O",
+            "Ecrasement"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 85,
+            "defense": 70,
+            "special_attack": 60,
+            "special_defense": 70,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "Laggron",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Laggron",
+        "type": [
+            "eau",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/260.png",
+        "attacks": [
+            "Seisme",
+            "Pistolet a O",
+            "Ecrasement"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 110,
+            "defense": 90,
+            "special_attack": 85,
+            "special_defense": 90,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 535,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Medhyena",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/261.png",
+        "attacks": [
+            "Morsure",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 35,
+            "attack": 55,
+            "defense": 35,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 220,
+        "evo": {
+            "name": "Grahyena",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Grahyena",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/262.png",
+        "attacks": [
+            "Morsure",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 90,
+            "defense": 70,
+            "special_attack": 60,
+            "special_defense": 60,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Zigzaton",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/263.png",
+        "attacks": [
+            "Coupe",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 38,
+            "attack": 30,
+            "defense": 41,
+            "special_attack": 30,
+            "special_defense": 41,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 240,
+        "evo": {
+            "name": "Linéon",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Lineon",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/264.png",
+        "attacks": [
+            "Coupe",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 78,
+            "attack": 70,
+            "defense": 61,
+            "special_attack": 50,
+            "special_defense": 61,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Chenipotte",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/265.png",
+        "attacks": [
+            "Charge",
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 45,
+            "defense": 35,
+            "special_attack": 20,
+            "special_defense": 30,
+            "speed": 20
+        },
+        "current_xp": 0,
+        "xp_evo": 195,
+        "evo": {
+            "name": "Armulys",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Armulys",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/266.png",
+        "attacks": [
+            "Charge",
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 35,
+            "defense": 55,
+            "special_attack": 25,
+            "special_defense": 25,
+            "speed": 15
+        },
+        "current_xp": 0,
+        "xp_evo": 205,
+        "evo": {
+            "name": "Charmillon",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Charmillon",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/267.png",
+        "attacks": [
+            "Tornade",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 70,
+            "defense": 50,
+            "special_attack": 100,
+            "special_defense": 50,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 395,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Blindalys",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/268.png",
+        "attacks": [
+            "Charge",
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 35,
+            "defense": 55,
+            "special_attack": 25,
+            "special_defense": 25,
+            "speed": 15
+        },
+        "current_xp": 0,
+        "xp_evo": 205,
+        "evo": {
+            "name": "Papinox",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Papinox",
+        "type": [
+            "insecte",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/269.png",
+        "attacks": [
+            "Tornade",
+            "Charge",
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 50,
+            "defense": 70,
+            "special_attack": 50,
+            "special_defense": 90,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 385,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Nenupiot",
+        "type": [
+            "eau",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/270.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Plaquage",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 30,
+            "defense": 30,
+            "special_attack": 40,
+            "special_defense": 50,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 220,
+        "evo": {
+            "name": "Lombre",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Lombre",
+        "type": [
+            "eau",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/271.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 50,
+            "defense": 50,
+            "special_attack": 60,
+            "special_defense": 70,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 340,
+        "evo": {
+            "name": "Ludicolo",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Ludicolo",
+        "type": [
+            "eau",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/272.png",
+        "attacks": [
+            "Canon Graine",
+            "Pistolet a O",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 70,
+            "defense": 70,
+            "special_attack": 90,
+            "special_defense": 100,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Grainipiot",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/273.png",
+        "attacks": [
+            "Coupe-Vent",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 40,
+            "defense": 50,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 220,
+        "evo": {
+            "name": "Pifeuil",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Pifeuil",
+        "type": [
+            "plante",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/274.png",
+        "attacks": [
+            "Ecras’Face",
+            "Coupe-Vent"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 70,
+            "defense": 40,
+            "special_attack": 60,
+            "special_defense": 40,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 340,
+        "evo": {
+            "name": "Tengalice",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Tengalice",
+        "type": [
+            "plante",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/275.png",
+        "attacks": [
+            "Ecras’Face",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 100,
+            "defense": 60,
+            "special_attack": 90,
+            "special_defense": 60,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Nirondelle",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/276.png",
+        "attacks": [
+            "Cru-Aile",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 55,
+            "defense": 30,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 270,
+        "evo": {
+            "name": "Hélédelle",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Heledelle",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/277.png",
+        "attacks": [
+            "Cru-Aile",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 85,
+            "defense": 60,
+            "special_attack": 75,
+            "special_defense": 50,
+            "speed": 125
+        },
+        "current_xp": 0,
+        "xp_evo": 455,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Goelise",
+        "type": [
+            "eau",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/278.png",
+        "attacks": [
+            "Tornade",
+            "Cru-Aile",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 30,
+            "defense": 30,
+            "special_attack": 55,
+            "special_defense": 30,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 270,
+        "evo": {
+            "name": "Bekipan",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Bekipan",
+        "type": [
+            "eau",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/279.png",
+        "attacks": [
+            "Cru-Aile",
+            "Pistolet a O",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 50,
+            "defense": 100,
+            "special_attack": 95,
+            "special_defense": 70,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tarsal",
+        "type": [
+            "psy",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/280.png",
+        "attacks": [
+            "Pouvoir Lunaire",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 28,
+            "attack": 25,
+            "defense": 25,
+            "special_attack": 45,
+            "special_defense": 35,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 198,
+        "evo": {
+            "name": "Kirlia",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Kirlia",
+        "type": [
+            "psy",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/281.png",
+        "attacks": [
+            "Pouvoir Lunaire",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 38,
+            "attack": 35,
+            "defense": 35,
+            "special_attack": 65,
+            "special_defense": 55,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 278,
+        "evo": {
+            "name": "Gardevoir",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Gardevoir",
+        "type": [
+            "psy",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png",
+        "attacks": [
+            "Pouvoir Lunaire",
+            "Psyko"
+        ],
+        "stats": {
+            "hp": 68,
+            "attack": 65,
+            "defense": 65,
+            "special_attack": 125,
+            "special_defense": 115,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 518,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Arakdo",
+        "type": [
+            "insecte",
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/283.png",
+        "attacks": [
+            "Pistolet a O",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 30,
+            "defense": 32,
+            "special_attack": 50,
+            "special_defense": 52,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 269,
+        "evo": {
+            "name": "Maskadra",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Maskadra",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/284.png",
+        "attacks": [
+            "Tornade",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 60,
+            "defense": 62,
+            "special_attack": 100,
+            "special_defense": 82,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 454,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Balignon",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/285.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 40,
+            "defense": 60,
+            "special_attack": 40,
+            "special_defense": 60,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 295,
+        "evo": {
+            "name": "Chapignon",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Chapignon",
+        "type": [
+            "plante",
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/286.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Eclair",
+            "Canon Graine"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 130,
+            "defense": 80,
+            "special_attack": 60,
+            "special_defense": 60,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Parecool",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/287.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 60,
+            "defense": 60,
+            "special_attack": 35,
+            "special_defense": 35,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 280,
+        "evo": {
+            "name": "Vigoroth",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Vigoroth",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/288.png",
+        "attacks": [
+            "Ultimapoing",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 80,
+            "defense": 80,
+            "special_attack": 55,
+            "special_defense": 55,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "Monaflèmit",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Monaflemit",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/289.png",
+        "attacks": [
+            "Ultimapoing",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 150,
+            "attack": 160,
+            "defense": 100,
+            "special_attack": 95,
+            "special_defense": 65,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 670,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ningale",
+        "type": [
+            "insecte",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/290.png",
+        "attacks": [
+            "Griffe",
+            "Coupe",
+            "Tornade"
+        ],
+        "stats": {
+            "hp": 31,
+            "attack": 45,
+            "defense": 90,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 266,
+        "evo": {
+            "name": "Ninjask",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Ninjask",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/291.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 61,
+            "attack": 90,
+            "defense": 45,
+            "special_attack": 50,
+            "special_defense": 50,
+            "speed": 160
+        },
+        "current_xp": 0,
+        "xp_evo": 456,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Munja",
+        "type": [
+            "insecte",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/292.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 1,
+            "attack": 90,
+            "defense": 45,
+            "special_attack": 30,
+            "special_defense": 30,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 236,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Chuchmur",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/293.png",
+        "attacks": [
+            "Ecras’Face",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 64,
+            "attack": 51,
+            "defense": 23,
+            "special_attack": 51,
+            "special_defense": 23,
+            "speed": 28
+        },
+        "current_xp": 0,
+        "xp_evo": 240,
+        "evo": {
+            "name": "Ramboum",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Ramboum",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/294.png",
+        "attacks": [
+            "Ecras’Face",
+            "Ultimapoing",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 84,
+            "attack": 71,
+            "defense": 43,
+            "special_attack": 71,
+            "special_defense": 43,
+            "speed": 48
+        },
+        "current_xp": 0,
+        "xp_evo": 360,
+        "evo": {
+            "name": "Brouhabam",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Brouhabam",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/295.png",
+        "attacks": [
+            "Ecras’Face",
+            "Ultimapoing",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 104,
+            "attack": 91,
+            "defense": 63,
+            "special_attack": 91,
+            "special_defense": 73,
+            "speed": 68
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Makuhita",
+        "type": [
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/296.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 72,
+            "attack": 60,
+            "defense": 30,
+            "special_attack": 20,
+            "special_defense": 30,
+            "speed": 25
+        },
+        "current_xp": 0,
+        "xp_evo": 237,
+        "evo": {
+            "name": "Hariyama",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Hariyama",
+        "type": [
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/297.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 144,
+            "attack": 120,
+            "defense": 60,
+            "special_attack": 40,
+            "special_defense": 60,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 474,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tarinor",
+        "type": [
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/299.png",
+        "attacks": [
+            "Charge",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 30,
+            "attack": 45,
+            "defense": 135,
+            "special_attack": 45,
+            "special_defense": 90,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 375,
+        "evo": {
+            "name": "Tarinorme",
+            "file": "pokemon_gen4_normal.json"
+        }
+    },
+    {
+        "name": "Skitty",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/300.png",
+        "attacks": [
+            "Torgnoles",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 45,
+            "defense": 45,
+            "special_attack": 35,
+            "special_defense": 35,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 260,
+        "evo": {
+            "name": "Delcatty",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Delcatty",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/301.png",
+        "attacks": [
+            "Torgnoles",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 65,
+            "defense": 65,
+            "special_attack": 55,
+            "special_defense": 55,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 400,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tenefix",
+        "type": [
+            "tenebres",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/302.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 75,
+            "defense": 75,
+            "special_attack": 65,
+            "special_defense": 65,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 380,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mysdibule",
+        "type": [
+            "acier",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/303.png",
+        "attacks": [
+            "Charge",
+            "Marelle"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 85,
+            "defense": 85,
+            "special_attack": 55,
+            "special_defense": 55,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 380,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Galekid",
+        "type": [
+            "acier",
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/304.png",
+        "attacks": [
+            "Coupe",
+            "Ecrasement",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 70,
+            "defense": 100,
+            "special_attack": 40,
+            "special_defense": 40,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Galegon",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Galegon",
+        "type": [
+            "acier",
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/305.png",
+        "attacks": [
+            "Coupe",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 90,
+            "defense": 140,
+            "special_attack": 50,
+            "special_defense": 50,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 430,
+        "evo": {
+            "name": "Galeking",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Galeking",
+        "type": [
+            "acier",
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/306.png",
+        "attacks": [
+            "Jet de Pierre",
+            "Charge",
+            "Queue de fer"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 110,
+            "defense": 180,
+            "special_attack": 60,
+            "special_defense": 60,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Meditikka",
+        "type": [
+            "combat",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/307.png",
+        "attacks": [
+            "Ecras’Face",
+            "Ultimapoing",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 30,
+            "attack": 40,
+            "defense": 55,
+            "special_attack": 40,
+            "special_defense": 55,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 280,
+        "evo": {
+            "name": "Charmina",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Charmina",
+        "type": [
+            "combat",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/308.png",
+        "attacks": [
+            "Ecras’Face",
+            "Ultimapoing",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 60,
+            "defense": 75,
+            "special_attack": 60,
+            "special_defense": 75,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Dynavolt",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/309.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 45,
+            "defense": 40,
+            "special_attack": 65,
+            "special_defense": 40,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 295,
+        "evo": {
+            "name": "Élecsprint",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Elecsprint",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/310.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage",
+            "Tonnerre"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 75,
+            "defense": 60,
+            "special_attack": 105,
+            "special_defense": 60,
+            "speed": 105
+        },
+        "current_xp": 0,
+        "xp_evo": 475,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Posipi",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/311.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 50,
+            "defense": 40,
+            "special_attack": 85,
+            "special_defense": 75,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Negapi",
+        "type": [
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/312.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 40,
+            "defense": 50,
+            "special_attack": 75,
+            "special_defense": 85,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 405,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Muciole",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/313.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 73,
+            "defense": 75,
+            "special_attack": 47,
+            "special_defense": 85,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 430,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Lumivole",
+        "type": [
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/314.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 47,
+            "defense": 75,
+            "special_attack": 73,
+            "special_defense": 85,
+            "speed": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 430,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Roselia",
+        "type": [
+            "plante",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/315.png",
+        "attacks": [
+            "Dard-Venin",
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 60,
+            "defense": 45,
+            "special_attack": 100,
+            "special_defense": 80,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 400,
+        "evo": {
+            "name": "Roserade",
+            "file": "pokemon_gen4_normal.json"
+        }
+    },
+    {
+        "name": "Gloupti",
+        "type": [
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/316.png",
+        "attacks": [
+            "Ecras’Face"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 43,
+            "defense": 53,
+            "special_attack": 43,
+            "special_defense": 53,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 302,
+        "evo": {
+            "name": "Avaltout",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Avaltout",
+        "type": [
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/317.png",
+        "attacks": [
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 73,
+            "defense": 83,
+            "special_attack": 73,
+            "special_defense": 83,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 467,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Carvanha",
+        "type": [
+            "eau",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/318.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 90,
+            "defense": 20,
+            "special_attack": 65,
+            "special_defense": 20,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 305,
+        "evo": {
+            "name": "Sharpedo",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Sharpedo",
+        "type": [
+            "eau",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/319.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 120,
+            "defense": 40,
+            "special_attack": 95,
+            "special_defense": 40,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Wailmer",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/320.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 130,
+            "attack": 70,
+            "defense": 35,
+            "special_attack": 70,
+            "special_defense": 35,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 400,
+        "evo": {
+            "name": "Wailord",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Wailord",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/321.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 170,
+            "attack": 90,
+            "defense": 45,
+            "special_attack": 90,
+            "special_defense": 45,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Chamallot",
+        "type": [
+            "feu",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/322.png",
+        "attacks": [
+            "Ecrasement",
+            "Coup d’Boule",
+            "Charge",
+            "Lance-Flammes"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 60,
+            "defense": 40,
+            "special_attack": 65,
+            "special_defense": 45,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 305,
+        "evo": {
+            "name": "Camérupt",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Camerupt",
+        "type": [
+            "feu",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/323.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage",
+            "Lance-Flammes"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 100,
+            "defense": 70,
+            "special_attack": 105,
+            "special_defense": 75,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Chartor",
+        "type": [
+            "feu"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/324.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage",
+            "Lance-Flammes"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 85,
+            "defense": 140,
+            "special_attack": 85,
+            "special_defense": 70,
+            "speed": 20
+        },
+        "current_xp": 0,
+        "xp_evo": 470,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Spoink",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/325.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 25,
+            "defense": 35,
+            "special_attack": 70,
+            "special_defense": 80,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "Groret",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Groret",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/326.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 45,
+            "defense": 65,
+            "special_attack": 90,
+            "special_defense": 110,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 470,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Spinda",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/327.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 60,
+            "defense": 60,
+            "special_attack": 60,
+            "special_defense": 60,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 360,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Kraknoix",
+        "type": [
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/328.png",
+        "attacks": [
+            "Charge",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 100,
+            "defense": 45,
+            "special_attack": 45,
+            "special_defense": 45,
+            "speed": 10
+        },
+        "current_xp": 0,
+        "xp_evo": 290,
+        "evo": {
+            "name": "Vibraninf",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Vibraninf",
+        "type": [
+            "sol",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/329.png",
+        "attacks": [
+            "Jet de Pierre",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 70,
+            "defense": 50,
+            "special_attack": 50,
+            "special_defense": 50,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 340,
+        "evo": {
+            "name": "Libégon",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Libegon",
+        "type": [
+            "sol",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/330.png",
+        "attacks": [
+            "Jet de Pierre",
+            "Seisme",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 100,
+            "defense": 80,
+            "special_attack": 80,
+            "special_defense": 80,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 520,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Cacnea",
+        "type": [
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/331.png",
+        "attacks": [
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 85,
+            "defense": 40,
+            "special_attack": 85,
+            "special_defense": 40,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 335,
+        "evo": {
+            "name": "Cacturne",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Cacturne",
+        "type": [
+            "plante",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/332.png",
+        "attacks": [
+            "Fouet Lianes"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 115,
+            "defense": 60,
+            "special_attack": 115,
+            "special_defense": 60,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 475,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tylton",
+        "type": [
+            "normal",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/333.png",
+        "attacks": [
+            "Chage",
+            "Cru-Aile"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 40,
+            "defense": 60,
+            "special_attack": 40,
+            "special_defense": 75,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 310,
+        "evo": {
+            "name": "Altaria",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Altaria",
+        "type": [
+            "dragon",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/334.png",
+        "attacks": [
+            "Chage",
+            "Cru-Aile"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 70,
+            "defense": 90,
+            "special_attack": 70,
+            "special_defense": 105,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mangriff",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/335.png",
+        "attacks": [
+            "Tranche",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 73,
+            "attack": 115,
+            "defense": 60,
+            "special_attack": 60,
+            "special_defense": 60,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 458,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Seviper",
+        "type": [
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/336.png",
+        "attacks": [
+            "Chage",
+            "Dard-Venin"
+        ],
+        "stats": {
+            "hp": 73,
+            "attack": 100,
+            "defense": 60,
+            "special_attack": 100,
+            "special_defense": 60,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 458,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Seleroc",
+        "type": [
+            "roche",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/337.png",
+        "attacks": [
+            "Charge",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 55,
+            "defense": 65,
+            "special_attack": 95,
+            "special_defense": 85,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Solaroc",
+        "type": [
+            "roche",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/338.png",
+        "attacks": [
+            "Charge",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 95,
+            "defense": 85,
+            "special_attack": 55,
+            "special_defense": 65,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Barloche",
+        "type": [
+            "eau",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/339.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Belier",
+            "Mania"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 48,
+            "defense": 43,
+            "special_attack": 46,
+            "special_defense": 41,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 288,
+        "evo": {
+            "name": "Barbicha",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Barbicha",
+        "type": [
+            "eau",
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/340.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Plaquage",
+            "Belier"
+        ],
+        "stats": {
+            "hp": 110,
+            "attack": 78,
+            "defense": 73,
+            "special_attack": 76,
+            "special_defense": 71,
+            "speed": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 468,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ecrapince",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/341.png",
+        "attacks": [
+            "Force Poigne",
+            "Guillotine"
+        ],
+        "stats": {
+            "hp": 43,
+            "attack": 80,
+            "defense": 65,
+            "special_attack": 50,
+            "special_defense": 35,
+            "speed": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 308,
+        "evo": {
+            "name": "Colhomard",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Colhomard",
+        "type": [
+            "eau",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/342.png",
+        "attacks": [
+            "Force Poigne",
+            "Guillotine"
+        ],
+        "stats": {
+            "hp": 63,
+            "attack": 120,
+            "defense": 85,
+            "special_attack": 90,
+            "special_defense": 55,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 468,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Balbuto",
+        "type": [
+            "sol",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/343.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Damocles",
+            "Laser Glace"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 40,
+            "defense": 55,
+            "special_attack": 40,
+            "special_defense": 70,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Kaorine",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Kaorine",
+        "type": [
+            "sol",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/344.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Damocles",
+            "Laser Glace"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 70,
+            "defense": 105,
+            "special_attack": 70,
+            "special_defense": 120,
+            "speed": 75
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Lilia",
+        "type": [
+            "roche",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/345.png",
+        "attacks": [
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 66,
+            "attack": 41,
+            "defense": 77,
+            "special_attack": 61,
+            "special_defense": 87,
+            "speed": 23
+        },
+        "current_xp": 0,
+        "xp_evo": 355,
+        "evo": {
+            "name": "Vacilys",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Vacilys",
+        "type": [
+            "roche",
+            "plante"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/346.png",
+        "attacks": [
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 86,
+            "attack": 81,
+            "defense": 97,
+            "special_attack": 81,
+            "special_defense": 107,
+            "speed": 43
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Anorith",
+        "type": [
+            "roche",
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/347.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 95,
+            "defense": 50,
+            "special_attack": 40,
+            "special_defense": 50,
+            "speed": 75
+        },
+        "current_xp": 0,
+        "xp_evo": 355,
+        "evo": {
+            "name": "Armaldo",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Armaldo",
+        "type": [
+            "roche",
+            "insecte"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/348.png",
+        "attacks": [
+            "Griffe",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 125,
+            "defense": 100,
+            "special_attack": 70,
+            "special_defense": 80,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Barpau",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/349.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 20,
+            "attack": 15,
+            "defense": 20,
+            "special_attack": 10,
+            "special_defense": 55,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 200,
+        "evo": {
+            "name": "Milobellus",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Milobellus",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/350.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 60,
+            "defense": 79,
+            "special_attack": 100,
+            "special_defense": 125,
+            "speed": 81
+        },
+        "current_xp": 0,
+        "xp_evo": 540,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Morpheo",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/351.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 70,
+            "defense": 70,
+            "special_attack": 70,
+            "special_defense": 70,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Kecleon",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/352.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 90,
+            "defense": 70,
+            "special_attack": 60,
+            "special_defense": 120,
+            "speed": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Polichombr",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/353.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Plaquage",
+            "Damocles"
+        ],
+        "stats": {
+            "hp": 44,
+            "attack": 75,
+            "defense": 35,
+            "special_attack": 63,
+            "special_defense": 33,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 295,
+        "evo": {
+            "name": "Branette",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Branette",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/354.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 64,
+            "attack": 115,
+            "defense": 65,
+            "special_attack": 83,
+            "special_defense": 63,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 455,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Skelenox",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/355.png",
+        "attacks": [
+            "Balle Ombre",
+            "Frappe Psy"
+        ],
+        "stats": {
+            "hp": 20,
+            "attack": 40,
+            "defense": 90,
+            "special_attack": 30,
+            "special_defense": 90,
+            "speed": 25
+        },
+        "current_xp": 0,
+        "xp_evo": 295,
+        "evo": {
+            "name": "Teraclope",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Teraclope",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/356.png",
+        "attacks": [
+            "Balle Ombre",
+            "Frappe Psy"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 70,
+            "defense": 130,
+            "special_attack": 60,
+            "special_defense": 130,
+            "speed": 25
+        },
+        "current_xp": 0,
+        "xp_evo": 455,
+        "evo": {
+            "name": "Noctunoir",
+            "file": "pokemon_gen4_normal.json"
+        }
+    },
+    {
+        "name": "Tropius",
+        "type": [
+            "plante",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/357.png",
+        "attacks": [
+            "Coupe-Vent",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 99,
+            "attack": 68,
+            "defense": 83,
+            "special_attack": 72,
+            "special_defense": 87,
+            "speed": 51
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Eoko",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/358.png",
+        "attacks": [
+            "Charge"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 50,
+            "defense": 80,
+            "special_attack": 95,
+            "special_defense": 90,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 455,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Absol",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/359.png",
+        "attacks": [
+            "Griffe",
+            "Coupe-Vent",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 130,
+            "defense": 60,
+            "special_attack": 75,
+            "special_defense": 60,
+            "speed": 75
+        },
+        "current_xp": 0,
+        "xp_evo": 465,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Okeoke",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/360.png",
+        "attacks": [
+            "Frappe Psy"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 23,
+            "defense": 48,
+            "special_attack": 23,
+            "special_defense": 48,
+            "speed": 23
+        },
+        "current_xp": 0,
+        "xp_evo": 260,
+        "evo": {
+            "name": "Qulbutoke",
+            "file": "pokemon_gen2_normal.json"
+        }
+    },
+    {
+        "name": "Stalgamin",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/361.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Plaquage",
+            "Belier"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 50,
+            "defense": 50,
+            "special_attack": 50,
+            "special_defense": 50,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Oniglali",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Oniglali",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/362.png",
+        "attacks": [
+            "Laser Glace"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 80,
+            "defense": 80,
+            "special_attack": 80,
+            "special_defense": 80,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Obalie",
+        "type": [
+            "glace",
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/363.png",
+        "attacks": [
+            "Laser Glace",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 40,
+            "defense": 50,
+            "special_attack": 55,
+            "special_defense": 50,
+            "speed": 25
+        },
+        "current_xp": 0,
+        "xp_evo": 290,
+        "evo": {
+            "name": "Phogleur",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Phogleur",
+        "type": [
+            "glace",
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/364.png",
+        "attacks": [
+            "Laser Glace",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 60,
+            "defense": 70,
+            "special_attack": 75,
+            "special_defense": 70,
+            "speed": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "Kaimorse",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Kaimorse",
+        "type": [
+            "glace",
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/365.png",
+        "attacks": [
+            "Laser Glace",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 110,
+            "attack": 80,
+            "defense": 90,
+            "special_attack": 95,
+            "special_defense": 90,
+            "speed": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Coquiperl",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/366.png",
+        "attacks": [
+            "Plaquage",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 35,
+            "attack": 64,
+            "defense": 85,
+            "special_attack": 74,
+            "special_defense": 55,
+            "speed": 32
+        },
+        "current_xp": 0,
+        "xp_evo": 345,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Serpang",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/367.png",
+        "attacks": [
+            "Pistolet a O",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 104,
+            "defense": 105,
+            "special_attack": 94,
+            "special_defense": 75,
+            "speed": 52
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Rosabyss",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/368.png",
+        "attacks": [
+            "Pistolet a O",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 84,
+            "defense": 105,
+            "special_attack": 114,
+            "special_defense": 75,
+            "speed": 52
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Relicanth",
+        "type": [
+            "eau",
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/369.png",
+        "attacks": [
+            "Pistolet a O",
+            "Plaquage",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 90,
+            "defense": 130,
+            "special_attack": 45,
+            "special_defense": 65,
+            "speed": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Lovdisc",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/370.png",
+        "attacks": [
+            "Charge",
+            "Pistolet a O"
+        ],
+        "stats": {
+            "hp": 43,
+            "attack": 30,
+            "defense": 55,
+            "special_attack": 40,
+            "special_defense": 65,
+            "speed": 97
+        },
+        "current_xp": 0,
+        "xp_evo": 330,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Draby",
+        "type": [
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/371.png",
+        "attacks": [
+            "Coupe",
+            "Dracochoc",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 45,
+            "attack": 75,
+            "defense": 60,
+            "special_attack": 40,
+            "special_defense": 30,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Drackhaus",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Drackhaus",
+        "type": [
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/372.png",
+        "attacks": [
+            "Coupe",
+            "Dracochoc",
+            "Morsure",
+            "Cru-Aile"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 95,
+            "defense": 100,
+            "special_attack": 60,
+            "special_defense": 50,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "Drattak",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Drattak",
+        "type": [
+            "dragon",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/373.png",
+        "attacks": [
+            "Dracochoc",
+            "Lance Flamme",
+            "Vent Violent",
+            "Lame de Roc"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 135,
+            "defense": 80,
+            "special_attack": 110,
+            "special_defense": 80,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Terhal",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/374.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Belier"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 55,
+            "defense": 80,
+            "special_attack": 35,
+            "special_defense": 60,
+            "speed": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Métang",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Metang",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/375.png",
+        "attacks": [
+            "Poing Glace",
+            "Poing Eclair",
+            "Coupe"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 75,
+            "defense": 100,
+            "special_attack": 55,
+            "special_defense": 80,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "Metalosse",
+            "file": "pokemon_gen3_normal.json"
+        }
+    },
+    {
+        "name": "Metalosse",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/376.png",
+        "attacks": [
+            "Poing Glace",
+            "Poing Eclair",
+            "Frappe Psy"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 135,
+            "defense": 130,
+            "special_attack": 95,
+            "special_defense": 90,
+            "speed": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Regirock",
+        "type": [
+            "roche"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/377.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Jet de Pierre"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 100,
+            "defense": 200,
+            "special_attack": 50,
+            "special_defense": 100,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Regice",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/378.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Glace",
+            "Laser Glace"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 50,
+            "defense": 100,
+            "special_attack": 100,
+            "special_defense": 200,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Registeel",
+        "type": [
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/379.png",
+        "attacks": [
+            "Ultimapoing",
+            "Queue de fer",
+            "Poing Eclair"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 75,
+            "defense": 150,
+            "special_attack": 75,
+            "special_defense": 150,
+            "speed": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Latias",
+        "type": [
+            "dragon",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/380.png",
+        "attacks": [
+            "Frappe Psy",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 80,
+            "defense": 90,
+            "special_attack": 110,
+            "special_defense": 130,
+            "speed": 110
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Latios",
+        "type": [
+            "dragon",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/381.png",
+        "attacks": [
+            "Frappe Psy",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 90,
+            "defense": 80,
+            "special_attack": 130,
+            "special_defense": 110,
+            "speed": 110
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Kyogre",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/382.png",
+        "attacks": [
+            "Giga Impact",
+            "Laser Glace",
+            "Surf",
+            "Tonnerre"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 90,
+            "special_attack": 150,
+            "special_defense": 140,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 670,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Groudon",
+        "type": [
+            "sol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/383.png",
+        "attacks": [
+            "Cannicule",
+            "Poing Feu",
+            "Seisme",
+            "Lame de Roc"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 150,
+            "defense": 140,
+            "special_attack": 100,
+            "special_defense": 90,
+            "speed": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 670,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Rayquaza",
+        "type": [
+            "dragon",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png",
+        "attacks": [
+            "Vent Glace",
+            "Vent Violent",
+            "Seisme",
+            "Dracochoc"
+        ],
+        "stats": {
+            "hp": 105,
+            "attack": 150,
+            "defense": 90,
+            "special_attack": 150,
+            "special_defense": 90,
+            "speed": 95
+        },
+        "current_xp": 0,
+        "xp_evo": 680,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Jirachi",
+        "type": [
+            "acier",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/385.png",
+        "attacks": [
+            "Fouet Lianes",
+            "Frappe Psy",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 100,
+            "attack": 100,
+            "defense": 100,
+            "special_attack": 100,
+            "special_defense": 100,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Deoxys",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/386.png",
+        "attacks": [
+            "Poing Feu",
+            "Poing Glace",
+            "Frappe Psy",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 150,
+            "defense": 50,
+            "special_attack": 150,
+            "special_defense": 50,
+            "speed": 150
+        },
+        "current_xp": 0,
+        "xp_evo": 600,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    }
+]
