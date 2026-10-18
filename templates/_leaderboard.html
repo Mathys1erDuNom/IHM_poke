@@ -10,7 +10,10 @@
         <li class="leaderboard-item">
           <span class="leaderboard-rank">#{{ loop.index }}</span>
           <span class="leaderboard-user">{{ item.display_name }}</span>
-          <span class="leaderboard-balance">{{ item.balance }} ₽</span>
+          <span class="leaderboard-balance">
+            {{ item.balance }}
+            <img class="leaderboard-coin" src="{{ url_for('coin_image') }}" alt="pièces" />
+          </span>
         </li>
       {% endfor %}
     </ol>

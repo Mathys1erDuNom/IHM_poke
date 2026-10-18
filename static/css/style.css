@@ -704,8 +704,18 @@ body {
 }
 
 .leaderboard-balance {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-weight: 700;
   color: var(--accent-green);
+}
+
+.leaderboard-coin {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .leaderboard-empty {

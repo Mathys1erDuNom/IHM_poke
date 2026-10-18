@@ -448,6 +448,11 @@ def pokemon_gif(filename):
     return send_from_directory(IMAGES_GIF_DIR, filename)
 
 
+@app.route("/images/coin.png")
+def coin_image():
+    return send_from_directory(os.path.join(BASE_DIR, "images"), "coin.png")
+
+
 @app.route("/api/collections")
 def list_collections():
     """
