@@ -82,8 +82,13 @@ def ensure_table_exists():
                 attacks     JSONB,
                 current_xp  INT DEFAULT 0,
                 xp_evo      INT DEFAULT 0,
-                evo         JSONB DEFAULT '{"name": "pas evo", "file": "pas evo"}'::jsonb
+                evo         JSONB DEFAULT '{"name": "pas evo", "file": "pas evo"}'::jsonb,
+                captured_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
             );
+        """)
+        cur.execute("""
+            ALTER TABLE new_captures
+            ADD COLUMN IF NOT EXISTS captured_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
         """)
         cur.execute("""
             CREATE TABLE IF NOT EXISTS argent (
@@ -486,9 +491,9 @@ def list_collections():
     """
     with get_cursor() as cur:
         cur.execute("""
-            SELECT user_id, name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo
+            SELECT user_id, name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo, captured_at
             FROM new_captures
-            ORDER BY user_id, name ASC
+            ORDER BY user_id, captured_at DESC, name ASC
         """)
         rows = cur.fetchall()
 
@@ -526,13 +531,13 @@ def list_trainers():
 
 @app.route("/api/trainers/<user_id>/pokemons")
 def list_pokemons(user_id):
-    """Retourne la collection complète d'un dresseur, triée par ordre alphabétique."""
+    """Retourne la collection complète d'un dresseur, du Pokémon le plus récent au plus ancien."""
     with get_cursor() as cur:
         cur.execute("""
-            SELECT name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo
+            SELECT name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo, captured_at
             FROM new_captures
             WHERE user_id = %s
-            ORDER BY name ASC
+            ORDER BY captured_at DESC, name ASC
         """, (str(user_id),))
         rows = cur.fetchall()
     return jsonify(rows)
@@ -546,10 +551,10 @@ def list_my_pokemons():
 
     with get_cursor() as cur:
         cur.execute("""
-            SELECT name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo
+            SELECT name, ivs, stats, image, type, attacks, current_xp, xp_evo, evo, captured_at
             FROM new_captures
             WHERE user_id = %s
-            ORDER BY name ASC
+            ORDER BY captured_at DESC, name ASC
         """, (discord_user["id"],))
         rows = cur.fetchall()
     return jsonify(rows)
