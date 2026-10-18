@@ -75,7 +75,7 @@ let currentSort = "recent"; // "recent" ou "alpha"
 init();
 
 async function init() {
-  loadingStateEl.hidden = false;
+  loadingStateEl.hidden = Boolean(personalUserId);
   placeholderEl.hidden = true;
 
   try {
@@ -87,6 +87,7 @@ async function init() {
     }
   } catch (err) {
     loadingStateEl.textContent = "Impossible de charger la collection. Vérifie la connexion à la base.";
+    loadingStateEl.hidden = false;
     return;
   }
 
@@ -114,6 +115,7 @@ async function init() {
     if (currentPage > 1) {
       currentPage -= 1;
       renderGrid();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
 
@@ -124,6 +126,7 @@ async function init() {
     if (currentPage < maxPage) {
       currentPage += 1;
       renderGrid();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   });
 
