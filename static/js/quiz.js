@@ -34,13 +34,16 @@ answerButtons.forEach((button) => {
         window.location.assign("/connexion");
         return;
       }
+      if (response.status === 409) {
+        feedback.classList.add("is-error");
+        feedback.textContent = result.message;
+        return;
+      }
       if (!response.ok) throw new Error(result.message || "Le quiz a expiré.");
 
       if (!result.correct) {
-        answerPending = false;
         button.classList.remove("is-selected");
         button.classList.add("is-wrong");
-        answerButtons.forEach((option) => { option.disabled = false; });
         feedback.classList.add("is-error");
         feedback.textContent = result.message;
         return;

@@ -264,7 +264,11 @@ def quiz_answer():
 
     submitted_digest = quiz_answer_digest(challenge["id"], payload["answer"])
     if not hmac.compare_digest(submitted_digest, challenge["answer_digest"]):
-        return jsonify({"correct": False, "message": "Mauvaise réponse, essaie encore."})
+        session.pop("quiz_challenge", None)
+        return jsonify({
+            "correct": False,
+            "message": "Mauvaise réponse. Tu ne peux plus répondre à cette question.",
+        })
 
     reward = challenge["pokemon"]
     user_id = session["discord_user"]["id"]
