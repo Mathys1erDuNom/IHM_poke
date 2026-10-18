@@ -1,0 +1,744 @@
+[
+  {
+    "name": "Charge",
+    "type": "normal",
+    "damage": 15,
+    "category": "physique"
+  },
+  {
+    "name": "Morsure",
+    "type": "tenebres",
+    "damage": 60,
+    "category": "physique"
+  },
+  {
+    "name": "Griffe",
+    "type": "normal",
+    "damage": 18,
+    "category": "physique"
+  },
+  {
+    "name": "Queue de fer",
+    "type": "acier",
+    "damage": 22,
+    "category": "physique"
+  },
+  {
+    "name": "Eclair",
+    "type": "electrique",
+    "damage": 25,
+    "category": "speciale"
+  },
+  {
+    "name": "Fouet Lianes",
+    "type": "plante",
+    "damage": 35,
+    "category": "physique"
+  },
+  {
+    "name": "Vampigraine",
+    "type": "plante",
+    "damage": 0,
+    "category": "statut",
+    "effect": "recuperation"
+  },
+  {
+    "name": "Canon Graine",
+    "type": "plante",
+    "damage": 40,
+    "category": "speciale"
+  },
+  {
+    "name": "Flammeche",
+    "type": "feu",
+    "damage": 40,
+    "category": "speciale"
+  },
+  {
+    "name": "Lance-Flammes",
+    "type": "feu",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Dracochoc",
+    "type": "dragon",
+    "damage": 85,
+    "category": "speciale"
+  },
+  {
+    "name": "Pistolet a O",
+    "type": "eau",
+    "damage": 40,
+    "category": "special"
+  },
+  {
+    "name": "Hydrocanon",
+    "type": "eau",
+    "damage": 110,
+    "category": "speciale"
+  },
+  {
+    "name": "Toxic",
+    "type": "poison",
+    "damage": 0,
+    "category": "statut",
+    "effect": "poison"
+  },
+  {
+    "name": "Boutefeu",
+    "type": "feu",
+    "damage": 0,
+    "category": "statut",
+    "effect": "brule"
+  },
+  {
+    "name": "Coud’Boule",
+    "type": "normal",
+    "damage": 30,
+    "category": "physique"
+  },
+  {
+    "name": "Vive-Attaque",
+    "type": "normal",
+    "damage": 40,
+    "category": "physique"
+  },
+  {
+    "name": "Groz’Yeux",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse defense"
+  },
+  {
+    "name": "Rugissement",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse attaque"
+  },
+  {
+    "name": "Seisme",
+    "type": "sol",
+    "damage": 100,
+    "category": "physique"
+  },
+  {
+    "name": "Crocs Feu",
+    "type": "feu",
+    "damage": 65,
+    "category": "physique"
+  },
+  {
+    "name": "Ecume",
+    "type": "eau",
+    "damage": 20,
+    "category": "speciale"
+  },
+  {
+    "name": "Vive-Attaque",
+    "type": "normal",
+    "damage": 40,
+    "category": "physique"
+  },
+  {
+    "name": "Poudre Dodo",
+    "type": "plante",
+    "damage": 0,
+    "category": "statut",
+    "effect": "sommeil"
+  },
+  {
+    "name": "Parfum",
+    "type": "plante",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse esquive"
+  },
+  {
+    "name": "Dard-Venin",
+    "type": "poison",
+    "damage": 15,
+    "category": "physique"
+  },
+  {
+    "name": "Bomb-Beurk",
+    "type": "poison",
+    "damage": 90,
+    "category": "speciale"
+  },
+  
+  {
+    "name": "Coup d'Boule",
+    "type": "normal",
+    "damage": 70,
+    "category": "physique"
+  },
+  {
+    "name": "Jet de Sable",
+    "type": "sol",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse precision"
+  },
+  {
+    "name": "Armure",
+    "type": "acier",
+    "damage": 0,
+    "category": "statut",
+    "effect": "augmente defense"
+  },
+  {
+    "name": "Laser Glace",
+    "type": "glace",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Charme",
+    "type": "fee",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse attaque"
+  },
+  {
+    "name": "Choc Psy",
+    "type": "psy",
+    "damage": 70,
+    "category": "speciale"
+  },
+  {
+    "name": "Psyko",
+    "type": "psy",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Rafale Psy",
+    "type": "psy",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Bluff",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "vole objet"
+  },
+  {
+    "name": "Pique",
+    "type": "insecte",
+    "damage": 80,
+    "category": "physique"
+  },
+  {
+    "name": "Eclats Glace",
+    "type": "glace",
+    "damage": 40,
+    "category": "physique"
+  },
+  {
+    "name": "Boule Elek",
+    "type": "electrique",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Poing Karate",
+    "type": "combat",
+    "damage": 50,
+    "category": "physique"
+  },
+  {
+    "name": "Cru-Aile",
+    "type": "vol",
+    "damage": 60,
+    "category": "physique"
+  },
+  {
+    "name": "Brouillard",
+    "type": "glace",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse precision"
+  },
+  {
+    "name": "Transformation",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "copie"
+  },
+  {
+    "name": "Trempette",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "aucun"
+  },
+  {
+    "name": "Plaquage",
+    "type": "normal",
+    "damage": 85,
+    "category": "physique"
+  },
+  {
+    "name": "Vent Glace",
+    "type": "glace",
+    "damage": 55,
+    "category": "speciale"
+  },
+  {
+    "name": "Braise",
+    "type": "feu",
+    "damage": 30,
+    "category": "speciale"
+  },
+  {
+    "name": "Trempette",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "aucun"
+  },
+  {
+    "name": "Seisme",
+    "type": "sol",
+    "damage": 100,
+    "category": "physique"
+  },
+  {
+    "name": "Aura Sphere",
+    "type": "combat",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Atterrissage",
+    "type": "vol",
+    "damage": 0,
+    "category": "statut",
+    "effect": "recuperation"
+  },
+  {
+    "name": "Bouclier",
+    "type": "acier",
+    "damage": 0,
+    "category": "statut",
+    "effect": "augmente defense"
+  },
+  {
+    "name": "Boue-Bombe",
+    "type": "sol",
+    "damage": 65,
+    "category": "speciale"
+  },
+  {
+    "name": "Balle Ombre",
+    "type": "spectre",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Chant",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "endormissement"
+  },
+  {
+    "name": "Constriction",
+    "type": "normal",
+    "damage": 10,
+    "category": "physique",
+    "effect": "ralentissement"
+  },
+  {
+    "name": "Corps Perdu",
+    "type": "normal",
+    "damage": 60,
+    "category": "physique"
+  },
+  {
+    "name": "Explosion",
+    "type": "normal",
+    "damage": 250,
+    "category": "physique"
+  },
+  {
+    "name": "Gaz Toxik",
+    "type": "poison",
+    "damage": 0,
+    "category": "statut",
+    "effect": "empoisonnement grave"
+  },
+  {
+    "name": "Lance-Pierre",
+    "type": "roche",
+    "damage": 15,
+    "category": "physique"
+  },
+  {
+    "name": "Lance-Soleil",
+    "type": "plante",
+    "damage": 120,
+    "category": "speciale"
+  },
+  {
+    "name": "Lechouille",
+    "type": "spectre",
+    "damage": 30,
+    "category": "physique",
+    "effect": "ralentissement"
+  },
+  {
+    "name": "Marelle",
+    "type": "fee",
+    "damage": 60,
+    "category": "physique"
+  },
+  {
+    "name": "Picpic",
+    "type": "vol",
+    "damage": 35,
+    "category": "physique"
+  },
+  {
+    "name": "Pince",
+    "type": "insecte",
+    "damage": 25,
+    "category": "physique"
+  },
+  {
+    "name": "Piqure",
+    "type": "insecte",
+    "damage": 15,
+    "category": "physique"
+  },
+  {
+    "name": "Poing-Eclair",
+    "type": "electrique",
+    "damage": 75,
+    "category": "physique"
+  },
+  {
+    "name": "Pouvoir Lunaire",
+    "type": "fee",
+    "damage": 95,
+    "category": "speciale"
+  },
+  {
+    "name": "Siphon",
+    "type": "eau",
+    "damage": 20,
+    "category": "physique",
+    "effect": "recuperation"
+  },
+  {
+    "name": "Spore",
+    "type": "plante",
+    "damage": 0,
+    "category": "statut",
+    "effect": "paralysie/sommeil"
+  },
+  {
+    "name": "Tonnerre",
+    "type": "electrique",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Tranche",
+    "type": "normal",
+    "damage": 70,
+    "category": "physique"
+  },
+  {
+    "name": "Teleport",
+    "type": "psy",
+    "damage": 0,
+    "category": "statut",
+    "effect": "fuite"
+  },
+  {
+    "name": "Ultrason",
+    "type": "normal",
+    "damage": 0,
+    "category": "statut",
+    "effect": "baisse precision"
+  },
+  {
+    "name": "Ultralaser",
+    "type": "normal",
+    "damage": 130,
+    "category": "speciale"
+  },
+  {
+    "name": "Vent Violent",
+    "type": "vol",
+    "damage": 120,
+    "category": "speciale"
+  },
+  {
+    "name": "Vol",
+    "type": "vol",
+    "damage": 90,
+    "category": "physique"
+  },
+  {
+    "name": "Ecrasement",
+    "type": "normal",
+    "damage": 75,
+    "category": "physique"
+  },
+  
+  { "name": "Puissance Cachee", "type": "normal", "damage": 0, "category": "speciale" },
+  { "name": "Poing Comete", "type": "normal", "damage": 18, "category": "physique" },
+  { "name": "EcraseFace", "type": "normal", "damage": 35, "category": "physique" },
+  { "name": "Poing Karate", "type": "combat", "damage": 50, "category": "physique" },
+  { "name": "Coupe-Vent", "type": "vol", "damage": 80, "category": "physique" },
+  { "name": "Poing Feu", "type": "feu", "damage": 75, "category": "speciale" },
+  { "name": "Tornade", "type": "vol", "damage": 40, "category": "physique" },
+  { "name": "Mawashi Geri", "type": "combat", "damage": 60, "category": "physique" },
+  { "name": "Torgnoles", "type": "normal", "damage": 15, "category": "physique" },
+  { "name": "Guillotine", "type": "normal", "damage": 50, "category": "physique" },
+  { "name": "Jackpot", "type": "normal", "damage": 40, "category": "physique" },
+  { "name": "Gribouille", "type": "normal", "damage": 0, "category": "physique" },
+  { "name": "Souplesse", "type": "normal", "damage": 80, "category": "physique" },
+  { "name": "Ecrasement", "type": "normal", "damage": 65, "category": "physique" },
+  { "name": "Danse Lames", "type": "normal", "damage": 0, "category": "physique" },
+  { "name": "Coup dBoule", "type": "normal", "damage": 70, "category": "physique" },
+  { "name": "Riposte", "type": "combat", "damage": 0, "category": "physique" },
+  { "name": "Poing Eclair", "type": "electrik", "damage": 75, "category": "speciale" },
+  { "name": "Double Pied", "type": "combat", "damage": 30, "category": "physique" },
+  { "name": "Cyclone", "type": "normal", "damage": 0, "category": "physique" },
+  { "name": "Ligotage", "type": "normal", "damage": 15, "category": "physique" },
+  { "name": "Amnesie", "type": "psy", "damage": 0, "category": "speciale" },
+  { "name": "KoudeKorne", "type": "glace", "damage": 40, "category": "speciale" },
+  { "name": "Belier", "type": "normal", "damage": 90, "category": "physique" },
+  { "name": "Furie", "type": "normal", "damage": 15, "category": "physique" },
+  { "name": "Pied Saute", "type": "combat", "damage": 70, "category": "physique" },
+  { "name": "Coupe", "type": "normal", "damage": 50, "category": "physique" },
+  { "name": "Damocles", "type": "normal", "damage": 120, "category": "physique" },
+  { "name": "Etreinte", "type": "normal", "damage": 15, "category": "physique" },
+  { "name": "Ultimawashi", "type": "combat", "damage": 100, "category": "physique" },
+  { "name": "Ultimapoing", "type": "combat", "damage": 80, "category": "physique" },
+  { "name": "Poing Glace", "type": "glace", "damage": 75, "category": "speciale" },
+  { "name": "Cru-Ailes", "type": "vol", "damage": 35, "category": "physique" },
+  {
+    "name": "Brume",
+    "type": "glace",
+    "damage": 0,
+    "category": "statut"
+  },
+  {
+    "name": "Coup d’Boule",
+    "type": "normal",
+    "damage": 70,
+    "category": "physique"
+  },
+  {
+    "name": "Ecras’Face",
+    "type": "normal",
+    "damage": 40,
+    "category": "physique"
+  },
+  {
+    "name": "Force Poigne",
+    "type": "normal",
+    "damage": 55,
+    "category": "physique"
+  },
+  {
+    "name": "Mania",
+    "type": "normal",
+    "damage": 120,
+    "category": "physique"
+  },
+  {
+    "name": "Secretion",
+    "type": "insecte",
+    "damage": 0,
+    "category": "statut"
+  },
+  {
+    "name": "Jet de Pierre",
+    "type": "roche",
+    "damage": 50,
+    "category": "physique"
+  },
+  {
+    "name": "Frappe Psy",
+    "type": "psy",
+    "damage": 100,
+    "category": "speciale"
+  },
+  {
+    "name": "Tempete Verte",
+    "type": "plante",
+    "damage": 90,
+    "category": "speciale"
+  },
+  {
+    "name": "Poing Feu",
+    "type": "feu",
+    "damage": 75,
+    "category": "physique"
+  },
+  {
+    "name": "Close Combat",
+    "type": "combat",
+    "damage": 90,
+    "category": "physique"
+  },
+  {
+    "name": "Surf",
+    "type": "eau",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Griffe Acier",
+    "type": "acier",
+    "damage": 50,
+    "category": "physique"
+  },
+  {
+    "name": "Croc Eclair",
+    "type": "electrik",
+    "damage": 55,
+    "category": "physique"
+  },
+  {
+    "name": "Eclat Magique",
+    "type": "fee",
+    "damage": 70,
+    "category": "speciale"
+  },
+  {
+    "name": "Eboulement",
+    "type": "roche",
+    "damage": 65,
+    "category": "physique"
+  },
+  {
+    "name": "Vent Violent",
+    "type": "vol",
+    "damage": 70,
+    "category": "speciale"
+  },
+  {
+    "name": "Bourdon",
+    "type": "insecte",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Meteore",
+    "type": "normal",
+    "damage": 60,
+    "category": "speciale"
+  },
+  {
+    "name": "Tranche-Nuit",
+    "type": "tenebres",
+    "damage": 70,
+    "category": "physique"
+  },
+  {
+    "name": "Vibrobscur",
+    "type": "tenebres",
+    "damage": 80,
+    "category": "speciale"
+  },
+  {
+    "name": "Colere",
+    "type": "dragon",
+    "damage": 90,
+    "category": "physique"
+  },
+  {
+    "name": "Dracochoc",
+    "type": "dragon",
+    "damage": 85,
+    "category": "speciale"
+  },
+  {
+    "name": "Dracogriffe",
+    "type": "dragon",
+    "damage": 80,
+    "category": "physique"
+  },
+  {
+    "name": "Direct Toxik",
+    "type": "poison",
+    "damage": 80,
+    "category": "physique"
+  },
+  {
+    "name": "Luminocanon",
+    "type": "acier",
+    "damage": 80,
+    "category": "special"
+  },
+  {
+    "name": "Giga Impact",
+    "type": "normal",
+    "damage": 150,
+    "category": "physique"
+  },
+  {
+    "name": "Laser Glace",
+    "type": "glace",
+    "damage": 90,
+    "category": "special"
+  },
+  {
+    "name": "Hurle-Temps",
+    "type": "dragon",
+    "damage": 150,
+    "category": "special"
+  },
+  {
+    "name": "Spatio-Rift",
+    "type": "dragon",
+    "damage": 150,
+    "category": "special"
+  },
+  {
+    "name": "Telluriforce",
+    "type": "sol",
+    "damage": 90,
+    "category": "special"
+  },
+  {
+    "name": "Aurasphere",
+    "type": "combat",
+    "damage": 80,
+    "category": "special"
+  },
+  {
+    "name": "Cannicule",
+    "type": "feu",
+    "damage": 95,
+    "category": "special"
+  },
+  {
+    "name": "Lame de Roc",
+    "type": "roche",
+    "damage": 100,
+    "category": "special"
+  },
+  {
+    "name": "Jugement",
+    "type": "normal",
+    "damage": 100,
+    "category": "special"
+  }
+  
+
+
+
+]
