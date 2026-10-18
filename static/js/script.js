@@ -195,8 +195,9 @@ function getTimestamp(pokemon) {
 function sortPokemons(list, mode) {
   const arr = [...list];
 
-  if (mode === "alpha") {
-    arr.sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+  if (mode === "alpha" || mode === "reverse-alpha") {
+    const direction = mode === "alpha" ? 1 : -1;
+    arr.sort((a, b) => direction * a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
     return arr;
   }
 
