@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Préparer un combat · Pokédex</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4" />
+</head>
+<body>
+  <div class="device">
+    <header class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span><span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span><span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Préparer un combat</h1>
+      <a href="{{ url_for('compte') }}" class="back-button">← Retour</a>
+    </header>
+    <main class="screen">
+      <div class="screen-topline"><span>Choisis ton équipe et ton mode</span></div>
+      <div class="screen-body battle-setup" id="battle-setup" data-endpoint="{{ url_for('create_battle') }}" data-max-team="{{ max_team_size }}">
+        {% if not pokemon %}
+          <p class="battle-notice">Ta collection ne contient aucun Pokémon jouable.</p>
+        {% else %}
+          <form id="battle-form">
+            <fieldset class="battle-fieldset">
+              <legend>Mode de combat</legend>
+              <div class="battle-mode-options">
+                <label class="battle-mode-option"><input type="radio" name="mode" value="team" checked /> <span>Combat contre une équipe</span></label>
+                <label class="battle-mode-option"><input type="radio" name="mode" value="waves" /> <span>Vagues / Série</span></label>
+              </div>
+            </fieldset>
+
+            <section class="battle-enemy-options" id="enemy-options">
+              <label for="enemy-mode">Équipe adverse</label>
+              <select id="enemy-mode" name="enemy-mode">
+                <option value="random">Équipe aléatoire</option>
+                {% for team in teams %}
+                  <option value="predefined" data-team-id="{{ team.id }}">{{ team.name }}</option>
+                {% endfor %}
+              </select>
+            </section>
+
+            <div class="battle-selection-heading">
+              <h2>Ton équipe</h2>
+              <span id="team-count">0 / {{ max_team_size }}</span>
+            </div>
+            <div class="battle-pokemon-picker">
+              {% for item in pokemon %}
+                <label class="battle-pokemon-choice">
+                  <input type="checkbox" name="pokemon" value="{{ item.name }}" />
+                  {% if item.gif_url %}<img src="{{ item.gif_url }}" alt="" loading="lazy" />{% endif %}
+                  <span class="battle-pokemon-info">
+                    <strong>{{ item.name }}</strong>
+                    <span>Niv. {{ item.level }} · {{ item.types|join(' / ') }}</span>
+                    <span>PV {{ item.max_hp }} · Atq {{ item.stats.attack }} · Déf {{ item.stats.defense }}</span>
+                  </span>
+                </label>
+              {% endfor %}
+            </div>
+            <p class="battle-form-error" id="battle-form-error" role="alert"></p>
+            <button class="pokedex-button battle-start" id="battle-start" type="submit">Lancer le combat</button>
+          </form>
+        {% endif %}
+      </div>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='js/battle-setup.js') }}?v=1" defer></script>
+</body>
+</html>

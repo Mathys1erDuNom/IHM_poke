@@ -1,0 +1,134 @@
+{
+  "combat": {
+    "max_team_size": 6,
+    "minimum_team_size": 1,
+    "player_level": 50,
+    "team_enemy_level": 50,
+    "stab_multiplier": 1.5,
+    "critical_chance": 0.0625,
+    "critical_multiplier": 1.5,
+    "damage_random_min": 0.85,
+    "damage_random_max": 1.0,
+    "secondary_status_chance": 0.3,
+    "stage_min": -6,
+    "stage_max": 6,
+    "items": {
+      "potion": {"label": "Potion", "uses_per_battle": 3, "heal_fraction": 0.35}
+    }
+  },
+  "damage_formula": {
+    "level_divisor": 5,
+    "level_offset": 2,
+    "power_divisor": 50,
+    "base_add": 2,
+    "minimum_damage": 1
+  },
+  "stat_formula": {
+    "level_divisor": 100,
+    "hp_level_bonus": 10,
+    "other_stat_level_bonus": 5
+  },
+  "data_defaults": {
+    "attack_accuracy": 100,
+    "attack_pp": 15,
+    "missing_stat": 1,
+    "missing_type": "normal",
+    "duplicate_attack_policy": "first_in_file",
+    "unsupported_attack_effects": ["aucun", "copie", "vole objet", "fuite"],
+    "attack_aliases": {
+      "bombe beurk": "bomb beurk",
+      "chage": "charge",
+      "lance flamme": "lance flammes",
+      "meteores": "meteore",
+      "koud korne": "koude korne"
+    },
+    "fallback_move": {
+      "name": "Lutte",
+      "type": "normal",
+      "damage": 50,
+      "category": "physique",
+      "accuracy": 100,
+      "pp": 1,
+      "recoil_fraction": 0.25,
+      "configured_fallback": true
+    }
+  },
+  "type_aliases": {
+    "electrique": "electrik",
+    "electrik": "electrik",
+    "dark": "tenebres",
+    "steel": "acier",
+    "fairy": "fee",
+    "ground": "sol",
+    "flying": "vol",
+    "bug": "insecte",
+    "ghost": "spectre",
+    "fighting": "combat",
+    "grass": "plante",
+    "water": "eau",
+    "fire": "feu",
+    "ice": "glace",
+    "psychic": "psy",
+    "rock": "roche",
+    "dragon": "dragon",
+    "normal": "normal",
+    "poison": "poison"
+  },
+  "effectiveness": {
+    "normal": {"roche": 0.5, "acier": 0.5, "spectre": 0.0},
+    "feu": {"plante": 2.0, "glace": 2.0, "insecte": 2.0, "acier": 2.0, "feu": 0.5, "eau": 0.5, "roche": 0.5, "dragon": 0.5},
+    "eau": {"feu": 2.0, "sol": 2.0, "roche": 2.0, "eau": 0.5, "plante": 0.5, "dragon": 0.5},
+    "electrik": {"eau": 2.0, "vol": 2.0, "electrik": 0.5, "plante": 0.5, "dragon": 0.5, "sol": 0.0},
+    "plante": {"eau": 2.0, "sol": 2.0, "roche": 2.0, "feu": 0.5, "plante": 0.5, "poison": 0.5, "vol": 0.5, "insecte": 0.5, "dragon": 0.5, "acier": 0.5},
+    "glace": {"plante": 2.0, "sol": 2.0, "vol": 2.0, "dragon": 2.0, "feu": 0.5, "eau": 0.5, "glace": 0.5, "acier": 0.5},
+    "combat": {"normal": 2.0, "glace": 2.0, "roche": 2.0, "tenebres": 2.0, "acier": 2.0, "poison": 0.5, "vol": 0.5, "psy": 0.5, "insecte": 0.5, "fee": 0.5, "spectre": 0.0},
+    "poison": {"plante": 2.0, "fee": 2.0, "poison": 0.5, "sol": 0.5, "roche": 0.5, "spectre": 0.5, "acier": 0.0},
+    "sol": {"feu": 2.0, "electrik": 2.0, "poison": 2.0, "roche": 2.0, "acier": 2.0, "plante": 0.5, "insecte": 0.5, "vol": 0.0},
+    "vol": {"plante": 2.0, "combat": 2.0, "insecte": 2.0, "electrik": 0.5, "roche": 0.5, "acier": 0.5},
+    "psy": {"combat": 2.0, "poison": 2.0, "psy": 0.5, "acier": 0.5, "tenebres": 0.0},
+    "insecte": {"plante": 2.0, "psy": 2.0, "tenebres": 2.0, "feu": 0.5, "combat": 0.5, "poison": 0.5, "vol": 0.5, "spectre": 0.5, "acier": 0.5, "fee": 0.5},
+    "roche": {"feu": 2.0, "glace": 2.0, "vol": 2.0, "insecte": 2.0, "combat": 0.5, "sol": 0.5, "acier": 0.5},
+    "spectre": {"psy": 2.0, "spectre": 2.0, "tenebres": 0.5, "normal": 0.0},
+    "dragon": {"dragon": 2.0, "acier": 0.5, "fee": 0.0},
+    "tenebres": {"psy": 2.0, "spectre": 2.0, "combat": 0.5, "tenebres": 0.5, "fee": 0.5},
+    "acier": {"glace": 2.0, "roche": 2.0, "fee": 2.0, "feu": 0.5, "eau": 0.5, "electrik": 0.5, "acier": 0.5},
+    "fee": {"combat": 2.0, "dragon": 2.0, "tenebres": 2.0, "feu": 0.5, "poison": 0.5, "acier": 0.5}
+  },
+  "statuses": {
+    "burn": {"label": "Brûlure", "icon": "BRU", "damage_fraction": 0.0625, "physical_attack_multiplier": 0.5, "immune_types": ["feu"]},
+    "poison": {"label": "Poison", "icon": "PSN", "damage_fraction": 0.125, "immune_types": ["poison", "acier"]},
+    "paralysis": {"label": "Paralysie", "icon": "PAR", "speed_multiplier": 0.5, "immobilize_chance": 0.25, "immune_types": ["electrik"]},
+    "sleep": {"label": "Sommeil", "icon": "SOM", "minimum_turns": 1, "maximum_turns": 3},
+    "freeze": {"label": "Gel", "icon": "GEL", "thaw_chance": 0.2, "immune_types": ["glace"]}
+  },
+  "effect_aliases": {
+    "brule": "burn",
+    "poison": "poison",
+    "empoisonnement grave": "poison",
+    "sommeil": "sleep",
+    "endormissement": "sleep",
+    "gel": "freeze",
+    "gele": "freeze",
+    "freeze": "freeze",
+    "paralysie/sommeil": "random_paralysis_sleep",
+    "baisse attaque": "lower_attack",
+    "baisse defense": "lower_defense",
+    "augmente defense": "raise_defense",
+    "baisse precision": "lower_accuracy",
+    "baisse esquive": "lower_accuracy",
+    "ralentissement": "lower_speed",
+    "recuperation": "heal"
+  },
+  "enemy_generation": {
+    "team_mode": {"level_min": 35, "level_max": 50, "iv_min": 0, "iv_max": 15},
+    "wave_tiers": [
+      {"name": "Débutant", "waves": [1, 3], "base_stat_min": 180, "base_stat_max": 395, "level_min": 5, "level_max": 12, "iv_min": 0, "iv_max": 8},
+      {"name": "Intermédiaire", "waves": [4, 6], "base_stat_min": 300, "base_stat_max": 465, "level_min": 13, "level_max": 22, "iv_min": 8, "iv_max": 16},
+      {"name": "Confirmé", "waves": [7, 10], "base_stat_min": 395, "base_stat_max": 510, "level_min": 23, "level_max": 35, "iv_min": 14, "iv_max": 23},
+      {"name": "Expert", "waves": [11, 15], "base_stat_min": 465, "base_stat_max": 600, "level_min": 36, "level_max": 50, "iv_min": 20, "iv_max": 27},
+      {"name": "Maître", "waves": [16, 999], "base_stat_min": 500, "base_stat_max": 720, "level_min": 51, "level_max": 70, "iv_min": 24, "iv_max": 31}
+    ],
+    "wave_team_sizes": [3, 3, 4, 5, 6],
+    "default_team_size": 3
+  }
+}

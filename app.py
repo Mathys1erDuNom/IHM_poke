@@ -11,6 +11,9 @@ import psycopg2.extras
 import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, send_from_directory, session, url_for
+from battle.data import BattleData
+from battle.enemy import EnemyGenerator
+from battle.engine import BattleEngine
 
 load_dotenv()
 
@@ -48,6 +51,9 @@ app.config.update(
     SESSION_COOKIE_SECURE=os.getenv("SESSION_COOKIE_SECURE", "").lower() in {"1", "true", "yes"},
     PERMANENT_SESSION_LIFETIME=timedelta(days=7),
 )
+BATTLE_DATA = BattleData()
+BATTLE_ENGINE = BattleEngine(BATTLE_DATA)
+BATTLE_ENEMIES = EnemyGenerator(BATTLE_DATA)
 
 
 @contextmanager
@@ -94,6 +100,15 @@ def ensure_table_exists():
             CREATE TABLE IF NOT EXISTS argent (
                 user_id TEXT PRIMARY KEY,
                 balance INTEGER DEFAULT 0
+            );
+        """)
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS web_battles (
+                id TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL,
+                state JSONB NOT NULL,
+                created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+                updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
             );
         """)
         conn.commit()
@@ -244,6 +259,199 @@ def mes_pokemons():
     if not discord_user:
         return redirect(url_for("connexion"))
     return render_template("pokedex.html", discord_user=discord_user)
+
+
+def _owned_battle_pokemon(user_id):
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT name, ivs, stats, image
+            FROM new_captures
+            WHERE user_id = %s
+            ORDER BY name ASC
+        """, (user_id,))
+        rows = cur.fetchall()
+    output = []
+    for row in rows:
+        battler = BATTLE_DATA.player_battler(row)
+        if not battler:
+            continue
+        output.append({
+            "name": battler["name"],
+            "species": battler["species"],
+            "level": battler["level"],
+            "types": battler["types"],
+            "stats": battler["stats"],
+            "ivs": battler["ivs"],
+            "max_hp": battler["max_hp"],
+            "gif_url": battler["gif_url"],
+            "image": battler["image"],
+        })
+    return output
+
+
+@app.route("/combat")
+def combat_setup():
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return redirect(url_for("connexion"))
+    pokemon = _owned_battle_pokemon(discord_user["id"])
+    return render_template(
+        "combat_select.html",
+        discord_user=discord_user,
+        pokemon=pokemon,
+        teams=BATTLE_DATA.teams,
+        max_team_size=BATTLE_DATA.config["combat"]["max_team_size"],
+    )
+
+
+@app.route("/combat/<battle_id>")
+def combat_view(battle_id):
+    if not session.get("discord_user"):
+        return redirect(url_for("connexion"))
+    return render_template("combat.html", battle_id=battle_id)
+
+
+@app.route("/api/battles", methods=["POST"])
+def create_battle():
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return jsonify({"error": "Authentification requise."}), 401
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return jsonify({"error": "Requête de combat invalide."}), 400
+    mode = payload.get("mode")
+    names = payload.get("pokemon_names")
+    enemy_mode = payload.get("enemy_mode", "random")
+    max_team_size = BATTLE_DATA.config["combat"]["max_team_size"]
+    if mode not in {"team", "waves"}:
+        return jsonify({"error": "Mode de combat invalide."}), 400
+    if mode == "team" and enemy_mode not in {"random", "predefined"}:
+        return jsonify({"error": "Équipe adverse invalide."}), 400
+    if not isinstance(names, list) or not names or len(names) > max_team_size:
+        return jsonify({"error": f"Choisis entre 1 et {max_team_size} Pokémon."}), 400
+    if any(not isinstance(name, str) for name in names) or len(set(names)) != len(names):
+        return jsonify({"error": "La sélection contient un nom invalide ou un doublon."}), 400
+
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT name, ivs, stats, image
+            FROM new_captures
+            WHERE user_id = %s AND name = ANY(%s)
+        """, (discord_user["id"], names))
+        owned_records = cur.fetchall()
+    records_by_name = {record["name"]: record for record in owned_records}
+    if len(records_by_name) != len(names):
+        return jsonify({"error": "Un Pokémon sélectionné n'appartient pas à ta collection."}), 400
+
+    player_team = [BATTLE_DATA.player_battler(records_by_name[name]) for name in names]
+    if any(pokemon is None for pokemon in player_team):
+        return jsonify({"error": "La sélection contient un Pokémon sans données de combat."}), 400
+
+    if mode == "waves":
+        wave = 1
+        enemy_team = BATTLE_ENEMIES.random_wave_team(wave)
+    elif enemy_mode == "predefined":
+        team_id = payload.get("team_id", "")
+        if not any(team["id"] == team_id for team in BATTLE_DATA.teams):
+            return jsonify({"error": "Équipe prédéfinie introuvable."}), 400
+        enemy_team = BATTLE_ENEMIES.predefined_team(team_id)
+        wave = 0
+    else:
+        enemy_team = BATTLE_ENEMIES.random_team(len(player_team))
+        wave = 0
+    if not enemy_team:
+        return jsonify({"error": "Impossible de générer une équipe ennemie valide."}), 500
+
+    state = BATTLE_ENGINE.create_battle(player_team, enemy_team, mode=mode, wave=wave)
+    battle_id = secrets.token_urlsafe(24)
+    with get_cursor() as cur:
+        cur.execute("""
+            INSERT INTO web_battles (id, user_id, state)
+            VALUES (%s, %s, %s)
+        """, (battle_id, discord_user["id"], psycopg2.extras.Json(state)))
+    return jsonify({"battle_id": battle_id, "redirect": url_for("combat_view", battle_id=battle_id)})
+
+
+@app.route("/api/battles/<battle_id>")
+def get_battle(battle_id):
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return jsonify({"error": "Authentification requise."}), 401
+    with get_cursor() as cur:
+        cur.execute("SELECT state FROM web_battles WHERE id = %s AND user_id = %s", (battle_id, discord_user["id"]))
+        row = cur.fetchone()
+    if not row:
+        return jsonify({"error": "Combat introuvable."}), 404
+    return jsonify(row["state"])
+
+
+@app.route("/api/battles/<battle_id>/turn", methods=["POST"])
+def play_battle_turn(battle_id):
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return jsonify({"error": "Authentification requise."}), 401
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return jsonify({"error": "Action de combat invalide."}), 400
+    action = payload.get("action")
+    if not isinstance(action, dict) or action.get("kind") not in {"move", "switch", "item"}:
+        return jsonify({"error": "Action de combat invalide."}), 400
+    if action["kind"] == "move" and not isinstance(action.get("move_id"), str):
+        return jsonify({"error": "Attaque invalide."}), 400
+    if action["kind"] == "item" and not isinstance(action.get("item_id"), str):
+        return jsonify({"error": "Objet invalide."}), 400
+    if action["kind"] == "switch":
+        try:
+            action["index"] = int(action.get("index"))
+        except (TypeError, ValueError):
+            return jsonify({"error": "Pokémon invalide."}), 400
+
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT state FROM web_battles
+            WHERE id = %s AND user_id = %s
+            FOR UPDATE
+        """, (battle_id, discord_user["id"]))
+        row = cur.fetchone()
+        if not row:
+            return jsonify({"error": "Combat introuvable."}), 404
+        state = row["state"]
+        try:
+            BATTLE_ENGINE.play_turn(state, action)
+        except ValueError as error:
+            return jsonify({"error": str(error)}), 400
+        cur.execute("""
+            UPDATE web_battles SET state = %s, updated_at = NOW()
+            WHERE id = %s AND user_id = %s
+        """, (psycopg2.extras.Json(state), battle_id, discord_user["id"]))
+    return jsonify(state)
+
+
+@app.route("/api/battles/<battle_id>/next-wave", methods=["POST"])
+def next_battle_wave(battle_id):
+    discord_user = session.get("discord_user")
+    if not discord_user:
+        return jsonify({"error": "Authentification requise."}), 401
+    with get_cursor() as cur:
+        cur.execute("""
+            SELECT state FROM web_battles
+            WHERE id = %s AND user_id = %s
+            FOR UPDATE
+        """, (battle_id, discord_user["id"]))
+        row = cur.fetchone()
+        if not row:
+            return jsonify({"error": "Combat introuvable."}), 404
+        state = row["state"]
+        enemy_team = BATTLE_ENEMIES.random_wave_team(state.get("wave", 0) + 1)
+        try:
+            BATTLE_ENGINE.advance_wave(state, enemy_team)
+        except ValueError as error:
+            return jsonify({"error": str(error)}), 400
+        cur.execute("""
+            UPDATE web_battles SET state = %s, updated_at = NOW()
+            WHERE id = %s AND user_id = %s
+        """, (psycopg2.extras.Json(state), battle_id, discord_user["id"]))
+    return jsonify(state)
 
 
 @app.route("/quiz")

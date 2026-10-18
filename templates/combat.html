@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Combat Pokémon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4" />
+</head>
+<body>
+  <div class="device">
+    <header class="device-header">
+      <div class="lens-cluster">
+        <span class="lens lens-big"></span><span class="lens lens-small lens-red"></span>
+        <span class="lens lens-small lens-yellow"></span><span class="lens lens-small lens-green"></span>
+      </div>
+      <h1 class="brand">Combat Pokémon</h1>
+      <a href="{{ url_for('combat_setup') }}" class="back-button">Quitter</a>
+    </header>
+    <main class="screen" id="battle-app"
+          data-battle-id="{{ battle_id }}"
+          data-state-url="{{ url_for('get_battle', battle_id=battle_id) }}"
+          data-turn-url="{{ url_for('play_battle_turn', battle_id=battle_id) }}"
+          data-wave-url="{{ url_for('next_battle_wave', battle_id=battle_id) }}">
+      <div class="screen-topline battle-topline">
+        <span id="battle-heading">Chargement du combat…</span>
+        <span id="battle-turn"></span>
+      </div>
+      <div class="screen-body battle-layout">
+        <div class="battle-arena">
+          <section class="battle-side battle-enemy-side" aria-label="Pokémon adverse">
+            <div class="battle-statusline"><strong id="enemy-name">Adversaire</strong><span id="enemy-level"></span></div>
+            <div class="battle-types" id="enemy-types"></div>
+            <div class="battle-hp-track"><span id="enemy-hp-bar"></span></div>
+            <div class="battle-hp-label" id="enemy-hp-label"></div>
+            <span class="battle-status" id="enemy-status"></span>
+            <img class="battle-sprite" id="enemy-sprite" alt="Pokémon adverse" />
+          </section>
+          <div class="battle-divider"><span>VS</span></div>
+          <section class="battle-side battle-player-side" aria-label="Pokémon du joueur">
+            <img class="battle-sprite" id="player-sprite" alt="Pokémon actif" />
+            <div class="battle-statusline"><strong id="player-name">Ton Pokémon</strong><span id="player-level"></span></div>
+            <div class="battle-types" id="player-types"></div>
+            <div class="battle-hp-track"><span id="player-hp-bar"></span></div>
+            <div class="battle-hp-label" id="player-hp-label"></div>
+            <span class="battle-status" id="player-status"></span>
+          </section>
+        </div>
+
+        <section class="battle-controls">
+          <div class="battle-moves" id="battle-moves" aria-label="Attaques"></div>
+          <div class="battle-items" id="battle-items" aria-label="Objets"></div>
+          <div class="battle-party" id="battle-party" aria-label="Changer de Pokémon"></div>
+          <button class="pokedex-button battle-next-wave" id="battle-next-wave" hidden>Vague suivante</button>
+          <a href="{{ url_for('combat_setup') }}" class="back-button battle-restart" id="battle-restart" hidden>Nouveau combat</a>
+        </section>
+
+        <section class="battle-history" aria-label="Journal du combat">
+          <h2>Journal du combat</h2>
+          <ol id="battle-log" aria-live="polite"></ol>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='js/battle.js') }}?v=1" defer></script>
+</body>
+</html>

@@ -723,6 +723,403 @@ body {
   color: var(--muted);
 }
 
+.battle-setup {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.battle-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.battle-fieldset legend,
+.battle-selection-heading h2,
+.battle-history h2 {
+  margin: 0 0 10px;
+  font: 600 1.1rem "Fredoka", sans-serif;
+}
+
+.battle-mode-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.battle-mode-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+}
+
+.battle-mode-option input,
+.battle-pokemon-choice input {
+  accent-color: var(--shell-red);
+}
+
+.battle-enemy-options {
+  display: grid;
+  gap: 6px;
+  max-width: 360px;
+  margin: 16px 0 22px;
+  font-weight: 600;
+}
+
+.battle-enemy-options[hidden] {
+  display: none;
+}
+
+.battle-enemy-options select {
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  font: inherit;
+}
+
+.battle-selection-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.battle-selection-heading h2 {
+  margin-top: 0;
+}
+
+.battle-selection-heading span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.battle-pokemon-picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.battle-pokemon-choice {
+  display: grid;
+  grid-template-columns: 18px 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.battle-pokemon-choice:has(input:checked) {
+  border-color: var(--accent-green);
+  box-shadow: inset 0 0 0 1px var(--accent-green);
+}
+
+.battle-pokemon-choice img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.battle-pokemon-info {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.battle-pokemon-info strong,
+.battle-pokemon-info span {
+  overflow-wrap: anywhere;
+}
+
+.battle-pokemon-info span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.battle-form-error,
+.battle-notice {
+  min-height: 24px;
+  margin: 12px 0;
+  color: var(--shell-red-dark);
+  font-weight: 600;
+}
+
+.battle-start {
+  margin-top: 4px;
+}
+
+.battle-start:disabled,
+.battle-move:disabled,
+.battle-party-member:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.battle-layout {
+  display: grid;
+  gap: 16px;
+}
+
+.battle-arena {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.battle-side {
+  display: grid;
+  justify-items: center;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.battle-enemy-side {
+  grid-column: 3;
+}
+
+.battle-player-side {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.battle-statusline {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.battle-statusline strong {
+  overflow-wrap: anywhere;
+}
+
+.battle-statusline > span {
+  flex: 0 0 auto;
+  color: var(--muted);
+}
+
+.battle-sprite {
+  width: min(100%, 144px);
+  height: 130px;
+  object-fit: contain;
+}
+
+.battle-hp-track {
+  width: 100%;
+  height: 10px;
+  margin-top: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(28, 37, 65, 0.14);
+}
+
+.battle-hp-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-green);
+  transition: width 0.35s ease, background-color 0.2s ease;
+}
+
+.battle-hp-track span.is-low {
+  background: var(--shell-red);
+}
+
+.battle-hp-label {
+  justify-self: end;
+  margin-top: 3px;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.battle-status {
+  justify-self: start;
+  min-height: 22px;
+  margin-top: 4px;
+  color: var(--shell-red-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.battle-types {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.battle-type {
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--screen-frame);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.battle-divider {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--accent-yellow);
+  font: 700 0.85rem "Fredoka", sans-serif;
+}
+
+.battle-controls {
+  display: grid;
+  gap: 10px;
+}
+
+.battle-moves {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.battle-move {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  min-height: 74px;
+  padding: 10px 12px;
+  border: 1px solid var(--screen-frame);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--text-dark);
+  text-align: left;
+  cursor: pointer;
+}
+
+.battle-move:hover:not(:disabled) {
+  background: #fff4c8;
+}
+
+.battle-move strong {
+  font: 600 1rem "Fredoka", sans-serif;
+}
+
+.battle-move span,
+.battle-move small {
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.battle-party {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.battle-items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.battle-item {
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--accent-green);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  font: 600 0.85rem "Fredoka", sans-serif;
+  cursor: pointer;
+}
+
+.battle-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.battle-party-member {
+  display: grid;
+  gap: 2px;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  text-align: left;
+  cursor: pointer;
+}
+
+.battle-party-member small {
+  color: var(--muted);
+}
+
+.battle-next-wave {
+  justify-self: start;
+}
+
+.battle-restart {
+  justify-self: start;
+  margin: 0;
+  text-decoration: none;
+}
+
+.battle-history {
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.battle-history h2 {
+  font-size: 1rem;
+}
+
+.battle-history ol {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0 8px 0 24px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.battle-log-critical,
+.battle-log-faint,
+.battle-log-result {
+  color: var(--shell-red-dark);
+  font-weight: 700;
+}
+
+.battle-log-effectiveness,
+.battle-log-damage {
+  color: var(--text-dark);
+}
+
+.battle-log-switch,
+.battle-log-status,
+.battle-log-system {
+  color: #267a48;
+}
+
 .sort-buttons {
   display: flex;
   gap: 6px;
@@ -786,6 +1183,30 @@ body {
   .leaderboard-coin {
     width: 28px;
     height: 28px;
+  }
+  .battle-pokemon-picker {
+    grid-template-columns: 1fr;
+  }
+  .battle-arena {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .battle-enemy-side,
+  .battle-player-side {
+    grid-column: 1;
+  }
+  .battle-enemy-side {
+    grid-row: 1;
+  }
+  .battle-player-side {
+    grid-row: 3;
+  }
+  .battle-divider {
+    grid-column: 1;
+    grid-row: 2;
+    width: 34px;
+  }
+  .battle-moves {
+    grid-template-columns: 1fr;
   }
   #filter-input {
     max-width: none;

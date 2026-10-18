@@ -1,0 +1,7 @@
+[
+  {
+    "id": "classiques",
+    "name": "Les classiques",
+    "pokemon": ["Dracaufeu", "Tortank", "Florizarre", "Pikachu", "Ectoplasma", "Ronflex"]
+  }
+]

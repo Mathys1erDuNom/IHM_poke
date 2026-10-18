@@ -1,0 +1,1 @@
+"""Moteur de combat Pokémon et adaptateurs de données locaux."""
