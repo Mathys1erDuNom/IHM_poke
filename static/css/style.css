@@ -762,6 +762,31 @@ body {
   .quiz-options {
     grid-template-columns: 1fr;
   }
+  .leaderboard-box {
+    padding: 14px 10px 8px;
+  }
+  .leaderboard-header {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .leaderboard-item {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 9px 8px;
+  }
+  .leaderboard-user {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .leaderboard-balance {
+    gap: 4px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  .leaderboard-coin {
+    width: 28px;
+    height: 28px;
+  }
   #filter-input {
     max-width: none;
     width: 100%;
