@@ -139,6 +139,26 @@ def load_quiz_questions():
     return questions
 
 
+def choose_quiz_question():
+    questions = load_quiz_questions()
+    valid_indices = set(range(len(questions)))
+    remaining = session.get("quiz_questions_remaining", [])
+    if not isinstance(remaining, list):
+        remaining = []
+    remaining = [
+        index for index in remaining
+        if type(index) is int and index in valid_indices
+    ]
+
+    if not remaining:
+        remaining = list(valid_indices)
+        secrets.SystemRandom().shuffle(remaining)
+
+    question_index = remaining.pop()
+    session["quiz_questions_remaining"] = remaining
+    return questions[question_index]
+
+
 def load_pokemon_catalog():
     pokemons = []
     for filename in sorted(os.listdir(POKEMON_DATA_DIR)):
@@ -227,7 +247,7 @@ def quiz():
     if not discord_user:
         return redirect(url_for("connexion"))
 
-    quiz_question = secrets.choice(load_quiz_questions())
+    quiz_question = choose_quiz_question()
     random_reward = choose_random_pokemon_reward()
     challenge_id = secrets.token_urlsafe(24)
     session["quiz_challenge"] = {
