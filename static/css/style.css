@@ -847,6 +847,20 @@ body {
   font-size: 0.78rem;
 }
 
+.battle-pokemon-info .battle-stat-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2px 4px;
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.battle-pokemon-info .battle-stat-list span {
+  overflow-wrap: normal;
+  white-space: nowrap;
+  font-size: inherit;
+}
+
 .battle-form-error,
 .battle-notice {
   min-height: 24px;

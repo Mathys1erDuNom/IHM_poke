@@ -56,7 +56,14 @@
                   <span class="battle-pokemon-info">
                     <strong>{{ item.name }}</strong>
                     <span>Niv. {{ item.level }} · {{ item.types|join(' / ') }}</span>
-                    <span>PV {{ item.max_hp }} · Atq {{ item.stats.attack }} · Déf {{ item.stats.defense }}</span>
+                    <span class="battle-stat-list">
+                      <span>PV {{ item.stats.hp }}</span>
+                      <span>Atq {{ item.stats.attack }}</span>
+                      <span>Déf {{ item.stats.defense }}</span>
+                      <span>Atq Spé {{ item.stats.special_attack }}</span>
+                      <span>Déf Spé {{ item.stats.special_defense }}</span>
+                      <span>Vit {{ item.stats.speed }}</span>
+                    </span>
                   </span>
                 </label>
               {% endfor %}
