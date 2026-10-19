@@ -67,7 +67,6 @@ class BattleData:
                 "power": max(0, int(record.get("damage", 0) or 0)),
                 "category": category,
                 "accuracy": max(0, min(100, int(record.get("accuracy", record.get("precision", defaults["attack_accuracy"])) or 0))),
-                "max_pp": max(1, int(record.get("pp", record.get("max_pp", defaults["attack_pp"])) or defaults["attack_pp"])),
                 "effect": effect_id,
                 "effect_chance": 100 if category == "statut" else int(self.config["combat"]["secondary_status_chance"] * 100),
             }
@@ -75,7 +74,6 @@ class BattleData:
         fallback = dict(defaults["fallback_move"])
         fallback["id"] = normalize_name(fallback["name"])
         fallback["power"] = int(fallback.pop("damage"))
-        fallback["max_pp"] = int(fallback.pop("pp"))
         fallback["accuracy"] = int(fallback["accuracy"])
         fallback["type"] = self.normalize_type(fallback["type"])
         fallback["category"] = "physique"
@@ -165,12 +163,9 @@ class BattleData:
             moves = [dict(self.config["data_defaults"]["fallback_move"])]
             moves[0]["id"] = normalize_name(moves[0]["name"])
             moves[0]["power"] = int(moves[0].pop("damage"))
-            moves[0]["max_pp"] = int(moves[0].pop("pp"))
             moves[0]["type"] = self.normalize_type(moves[0]["type"])
             moves[0]["effect"] = None
             moves[0]["effect_chance"] = 0
-        for move in moves:
-            move["pp"] = move["max_pp"]
         return moves
 
     def create_battler(self, pokemon_record, iv_min=0, iv_max=31, owned_record=None):

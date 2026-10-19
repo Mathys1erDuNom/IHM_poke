@@ -198,7 +198,7 @@ class BattleEngine:
         player = self.active(state, "player")
         if not self.alive(enemy) or not self.alive(player):
             return {"kind": "wait"}
-        usable = [move for move in enemy["moves"] if move.get("pp", 0) > 0]
+        usable = list(enemy.get("moves") or [])
         if not usable:
             fallback = self.data.get_moves_for_pokemon({"move_ids": []})[0]
             return {"kind": "move", "move_id": fallback["id"], "fallback": fallback}
@@ -313,12 +313,10 @@ class BattleEngine:
         move = action.get("fallback")
         if not move:
             move = next((candidate for candidate in user["moves"] if candidate["id"] == action.get("move_id")), None)
-        if not move or move.get("pp", 0) <= 0:
-            add_log(state, "Cette attaque ne peut plus être utilisée.", "system")
+        if not move:
+            add_log(state, f"{user['name']} n'a aucune attaque disponible.", "system")
             return
 
-        if not action.get("fallback"):
-            move["pp"] -= 1
         target_side = "enemy" if side == "player" else "player"
         target = self.active(state, target_side)
         if not self.alive(target):
@@ -412,17 +410,8 @@ class BattleEngine:
                 (move for move in player.get("moves", []) if move.get("id") == player_action.get("move_id")),
                 None,
             )
-            if selected_move:
-                if selected_move.get("pp", 0) <= 0:
-                    raise ValueError("Cette attaque ne peut plus être utilisée.")
-            else:
-                struggle = self.data.get_moves_for_pokemon({"move_ids": []})[0]
-                if (
-                    player_action.get("move_id") != struggle["id"]
-                    or any(move.get("pp", 0) > 0 for move in player.get("moves", []))
-                ):
-                    raise ValueError("Cette attaque n'appartient pas à ton Pokémon.")
-                player_action = dict(player_action, fallback=struggle)
+            if not selected_move:
+                raise ValueError("Cette attaque n'appartient pas à ton Pokémon.")
 
         enemy_action = self._enemy_action(state)
         player_priority = 1 if player_switch or player_item else 0

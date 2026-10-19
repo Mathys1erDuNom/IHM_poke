@@ -21,7 +21,6 @@
   },
   "data_defaults": {
     "attack_accuracy": 100,
-    "attack_pp": 15,
     "missing_stat": 1,
     "missing_type": "normal",
     "duplicate_attack_policy": "first_in_file",
@@ -39,7 +38,6 @@
       "damage": 50,
       "category": "physique",
       "accuracy": 100,
-      "pp": 1,
       "recoil_fraction": 0.25,
       "configured_fallback": true
     }

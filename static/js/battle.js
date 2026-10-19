@@ -57,24 +57,22 @@ function renderMoves() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "battle-move";
-    button.disabled = !canChooseMove || move.pp <= 0;
+    button.disabled = !canChooseMove;
     const details = move.category === "statut" ? "Statut" : `Puiss. ${move.power}`;
-    button.innerHTML = `<strong></strong><span></span><small></small>`;
+    button.innerHTML = `<strong></strong><span></span>`;
     button.querySelector("strong").textContent = move.name;
     button.querySelector("span").textContent = `${move.type} · ${details} · Préc. ${move.accuracy}%`;
-    button.querySelector("small").textContent = `PP ${move.pp} / ${move.max_pp}`;
     button.addEventListener("click", () => submitAction({ kind: "move", move_id: move.id }));
     movesPanel.appendChild(button);
   });
-  if (pokemon.moves.length && pokemon.moves.every((move) => move.pp <= 0)) {
+  if (!pokemon.moves.length) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "battle-move battle-move-fallback";
     button.disabled = !canChooseMove;
-    button.innerHTML = `<strong></strong><span></span><small></small>`;
+    button.innerHTML = `<strong></strong><span></span>`;
     button.querySelector("strong").textContent = "Lutte";
     button.querySelector("span").textContent = "normal · Puiss. 50 · Préc. 100%";
-    button.querySelector("small").textContent = "PP illimités · 25% de recul";
     button.addEventListener("click", () => submitAction({ kind: "move", move_id: "lutte" }));
     movesPanel.appendChild(button);
   }

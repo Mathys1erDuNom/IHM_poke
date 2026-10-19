@@ -41,7 +41,7 @@ class BattleEngineTests(unittest.TestCase):
     @staticmethod
     def move(
         move_id="test", attack_type="normal", power=40, category="physique",
-        accuracy=100, pp=5, effect=None, effect_chance=0,
+        accuracy=100, effect=None, effect_chance=0,
     ):
         return {
             "id": move_id,
@@ -50,8 +50,6 @@ class BattleEngineTests(unittest.TestCase):
             "power": power,
             "category": category,
             "accuracy": accuracy,
-            "max_pp": pp,
-            "pp": pp,
             "effect": effect,
             "effect_chance": effect_chance,
         }
@@ -62,6 +60,13 @@ class BattleEngineTests(unittest.TestCase):
         move_ids = set(self.data.attacks)
         for pokemon in self.data.pokemon:
             self.assertTrue(set(pokemon["move_ids"]).issubset(move_ids))
+
+    def test_pokemon_without_valid_moves_gets_repeatable_fallback(self):
+        moves = self.data.get_moves_for_pokemon({"move_ids": []})
+        self.assertEqual(len(moves), 1)
+        self.assertEqual(moves[0]["name"], "Lutte")
+        self.assertNotIn("pp", moves[0])
+        self.assertNotIn("max_pp", moves[0])
 
     def test_double_type_effectiveness_and_immunity(self):
         self.assertEqual(self.engine.type_effectiveness("eau", ["feu", "sol"]), 4)
@@ -87,7 +92,7 @@ class BattleEngineTests(unittest.TestCase):
         for stat, base in species["base_stats"].items():
             self.assertEqual(player["stats"][stat], base + 12)
 
-    def test_accuracy_miss_consumes_pp_without_damage(self):
+    def test_accuracy_miss_does_not_inflict_damage(self):
         attacker = self.pokemon("pikachu")
         defender = self.pokemon("carapuce")
         attacker["stats"]["speed"] = 10000
@@ -97,7 +102,6 @@ class BattleEngineTests(unittest.TestCase):
         old_hp = defender["hp"]
         self.engine.play_turn(state, {"kind": "move", "move_id": move["id"]})
         self.assertEqual(defender["hp"], old_hp)
-        self.assertEqual(move["pp"], 4)
         self.assertTrue(any(entry["kind"] == "miss" for entry in state["log"]))
 
     def test_poison_and_burn_residual_damage(self):
@@ -167,21 +171,20 @@ class BattleEngineTests(unittest.TestCase):
         self.assertGreater(reserve["hp"], 0)
         self.assertTrue(any(entry["kind"] == "switch" for entry in state["log"]))
 
-    def test_struggle_only_when_all_player_moves_have_no_pp(self):
+    def test_player_can_reuse_the_same_attack_without_a_limit(self):
         player = self.pokemon("pikachu")
         player["stats"]["speed"] = 10000
         player["hp"] = player["max_hp"] = 1000
-        spent_move = self.move(move_id="spent", pp=1)
-        spent_move["pp"] = 0
-        player["moves"] = [spent_move]
+        attack = self.move(move_id="repeatable", power=10)
+        player["moves"] = [attack]
         enemy = self.pokemon("bulbizarre")
+        enemy["hp"] = enemy["max_hp"] = 10000
         state = self.engine.create_battle([player], [enemy])
-        old_hp = enemy["hp"]
-        self.engine.play_turn(state, {"kind": "move", "move_id": "lutte"})
-        self.assertLess(enemy["hp"], old_hp)
-        self.assertEqual(spent_move["pp"], 0)
-        with self.assertRaises(ValueError):
-            self.engine.play_turn(state, {"kind": "move", "move_id": "spent"})
+        for _ in range(10):
+            self.engine.play_turn(state, {"kind": "move", "move_id": attack["id"]})
+        uses = [entry for entry in state["log"] if entry["kind"] == "attack" and attack["name"] in entry["text"]]
+        self.assertEqual(len(uses), 10)
+        self.assertNotIn("pp", attack)
 
     def test_team_and_wave_generators_respect_tier_bounds(self):
         self.assertEqual(len(self.generator.predefined_team("classiques")), 6)

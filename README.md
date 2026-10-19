@@ -64,9 +64,9 @@ La page `/combat` est réservée aux comptes Discord connectés. Elle permet de 
 
 - `battle/data.py` adapte les JSON locaux, résout les attaques et associe les GIFs de `images/gif/`.
 - `battle/enemy.py` génère les équipes et les vagues à partir des tiers configurés.
-- `battle/config.json` centralise types, formule de dégâts/stats, STAB, critique, statuts, objets, précision/PP par défaut, taille des équipes et progression des vagues.
+- `battle/config.json` centralise types, formule de dégâts/stats, STAB, critique, statuts, objets, précision par défaut, taille des équipes et progression des vagues.
 - `battle/teams.json` contient les équipes prédéfinies; chaque nom absent du catalogue est ignoré.
-- Les JSON d'attaques ne contiennent pas de précision ni de PP: les valeurs configurées sont 100 et 15. Deux Pokémon n'ont pas de défense: le chargeur utilise la valeur de repli configurée à 1. La Lutte est le fallback configuré lorsqu'un Pokémon n'a plus d'attaque avec PP.
+- Les JSON d'attaques ne contiennent pas de précision: la valeur par défaut configurée est 100. Les PP ne sont pas utilisés: les attaques peuvent être répétées sans limite. Deux Pokémon n'ont pas de défense: le chargeur utilise la valeur de repli configurée à 1. La Lutte est le fallback configuré pour un Pokémon sans attaque valide.
 - Les doublons de noms d'attaques avec valeurs contradictoires utilisent la première entrée de `ATTACK/attack_data.json`. Les effets `copie`, `vole objet` et `fuite` ne sont pas simulés; ils sont listés dans `data_defaults.unsupported_attack_effects`. Les alias d'attaques sont centralisés dans `data_defaults.attack_aliases`.
 - Le combat n'utilise pas de niveau: les stats sont calculées directement avec les stats de base et les IV. En mode Vagues, le minimum d'IV augmente de 5 toutes les cinq vagues, jusqu'au plafond de 31; les espèces proposées progressent aussi selon leurs stats de base.
 
