@@ -233,9 +233,12 @@ class BattleEngineTests(unittest.TestCase):
 
     def test_wave_victory_advances_with_new_enemy_team(self):
         player = self.pokemon("pikachu")
+        reserve = self.pokemon("carapuce")
         enemy = self.pokemon("carapuce")
         next_enemy = self.pokemon("bulbizarre")
-        state = self.engine.create_battle([player], [enemy], mode="waves", wave=1)
+        state = self.engine.create_battle([player, reserve], [enemy], mode="waves", wave=1)
+        player["hp"] = 0
+        reserve["hp"] = max(1, reserve["max_hp"] // 2)
         enemy["hp"] = 0
         self.engine._check_result(state)
         self.assertEqual(state["status"], "wave_complete")
@@ -243,6 +246,8 @@ class BattleEngineTests(unittest.TestCase):
         self.assertEqual(state["wave"], 2)
         self.assertEqual(state["status"], "ongoing")
         self.assertIs(self.engine.active(state, "enemy"), next_enemy)
+        self.assertEqual(player["hp"], player["max_hp"])
+        self.assertEqual(reserve["hp"], reserve["max_hp"])
 
 
 if __name__ == "__main__":

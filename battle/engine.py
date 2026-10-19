@@ -445,6 +445,9 @@ class BattleEngine:
             raise ValueError("La vague actuelle n'est pas terminée.")
         if not enemy_team:
             raise ValueError("La prochaine vague doit avoir une équipe ennemie.")
+        for pokemon in state["player_team"]:
+            pokemon["hp"] = pokemon["max_hp"]
+        add_log(state, "Ton équipe récupère tous ses PV !", "heal")
         state["wave"] += 1
         state["enemy_team"] = enemy_team
         state["enemy_active"] = 0
