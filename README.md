@@ -68,7 +68,7 @@ La page `/combat` est réservée aux comptes Discord connectés. Elle permet de 
 - `battle/teams.json` contient les équipes prédéfinies; chaque nom absent du catalogue est ignoré.
 - Les JSON d'attaques ne contiennent pas de précision ni de PP: les valeurs configurées sont 100 et 15. Deux Pokémon n'ont pas de défense: le chargeur utilise la valeur de repli configurée à 1. La Lutte est le fallback configuré lorsqu'un Pokémon n'a plus d'attaque avec PP.
 - Les doublons de noms d'attaques avec valeurs contradictoires utilisent la première entrée de `ATTACK/attack_data.json`. Les effets `copie`, `vole objet` et `fuite` ne sont pas simulés; ils sont listés dans `data_defaults.unsupported_attack_effects`. Les alias d'attaques sont centralisés dans `data_defaults.attack_aliases`.
-- La table `new_captures` ne stocke pas de niveau: les Pokémon du joueur utilisent le niveau défini par `combat.player_level` (50 par défaut). Les niveaux et IV ennemis progressent par tiers dans `enemy_generation.wave_tiers`.
+- Le combat n'utilise pas de niveau: les stats sont calculées directement avec les stats de base et les IV. En mode Vagues, le minimum d'IV augmente de 5 toutes les cinq vagues, jusqu'au plafond de 31; les espèces proposées progressent aussi selon leurs stats de base.
 
 Lancer les tests du moteur et des routes (PostgreSQL simulé):
 

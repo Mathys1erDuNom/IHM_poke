@@ -278,7 +278,6 @@ def _owned_battle_pokemon(user_id):
         output.append({
             "name": battler["name"],
             "species": battler["species"],
-            "level": battler["level"],
             "types": battler["types"],
             "stats": battler["stats"],
             "ivs": battler["ivs"],

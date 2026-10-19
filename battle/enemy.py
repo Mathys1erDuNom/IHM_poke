@@ -14,18 +14,18 @@ class EnemyGenerator:
         ]
 
     def _tier_for_wave(self, wave):
+        tiers = self.config["wave_tiers"]
         return next(
-            tier for tier in self.config["wave_tiers"]
-            if tier["waves"][0] <= wave <= tier["waves"][1]
+            (tier for tier in tiers if tier["waves"][0] <= wave <= tier["waves"][1]),
+            tiers[-1],
         )
 
-    def _generate(self, pool, team_size, level_min, level_max, iv_min, iv_max):
+    def _generate(self, pool, team_size, iv_min, iv_max):
         team_size = max(1, min(int(team_size), len(pool)))
         selected = self.rng.sample(pool, team_size)
         return [
             self.data.enemy_battler(
                 pokemon,
-                self.rng.randint(level_min, level_max),
                 iv_min,
                 iv_max,
             )
@@ -40,8 +40,6 @@ class EnemyGenerator:
             return self._generate(
                 self.normal_pokemon,
                 team_size,
-                params["level_min"],
-                params["level_max"],
                 params["iv_min"],
                 params["iv_max"],
             )
@@ -57,13 +55,16 @@ class EnemyGenerator:
                 self.normal_pokemon,
                 key=lambda pokemon: abs(sum(pokemon["base_stats"].values()) - (tier["base_stat_min"] + tier["base_stat_max"]) / 2),
             )[:max(team_size, min(60, len(self.normal_pokemon)))]
+        progression = self.config["wave_iv_progression"]
+        iv_min = progression["minimum_start"] + (
+            wave // progression["every_waves"]
+        ) * progression["minimum_gain"]
+        iv_min = min(progression["maximum"], iv_min)
         return self._generate(
             pool,
             team_size,
-            tier["level_min"],
-            tier["level_max"],
-            tier["iv_min"],
-            tier["iv_max"],
+            iv_min,
+            progression["maximum"],
         )
 
     def random_wave_team(self, wave):
@@ -71,7 +72,7 @@ class EnemyGenerator:
         team_size = sizes[min(max(0, wave - 1), len(sizes) - 1)]
         return self.random_team(team_size, difficulty=wave)
 
-    def predefined_team(self, team_id, level=None, iv_min=None, iv_max=None):
+    def predefined_team(self, team_id, iv_min=None, iv_max=None):
         definition = next((team for team in self.data.teams if team["id"] == team_id), None)
         if not definition:
             return []
@@ -83,7 +84,6 @@ class EnemyGenerator:
                 continue
             output.append(self.data.enemy_battler(
                 pokemon,
-                level or self.rng.randint(params["level_min"], params["level_max"]),
                 params["iv_min"] if iv_min is None else iv_min,
                 params["iv_max"] if iv_max is None else iv_max,
             ))

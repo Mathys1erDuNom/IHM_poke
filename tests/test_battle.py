@@ -35,10 +35,8 @@ class BattleEngineTests(unittest.TestCase):
         self.engine = BattleEngine(self.data, rng=self.rng)
         self.generator = EnemyGenerator(self.data, rng=self.rng)
 
-    def pokemon(self, name, level=20):
-        return self.data.enemy_battler(
-            self.data.pokemon_by_id[name.lower()], level, 0, 0
-        )
+    def pokemon(self, name):
+        return self.data.enemy_battler(self.data.pokemon_by_id[name.lower()], 0, 0)
 
     @staticmethod
     def move(
@@ -80,6 +78,14 @@ class BattleEngineTests(unittest.TestCase):
         self.assertTrue(result["stab"])
         self.assertTrue(result["critical"])
         self.assertGreater(result["damage"], 0)
+
+    def test_battlers_have_no_level_and_stats_are_base_plus_iv(self):
+        ivs = {stat: 12 for stat in ("hp", "attack", "defense", "special_attack", "special_defense", "speed")}
+        player = self.data.player_battler({"name": "Pikachu", "ivs": ivs, "stats": {}})
+        species = self.data.pokemon_by_id["pikachu"]
+        self.assertNotIn("level", player)
+        for stat, base in species["base_stats"].items():
+            self.assertEqual(player["stats"][stat], base + 12)
 
     def test_accuracy_miss_consumes_pp_without_damage(self):
         attacker = self.pokemon("pikachu")
@@ -124,8 +130,8 @@ class BattleEngineTests(unittest.TestCase):
         player["stats"]["speed"] = 10000
         move = self.move(power=999)
         player["moves"] = [move]
-        first = self.pokemon("carapuce", level=5)
-        second = self.pokemon("bulbizarre", level=5)
+        first = self.pokemon("carapuce")
+        second = self.pokemon("bulbizarre")
         first["hp"] = 1
         state = self.engine.create_battle([player], [first, second])
         second_hp = second["hp"]
@@ -137,7 +143,8 @@ class BattleEngineTests(unittest.TestCase):
     def test_player_can_switch_and_use_configured_potion(self):
         first = self.pokemon("pikachu")
         second = self.pokemon("carapuce")
-        enemy = self.pokemon("bulbizarre", level=5)
+        enemy = self.pokemon("bulbizarre")
+        enemy["moves"] = [self.move(move_id="miss", accuracy=0)]
         state = self.engine.create_battle([first, second], [enemy])
         self.engine.play_turn(state, {"kind": "switch", "index": 1})
         self.assertEqual(state["player_active"], 1)
@@ -150,7 +157,7 @@ class BattleEngineTests(unittest.TestCase):
     def test_player_can_switch_after_active_pokemon_is_ko(self):
         fainted = self.pokemon("pikachu")
         reserve = self.pokemon("carapuce")
-        enemy = self.pokemon("bulbizarre", level=1)
+        enemy = self.pokemon("bulbizarre")
         state = self.engine.create_battle([fainted, reserve], [enemy])
         fainted["hp"] = 0
 
@@ -167,7 +174,7 @@ class BattleEngineTests(unittest.TestCase):
         spent_move = self.move(move_id="spent", pp=1)
         spent_move["pp"] = 0
         player["moves"] = [spent_move]
-        enemy = self.pokemon("bulbizarre", level=100)
+        enemy = self.pokemon("bulbizarre")
         state = self.engine.create_battle([player], [enemy])
         old_hp = enemy["hp"]
         self.engine.play_turn(state, {"kind": "move", "move_id": "lutte"})
@@ -184,10 +191,42 @@ class BattleEngineTests(unittest.TestCase):
         late = self.generator.random_wave_team(20)
         self.assertEqual(len(early), 3)
         self.assertEqual(len(late), 6)
-        self.assertTrue(all(5 <= pokemon["level"] <= 12 for pokemon in early))
-        self.assertTrue(all(51 <= pokemon["level"] <= 70 for pokemon in late))
-        self.assertTrue(all(max(pokemon["ivs"].values()) <= 8 for pokemon in early))
+        self.assertTrue(all(min(pokemon["ivs"].values()) >= 0 for pokemon in early))
+        self.assertTrue(all(min(pokemon["ivs"].values()) >= 20 for pokemon in late))
         self.assertTrue(all(max(pokemon["ivs"].values()) <= 31 for pokemon in late))
+
+    def test_enemy_ai_uses_effectiveness_immunities_and_healing_context(self):
+        attacker = self.pokemon("pikachu")
+        water = self.pokemon("carapuce")
+        attacker["moves"] = [
+            self.move(move_id="feu", attack_type="feu", power=50, category="special"),
+            self.move(move_id="electrik", attack_type="electrik", power=50, category="special"),
+        ]
+        state = self.engine.create_battle([water], [attacker])
+        self.assertEqual(self.engine._enemy_action(state)["move_id"], "electrik")
+
+        plant_poison = self.pokemon("bulbizarre")
+        attacker["moves"] = [
+            self.move(move_id="toxic", attack_type="poison", power=0, category="statut", effect="poison", effect_chance=100),
+            self.move(move_id="flamme", attack_type="feu", power=50, category="special"),
+        ]
+        state = self.engine.create_battle([plant_poison], [attacker])
+        self.assertEqual(self.engine._enemy_action(state)["move_id"], "flamme")
+
+        attacker["moves"] = [
+            self.move(move_id="charge", power=40),
+            self.move(move_id="soin", power=0, category="statut", effect="heal", effect_chance=100),
+        ]
+        attacker["hp"] = int(attacker["max_hp"] * 0.25)
+        state = self.engine.create_battle([water], [attacker])
+        self.assertEqual(self.engine._enemy_action(state)["move_id"], "soin")
+
+    def test_wave_iv_minimum_increases_every_five_waves(self):
+        expected_minima = {1: 0, 4: 0, 5: 5, 9: 5, 10: 10, 15: 15, 30: 30, 35: 31, 40: 31, 1000: 31}
+        for wave, minimum in expected_minima.items():
+            team = self.generator.random_wave_team(wave)
+            self.assertTrue(all(min(pokemon["ivs"].values()) >= minimum for pokemon in team), wave)
+            self.assertTrue(all(max(pokemon["ivs"].values()) <= 31 for pokemon in team), wave)
 
     def test_wave_victory_advances_with_new_enemy_team(self):
         player = self.pokemon("pikachu")

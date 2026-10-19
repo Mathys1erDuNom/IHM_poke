@@ -173,10 +173,9 @@ class BattleData:
             move["pp"] = move["max_pp"]
         return moves
 
-    def create_battler(self, pokemon_record, level, iv_min=0, iv_max=31, owned_record=None):
+    def create_battler(self, pokemon_record, iv_min=0, iv_max=31, owned_record=None):
         if not pokemon_record or not pokemon_record.get("base_stats"):
             return None
-        level = max(1, min(100, int(level)))
         base_stats = dict(pokemon_record["base_stats"])
         source_ivs = (owned_record or {}).get("ivs") or {}
         ivs = {}
@@ -185,28 +184,17 @@ class BattleData:
             value = random.SystemRandom().randint(iv_min, iv_max) if source_iv is None else int(source_iv)
             ivs[stat] = max(0, min(31, value))
         calculated_stats = {}
-        stat_formula = self.config["stat_formula"]
+        owned_stats = (owned_record or {}).get("stats") or {}
         for stat, base in base_stats.items():
-            if stat == "hp":
-                calculated_stats[stat] = (
-                    ((2 * base + ivs[stat]) * level) // stat_formula["level_divisor"]
-                    + level
-                    + stat_formula["hp_level_bonus"]
-                )
-            else:
-                calculated_stats[stat] = (
-                    ((2 * base + ivs[stat]) * level) // stat_formula["level_divisor"]
-                    + stat_formula["other_stat_level_bonus"]
-                )
+            saved_stat = owned_stats.get(stat)
+            calculated_stats[stat] = max(1, int(saved_stat if saved_stat is not None else base + ivs[stat]))
 
         is_shiny = pokemon_record["name"].lower().endswith("_shiny")
-        owned_stats = (owned_record or {}).get("stats") or {}
         moves = self.get_moves_for_pokemon(pokemon_record)
         return {
             "id": str(uuid.uuid4()),
             "species": pokemon_record["name"],
             "name": (owned_record or {}).get("name", pokemon_record["name"]),
-            "level": level,
             "types": list(pokemon_record["types"]),
             "base_stats": base_stats,
             "stats": calculated_stats,
@@ -224,17 +212,11 @@ class BattleData:
             "shiny": is_shiny,
         }
 
-    def player_battler(self, owned_record, level=None, iv_min=0, iv_max=31):
+    def player_battler(self, owned_record, iv_min=0, iv_max=31):
         species = self.find_owned_species(owned_record)
         if not species:
             return None
-        return self.create_battler(
-            species,
-            level or self.config["combat"]["player_level"],
-            iv_min,
-            iv_max,
-            owned_record,
-        )
+        return self.create_battler(species, iv_min, iv_max, owned_record)
 
-    def enemy_battler(self, pokemon_record, level, iv_min, iv_max):
-        return self.create_battler(pokemon_record, level, iv_min, iv_max)
+    def enemy_battler(self, pokemon_record, iv_min, iv_max):
+        return self.create_battler(pokemon_record, iv_min, iv_max)

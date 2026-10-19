@@ -28,7 +28,6 @@ function setHp(side, pokemon) {
 
 function renderSide(side, pokemon) {
   byId(`${side}-name`).textContent = pokemon.name;
-  byId(`${side}-level`).textContent = `Niv. ${pokemon.level}`;
   byId(`${side}-status`).textContent = STATUS_LABELS[pokemon.status] || pokemon.status || "";
   byId(`${side}-status`).hidden = !pokemon.status;
   const sprite = byId(`${side}-sprite`);

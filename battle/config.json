@@ -2,8 +2,6 @@
   "combat": {
     "max_team_size": 6,
     "minimum_team_size": 1,
-    "player_level": 50,
-    "team_enemy_level": 50,
     "stab_multiplier": 1.5,
     "critical_chance": 0.0625,
     "critical_multiplier": 1.5,
@@ -17,16 +15,9 @@
     }
   },
   "damage_formula": {
-    "level_divisor": 5,
-    "level_offset": 2,
-    "power_divisor": 50,
+    "power_ratio_divisor": 2,
     "base_add": 2,
     "minimum_damage": 1
-  },
-  "stat_formula": {
-    "level_divisor": 100,
-    "hp_level_bonus": 10,
-    "other_stat_level_bonus": 5
   },
   "data_defaults": {
     "attack_accuracy": 100,
@@ -120,15 +111,16 @@
     "recuperation": "heal"
   },
   "enemy_generation": {
-    "team_mode": {"level_min": 35, "level_max": 50, "iv_min": 0, "iv_max": 15},
+    "team_mode": {"iv_min": 0, "iv_max": 31},
+    "wave_iv_progression": {"every_waves": 5, "minimum_gain": 5, "minimum_start": 0, "maximum": 31},
     "wave_tiers": [
-      {"name": "Débutant", "waves": [1, 3], "base_stat_min": 180, "base_stat_max": 395, "level_min": 5, "level_max": 12, "iv_min": 0, "iv_max": 8},
-      {"name": "Intermédiaire", "waves": [4, 6], "base_stat_min": 300, "base_stat_max": 465, "level_min": 13, "level_max": 22, "iv_min": 8, "iv_max": 16},
-      {"name": "Confirmé", "waves": [7, 10], "base_stat_min": 395, "base_stat_max": 510, "level_min": 23, "level_max": 35, "iv_min": 14, "iv_max": 23},
-      {"name": "Expert", "waves": [11, 15], "base_stat_min": 465, "base_stat_max": 600, "level_min": 36, "level_max": 50, "iv_min": 20, "iv_max": 27},
-      {"name": "Maître", "waves": [16, 999], "base_stat_min": 500, "base_stat_max": 720, "level_min": 51, "level_max": 70, "iv_min": 24, "iv_max": 31}
+      {"name": "Débutant", "waves": [1, 10], "base_stat_min": 180, "base_stat_max": 395},
+      {"name": "Intermédiaire", "waves": [11, 20], "base_stat_min": 300, "base_stat_max": 465},
+      {"name": "Confirmé", "waves": [21, 30], "base_stat_min": 395, "base_stat_max": 510},
+      {"name": "Expert", "waves": [31, 40], "base_stat_min": 465, "base_stat_max": 600},
+      {"name": "Maître", "waves": [41, 50], "base_stat_min": 500, "base_stat_max": 720}
     ],
-    "wave_team_sizes": [3, 3, 4, 5, 6],
+    "wave_team_sizes": [3, 4, 5, 6, 6],
     "default_team_size": 3
   }
 }

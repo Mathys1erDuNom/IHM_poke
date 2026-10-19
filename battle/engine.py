@@ -93,11 +93,8 @@ class BattleEngine:
         if effectiveness == 0:
             damage = 0
         else:
-            level = max(1, int(attacker.get("level", 1)))
             formula = self.config["damage_formula"]
-            level_factor = 2 * level / formula["level_divisor"] + formula["level_offset"]
-            base = (level_factor * power * attack_value / defense_value) / formula["power_divisor"]
-            base += formula["base_add"]
+            base = (power * attack_value / defense_value) / formula["power_ratio_divisor"] + formula["base_add"]
             modifier = self.rng.uniform(self.rules["damage_random_min"], self.rules["damage_random_max"])
             modifier *= self.rules["stab_multiplier"] if stab else 1
             modifier *= self.rules["critical_multiplier"] if critical else 1
@@ -206,12 +203,65 @@ class BattleEngine:
             fallback = self.data.get_moves_for_pokemon({"move_ids": []})[0]
             return {"kind": "move", "move_id": fallback["id"], "fallback": fallback}
 
-        def score(move):
-            if move.get("category") == "statut":
-                return 5 if not player.get("status") and self._status_effect(move) else 0
-            multiplier = self.type_effectiveness(move.get("type"), player.get("types", []))
+        stage_effects = {
+            "lower_attack": "attack",
+            "lower_defense": "defense",
+            "lower_accuracy": "accuracy",
+            "lower_speed": "speed",
+        }
+
+        def damage_score(move):
+            power = max(0, float(move.get("power", 0)))
+            if power == 0 or move.get("category") == "statut":
+                return 0.0
+            physical = move.get("category") == "physique"
+            attack_stat = "attack" if physical else "special_attack"
+            defense_stat = "defense" if physical else "special_defense"
+            attack = self.effective_stat(enemy, attack_stat)
+            if physical and enemy.get("status") == "burn":
+                attack *= self.config["statuses"]["burn"]["physical_attack_multiplier"]
+            defense = self.effective_stat(player, defense_stat)
+            effectiveness = self.type_effectiveness(move.get("type"), player.get("types", []))
+            if effectiveness == 0:
+                return 0.0
             stab = self.rules["stab_multiplier"] if self.data.normalize_type(move.get("type")) in enemy.get("types", []) else 1
-            return max(0, move.get("power", 0)) * multiplier * stab
+            formula = self.config["damage_formula"]
+            expected_damage = (power * attack / defense) / formula["power_ratio_divisor"]
+            expected_damage += formula["base_add"]
+            accuracy = self._accuracy(enemy, move) / 100
+            return expected_damage * effectiveness * stab * accuracy
+
+        best_damage_score = max((damage_score(move) for move in usable), default=0.0)
+
+        def score(move):
+            accuracy = self._accuracy(enemy, move) / 100
+            if accuracy <= 0:
+                return 0.0
+
+            effect = move.get("effect")
+            if effect == "heal":
+                missing_hp = enemy["max_hp"] - enemy["hp"]
+                if missing_hp <= 0 or enemy["hp"] / enemy["max_hp"] > 0.6:
+                    return 0.0
+                healing = min(missing_hp, enemy["max_hp"] * 0.5)
+                return max(best_damage_score * 1.05, healing * 0.8) * accuracy
+
+            if effect in stage_effects:
+                stat = stage_effects[effect]
+                if player.get("stages", {}).get(stat, 0) <= -2:
+                    return 0.0
+                return max(best_damage_score * 0.75, player["max_hp"] * 0.08) * accuracy
+
+            status = self._status_effect(move)
+            if status:
+                status_config = self.config["statuses"].get(status, {})
+                if player.get("status") or set(player.get("types", [])).intersection(status_config.get("immune_types", [])):
+                    return damage_score(move)
+                chance = max(0, min(100, int(move.get("effect_chance", 100)))) / 100
+                tactical_value = max(best_damage_score * 0.85, player["max_hp"] * 0.1)
+                return damage_score(move) + tactical_value * chance * accuracy
+
+            return damage_score(move)
 
         usable.sort(key=score, reverse=True)
         best_score = score(usable[0])
