@@ -126,7 +126,27 @@ class BattleRouteTests(unittest.TestCase):
         state = self.database.battles[battle_id]
         self.assertEqual(state["mode"], "waves")
         self.assertEqual(state["wave"], 1)
-        state["status"] = "wave_complete"
+
+        for _ in range(len(state["enemy_team"])):
+            state = self.client.get(f"/api/battles/{battle_id}").json
+            state["player_team"][state["player_active"]]["stats"]["speed"] = 10000
+            enemy = state["enemy_team"][state["enemy_active"]]
+            enemy["types"] = ["normal"]
+            enemy["hp"] = 1
+            move = next(
+                move for move in state["player_team"][state["player_active"]]["moves"]
+                if move["power"] > 0
+            )
+            move["power"] = 999
+            move["accuracy"] = 100
+            self.database.battles[battle_id] = state
+            turn = self.client.post(f"/api/battles/{battle_id}/turn", json={
+                "action": {"kind": "move", "move_id": move["id"]},
+            })
+            self.assertEqual(turn.status_code, 200, turn.json)
+            state = turn.json
+
+        self.assertEqual(state["status"], "wave_complete")
         next_wave = self.client.post(f"/api/battles/{battle_id}/next-wave")
         self.assertEqual(next_wave.status_code, 200, next_wave.json)
         self.assertEqual(next_wave.json["wave"], 2)

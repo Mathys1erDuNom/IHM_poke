@@ -7,6 +7,7 @@ const nextWaveButton = document.getElementById("battle-next-wave");
 const restartLink = document.getElementById("battle-restart");
 let battleState = null;
 let requestPending = false;
+let scheduledAutoAdvanceWave = null;
 const STATUS_LABELS = {
   burn: "Brûlure",
   poison: "Poison",
@@ -121,7 +122,10 @@ function renderLog() {
 function renderBattle() {
   const player = battleState.player_team[battleState.player_active];
   const enemy = battleState.enemy_team[battleState.enemy_active];
-  const modeLabel = battleState.mode === "waves" ? `Vague ${battleState.wave}` : "Combat d’équipe";
+  const waveComplete = battleState.status === "wave_complete";
+  const modeLabel = battleState.mode === "waves"
+    ? (waveComplete ? `Vague ${battleState.wave} remportée` : `Vague ${battleState.wave}`)
+    : "Combat d’équipe";
   byId("battle-heading").textContent = modeLabel;
   byId("battle-turn").textContent = `Tour ${battleState.turn}`;
   if (player) renderSide("player", player);
@@ -130,7 +134,16 @@ function renderBattle() {
   renderItems();
   renderParty();
   renderLog();
-  nextWaveButton.hidden = battleState.status !== "wave_complete";
+  nextWaveButton.hidden = !waveComplete;
+  if (waveComplete && scheduledAutoAdvanceWave !== battleState.wave) {
+    const completedWave = battleState.wave;
+    scheduledAutoAdvanceWave = completedWave;
+    window.setTimeout(() => {
+      if (battleState?.status === "wave_complete" && battleState.wave === completedWave && !requestPending) {
+        continueToNextWave();
+      }
+    }, 2500);
+  }
   restartLink.hidden = !["won", "lost"].includes(battleState.status);
   if (battleState.status === "lost") {
     movesPanel.replaceChildren();
@@ -165,7 +178,7 @@ async function submitAction(action) {
   }
 }
 
-nextWaveButton.addEventListener("click", async () => {
+async function continueToNextWave() {
   if (requestPending) return;
   requestPending = true;
   nextWaveButton.disabled = true;
@@ -178,7 +191,9 @@ nextWaveButton.addEventListener("click", async () => {
     nextWaveButton.disabled = false;
     renderBattle();
   }
-});
+}
+
+nextWaveButton.addEventListener("click", continueToNextWave);
 
 requestJson(battleApp.dataset.stateUrl)
   .then((state) => { battleState = state; renderBattle(); })
