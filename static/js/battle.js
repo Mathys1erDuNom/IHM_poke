@@ -3,11 +3,13 @@ const battleLog = document.getElementById("battle-log");
 const movesPanel = document.getElementById("battle-moves");
 const itemsPanel = document.getElementById("battle-items");
 const partyPanel = document.getElementById("battle-party");
+const switchPrompt = document.getElementById("battle-switch-prompt");
 const nextWaveButton = document.getElementById("battle-next-wave");
 const restartLink = document.getElementById("battle-restart");
 let battleState = null;
 let requestPending = false;
 let scheduledAutoAdvanceWave = null;
+let lastForcedSwitchPokemonId = null;
 const STATUS_LABELS = {
   burn: "Brûlure",
   poison: "Poison",
@@ -122,6 +124,8 @@ function renderLog() {
 function renderBattle() {
   const player = battleState.player_team[battleState.player_active];
   const enemy = battleState.enemy_team[battleState.enemy_active];
+  const replacementAvailable = battleState.player_team.some((pokemon, index) => index !== battleState.player_active && pokemon.hp > 0);
+  const mustSwitch = battleState.status === "ongoing" && player.hp <= 0 && replacementAvailable;
   const waveComplete = battleState.status === "wave_complete";
   const modeLabel = battleState.mode === "waves"
     ? (waveComplete ? `Vague ${battleState.wave} remportée` : `Vague ${battleState.wave}`)
@@ -134,6 +138,18 @@ function renderBattle() {
   renderItems();
   renderParty();
   renderLog();
+  switchPrompt.hidden = !mustSwitch;
+  switchPrompt.textContent = mustSwitch ? "Ton Pokémon est K.O. Choisis un remplaçant pour continuer." : "";
+  partyPanel.classList.toggle("needs-switch", mustSwitch);
+  if (mustSwitch && lastForcedSwitchPokemonId !== player.id) {
+    lastForcedSwitchPokemonId = player.id;
+    window.requestAnimationFrame(() => {
+      partyPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      partyPanel.querySelector(".battle-party-member:not(:disabled)")?.focus({ preventScroll: true });
+    });
+  } else if (!mustSwitch) {
+    lastForcedSwitchPokemonId = null;
+  }
   nextWaveButton.hidden = !waveComplete;
   if (waveComplete && scheduledAutoAdvanceWave !== battleState.wave) {
     const completedWave = battleState.wave;

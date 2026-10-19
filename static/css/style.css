@@ -1046,6 +1046,20 @@ body {
   gap: 7px;
 }
 
+.battle-switch-prompt {
+  margin: 0;
+  padding: 9px 12px;
+  border-left: 4px solid var(--accent-yellow);
+  border-radius: 4px;
+  background: #fff4c8;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.battle-switch-prompt[hidden] {
+  display: none;
+}
+
 .battle-items {
   display: flex;
   flex-wrap: wrap;
@@ -1079,6 +1093,16 @@ body {
   color: var(--text-dark);
   text-align: left;
   cursor: pointer;
+}
+
+.battle-party.needs-switch .battle-party-member:not(:disabled) {
+  border-color: var(--shell-red);
+  box-shadow: 0 0 0 2px rgba(209, 53, 42, 0.16);
+}
+
+.battle-party-member:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
 }
 
 .battle-party-member small {

@@ -52,6 +52,7 @@
         <section class="battle-controls">
           <div class="battle-moves" id="battle-moves" aria-label="Attaques"></div>
           <div class="battle-items" id="battle-items" aria-label="Objets"></div>
+          <p class="battle-switch-prompt" id="battle-switch-prompt" role="status" hidden></p>
           <div class="battle-party" id="battle-party" aria-label="Changer de Pokémon"></div>
           <button class="pokedex-button battle-next-wave" id="battle-next-wave" hidden>Vague suivante</button>
           <a href="{{ url_for('combat_setup') }}" class="back-button battle-restart" id="battle-restart" hidden>Nouveau combat</a>
@@ -64,6 +65,6 @@
       </div>
     </main>
   </div>
-  <script src="{{ url_for('static', filename='js/battle.js') }}?v=2" defer></script>
+  <script src="{{ url_for('static', filename='js/battle.js') }}?v=4" defer></script>
 </body>
 </html>
