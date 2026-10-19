@@ -145,12 +145,12 @@ class BattleRouteTests(unittest.TestCase):
             })
             self.assertEqual(turn.status_code, 200, turn.json)
             state = turn.json
+            if state["wave"] == 2:
+                break
 
-        self.assertEqual(state["status"], "wave_complete")
-        next_wave = self.client.post(f"/api/battles/{battle_id}/next-wave")
-        self.assertEqual(next_wave.status_code, 200, next_wave.json)
-        self.assertEqual(next_wave.json["wave"], 2)
-        self.assertEqual(next_wave.json["status"], "ongoing")
+        self.assertEqual(state["wave"], 2)
+        self.assertEqual(state["status"], "ongoing")
+        self.assertTrue(any("Vague 1 remportée" in entry["text"] for entry in state["log"]))
 
     def test_invalid_enemy_team_and_unowned_pokemon_are_rejected(self):
         invalid_team = self.client.post("/api/battles", json={

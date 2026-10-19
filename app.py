@@ -417,6 +417,9 @@ def play_battle_turn(battle_id):
         state = row["state"]
         try:
             BATTLE_ENGINE.play_turn(state, action)
+            if state.get("mode") == "waves" and state.get("status") == "wave_complete":
+                enemy_team = BATTLE_ENEMIES.random_wave_team(state["wave"] + 1)
+                BATTLE_ENGINE.advance_wave(state, enemy_team)
         except ValueError as error:
             return jsonify({"error": str(error)}), 400
         cur.execute("""
