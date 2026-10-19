@@ -230,14 +230,15 @@ class BattleEngine:
         return True
 
     def _process_action(self, state, side, action):
-        user = self.active(state, side)
-        if not self.alive(user):
-            return
-
         if action.get("kind") == "switch":
             if side == "player":
                 self._switch(state, side, action.get("index"))
             return
+
+        user = self.active(state, side)
+        if not self.alive(user):
+            return
+
         if action.get("kind") == "item":
             if side != "player":
                 return

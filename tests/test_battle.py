@@ -147,6 +147,19 @@ class BattleEngineTests(unittest.TestCase):
         self.assertGreater(second["hp"], old_hp)
         self.assertEqual(state["player_items"]["potion"], 2)
 
+    def test_player_can_switch_after_active_pokemon_is_ko(self):
+        fainted = self.pokemon("pikachu")
+        reserve = self.pokemon("carapuce")
+        enemy = self.pokemon("bulbizarre", level=1)
+        state = self.engine.create_battle([fainted, reserve], [enemy])
+        fainted["hp"] = 0
+
+        self.engine.play_turn(state, {"kind": "switch", "index": 1})
+
+        self.assertEqual(state["player_active"], 1)
+        self.assertGreater(reserve["hp"], 0)
+        self.assertTrue(any(entry["kind"] == "switch" for entry in state["log"]))
+
     def test_struggle_only_when_all_player_moves_have_no_pp(self):
         player = self.pokemon("pikachu")
         player["stats"]["speed"] = 10000
