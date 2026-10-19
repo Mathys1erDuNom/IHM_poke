@@ -8,6 +8,7 @@ if (setup && form) {
   const error = document.getElementById("battle-form-error");
   const enemyOptions = document.getElementById("enemy-options");
   const enemyMode = document.getElementById("enemy-mode");
+  const selectionOrder = [];
 
   const selectedCount = () => checks.filter((input) => input.checked).length;
   const updateCount = () => { count.textContent = `${selectedCount()} / ${maxTeamSize}`; };
@@ -19,6 +20,12 @@ if (setup && form) {
         error.textContent = `Une équipe ne peut pas dépasser ${maxTeamSize} Pokémon.`;
       } else {
         error.textContent = "";
+        const existingIndex = selectionOrder.indexOf(input.value);
+        if (input.checked && existingIndex === -1) {
+          selectionOrder.push(input.value);
+        } else if (!input.checked && existingIndex !== -1) {
+          selectionOrder.splice(existingIndex, 1);
+        }
       }
       updateCount();
     });
@@ -32,7 +39,7 @@ if (setup && form) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const pokemonNames = checks.filter((input) => input.checked).map((input) => input.value);
+    const pokemonNames = selectionOrder.filter((name) => checks.some((input) => input.checked && input.value === name));
     if (!pokemonNames.length) {
       error.textContent = "Sélectionne au moins un Pokémon.";
       return;
