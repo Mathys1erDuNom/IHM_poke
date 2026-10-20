@@ -6,10 +6,13 @@ const partyPanel = document.getElementById("battle-party");
 const switchPrompt = document.getElementById("battle-switch-prompt");
 const nextWaveButton = document.getElementById("battle-next-wave");
 const restartLink = document.getElementById("battle-restart");
+const waveOverview = document.getElementById("wave-overview");
+const waveProgressTrack = waveOverview.querySelector(".wave-progress-track");
 let battleState = null;
 let requestPending = false;
 let scheduledAutoAdvanceWave = null;
 let lastForcedSwitchPokemonId = null;
+let lastRenderedWave = null;
 const STATUS_LABELS = {
   burn: "Brûlure",
   poison: "Poison",
@@ -121,6 +124,48 @@ function renderLog() {
   battleLog.scrollTop = battleLog.scrollHeight;
 }
 
+function renderWaveOverview() {
+  const isWaveMode = battleState.mode === "waves";
+  waveOverview.hidden = !isWaveMode;
+  if (!isWaveMode) {
+    lastRenderedWave = null;
+    return;
+  }
+
+  const info = battleState.wave_tier || {
+    name: "Vagues",
+    start: 1,
+    end: Math.max(1, battleState.wave),
+    capped: false,
+  };
+  const wave = Number(battleState.wave) || 1;
+  const start = Number(info.start) || 1;
+  const end = Math.max(start, Number(info.end) || start);
+  const progress = info.capped
+    ? 100
+    : Math.round(Math.min(1, Math.max(0, (wave - start + 1) / (end - start + 1))) * 100);
+  const changed = lastRenderedWave !== null && wave > lastRenderedWave;
+
+  byId("wave-number").textContent = String(wave);
+  byId("wave-tier-name").textContent = info.name;
+  byId("wave-tier-range").textContent = info.capped
+    ? `Tier maximal · vague ${start}+`
+    : `Tier · vagues ${start}–${end}`;
+  byId("wave-progress-fill").style.width = `${progress}%`;
+  waveProgressTrack.setAttribute("aria-valuenow", String(progress));
+
+  if (changed) {
+    byId("wave-announcement").textContent = `Vague ${lastRenderedWave} remportée · vague ${wave} commencée !`;
+    waveOverview.classList.remove("is-wave-change");
+    window.requestAnimationFrame(() => waveOverview.classList.add("is-wave-change"));
+  } else if (battleState.status === "wave_complete") {
+    byId("wave-announcement").textContent = `Vague ${wave} remportée !`;
+  } else if (!byId("wave-announcement").textContent) {
+    byId("wave-announcement").textContent = "Continue jusqu’à la prochaine vague.";
+  }
+  lastRenderedWave = wave;
+}
+
 function renderBattle() {
   const player = battleState.player_team[battleState.player_active];
   const enemy = battleState.enemy_team[battleState.enemy_active];
@@ -132,6 +177,7 @@ function renderBattle() {
     : "Combat d’équipe";
   byId("battle-heading").textContent = modeLabel;
   byId("battle-turn").textContent = `Tour ${battleState.turn}`;
+  renderWaveOverview();
   if (player) renderSide("player", player);
   if (enemy) renderSide("enemy", enemy);
   renderMoves();

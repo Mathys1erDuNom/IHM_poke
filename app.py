@@ -362,6 +362,8 @@ def create_battle():
         return jsonify({"error": "Impossible de générer une équipe ennemie valide."}), 500
 
     state = BATTLE_ENGINE.create_battle(player_team, enemy_team, mode=mode, wave=wave)
+    if mode == "waves":
+        state["wave_tier"] = BATTLE_ENEMIES.wave_info(wave)
     battle_id = secrets.token_urlsafe(24)
     with get_cursor() as cur:
         cur.execute("""
@@ -420,6 +422,8 @@ def play_battle_turn(battle_id):
             if state.get("mode") == "waves" and state.get("status") == "wave_complete":
                 enemy_team = BATTLE_ENEMIES.random_wave_team(state["wave"] + 1)
                 BATTLE_ENGINE.advance_wave(state, enemy_team)
+            if state.get("mode") == "waves":
+                state["wave_tier"] = BATTLE_ENEMIES.wave_info(state["wave"])
         except ValueError as error:
             return jsonify({"error": str(error)}), 400
         cur.execute("""
@@ -449,6 +453,7 @@ def next_battle_wave(battle_id):
             BATTLE_ENGINE.advance_wave(state, enemy_team)
         except ValueError as error:
             return jsonify({"error": str(error)}), 400
+        state["wave_tier"] = BATTLE_ENEMIES.wave_info(state["wave"])
         cur.execute("""
             UPDATE web_battles SET state = %s, updated_at = NOW()
             WHERE id = %s AND user_id = %s

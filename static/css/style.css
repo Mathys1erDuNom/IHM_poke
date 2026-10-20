@@ -885,6 +885,97 @@ body {
   gap: 16px;
 }
 
+.wave-overview {
+  display: grid;
+  gap: 9px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--shell-red);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 0 rgba(28, 37, 65, 0.08);
+}
+
+.wave-overview[hidden] {
+  display: none;
+}
+
+.wave-overview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wave-number-block {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  color: var(--shell-red-dark);
+  font-family: "Fredoka", sans-serif;
+}
+
+.wave-number-block > span {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.wave-number-block strong {
+  font-size: 2rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.wave-tier-block {
+  display: grid;
+  justify-items: end;
+  gap: 1px;
+  text-align: right;
+}
+
+.wave-tier-block > span {
+  font: 600 1rem "Fredoka", sans-serif;
+}
+
+.wave-tier-block small {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.wave-progress-track {
+  height: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(28, 37, 65, 0.12);
+  border-radius: 999px;
+  background: rgba(28, 37, 65, 0.08);
+}
+
+.wave-progress-track > span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent-green));
+  transition: width 0.45s ease;
+}
+
+.wave-announcement {
+  min-height: 1.3em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.wave-overview.is-wave-change {
+  animation: wave-arrival 0.55s ease-out;
+}
+
+@keyframes wave-arrival {
+  0% { transform: scale(0.98); border-left-color: var(--accent-yellow); }
+  100% { transform: scale(1); border-left-color: var(--shell-red); }
+}
+
 .battle-arena {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1fr);
@@ -1245,6 +1336,12 @@ body {
   }
   .battle-moves {
     grid-template-columns: 1fr;
+  }
+  .wave-overview {
+    padding: 12px;
+  }
+  .wave-number-block strong {
+    font-size: 1.7rem;
   }
   #filter-input {
     max-width: none;

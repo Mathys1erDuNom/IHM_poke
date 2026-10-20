@@ -20,6 +20,18 @@ class EnemyGenerator:
             tiers[-1],
         )
 
+    def wave_info(self, wave):
+        wave = max(1, int(wave))
+        tier = self._tier_for_wave(wave)
+        start, end = tier["waves"]
+        return {
+            "name": tier["name"],
+            "start": start,
+            "end": end,
+            "wave": wave,
+            "capped": wave > end,
+        }
+
     def _generate(self, pool, team_size, iv_min, iv_max):
         team_size = max(1, min(int(team_size), len(pool)))
         selected = self.rng.sample(pool, team_size)

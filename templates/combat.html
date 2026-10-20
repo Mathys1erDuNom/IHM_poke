@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=5" />
 </head>
 <body>
   <div class="device">
@@ -29,6 +29,16 @@
         <span id="battle-turn"></span>
       </div>
       <div class="screen-body battle-layout">
+        <section class="wave-overview" id="wave-overview" hidden aria-label="Progression des vagues" aria-live="polite">
+          <div class="wave-overview-header">
+            <div class="wave-number-block"><span>VAGUE</span><strong id="wave-number">1</strong></div>
+            <div class="wave-tier-block"><span id="wave-tier-name">Débutant</span><small id="wave-tier-range"></small></div>
+          </div>
+          <div class="wave-progress-track" role="progressbar" aria-label="Progression dans le tier" aria-valuemin="0" aria-valuemax="100">
+            <span id="wave-progress-fill"></span>
+          </div>
+          <p class="wave-announcement" id="wave-announcement"></p>
+        </section>
         <div class="battle-arena">
           <section class="battle-side battle-enemy-side" aria-label="Pokémon adverse">
             <div class="battle-statusline"><strong id="enemy-name">Adversaire</strong></div>
