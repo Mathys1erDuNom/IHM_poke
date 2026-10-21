@@ -801,6 +801,37 @@ body {
   font-weight: 600;
 }
 
+.battle-pokemon-tools {
+  display: grid;
+  grid-template-columns: minmax(180px, 2fr) repeat(2, minmax(130px, 1fr));
+  gap: 8px;
+  margin: 4px 0 8px;
+}
+
+.battle-pokemon-tools input,
+.battle-pokemon-tools select {
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text-dark);
+  font: inherit;
+}
+
+.battle-pokemon-tools input:focus-visible,
+.battle-pokemon-tools select:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 1px;
+}
+
+.battle-filter-count {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 .battle-pokemon-picker {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -823,6 +854,19 @@ body {
 .battle-pokemon-choice:has(input:checked) {
   border-color: var(--accent-green);
   box-shadow: inset 0 0 0 1px var(--accent-green);
+}
+
+.battle-empty-results {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 16px 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.battle-selection-pagination {
+  margin-top: 12px;
+  padding-top: 10px;
 }
 
 .battle-pokemon-choice img {
@@ -1314,6 +1358,9 @@ body {
     height: 28px;
   }
   .battle-pokemon-picker {
+    grid-template-columns: 1fr;
+  }
+  .battle-pokemon-tools {
     grid-template-columns: 1fr;
   }
   .battle-arena {

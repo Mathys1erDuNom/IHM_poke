@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=4" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=7" />
 </head>
 <body>
   <div class="device">
@@ -25,6 +25,7 @@
         {% if not pokemon %}
           <p class="battle-notice">Ta collection ne contient aucun Pokémon jouable.</p>
         {% else %}
+          <script id="battle-pokemon-data" type="application/json">{{ pokemon|tojson }}</script>
           <form id="battle-form">
             <fieldset class="battle-fieldset">
               <legend>Mode de combat</legend>
@@ -48,26 +49,24 @@
               <h2>Ton équipe</h2>
               <span id="team-count">0 / {{ max_team_size }}</span>
             </div>
-            <div class="battle-pokemon-picker">
-              {% for item in pokemon %}
-                <label class="battle-pokemon-choice">
-                  <input type="checkbox" name="pokemon" value="{{ item.name }}" />
-                  {% if item.gif_url %}<img src="{{ item.gif_url }}" alt="" loading="lazy" />{% endif %}
-                  <span class="battle-pokemon-info">
-                    <strong>{{ item.name }}</strong>
-                    <span>{{ item.types|join(' / ') }}</span>
-                    <span class="battle-stat-list">
-                      <span>PV {{ item.stats.hp }}</span>
-                      <span>Atq {{ item.stats.attack }}</span>
-                      <span>Déf {{ item.stats.defense }}</span>
-                      <span>Atq Spé {{ item.stats.special_attack }}</span>
-                      <span>Déf Spé {{ item.stats.special_defense }}</span>
-                      <span>Vit {{ item.stats.speed }}</span>
-                    </span>
-                  </span>
-                </label>
-              {% endfor %}
+            <div class="battle-pokemon-tools">
+              <input id="battle-search" type="search" placeholder="Rechercher un Pokémon" autocomplete="off" />
+              <select id="battle-type-filter" aria-label="Filtrer par type">
+                <option value="">Tous les types</option>
+              </select>
+              <select id="battle-sort" aria-label="Trier les Pokémon">
+                <option value="recent">Récent</option>
+                <option value="alpha">A → Z</option>
+                <option value="reverse-alpha">Z → A</option>
+              </select>
             </div>
+            <p class="battle-filter-count" id="battle-filter-count" aria-live="polite"></p>
+            <div class="battle-pokemon-picker" id="battle-pokemon-picker"></div>
+            <nav class="pagination battle-selection-pagination" id="battle-selection-pagination" aria-label="Pages des Pokémon" hidden>
+              <button class="page-btn" id="battle-prev-page" type="button">Précédent</button>
+              <span id="battle-page-indicator">Page 1 / 1</span>
+              <button class="page-btn" id="battle-next-page" type="button">Suivant</button>
+            </nav>
             <p class="battle-form-error" id="battle-form-error" role="alert"></p>
             <button class="pokedex-button battle-start" id="battle-start" type="submit">Lancer le combat</button>
           </form>
@@ -75,6 +74,6 @@
       </div>
     </main>
   </div>
-  <script src="{{ url_for('static', filename='js/battle-setup.js') }}?v=1" defer></script>
+  <script src="{{ url_for('static', filename='js/battle-setup.js') }}?v=3" defer></script>
 </body>
 </html>

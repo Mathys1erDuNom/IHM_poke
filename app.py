@@ -264,10 +264,10 @@ def mes_pokemons():
 def _owned_battle_pokemon(user_id):
     with get_cursor() as cur:
         cur.execute("""
-            SELECT name, ivs, stats, image
+            SELECT name, ivs, stats, image, captured_at
             FROM new_captures
             WHERE user_id = %s
-            ORDER BY name ASC
+            ORDER BY captured_at DESC, name ASC
         """, (user_id,))
         rows = cur.fetchall()
     output = []
@@ -284,6 +284,7 @@ def _owned_battle_pokemon(user_id):
             "max_hp": battler["max_hp"],
             "gif_url": battler["gif_url"],
             "image": battler["image"],
+            "captured_at": row.get("captured_at").isoformat() if hasattr(row.get("captured_at"), "isoformat") else row.get("captured_at"),
         })
     return output
 
