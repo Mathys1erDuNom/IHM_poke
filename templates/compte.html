@@ -32,10 +32,11 @@
         <div class="home-content">
           <h2 class="home-title">Espace dresseur</h2>
           <p class="home-description">Consulte le classement du serveur ou retrouve ta collection.</p>
+          
           <div class="action-row">
-            <a class="pokedex-button" href="...">Ma collection</a>
-            <a class="pokedex-button" href="...">Quiz</a>
-            <a class="pokedex-button" href="...">Combat</a>
+            <a href="{{ url_for('mes_pokemons') }}" class="pokedex-button">Ma collection</a>
+            <a href="{{ url_for('quiz') }}" class="pokedex-button">Quiz</a>
+            <a href="{{ url_for('combat_setup') }}" class="pokedex-button">Combat</a>
           </div>
           {% include "_leaderboard.html" %}
         </div>
