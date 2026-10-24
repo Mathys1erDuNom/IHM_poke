@@ -1314,7 +1314,7 @@ body {
 
 
 /* ---------- Responsive ---------- */
-
+/*
 @media (max-width: 620px) {
   .device {
     padding: 18px 14px 24px;
@@ -1396,3 +1396,92 @@ body {
   }
 }
 
+*/
+
+@media (max-width: 620px) {
+
+  /* --- Récupérer de la largeur --- */
+  body {
+    padding: 12px 8px 40px;
+  }
+  .device {
+    padding: 14px 10px 20px;
+    border-width: 4px;
+  }
+  .screen {
+    padding: 6px;
+  }
+  .screen-body {
+    padding: 12px;
+  }
+
+  /* --- 2. Stats lisibles à la sélection --- */
+  .battle-pokemon-choice {
+    grid-template-columns: 18px 44px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px 6px;
+  }
+  .battle-pokemon-choice img {
+    width: 44px;
+    height: 44px;
+  }
+  .battle-pokemon-info .battle-stat-list {
+    grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
+    gap: 2px 6px;
+    font-size: 0.72rem;
+  }
+  .battle-pokemon-info .battle-stat-list span {
+    white-space: normal; /* plus de débordement */
+  }
+
+  /* --- 1. Bouton Combat toujours accessible --- */
+  .battle-start {
+    position: sticky;
+    bottom: 8px;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    box-shadow: 0 -8px 12px var(--screen-bg), 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+  .battle-next-wave,
+  .battle-restart {
+    justify-self: stretch;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* --- 3. Vague toujours visible --- */
+  .wave-overview {
+    position: sticky;
+    top: 6px;
+    z-index: 10;
+    padding: 8px 12px;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .wave-number-block strong {
+    font-size: 1.4rem;
+  }
+  .wave-tier-block > span {
+    font-size: 0.9rem;
+  }
+  .wave-announcement:empty {
+    display: none;
+  }
+
+  /* --- Raccourcir la page de combat --- */
+  .battle-sprite {
+    height: 90px;
+  }
+  .battle-side {
+    padding: 10px;
+  }
+  .battle-moves {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colonnes au lieu de 1 */
+  }
+  .battle-move {
+    min-height: 60px;
+    padding: 8px 10px;
+  }
+}
