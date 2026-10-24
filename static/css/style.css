@@ -1397,91 +1397,90 @@ body {
 }
 
 */
+/* ---------- Filtres de sélection ---------- */
+
+.battle-pokemon-tools input,
+.battle-pokemon-tools select {
+  font-size: 16px; /* évite le zoom auto sur iOS */
+}
+
+.battle-pokemon-tools select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 16px) 50%, calc(100% - 11px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+}
+
+.sort-btn {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text-dark);
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  min-height: 36px;
+}
+
+.sort-btn.active {
+  background: var(--accent-yellow);
+  border-color: var(--screen-frame);
+  color: var(--text-dark);
+}
+
+/* ---------- Bouton connexion (desktop + mobile) ---------- */
+
+.login-button {
+  margin-left: 0;          /* la marge cassait l'alignement au retour à la ligne */
+}
 
 @media (max-width: 620px) {
 
-  /* --- Récupérer de la largeur --- */
-  body {
-    padding: 12px 8px 40px;
-  }
-  .device {
-    padding: 14px 10px 20px;
-    border-width: 4px;
-  }
-  .screen {
-    padding: 6px;
-  }
-  .screen-body {
-    padding: 12px;
-  }
-
-  /* --- 2. Stats lisibles à la sélection --- */
-  .battle-pokemon-choice {
-    grid-template-columns: 18px 44px minmax(0, 1fr);
+  /* Filtres : sur une seule ligne, recherche en haut */
+  .battle-pokemon-tools {
+    grid-template-columns: 1fr 1fr;
     gap: 6px;
-    padding: 8px 6px;
   }
-  .battle-pokemon-choice img {
-    width: 44px;
-    height: 44px;
+  .battle-pokemon-tools input {
+    grid-column: 1 / -1;     /* champ de recherche pleine largeur */
   }
-  .battle-pokemon-info .battle-stat-list {
-    grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
-    gap: 2px 6px;
-    font-size: 0.72rem;
-  }
-  .battle-pokemon-info .battle-stat-list span {
-    white-space: normal; /* plus de débordement */
+  .battle-pokemon-tools input,
+  .battle-pokemon-tools select {
+    min-height: 44px;        /* zone tactile correcte */
   }
 
-  /* --- 1. Bouton Combat toujours accessible --- */
-  .battle-start {
-    position: sticky;
-    bottom: 8px;
-    z-index: 5;
+  .sort-buttons {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .sort-btn {
+    flex: 1 1 auto;
+    min-height: 40px;
+  }
+
+  /* Accueil : boutons empilés, pleine largeur */
+  .pokedex-button,
+  .login-button {
     display: block;
     width: 100%;
-    margin-top: 12px;
-    box-shadow: 0 -8px 12px var(--screen-bg), 0 4px 14px rgba(0, 0, 0, 0.3);
-  }
-  .battle-next-wave,
-  .battle-restart {
-    justify-self: stretch;
+    margin: 0;
+    padding: 13px 16px;
+    font-size: 1rem;
     text-align: center;
-    width: 100%;
   }
-
-  /* --- 3. Vague toujours visible --- */
-  .wave-overview {
-    position: sticky;
-    top: 6px;
-    z-index: 10;
-    padding: 8px 12px;
-    gap: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  .pokedex-button + .pokedex-button,
+  .pokedex-button + .login-button,
+  .login-button + .pokedex-button {
+    margin-top: 10px;
   }
-  .wave-number-block strong {
-    font-size: 1.4rem;
+  .login-form .pokedex-button {
+    justify-self: stretch;
   }
-  .wave-tier-block > span {
-    font-size: 0.9rem;
+  .login-return-button {
+    display: block;
   }
-  .wave-announcement:empty {
-    display: none;
-  }
-
-  /* --- Raccourcir la page de combat --- */
-  .battle-sprite {
-    height: 90px;
-  }
-  .battle-side {
-    padding: 10px;
-  }
-  .battle-moves {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colonnes au lieu de 1 */
-  }
-  .battle-move {
-    min-height: 60px;
-    padding: 8px 10px;
+  .login-content {
+    padding: 16px;
   }
 }
