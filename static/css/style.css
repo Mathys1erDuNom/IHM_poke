@@ -914,7 +914,13 @@ body {
 }
 
 .battle-start {
-  margin-top: 4px;
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  box-shadow: 0 -10px 14px var(--screen-bg), 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .battle-start:disabled,
@@ -1348,6 +1354,16 @@ body {
   margin-left: 0;
 }
 
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.action-row > form {
+  margin: 0;
+}
 /* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
@@ -1550,5 +1566,14 @@ body {
   }
   .login-content {
     padding: 16px;
+  }
+    .action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .action-row > .back-button,
+  .action-row > .pokedex-button {
+    text-align: center;
   }
 }
