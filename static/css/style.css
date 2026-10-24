@@ -1312,91 +1312,6 @@ body {
   border-color: #4c8fd1;
 }
 
-
-/* ---------- Responsive ---------- */
-/*
-@media (max-width: 620px) {
-  .device {
-    padding: 18px 14px 24px;
-  }
-  .device-header {
-    flex-wrap: wrap;
-  }
-  .brand {
-    font-size: 1.3rem;
-  }
-  .screen-topline {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .quiz-options {
-    grid-template-columns: 1fr;
-  }
-  .leaderboard-box {
-    padding: 14px 10px 8px;
-  }
-  .leaderboard-header {
-    flex-wrap: wrap;
-    gap: 6px 10px;
-  }
-  .leaderboard-item {
-    grid-template-columns: 36px minmax(0, 1fr) auto;
-    gap: 8px;
-    padding: 9px 8px;
-  }
-  .leaderboard-user {
-    min-width: 0;
-    overflow-wrap: anywhere;
-  }
-  .leaderboard-balance {
-    gap: 4px;
-    white-space: nowrap;
-    font-size: 0.9rem;
-  }
-  .leaderboard-coin {
-    width: 28px;
-    height: 28px;
-  }
-  .battle-pokemon-picker {
-    grid-template-columns: 1fr;
-  }
-  .battle-pokemon-tools {
-    grid-template-columns: 1fr;
-  }
-  .battle-arena {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .battle-enemy-side,
-  .battle-player-side {
-    grid-column: 1;
-  }
-  .battle-enemy-side {
-    grid-row: 1;
-  }
-  .battle-player-side {
-    grid-row: 3;
-  }
-  .battle-divider {
-    grid-column: 1;
-    grid-row: 2;
-    width: 34px;
-  }
-  .battle-moves {
-    grid-template-columns: 1fr;
-  }
-  .wave-overview {
-    padding: 12px;
-  }
-  .wave-number-block strong {
-    font-size: 1.7rem;
-  }
-  #filter-input {
-    max-width: none;
-    width: 100%;
-  }
-}
-
-*/
 /* ---------- Filtres de sélection ---------- */
 
 .battle-pokemon-tools input,
@@ -1429,27 +1344,87 @@ body {
   color: var(--text-dark);
 }
 
-/* ---------- Bouton connexion (desktop + mobile) ---------- */
-
 .login-button {
-  margin-left: 0;          /* la marge cassait l'alignement au retour à la ligne */
+  margin-left: 0;
 }
+
+/* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
 
-  /* Filtres : sur une seule ligne, recherche en haut */
+  /* --- Gagner de la largeur --- */
+  body {
+    padding: 12px 8px 40px;
+  }
+  .device {
+    padding: 14px 10px 20px;
+    border-width: 4px;
+  }
+  .device-header {
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-size: 1.3rem;
+  }
+  .screen {
+    padding: 6px;
+  }
+  .screen-body {
+    padding: 12px;
+  }
+  .screen-topline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #filter-input {
+    max-width: none;
+    width: 100%;
+  }
+
+  /* --- Quiz --- */
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Leaderboard --- */
+  .leaderboard-box {
+    padding: 14px 10px 8px;
+  }
+  .leaderboard-header {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+  .leaderboard-item {
+    grid-template-columns: 36px minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 9px 8px;
+  }
+  .leaderboard-user {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .leaderboard-balance {
+    gap: 4px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  .leaderboard-coin {
+    width: 28px;
+    height: 28px;
+  }
+
+  /* --- Filtres --- */
   .battle-pokemon-tools {
     grid-template-columns: 1fr 1fr;
     gap: 6px;
   }
   .battle-pokemon-tools input {
-    grid-column: 1 / -1;     /* champ de recherche pleine largeur */
+    grid-column: 1 / -1;
   }
   .battle-pokemon-tools input,
   .battle-pokemon-tools select {
-    min-height: 44px;        /* zone tactile correcte */
+    min-height: 44px;
   }
-
   .sort-buttons {
     flex-wrap: wrap;
     width: 100%;
@@ -1459,7 +1434,100 @@ body {
     min-height: 40px;
   }
 
-  /* Accueil : boutons empilés, pleine largeur */
+  /* --- Sélection des Pokémon + stats --- */
+  .battle-pokemon-picker {
+    grid-template-columns: 1fr;
+  }
+  .battle-pokemon-choice {
+    grid-template-columns: 18px 44px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px 6px;
+  }
+  .battle-pokemon-choice img {
+    width: 44px;
+    height: 44px;
+  }
+  .battle-pokemon-info .battle-stat-list {
+    grid-template-columns: repeat(auto-fit, minmax(54px, 1fr));
+    gap: 2px 6px;
+    font-size: 0.72rem;
+  }
+  .battle-pokemon-info .battle-stat-list span {
+    white-space: normal;
+  }
+
+  /* --- Bouton Combat --- */
+  .battle-start {
+    position: sticky;
+    bottom: 8px;
+    z-index: 5;
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    box-shadow: 0 -8px 12px var(--screen-bg), 0 4px 14px rgba(0, 0, 0, 0.3);
+  }
+  .battle-next-wave,
+  .battle-restart {
+    justify-self: stretch;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* --- Vague toujours visible --- */
+  .wave-overview {
+    position: sticky;
+    top: 6px;
+    z-index: 10;
+    padding: 8px 12px;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .wave-number-block strong {
+    font-size: 1.4rem;
+  }
+  .wave-tier-block > span {
+    font-size: 0.9rem;
+  }
+  .wave-announcement:empty {
+    display: none;
+  }
+
+  /* --- Arène --- */
+  .battle-arena {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .battle-enemy-side,
+  .battle-player-side {
+    grid-column: 1;
+  }
+  .battle-enemy-side {
+    grid-row: 1;
+  }
+  .battle-player-side {
+    grid-row: 3;
+  }
+  .battle-divider {
+    grid-column: 1;
+    grid-row: 2;
+    width: 34px;
+  }
+  .battle-side {
+    padding: 10px;
+  }
+  .battle-sprite {
+    height: 90px;
+  }
+
+  /* --- Attaques --- */
+  .battle-moves {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .battle-move {
+    min-height: 60px;
+    padding: 8px 10px;
+  }
+
+  /* --- Boutons de l'accueil / connexion --- */
   .pokedex-button,
   .login-button {
     display: block;
