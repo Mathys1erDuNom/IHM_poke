@@ -1364,6 +1364,11 @@ body {
 .action-row > form {
   margin: 0;
 }
+
+#battle-next-wave,
+#battle-restart {
+  display: none !important;
+}
 /* ---------- Responsive ---------- */
 
 @media (max-width: 620px) {
@@ -1571,7 +1576,7 @@ body {
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .action-row > .back-button,
   .action-row > .pokedex-button {
     text-align: center;
