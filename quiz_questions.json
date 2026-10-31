@@ -1,22 +1,22 @@
 [
   {
-    "question": "Quel Pokémon est la mascotte emblématique de la série ?",
-    "options": ["Pikachu", "Évoli", "Salamèche", "Carapuce"],
-    "answer": "Pikachu"
+    "question": "Quel personnage de Fear and Hunger, entre dans le donjon, afin de récupérer de l'argent ?",
+    "options": ["Cahara", "D'arce", "Enki", "Ragnvaldr"],
+    "answer": "Cahara"
   },
   {
-    "question": "Quel Pokémon de départ de Kanto est de type Plante ?",
-    "options": ["Bulbizarre", "Salamèche", "Carapuce", "Pikachu"],
-    "answer": "Bulbizarre"
+    "question": "Quel personnage de Fear and Hunger, entre dans le donjon afin de tuer LeGarde et venger son peuple ?",
+    "options": ["D'arce", "Enki", "Ragnvaldr", "Cahara"],
+    "answer": "Ragnvaldr"
   },
   {
-    "question": "Quel Pokémon évolue en Tortank ?",
-    "options": ["Carabaffe", "Carapuce", "Aquali", "Lokhlass"],
-    "answer": "Carabaffe"
+    "question": "Quel personnage de Fear and Hunger, entre dans le donjon afin de sauver LeGarde ?",
+    "options": ["Ragnvaldr", "Cahara", "D'arce", "Enki"],
+    "answer": "D'arce"
   },
   {
-    "question": "Quelle évolution d'Évoli obtient-on avec une Pierre Eau ?",
-    "options": ["Aquali", "Voltali", "Pyroli", "Mentali"],
-    "answer": "Aquali"
+    "question": "Quel personnage de Fear and Hunger, entre dans le donjon afin de devenir une divinité ?",
+    "options": ["Enki", "Ragnvaldr", "Cahara", "D'arce"],
+    "answer": "Enki"
   }
 ]
