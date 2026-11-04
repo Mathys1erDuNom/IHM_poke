@@ -187,7 +187,11 @@ class BattleEngineTests(unittest.TestCase):
         self.assertNotIn("pp", attack)
 
     def test_team_and_wave_generators_respect_tier_bounds(self):
-        self.assertEqual(len(self.generator.predefined_team("classiques")), 6)
+        team_definition = self.data.teams[0]
+        self.assertEqual(
+            len(self.generator.predefined_team(team_definition["id"])),
+            len(team_definition["pokemon"]),
+        )
         team = self.generator.random_team(3)
         self.assertEqual(len(team), 3)
         early = self.generator.random_wave_team(1)
@@ -197,6 +201,19 @@ class BattleEngineTests(unittest.TestCase):
         self.assertTrue(all(min(pokemon["ivs"].values()) >= 0 for pokemon in early))
         self.assertTrue(all(min(pokemon["ivs"].values()) >= 20 for pokemon in late))
         self.assertTrue(all(max(pokemon["ivs"].values()) <= 31 for pokemon in late))
+
+    def test_predefined_team_calculates_stats_from_member_ivs(self):
+        team_definition = self.data.teams[0]
+        member = team_definition["pokemon"][0]
+        configured_member = {**member, "ivs": {**member["ivs"], "hp": 12}}
+        team_definition["pokemon"][0] = configured_member
+        try:
+            battler = self.generator.predefined_team(team_definition["id"])[0]
+        finally:
+            team_definition["pokemon"][0] = member
+        pokemon_record = self.data.pokemon_by_id[self.generator.data_name_id(member["name"])]
+        self.assertEqual(battler["ivs"]["hp"], 12)
+        self.assertEqual(battler["stats"]["hp"], pokemon_record["base_stats"]["hp"] + 12)
 
     def test_enemy_ai_uses_effectiveness_immunities_and_healing_context(self):
         attacker = self.pokemon("pikachu")

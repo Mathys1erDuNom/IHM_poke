@@ -1,64 +1,39 @@
-[   
-    {
-        "id": "champion_de_Charbourg",
-        "name": "Pierrick (Roche)",
-        "repliques": {
-          "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-          "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-          "lose_pokemon": "Oh non… il a été vaincu…",
-          "win": "La nature triomphe toujours.",
-          "lose": "Je reconnais ta force. Tu as gagné."
-        },
-        "pokemons": [
-          {
-            "name": "Racaillou",
-            "type": [
-                "roche",
-                "sol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/74.png",
-            "attacks": [
-                "Charge",
-                "Lance-Pierre"
-            ],
-            "stats": {
-                "hp": 71,
-                "attack": 111,
-                "special_attack": 61,
-                "speed": 51,
-                "defense": 131,
-                "special_defense": 61
-            }
-        },
-        {
-            "name": "Onix",
-            "type": [
-                "roche",
-                "sol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/95.png",
-            "attacks": [
-                "Lance-Pierre",
-                "Seisme"
-            ],
-            "stats": {
-                "hp": 66,
-                "attack": 76,
-                "special_attack": 61,
-                "speed": 101,
-                "defense": 191,
-                "special_defense": 76
-            }
+[
+  {
+    "id": "champion_de_Charbourg",
+    "name": "Pierrick (Roche)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Racaillou",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-       
-        
-        
-    
-        ]
       },
-
-
-
+      {
+        "name": "Onix",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
   {
     "id": "champion_de_Vestigion",
     "name": "Flo (Plante)",
@@ -69,73 +44,42 @@
       "win": "La nature triomphe toujours.",
       "lose": "Je reconnais ta force. Tu as gagné."
     },
-    "pokemons": [
-        {
-            "name": "Tortipouss",
-            "type": [
-                "plante"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/387.png",
-            "attacks": [
-                
-                "Charge",
-                "Fouet Lianes"
-            ],
-            "stats": {
-                "hp": 86,
-                "attack": 99,
-                "defense": 95,
-                "special_attack": 76,
-                "special_defense": 86,
-                "speed": 62
-            }
-        },
-        {
-            "name": "Ceribou",
-            "type": [
-                "plante"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/420.png",
-            "attacks": [
-                "Charge",
-                "Fouet Lianes"
-            ],
-            "stats": {
-                "hp": 76,
-                "attack": 66,
-                "defense": 76,
-                "special_attack": 93,
-                "special_defense": 84,
-                "speed": 66
-            }
-        },
-        {
-            "name": "Roserade",
-            "type": [
-                "plante",
-                "poison"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/407.png",
-            "attacks": [
-                "Fouet Lianes",
-                "Bombe-Beurk",
-                "Eclat Magique"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 101,
-                "defense": 96,
-                "special_attack": 156,
-                "special_defense": 136,
-                "speed": 111
-            }
+    "pokemon": [
+      {
+        "name": "Tortipouss",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-    
-  
-        
+      },
+      {
+        "name": "Ceribou",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Roserade",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
     ]
   },
-
   {
     "id": "champion_de_Voilaroc",
     "name": "Mélina (Combat)",
@@ -146,539 +90,292 @@
       "win": "La nature triomphe toujours.",
       "lose": "Je reconnais ta force. Tu as gagné."
     },
-    "pokemons": [
-        {
-            "name": "Machopeur",
-            "type": [
-                "combat"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/67.png",
-            "attacks": [
-                "Charge",
-                "Poing Karate",
-                "Poing-Eclair"
-            ],
-            "stats": {
-                "hp": 111,
-                "attack": 131,
-                "special_attack": 81,
-                "speed": 76,
-                "defense": 101,
-                "special_defense": 91
-            }
-        },
-        {
-            "name": "Lucario",
-            "type": [
-                "combat",
-                "acier"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png",
-            "attacks": [
-                "Ultimapoing",
-                "Close Combat",
-                "Griffe Acier"
-            ],
-            "stats": {
-                "hp": 101,
-                "attack": 141,
-                "defense": 101,
-                "special_attack": 146,
-                "special_defense": 101,
-                "speed": 121
-            }
-        },
-        {
-            "name": "Meditikka",
-            "type": [
-                "combat",
-                "psy"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/307.png",
-            "attacks": [
-                "Ecras’Face",
-                "Ultimapoing",
-                "Poing Feu"
-            ],
-            "stats": {
-                "hp": 61,
-                "attack": 71,
-                "defense": 86,
-                "special_attack": 71,
-                "special_defense": 86,
-                "speed": 91
-            }
+    "pokemon": [
+      {
+        "name": "Machopeur",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-
-  
-    
-  
-
+      },
+      {
+        "name": "Lucario",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Meditikka",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
     ]
   },
-
-
-
-
-
-    {
-      "id": "champion_de_Verchamps",
-      "name": "Lovis (Eau)",
-      "repliques": {
-        "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-        "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-        "lose_pokemon": "Oh non… il a été vaincu…",
-        "win": "La nature triomphe toujours.",
-        "lose": "Je reconnais ta force. Tu as gagné."
-      },
-      "pokemons": [
-        {
-            "name": "Leviator",
-            "type": [
-                "eau",
-                "vol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png",
-            "attacks": [
-                "Morsure",
-                "Hydrocanon",
-                "Dracochoc"
-            ],
-            "stats": {
-                "hp": 126,
-                "attack": 156,
-                "special_attack": 91,
-                "speed": 112,
-                "defense": 110,
-                "special_defense": 131
-            }
-        },
-        {
-            "name": "Mustéflott",
-            "type": [
-                "eau"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/419.png",
-            "attacks": [
-                "Charge",
-                "Surf"
-            ],
-            "stats": {
-                "hp": 116,
-                "attack": 126,
-                "defense": 86,
-                "special_attack": 116,
-                "special_defense": 81,
-                "speed": 146
-            }
-        },
-        {
-            "name": "Maraiste",
-            "type": [
-                "eau",
-                "sol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/195.png",
-            "attacks": [
-                "Ultimapoing",
-                "Poing Glace",
-                "Souplesse"
-            ],
-            "stats": {
-                "hp": 126,
-                "attack": 116,
-                "defense": 116,
-                "special_attack": 96,
-                "special_defense": 96,
-                "speed": 66
-            }
-        }
-
-        
-
-
-      ]
+  {
+    "id": "champion_de_Verchamps",
+    "name": "Lovis (Eau)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
     },
-
-
-
-    {
-      "id": "champion_de_Unionpolis",
-      "name": "Kiméra (Spectre)",
-      "repliques": {
-        "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-        "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-        "lose_pokemon": "Oh non… il a été vaincu…",
-        "win": "La nature triomphe toujours.",
-        "lose": "Je reconnais ta force. Tu as gagné."
-      },
-      "pokemons": [
-        {
-            "name": "Grodrive",
-            "type": [
-                "spectre",
-                "vol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/426.png",
-            "attacks": [
-                "Coupe",
-                "Tornade",
-                "Vol"
-            ],
-            "stats": {
-                "hp": 181,
-                "attack": 111,
-                "defense": 75,
-                "special_attack": 121,
-                "special_defense": 85,
-                "speed": 111
-            }
-        },
-        {
-            "name": "Magirêve",
-            "type": [
-                "spectre"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/429.png",
-            "attacks": [
-                "Balle Ombre",
-             
-                "Rafale Psy"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 91,
-                "defense": 91,
-                "special_attack": 136,
-                "special_defense": 136,
-                "speed": 136
-            }
-        },
-        {
-            "name": "Ectoplasma",
-            "type": [
-                "spectre",
-                "poison"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png",
-            "attacks": [
-                "Balle Ombre",
-                "Bomb-Beurk",
-                
-                "Lance-Flammes"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 96,
-                "special_attack": 181,
-                "speed": 161,
-                "defense": 91,
-                "special_defense": 101
-            }
+    "pokemon": [
+      {
+        "name": "Leviator",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-  
-      
-        
-        
-      ]
+      },
+      {
+        "name": "Mustéflott",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Maraiste",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Unionpolis",
+    "name": "Kiméra (Spectre)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
     },
-
-
-
-    {
-      "id": "champion_de_Joliberges",
-      "name": "Charles (Acier)",
-      "repliques": {
-        "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-        "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-        "lose_pokemon": "Oh non… il a été vaincu…",
-        "win": "La nature triomphe toujours.",
-        "lose": "Je reconnais ta force. Tu as gagné."
-      },
-      "pokemons": [
-  
-      
-      
-        {
-            "name": "Steelix",
-            "type": [
-                "acier",
-                "sol"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/208.png",
-            "attacks": [
-                "Coupe",
-                "Queue de fer",
-                "Souplesse"
-            ],
-            "stats": {
-                "hp": 106,
-                "attack": 116,
-                "defense": 231,
-                "special_attack": 86,
-                "special_defense": 96,
-                "speed": 61
-            }
-        },{
-            "name": "Archéomire",
-            "type": [
-                "acier",
-                "psy"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/436.png",
-            "attacks": [
-                "Charge",
-                "Rafale Psy"
-            ],
-            "stats": {
-                "hp": 88,
-                "attack": 55,
-                "defense": 117,
-                "special_attack": 55,
-                "special_defense": 117,
-                "speed": 54
-            }
-        }, {
-            "name": "Bastiodon",
-            "type": [
-                "roche",
-                "acier"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/411.png",
-            "attacks": [
-                "Eboulement",
-                "Charge",
-                "Coup d'Boule"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 83,
-                "defense": 198,
-                "special_attack": 78,
-                "special_defense": 169,
-                "speed": 61
-            }
+    "pokemon": [
+      {
+        "name": "Grodrive",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-
-    
-      
-        
-      ]
+      },
+      {
+        "name": "Magirêve",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Ectoplasma",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Joliberges",
+    "name": "Charles (Acier)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
     },
-
-
-
-    {
-      "id": "champion_de_Frimapic",
-      "name": "Gladyce (Glace)",
-      "repliques": {
-        "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-        "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-        "lose_pokemon": "Oh non… il a été vaincu…",
-        "win": "La nature triomphe toujours.",
-        "lose": "Je reconnais ta force. Tu as gagné."
-      },
-      "pokemons": [
-        {
-            "name": "Blizzi",
-            "type": [
-                "plante",
-                "glace"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/459.png",
-            "attacks": [
-                "Tempete Verte",
-                "Vent Glace"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 93,
-                "defense": 81,
-                "special_attack": 93,
-                "special_defense": 91,
-                "speed": 71
-            }
-        },
-        {
-            "name": "Blizzaroi",
-            "type": [
-                "plante",
-                "glace"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/460.png",
-            "attacks": [
-                "Tempete Verte",
-                "Vent Glace"
-            ],
-            "stats": {
-                "hp": 121,
-                "attack": 122,
-                "defense": 106,
-                "special_attack": 123,
-                "special_defense": 116,
-                "speed": 91
-            }
-        },
-        {
-            "name": "Charmina",
-            "type": [
-                "combat",
-                "psy"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/308.png",
-            "attacks": [
-                "Ecras’Face",
-                "Ultimapoing",
-                "Poing Feu"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 91,
-                "defense": 106,
-                "special_attack": 91,
-                "special_defense": 1106,
-                "speed": 121
-            }
-        },
-        {
-            "name": "Farfuret",
-            "type": [
-                "tenebres",
-                "glace"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/215.png",
-            "attacks": [
-                "Ultimapoing",
-                "Poing Glace",
-                "Griffe",
-                "Guillotine"
-            ],
-            "stats": {
-                "hp": 86,
-                "attack": 126,
-                "defense": 86,
-                "special_attack": 66,
-                "special_defense": 106,
-                "speed": 146
-            }
+    "pokemon": [
+      {
+        "name": "Steelix",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-        
-       
-    
-      
-
-      ]
+      },
+      {
+        "name": "Archéomire",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Bastiodon",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Frimapic",
+    "name": "Gladyce (Glace)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
     },
-
-
-
-
-    {
-      "id": "champion_de_Rivamar",
-      "name": "Tanguy (Electrique)",
-      "repliques": {
-        "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
-        "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
-        "lose_pokemon": "Oh non… il a été vaincu…",
-        "win": "La nature triomphe toujours.",
-        "lose": "Je reconnais ta force. Tu as gagné."
-      },
-      "pokemons": [
-        {
-            "name": "Raichu",
-            "type": [
-                "electrique"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
-            "attacks": [
-                "Eclair",
-                "Charge",
-                "Tonnerre"
-            ],
-            "stats": {
-                "hp": 91,
-                "attack": 121,
-                "special_attack": 121,
-                "speed": 141,
-                "defense": 86,
-                "special_defense": 121
-            }
-        },
-        {
-            "name": "Luxray",
-            "type": [
-                "electrique"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/405.png",
-            "attacks": [
-                "Croc Eclair",
-                "Griffe Acier",
-                "Morsure",
-                "Tonnerre"
-            ],
-            "stats": {
-                "hp": 111,
-                "attack": 151,
-                "defense": 120,
-                "special_attack": 126,
-                "special_defense": 110,
-                "speed": 101
-            }
-        },
-        {
-            "name": "Capidextre",
-            "type": [
-                "normal"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/424.png",
-            "attacks": [
-                "Poing Feu",
-                "Poing Glace",
-                "Poing Eclair",
-                "Charge"
-            ],
-            "stats": {
-                "hp": 106,
-                "attack": 131,
-                "defense": 97,
-                "special_attack": 91,
-                "special_defense": 97,
-                "speed": 146
-            }
-        },
-        {
-            "name": "Octillery",
-            "type": [
-                "eau"
-            ],
-            "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/224.png",
-            "attacks": [
-                "Pistolet a O",
-                "charge"
-            ],
-            "stats": {
-                "hp": 106,
-                "attack": 136,
-                "defense": 106,
-                "special_attack": 136,
-                "special_defense": 106,
-                "speed": 76
-            }
+    "pokemon": [
+      {
+        "name": "Blizzi",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
         }
-      
-    
-      
-    
-      
-
-
-      ]
-    }
-
-
-
-
-  
-    
-  ]
-  
+      },
+      {
+        "name": "Blizzaroi",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Charmina",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Farfuret",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Rivamar",
+    "name": "Tanguy (Electrique)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Raichu",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Luxray",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Capidextre",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Octillery",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  }
+]

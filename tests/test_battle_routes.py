@@ -107,15 +107,16 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(turn.json["status"], "won")
 
     def test_predefined_team_and_waves_share_the_engine(self):
+        team_definition = self.site.BATTLE_DATA.teams[0]
         predefined = self.client.post("/api/battles", json={
             "mode": "team",
             "enemy_mode": "predefined",
-            "team_id": "classiques",
+            "team_id": team_definition["id"],
             "pokemon_names": ["Pikachu"],
         })
         self.assertEqual(predefined.status_code, 200, predefined.json)
         team_state = self.client.get(f"/api/battles/{predefined.json['battle_id']}").json
-        self.assertEqual(len(team_state["enemy_team"]), 6)
+        self.assertEqual(len(team_state["enemy_team"]), len(team_definition["pokemon"]))
 
         waves = self.client.post("/api/battles", json={
             "mode": "waves",

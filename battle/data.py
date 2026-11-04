@@ -118,9 +118,19 @@ class BattleData:
         available = {normalize_name(pokemon["name"]): pokemon for pokemon in self.pokemon if not pokemon["name"].lower().endswith("_shiny")}
         teams = []
         for team in self.team_definitions:
-            valid_names = [name for name in team.get("pokemon", []) if normalize_name(name) in available]
-            if valid_names:
-                teams.append({"id": team.get("id", normalize_name(team.get("name"))), "name": team.get("name", "Équipe"), "pokemon": valid_names})
+            definitions = team.get("pokemon", team.get("pokemons", []))
+            members = []
+            for definition in definitions:
+                member = definition if isinstance(definition, dict) else {"name": definition}
+                name = member.get("name")
+                if not isinstance(name, str) or normalize_name(name) not in available:
+                    continue
+                members.append({
+                    "name": name,
+                    "ivs": member.get("ivs") if isinstance(member.get("ivs"), dict) else {},
+                })
+            if members:
+                teams.append({"id": team.get("id", normalize_name(team.get("name"))), "name": team.get("name", "Équipe"), "pokemon": members})
         return teams
 
     def normalize_type(self, value):
@@ -213,5 +223,5 @@ class BattleData:
             return None
         return self.create_battler(species, iv_min, iv_max, owned_record)
 
-    def enemy_battler(self, pokemon_record, iv_min, iv_max):
-        return self.create_battler(pokemon_record, iv_min, iv_max)
+    def enemy_battler(self, pokemon_record, iv_min, iv_max, team_config=None):
+        return self.create_battler(pokemon_record, iv_min, iv_max, team_config)

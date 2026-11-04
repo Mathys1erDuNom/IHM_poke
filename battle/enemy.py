@@ -90,14 +90,15 @@ class EnemyGenerator:
             return []
         params = self.config["team_mode"]
         output = []
-        for name in definition["pokemon"]:
-            pokemon = self.data.pokemon_by_id.get(self.data_name_id(name))
+        for member in definition["pokemon"]:
+            pokemon = self.data.pokemon_by_id.get(self.data_name_id(member["name"]))
             if not pokemon:
                 continue
             output.append(self.data.enemy_battler(
                 pokemon,
                 params["iv_min"] if iv_min is None else iv_min,
                 params["iv_max"] if iv_max is None else iv_max,
+                member,
             ))
         return output
 
