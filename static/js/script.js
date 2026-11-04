@@ -95,7 +95,7 @@ async function init() {
 
   if (allCollections.length === 0) {
     placeholderEl.hidden = false;
-    placeholderEl.querySelector("p").textContent =
+    placeholderEl.textContent =
       "Aucun dresseur pour l'instant. Une collection apparaîtra ici dès qu'un Pokémon aura été capturé.";
     return;
   }
