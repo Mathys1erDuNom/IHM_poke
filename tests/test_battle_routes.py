@@ -83,9 +83,12 @@ class BattleRouteTests(unittest.TestCase):
         setup = self.client.get("/combat")
         self.assertEqual(setup.status_code, 200)
         self.assertIn(b"Pikachu", setup.data)
+        self.assertIn(b'id="enemy-region"', setup.data)
+        self.assertIn(b"Kanto", setup.data)
 
         response = self.client.post("/api/battles", json={
             "mode": "team",
+            "region_id": "kanto",
             "enemy_mode": "random",
             "pokemon_names": ["Pikachu"],
         })
@@ -107,9 +110,11 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(turn.json["status"], "won")
 
     def test_predefined_team_and_waves_share_the_engine(self):
-        team_definition = self.site.BATTLE_DATA.teams[0]
+        region = self.site.BATTLE_DATA.regions[0]
+        team_definition = region["teams"][0]
         predefined = self.client.post("/api/battles", json={
             "mode": "team",
+            "region_id": region["id"],
             "enemy_mode": "predefined",
             "team_id": team_definition["id"],
             "pokemon_names": ["Pikachu"],
@@ -160,8 +165,16 @@ class BattleRouteTests(unittest.TestCase):
         self.assertTrue(any("Vague 1 remportée" in entry["text"] for entry in state["log"]))
 
     def test_invalid_enemy_team_and_unowned_pokemon_are_rejected(self):
+        invalid_region = self.client.post("/api/battles", json={
+            "mode": "team",
+            "region_id": "unknown",
+            "pokemon_names": ["Pikachu"],
+        })
+        self.assertEqual(invalid_region.status_code, 400)
+
         invalid_team = self.client.post("/api/battles", json={
             "mode": "team",
+            "region_id": "kanto",
             "enemy_mode": "predefined",
             "team_id": "missing",
             "pokemon_names": ["Pikachu"],
@@ -170,6 +183,7 @@ class BattleRouteTests(unittest.TestCase):
 
         unowned = self.client.post("/api/battles", json={
             "mode": "team",
+            "region_id": "kanto",
             "pokemon_names": ["Mewtwo"],
         })
         self.assertEqual(unowned.status_code, 400)
@@ -183,6 +197,7 @@ class BattleRouteTests(unittest.TestCase):
         })
         started = self.client.post("/api/battles", json={
             "mode": "team",
+            "region_id": "kanto",
             "pokemon_names": ["Pikachu", "Carapuce"],
         })
         self.assertEqual(started.status_code, 200, started.json)

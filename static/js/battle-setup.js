@@ -4,6 +4,7 @@ const form = document.getElementById("battle-form");
 if (setup && form) {
   const maxTeamSize = Number(setup.dataset.maxTeam);
   const allPokemon = JSON.parse(document.getElementById("battle-pokemon-data").textContent);
+  const regions = JSON.parse(document.getElementById("battle-regions-data").textContent);
   const pokemonPicker = document.getElementById("battle-pokemon-picker");
   const searchInput = document.getElementById("battle-search");
   const typeFilter = document.getElementById("battle-type-filter");
@@ -16,6 +17,7 @@ if (setup && form) {
   const count = document.getElementById("team-count");
   const error = document.getElementById("battle-form-error");
   const enemyOptions = document.getElementById("enemy-options");
+  const enemyRegion = document.getElementById("enemy-region");
   const enemyMode = document.getElementById("enemy-mode");
   const selectionOrder = [];
   const pageSize = 25;
@@ -141,6 +143,24 @@ if (setup && form) {
     renderPokemonPage();
   }
 
+  function renderEnemyOptions() {
+    const region = regions.find((entry) => entry.id === enemyRegion.value);
+    enemyMode.replaceChildren();
+
+    const randomOption = document.createElement("option");
+    randomOption.value = "random";
+    randomOption.textContent = "Équipe aléatoire de la région";
+    enemyMode.appendChild(randomOption);
+
+    (region?.teams || []).forEach((team) => {
+      const option = document.createElement("option");
+      option.value = "predefined";
+      option.dataset.teamId = team.id;
+      option.textContent = team.name;
+      enemyMode.appendChild(option);
+    });
+  }
+
   searchInput.addEventListener("input", resetPageAndRender);
   typeFilter.addEventListener("change", resetPageAndRender);
   sortSelect.addEventListener("change", resetPageAndRender);
@@ -157,6 +177,9 @@ if (setup && form) {
       renderPokemonPage();
     }
   });
+
+  enemyRegion.addEventListener("change", renderEnemyOptions);
+  renderEnemyOptions();
 
   form.querySelectorAll('input[name="mode"]').forEach((input) => {
     input.addEventListener("change", () => {
@@ -177,6 +200,7 @@ if (setup && form) {
     const payload = {
       mode,
       pokemon_names: pokemonNames,
+      region_id: enemyRegion.value,
       enemy_mode: enemyMode.value,
       team_id: selectedEnemy.dataset.teamId || "",
     };

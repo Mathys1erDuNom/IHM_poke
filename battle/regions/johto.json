@@ -1,0 +1,381 @@
+[
+  {
+    "id": "champion_de_Charbourg",
+    "name": "Pierrick (Roche)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Pikachu",
+        "ivs": {
+          "hp": 31,
+          "attack": 31,
+          "defense": 31,
+          "special_attack": 31,
+          "special_defense": 31,
+          "speed": 31
+        }
+      },
+      {
+        "name": "Onix",
+        "ivs": {
+          "hp": 31,
+          "attack": 31,
+          "defense": 31,
+          "special_attack": 31,
+          "special_defense": 31,
+          "speed": 31
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Vestigion",
+    "name": "Flo (Plante)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Tortipouss",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Ceribou",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Roserade",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Voilaroc",
+    "name": "Mélina (Combat)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Machopeur",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Lucario",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Meditikka",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Verchamps",
+    "name": "Lovis (Eau)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Leviator",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Mustéflott",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Maraiste",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Unionpolis",
+    "name": "Kiméra (Spectre)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Grodrive",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Magirêve",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Ectoplasma",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Joliberges",
+    "name": "Charles (Acier)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Steelix",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Archéomire",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Bastiodon",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Frimapic",
+    "name": "Gladyce (Glace)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Blizzi",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Blizzaroi",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Charmina",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Farfuret",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "champion_de_Rivamar",
+    "name": "Tanguy (Electrique)",
+    "repliques": {
+      "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
+      "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
+      "lose_pokemon": "Oh non… il a été vaincu…",
+      "win": "La nature triomphe toujours.",
+      "lose": "Je reconnais ta force. Tu as gagné."
+    },
+    "pokemon": [
+      {
+        "name": "Raichu",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Luxray",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Capidextre",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      },
+      {
+        "name": "Octillery",
+        "ivs": {
+          "hp": null,
+          "attack": null,
+          "defense": null,
+          "special_attack": null,
+          "special_defense": null,
+          "speed": null
+        }
+      }
+    ]
+  }
+]

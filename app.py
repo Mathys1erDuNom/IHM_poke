@@ -299,7 +299,7 @@ def combat_setup():
         "combat_select.html",
         discord_user=discord_user,
         pokemon=pokemon,
-        teams=BATTLE_DATA.teams,
+        regions=BATTLE_DATA.regions,
         max_team_size=BATTLE_DATA.config["combat"]["max_team_size"],
     )
 
@@ -322,11 +322,15 @@ def create_battle():
     mode = payload.get("mode")
     names = payload.get("pokemon_names")
     enemy_mode = payload.get("enemy_mode", "random")
+    region_id = payload.get("region_id")
     max_team_size = BATTLE_DATA.config["combat"]["max_team_size"]
     if mode not in {"team", "waves"}:
         return jsonify({"error": "Mode de combat invalide."}), 400
     if mode == "team" and enemy_mode not in {"random", "predefined"}:
         return jsonify({"error": "Équipe adverse invalide."}), 400
+    region = BATTLE_DATA.get_region(region_id) if mode == "team" else None
+    if mode == "team" and not region:
+        return jsonify({"error": "Région invalide."}), 400
     if not isinstance(names, list) or not names or len(names) > max_team_size:
         return jsonify({"error": f"Choisis entre 1 et {max_team_size} Pokémon."}), 400
     if any(not isinstance(name, str) for name in names) or len(set(names)) != len(names):
@@ -352,12 +356,12 @@ def create_battle():
         enemy_team = BATTLE_ENEMIES.random_wave_team(wave)
     elif enemy_mode == "predefined":
         team_id = payload.get("team_id", "")
-        if not any(team["id"] == team_id for team in BATTLE_DATA.teams):
+        if not any(team["id"] == team_id for team in region["teams"]):
             return jsonify({"error": "Équipe prédéfinie introuvable."}), 400
-        enemy_team = BATTLE_ENEMIES.predefined_team(team_id)
+        enemy_team = BATTLE_ENEMIES.predefined_team(team_id, region_id=region_id)
         wave = 0
     else:
-        enemy_team = BATTLE_ENEMIES.random_team(len(player_team))
+        enemy_team = BATTLE_ENEMIES.random_region_team(region_id, len(player_team))
         wave = 0
     if not enemy_team:
         return jsonify({"error": "Impossible de générer une équipe ennemie valide."}), 500

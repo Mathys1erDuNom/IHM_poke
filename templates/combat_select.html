@@ -26,6 +26,7 @@
           <p class="battle-notice">Ta collection ne contient aucun Pokémon jouable.</p>
         {% else %}
           <script id="battle-pokemon-data" type="application/json">{{ pokemon|tojson }}</script>
+          <script id="battle-regions-data" type="application/json">{{ regions|tojson }}</script>
           <form id="battle-form">
             <fieldset class="battle-fieldset">
               <legend>Mode de combat</legend>
@@ -36,12 +37,15 @@
             </fieldset>
 
             <section class="battle-enemy-options" id="enemy-options">
+              <label for="enemy-region">Région</label>
+              <select id="enemy-region" name="region-id">
+                {% for region in regions %}
+                  <option value="{{ region.id }}">{{ region.name }}</option>
+                {% endfor %}
+              </select>
               <label for="enemy-mode">Équipe adverse</label>
               <select id="enemy-mode" name="enemy-mode">
-                <option value="random">Équipe aléatoire</option>
-                {% for team in teams %}
-                  <option value="predefined" data-team-id="{{ team.id }}">{{ team.name }}</option>
-                {% endfor %}
+                <option value="random">Équipe aléatoire de la région</option>
               </select>
             </section>
 
@@ -74,6 +78,6 @@
       </div>
     </main>
   </div>
-  <script src="{{ url_for('static', filename='js/battle-setup.js') }}?v=4" defer></script>
+  <script src="{{ url_for('static', filename='js/battle-setup.js') }}?v=5" defer></script>
 </body>
 </html>

@@ -84,8 +84,10 @@ class EnemyGenerator:
         team_size = sizes[min(max(0, wave - 1), len(sizes) - 1)]
         return self.random_team(team_size, difficulty=wave)
 
-    def predefined_team(self, team_id, iv_min=None, iv_max=None):
-        definition = next((team for team in self.data.teams if team["id"] == team_id), None)
+    def predefined_team(self, team_id, iv_min=None, iv_max=None, region_id=None):
+        region = self.data.get_region(region_id) if region_id else None
+        teams = region["teams"] if region else self.data.teams
+        definition = next((team for team in teams if team["id"] == team_id), None)
         if not definition:
             return []
         params = self.config["team_mode"]
@@ -100,6 +102,31 @@ class EnemyGenerator:
                 params["iv_max"] if iv_max is None else iv_max,
                 member,
             ))
+        return output
+
+    def random_region_team(self, region_id, team_size):
+        region = self.data.get_region(region_id)
+        if not region:
+            return []
+        members_by_name = {}
+        for definition in region["teams"]:
+            for member in definition["pokemon"]:
+                members_by_name.setdefault(self.data_name_id(member["name"]), member)
+        members = list(members_by_name.values())
+        if not members:
+            return []
+        selected = self.rng.sample(members, min(max(1, int(team_size)), len(members)))
+        params = self.config["team_mode"]
+        output = []
+        for member in selected:
+            pokemon = self.data.pokemon_by_id.get(self.data_name_id(member["name"]))
+            if pokemon:
+                output.append(self.data.enemy_battler(
+                    pokemon,
+                    params["iv_min"],
+                    params["iv_max"],
+                    member,
+                ))
         return output
 
     @staticmethod

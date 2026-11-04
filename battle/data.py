@@ -9,6 +9,13 @@ from pathlib import Path
 
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
+REGION_NAMES = {
+    "kanto": "Kanto",
+    "johto": "Johto",
+    "hoenn": "Hoenn",
+    "sinnoh": "Sinnoh",
+    "unys": "Unys",
+}
 
 
 def normalize_name(value):
@@ -20,7 +27,6 @@ def normalize_name(value):
 class BattleData:
     def __init__(self):
         self.config = json.loads((Path(__file__).parent / "config.json").read_text(encoding="utf-8"))
-        self.team_definitions = json.loads((Path(__file__).parent / "teams.json").read_text(encoding="utf-8"))
         self.attack_aliases = {
             normalize_name(source): normalize_name(target)
             for source, target in self.config["data_defaults"]["attack_aliases"].items()
@@ -36,7 +42,8 @@ class BattleData:
         self.attacks = self._load_attacks()
         self.pokemon = self._load_pokemon()
         self.pokemon_by_id = {normalize_name(pokemon["name"]): pokemon for pokemon in self.pokemon}
-        self.teams = self._load_teams()
+        self.regions = self._load_regions()
+        self.teams = self.regions[0]["teams"] if self.regions else []
 
     def _resolve_attack_id(self, name):
         attack_id = normalize_name(name)
@@ -114,10 +121,26 @@ class BattleData:
                 records.append(record)
         return records
 
-    def _load_teams(self):
+    def _load_regions(self):
+        regions_dir = Path(__file__).parent / "regions"
+        regions = []
+        for region_id, region_name in REGION_NAMES.items():
+            path = regions_dir / f"{region_id}.json"
+            definitions = json.loads(path.read_text(encoding="utf-8"))
+            regions.append({
+                "id": region_id,
+                "name": region_name,
+                "teams": self._load_teams(definitions),
+            })
+        return regions
+
+    def get_region(self, region_id):
+        return next((region for region in self.regions if region["id"] == region_id), None)
+
+    def _load_teams(self, team_definitions):
         available = {normalize_name(pokemon["name"]): pokemon for pokemon in self.pokemon if not pokemon["name"].lower().endswith("_shiny")}
         teams = []
-        for team in self.team_definitions:
+        for team in team_definitions:
             definitions = team.get("pokemon", team.get("pokemons", []))
             members = []
             for definition in definitions:
