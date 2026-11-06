@@ -1,8 +1,8 @@
 [
   {
-    "id": "champion_de_Argenta",
-    "name": "Pierre (Roche)",
-    "badge": "Badge Roche",
+    "id": "champion_de_Ogoesses",
+    "name": "Rachid_Armando_Noa (Plante_Feu_Eau)",
+    "badge": "Badge Triple",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -12,7 +12,7 @@
     },
     "pokemon": [
       {
-        "name": "Racaillou",
+        "name": "Ponchiot",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -23,7 +23,29 @@
         }
       },
       {
-        "name": "Onix",
+        "name": "Feuillajou",
+        "ivs": {
+          "hp": 31,
+          "attack": 31,
+          "defense": 31,
+          "special_attack": 31,
+          "special_defense": 31,
+          "speed": 31
+        }
+      },
+      {
+        "name": "Flamajou",
+        "ivs": {
+          "hp": 31,
+          "attack": 31,
+          "defense": 31,
+          "special_attack": 31,
+          "special_defense": 31,
+          "speed": 31
+        }
+      },
+      {
+        "name": "Flotajou",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -36,9 +58,9 @@
     ]
   },
   {
-    "id": "champion_de_Azuria",
-    "name": "Ondine (Eau)",
-    "badge": "Badge Cascade",
+    "id": "champion_de_Maillard",
+    "name": "Aloé (Normal)",
+    "badge": "Badge Basique",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -48,7 +70,7 @@
     },
     "pokemon": [
       {
-        "name": "Stari",
+        "name": "Ponchien",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -59,7 +81,7 @@
         }
       },
       {
-        "name": "Staross",
+        "name": "Miradar",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -72,9 +94,9 @@
     ]
   },
   {
-    "id": "champion_de_Carmin_sur_Mer",
-    "name": "Major Bob (Electrique)",
-    "badge": "Badge Foudre",
+    "id": "champion_de_Volucité",
+    "name": "Artie (Plante)",
+    "badge": "Badge Élytre",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -84,7 +106,7 @@
     },
     "pokemon": [
       {
-        "name": "Voltorbe",
+        "name": "Scobolide",
          "ivs": {
           "hp": 31,
           "attack": 31,
@@ -95,7 +117,7 @@
         }
       },
       {
-        "name": "Pikachu",
+        "name": "Crabicoque",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -106,7 +128,7 @@
         }
       },
       {
-        "name": "Raichu",
+        "name": "Manternel",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -119,9 +141,9 @@
     ]
   },
   {
-    "id": "champion_de_Céladopole",
-    "name": "Erika (Plante)",
-    "badge": "Badge Prisme",
+    "id": "champion_de_Méanville",
+    "name": "Inezia (Electrique)",
+    "badge": "Badge Volt",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -131,7 +153,7 @@
     },
     "pokemon": [
       {
-        "name": "Empiflor",
+        "name": "Emolga",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -142,7 +164,7 @@
         }
       },
       {
-        "name": "Saquedeneu",
+        "name": "Emolga",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -153,7 +175,7 @@
         } 
       },
       {
-        "name": "Rafflesia",
+        "name": "Zéblitz",
           "ivs": {
             "hp": 31,
             "attack": 31,
@@ -166,9 +188,9 @@
     ]
   },
   {
-    "id": "champion_de_Parmanie",
-    "name": "Koga (Poison)",
-    "badge": "Badge Âme",
+    "id": "champion_de_Port_Yoneuve",
+    "name": "Bardane (Sol)",
+    "badge": "Badge Sismique",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -178,7 +200,7 @@
     },
     "pokemon": [
       {
-        "name": "Smogo",
+        "name": "Escroco",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -189,7 +211,7 @@
         }
       },
       {
-        "name": "Grotadmorv",
+        "name": "Batracné",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -200,18 +222,7 @@
         }
       },
       {
-        "name": "Smogo",
-         "ivs": {
-            "hp": 31,
-            "attack": 31,
-            "defense": 31,
-            "special_attack": 31,
-            "special_defense": 31,
-            "speed": 31
-        }
-      },
-      {
-        "name": "Smogogo",
+        "name": "Minotaupe",
          "ivs": {
             "hp": 31,
             "attack": 31,
@@ -224,9 +235,9 @@
     ]
   },
   {
-    "id": "champion_de_Safrania",
-    "name": "Morgane (Psy)",
-    "badge": "Badge Marais",
+    "id": "champion_de_Parsemille",
+    "name": "Carolina (Vol)",
+    "badge": "Badge Jet",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -236,7 +247,7 @@
     },
     "pokemon": [
       {
-        "name": "Kadabra",
+        "name": "Rhinolove",
         "ivs": {
             "hp": 31,
             "attack": 31,
@@ -247,7 +258,7 @@
         }
       },
       {
-        "name": "M. Mime",
+        "name": "Déflaisan",
         "ivs": {
             "hp": 31,
             "attack": 31,
@@ -258,18 +269,7 @@
         }
       },
       {
-        "name": "Aéromite",
-        "ivs": {
-            "hp": 31,
-            "attack": 31,
-            "defense": 31,
-            "special_attack": 31,
-            "special_defense": 31,
-            "speed": 31
-        }
-      },
-      {
-        "name": "Alakazam",
+        "name": "Lakmécygne",
         "ivs": {
             "hp": 31,
             "attack": 31,
@@ -282,9 +282,9 @@
     ]
   },
   {
-    "id": "champion_de_Cramois'île",
-    "name": "Auguste (feu)",
-    "badge": "Badge Volcan",
+    "id": "champion_de_Flocombe",
+    "name": "Zhu (Glace)",
+    "badge": "Badge Stalactite",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -294,7 +294,7 @@
     },
     "pokemon": [
       {
-        "name": "Caninos",
+        "name": "Sorboul",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -305,7 +305,7 @@
         }
       },
       {
-        "name": "Ponyta",
+        "name": "Hexagel",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -316,18 +316,7 @@
         }
       },
       {
-        "name": "Galopa",
-        "ivs": {
-          "hp": 31,
-          "attack": 31,
-          "defense": 31,
-          "special_attack": 31,
-          "special_defense": 31,
-          "speed": 31
-        }
-      },
-      {
-        "name": "Arcanin",
+        "name": "Polagriffe",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -340,9 +329,9 @@
     ]
   },
   {
-    "id": "champion_de_Jadielle",
-    "name": "Giovanni (Sol)",
-    "badge": "Badge Terre",
+    "id": "champion_de_Janusia",
+    "name": "Iris (Dragon)",
+    "badge": "Badge Mythe",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -352,7 +341,7 @@
     },
     "pokemon": [
       {
-        "name": "Rhinocorne",
+        "name": "Incisache",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -363,7 +352,7 @@
         }
       },
       {
-        "name": "Triopikeur",
+        "name": "Drakkarmin",
         "ivs": {
           "hp": 31,
           "attack": 31,
@@ -374,29 +363,7 @@
         }
       },
       {
-        "name": "Nidoqueen",
-        "ivs": {
-          "hp": 31,
-          "attack": 31,
-          "defense": 31,
-          "special_attack": 31,
-          "special_defense": 31,
-          "speed": 31
-        }
-      },
-      {
-        "name": "Nidoking",
-        "ivs": {
-          "hp": 31,
-          "attack": 31,
-          "defense": 31,
-          "special_attack": 31,
-          "special_defense": 31,
-          "speed": 31
-        }
-      },
-      {
-        "name": "Rhinocorne",
+        "name": "Tranchodon",
         "ivs": {
           "hp": 31,
           "attack": 31,
