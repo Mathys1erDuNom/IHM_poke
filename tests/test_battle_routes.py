@@ -119,6 +119,7 @@ class BattleRouteTests(unittest.TestCase):
             "ivs": {"hp": 20, "attack": 20, "defense": 20, "special_attack": 20, "special_defense": 20, "speed": 20},
             "stats": {"hp": 55, "attack": 75, "defense": 60, "special_attack": 70, "special_defense": 70, "speed": 110},
             "image": "",
+            "evo": "pas evo",
         }]
         self.client = self.site.app.test_client()
         with self.client.session_transaction() as browser_session:
@@ -265,12 +266,13 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(won.json["status"], "won")
         self.assertIn(("trainer-1", badge["id"]), self.database.badges)
         self.assertEqual(self.database.balances["trainer-1"], 500)
-        self.assertEqual(self.database.captures[0]["current_xp"], 20)
+        self.assertEqual(self.database.captures[0]["current_xp"], 200)
+        self.assertEqual(self.database.captures[0]["evo"], {"name": "pas evo", "file": "pas evo"})
         self.assertEqual(self.database.captures[0]["ivs"], {stat: 24 for stat in self.database.captures[0]["ivs"]})
         evolved = self.database.captures[1]
         herbizarre = self.site.BATTLE_DATA.pokemon_by_id["herbizarre"]
         self.assertEqual(evolved["name"], "Herbizarre")
-        self.assertEqual(evolved["current_xp"], 330)
+        self.assertEqual(evolved["current_xp"], 510)
         self.assertEqual(evolved["xp_evo"], herbizarre["xp_evo"])
         self.assertEqual(evolved["ivs"], {stat: 31 for stat in herbizarre["base_stats"]})
         self.assertEqual(evolved["stats"], {stat: value + 31 for stat, value in herbizarre["base_stats"].items()})

@@ -431,6 +431,17 @@ def get_battle(battle_id):
     return jsonify(row["state"])
 
 
+def normalize_evolution_data(value):
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError:
+            value = None
+    if isinstance(value, dict):
+        return value
+    return {"name": "pas evo", "file": "pas evo"}
+
+
 def award_trainer_xp(cur, user_id, pokemon_name):
     cur.execute("""
         SELECT name, current_xp, xp_evo, ivs, stats, image, type, attacks, evo
@@ -449,7 +460,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
     current_xp = int(owned.get("current_xp", 0) or 0) + 200 #20
     current_ivs = owned.get("ivs") or {}
     current_stats = owned.get("stats") or {}
-    next_evolution = owned.get("evo") or {}
+    next_evolution = normalize_evolution_data(owned.get("evo"))
     evolution_name = next_evolution.get("name")
     target_species = None
     if evolution_name and evolution_name != "pas evo" and int(owned.get("xp_evo", -1) or -1) > 0:
@@ -474,7 +485,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
     pokemon_type = owned.get("type", [])
     attacks = owned.get("attacks", [])
     xp_evo = owned.get("xp_evo", -1)
-    evo = owned.get("evo") or {"name": "pas evo", "file": "pas evo"}
+    evo = next_evolution
     if target_species:
         target_name = target_species["name"]
         cur.execute("""
@@ -496,7 +507,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
         pokemon_type = target_species.get("type", pokemon_type)
         attacks = target_species.get("attacks", attacks)
         xp_evo = target_species.get("xp_evo", -1)
-        evo = target_species.get("evo", {"name": "pas evo", "file": "pas evo"})
+        evo = normalize_evolution_data(target_species.get("evo"))
 
     cur.execute("""
         UPDATE new_captures
