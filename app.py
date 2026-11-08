@@ -11,7 +11,7 @@ import psycopg2.extras
 import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, redirect, render_template, request, send_from_directory, session, url_for
-from battle.data import BattleData
+from battle.data import BattleData, normalize_name
 from battle.enemy import EnemyGenerator
 from battle.engine import BattleEngine
 
@@ -431,6 +431,96 @@ def get_battle(battle_id):
     return jsonify(row["state"])
 
 
+def award_trainer_xp(cur, user_id, pokemon_name):
+    cur.execute("""
+        SELECT name, current_xp, xp_evo, ivs, stats, image, type, attacks, evo
+        FROM new_captures
+        WHERE user_id = %s AND name = %s
+        FOR UPDATE
+    """, (user_id, pokemon_name))
+    owned = cur.fetchone()
+    if not owned:
+        return None
+
+    species = BATTLE_DATA.find_owned_species(owned)
+    if not species:
+        return None
+
+    current_xp = int(owned.get("current_xp", 0) or 0) + 200 #20
+    current_ivs = owned.get("ivs") or {}
+    current_stats = owned.get("stats") or {}
+    next_evolution = owned.get("evo") or {}
+    evolution_name = next_evolution.get("name")
+    target_species = None
+    if evolution_name and evolution_name != "pas evo" and int(owned.get("xp_evo", -1) or -1) > 0:
+        if current_xp >= int(owned["xp_evo"]):
+            target_species = BATTLE_DATA.pokemon_by_id.get(normalize_name(evolution_name))
+
+    ivs = {}
+    stats = {}
+    base_stats = target_species["base_stats"] if target_species else species["base_stats"]
+    for stat, base_stat in base_stats.items():
+        old_iv = max(0, min(31, int(current_ivs.get(stat, 0) or 0)))
+        new_iv = min(31, old_iv + 4)
+        ivs[stat] = new_iv
+        if target_species:
+            stats[stat] = max(1, int(base_stat) + new_iv)
+        else:
+            old_stat = int(current_stats.get(stat, species["base_stats"][stat] + old_iv))
+            stats[stat] = max(1, old_stat + new_iv - old_iv)
+
+    new_name = owned["name"]
+    image = owned.get("image", "")
+    pokemon_type = owned.get("type", [])
+    attacks = owned.get("attacks", [])
+    xp_evo = owned.get("xp_evo", -1)
+    evo = owned.get("evo") or {"name": "pas evo", "file": "pas evo"}
+    if target_species:
+        target_name = target_species["name"]
+        cur.execute("""
+            SELECT name FROM new_captures
+            WHERE user_id = %s AND name LIKE %s || '%%'
+        """, (user_id, target_name))
+        existing_names = {
+            row["name"] for row in cur.fetchall()
+            if row["name"] == target_name
+            or (row["name"].startswith(target_name) and row["name"][len(target_name):].isdigit())
+        }
+        new_name = target_name
+        if new_name in existing_names:
+            suffix = 2
+            while f"{target_name}{suffix}" in existing_names:
+                suffix += 1
+            new_name = f"{target_name}{suffix}"
+        image = target_species.get("image", image)
+        pokemon_type = target_species.get("type", pokemon_type)
+        attacks = target_species.get("attacks", attacks)
+        xp_evo = target_species.get("xp_evo", -1)
+        evo = target_species.get("evo", {"name": "pas evo", "file": "pas evo"})
+
+    cur.execute("""
+        UPDATE new_captures
+        SET name = %s, ivs = %s, stats = %s, image = %s, type = %s,
+            attacks = %s, current_xp = %s, xp_evo = %s, evo = %s
+        WHERE user_id = %s AND name = %s
+    """, (
+        new_name,
+        psycopg2.extras.Json(ivs),
+        psycopg2.extras.Json(stats),
+        image,
+        psycopg2.extras.Json(pokemon_type),
+        psycopg2.extras.Json(attacks),
+        current_xp,
+        xp_evo,
+        psycopg2.extras.Json(evo),
+        user_id,
+        owned["name"],
+    ))
+    if target_species:
+        return f"{owned['name']} évolue en {target_species['name']} !"
+    return f"{new_name} gagne 20 XP et renforce ses IV."
+
+
 @app.route("/api/battles/<battle_id>/turn", methods=["POST"])
 def play_battle_turn(battle_id):
     discord_user = session.get("discord_user")
@@ -486,21 +576,15 @@ def play_battle_turn(battle_id):
                     DO UPDATE SET balance = argent.balance + EXCLUDED.balance
                 """, (discord_user["id"], reward))
                 for pokemon in state["player_team"]:
-                    cur.execute("""
-                        UPDATE new_captures
-                        SET current_xp = COALESCE(current_xp, 0) + 20
-                        WHERE user_id = %s AND name = %s
-                    """, (discord_user["id"], pokemon["name"]))
+                    xp_message = award_trainer_xp(cur, discord_user["id"], pokemon["name"])
+                    if xp_message:
+                        state.setdefault("log", []).append({"text": xp_message, "kind": "system"})
                 state.setdefault("log", []).append({
                     "text": (
                         f"Tu obtiens le {state['badge_name']} et gagnes {reward} Croco Dollars !"
                         if awarded_badge
                         else f"Tu possèdes déjà le {state['badge_name']} et gagnes {reward} Croco Dollars !"
                     ),
-                    "kind": "system",
-                })
-                state["log"].append({
-                    "text": "Tous les Pokémon de ton équipe gagnent 20 XP !",
                     "kind": "system",
                 })
         except ValueError as error:

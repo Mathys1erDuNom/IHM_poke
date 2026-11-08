@@ -44,6 +44,18 @@ class FakeCursor:
             if "any(%s)" in compact:
                 selected_names = params[1]
                 self.rows = [row for row in self.rows if row["name"] in selected_names]
+            elif "name = %s" in compact:
+                self.rows = [row for row in self.rows if row["name"] == params[1]]
+                if self.rows:
+                    self.row = self.rows[0]
+            elif "name like %s" in compact:
+                target_name = params[1]
+                self.rows = [
+                    {"name": row["name"]}
+                    for row in self.rows
+                    if row["name"] == target_name
+                    or (row["name"].startswith(target_name) and row["name"][len(target_name):].isdigit())
+                ]
         elif compact.startswith("insert into web_battles"):
             self.database.battles[params[0]] = params[2].adapted
         elif compact.startswith("select state from web_battles"):
@@ -67,10 +79,20 @@ class FakeCursor:
             user_id, reward = params
             self.database.balances[user_id] = self.database.balances.get(user_id, 0) + reward
         elif compact.startswith("update new_captures"):
-            _, pokemon_name = params
+            name, ivs, stats, image, pokemon_type, attacks, current_xp, xp_evo, evo, _, old_name = params
             for capture in self.database.captures:
-                if capture["name"] == pokemon_name:
-                    capture["current_xp"] = capture.get("current_xp", 0) + 20
+                if capture["name"] == old_name:
+                    capture.update({
+                        "name": name,
+                        "ivs": ivs.adapted,
+                        "stats": stats.adapted,
+                        "image": image,
+                        "type": pokemon_type.adapted,
+                        "attacks": attacks.adapted,
+                        "current_xp": current_xp,
+                        "xp_evo": xp_evo,
+                        "evo": evo.adapted,
+                    })
 
     def fetchall(self):
         return self.rows
@@ -211,12 +233,18 @@ class BattleRouteTests(unittest.TestCase):
         return won
 
     def test_predefined_trainer_victory_awards_badge_once(self):
+        bulbasaur = self.site.BATTLE_DATA.pokemon_by_id["bulbizarre"]
+        bulbasaur_ivs = {stat: 29 for stat in bulbasaur["base_stats"]}
         self.database.captures.append({
-            "name": "Carapuce",
-            "ivs": {"hp": 15, "attack": 15, "defense": 15, "special_attack": 15, "special_defense": 15, "speed": 15},
-            "stats": {"hp": 74, "attack": 78, "defense": 95, "special_attack": 80, "special_defense": 95, "speed": 73},
-            "image": "",
-            "current_xp": 35,
+            "name": "Bulbizarre",
+            "ivs": bulbasaur_ivs,
+            "stats": {stat: value + 29 for stat, value in bulbasaur["base_stats"].items()},
+            "image": bulbasaur["image"],
+            "type": bulbasaur["type"],
+            "attacks": bulbasaur["attacks"],
+            "current_xp": 310,
+            "xp_evo": bulbasaur["xp_evo"],
+            "evo": bulbasaur["evo"],
         })
         region = self.site.BATTLE_DATA.regions[0]
         trainer = next(team for team in region["teams"] if team.get("badge"))
@@ -228,7 +256,7 @@ class BattleRouteTests(unittest.TestCase):
             "region_id": region["id"],
             "enemy_mode": "predefined",
             "team_id": trainer["id"],
-            "pokemon_names": ["Pikachu", "Carapuce"],
+            "pokemon_names": ["Pikachu", "Bulbizarre"],
         })
         self.assertEqual(started.status_code, 200, started.json)
         battle_id = started.json["battle_id"]
@@ -238,7 +266,15 @@ class BattleRouteTests(unittest.TestCase):
         self.assertIn(("trainer-1", badge["id"]), self.database.badges)
         self.assertEqual(self.database.balances["trainer-1"], 500)
         self.assertEqual(self.database.captures[0]["current_xp"], 20)
-        self.assertEqual(self.database.captures[1]["current_xp"], 55)
+        self.assertEqual(self.database.captures[0]["ivs"], {stat: 24 for stat in self.database.captures[0]["ivs"]})
+        evolved = self.database.captures[1]
+        herbizarre = self.site.BATTLE_DATA.pokemon_by_id["herbizarre"]
+        self.assertEqual(evolved["name"], "Herbizarre")
+        self.assertEqual(evolved["current_xp"], 330)
+        self.assertEqual(evolved["xp_evo"], herbizarre["xp_evo"])
+        self.assertEqual(evolved["ivs"], {stat: 31 for stat in herbizarre["base_stats"]})
+        self.assertEqual(evolved["stats"], {stat: value + 31 for stat, value in herbizarre["base_stats"].items()})
+        self.assertEqual(evolved["evo"], herbizarre["evo"])
         self.assertTrue(any(badge["name"] in entry["text"] for entry in won.json["log"]))
 
     def test_previously_owned_badge_awards_20_croco_dollars(self):
