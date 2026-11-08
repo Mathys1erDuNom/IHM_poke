@@ -478,11 +478,21 @@ def play_battle_turn(battle_id):
                 """, (discord_user["id"], state["badge_id"]))
                 awarded_badge = cur.fetchone()
                 state["badge_awarded"] = True
-                if awarded_badge:
-                    state.setdefault("log", []).append({
-                        "text": f"Tu obtiens le {state['badge_name']} !",
-                        "kind": "system",
-                    })
+                reward = 500 if awarded_badge else 20
+                cur.execute("""
+                    INSERT INTO argent (user_id, balance)
+                    VALUES (%s, %s)
+                    ON CONFLICT (user_id)
+                    DO UPDATE SET balance = argent.balance + EXCLUDED.balance
+                """, (discord_user["id"], reward))
+                state.setdefault("log", []).append({
+                    "text": (
+                        f"Tu obtiens le {state['badge_name']} et gagnes {reward} Croco Dollars !"
+                        if awarded_badge
+                        else f"Tu possèdes déjà le {state['badge_name']} et gagnes {reward} Croco Dollars !"
+                    ),
+                    "kind": "system",
+                })
         except ValueError as error:
             return jsonify({"error": str(error)}), 400
         cur.execute("""
