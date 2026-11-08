@@ -219,8 +219,11 @@ class BattleRouteTests(unittest.TestCase):
     def test_account_shows_badges_by_region_and_darkens_unowned(self):
         self.database.badges.add(("trainer-1", 17))
 
+        home_response = self.client.get("/")
         response = self.client.get("/compte")
 
+        self.assertEqual(home_response.status_code, 200)
+        self.assertNotIn(b"Mes badges", home_response.data)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Mes badges", response.data)
         self.assertIn(b"Hoenn", response.data)

@@ -68,8 +68,8 @@
     },
     {
         "id": 10,
-        "name": "Badge Essaim",
-        "image": "images/badges/Badge Essaim.png",
+        "name": "Badge_Essaim",
+        "image": "images/badges/Badge_Essaim.png",
         "description": "Obtenu après avoir vaincu Hector, la champion de l'arène Insecte",
         "generation": 2
     },
