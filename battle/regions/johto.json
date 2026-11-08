@@ -2,7 +2,7 @@
   {
     "id": "champion_de_Mauville",
     "name": "Albert (Vol)",
-    "badge": "Badge Zéphyr",
+    "badge": "Badge_Zéphyr",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -38,7 +38,7 @@
   {
     "id": "champion_de_Écorcia",
     "name": "Hector (Insecte)",
-    "badge": "Badge Essaim",
+    "badge": "Badge_Essaim",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -85,7 +85,7 @@
   {
     "id": "champion_de_Doublonville",
     "name": "Blanche (Normal)",
-    "badge": "Badge Plaine",
+    "badge": "Badge_Plaine",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -121,7 +121,7 @@
   {
     "id": "champion_de_Rosalia",
     "name": "Mortimer (Spectre)",
-    "badge": "Badge Brume",
+    "badge": "Badge_Brume",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -179,7 +179,7 @@
   {
     "id": "champion_de_Irisia",
     "name": "Chuck (Combat)",
-    "badge": "Badge Choc",
+    "badge": "Badge_Choc",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -215,7 +215,7 @@
   {
     "id": "champion_de_Oliville",
     "name": "Jasmine (Electrique)",
-    "badge": "Badge Minéral",
+    "badge": "Badge_Minéral",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -262,7 +262,7 @@
   {
     "id": "champion_de_Acajou",
     "name": "Frédo (glace)",
-    "badge": "Badge Volcan",
+    "badge": "Badge_Volcan",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -309,7 +309,7 @@
   {
     "id": "champion_de_Ébènelle",
     "name": "Sandra (Dragon)",
-    "badge": "Badge Lever",
+    "badge": "Badge_Lever",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",

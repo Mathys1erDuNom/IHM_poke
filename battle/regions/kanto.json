@@ -2,7 +2,7 @@
   {
     "id": "champion_de_Argenta",
     "name": "Pierre (Roche)",
-    "badge": "Badge Roche",
+    "badge": "Badge_Roche",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -38,7 +38,7 @@
   {
     "id": "champion_de_Azuria",
     "name": "Ondine (Eau)",
-    "badge": "Badge Cascade",
+    "badge": "Badge_Cascade",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -74,7 +74,7 @@
   {
     "id": "champion_de_Carmin_sur_Mer",
     "name": "Major Bob (Electrique)",
-    "badge": "Badge Foudre",
+    "badge": "Badge_Foudre",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -121,7 +121,7 @@
   {
     "id": "champion_de_Céladopole",
     "name": "Erika (Plante)",
-    "badge": "Badge Prisme",
+    "badge": "Badge_Prisme",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -168,7 +168,7 @@
   {
     "id": "champion_de_Parmanie",
     "name": "Koga (Poison)",
-    "badge": "Badge Âme",
+    "badge": "Badge_Âme",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -226,7 +226,7 @@
   {
     "id": "champion_de_Safrania",
     "name": "Morgane (Psy)",
-    "badge": "Badge Marais",
+    "badge": "Badge_Marais",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -284,7 +284,7 @@
   {
     "id": "champion_de_Cramois'île",
     "name": "Auguste (feu)",
-    "badge": "Badge Volcan",
+    "badge": "Badge_Volcan",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -342,7 +342,7 @@
   {
     "id": "champion_de_Jadielle",
     "name": "Giovanni (Sol)",
-    "badge": "Badge Terre",
+    "badge": "Badge_Terre",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",

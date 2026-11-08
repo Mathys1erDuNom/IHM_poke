@@ -2,7 +2,7 @@
   {
     "id": "champion_de_Ogoesses",
     "name": "Rachid_Armando_Noa (Plante_Feu_Eau)",
-    "badge": "Badge Triple",
+    "badge": "Badge_Triple",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -60,7 +60,7 @@
   {
     "id": "champion_de_Maillard",
     "name": "Aloé (Normal)",
-    "badge": "Badge Basique",
+    "badge": "Badge_Basique",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -96,7 +96,7 @@
   {
     "id": "champion_de_Volucité",
     "name": "Artie (Plante)",
-    "badge": "Badge Élytre",
+    "badge": "Badge_Élytre",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -143,7 +143,7 @@
   {
     "id": "champion_de_Méanville",
     "name": "Inezia (Electrique)",
-    "badge": "Badge Volt",
+    "badge": "Badge_Volt",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -190,7 +190,7 @@
   {
     "id": "champion_de_Port_Yoneuve",
     "name": "Bardane (Sol)",
-    "badge": "Badge Sismique",
+    "badge": "Badge_Sismique",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -237,7 +237,7 @@
   {
     "id": "champion_de_Parsemille",
     "name": "Carolina (Vol)",
-    "badge": "Badge Jet",
+    "badge": "Badge_Jet",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -284,7 +284,7 @@
   {
     "id": "champion_de_Flocombe",
     "name": "Zhu (Glace)",
-    "badge": "Badge Stalactite",
+    "badge": "Badge_Stalactite",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -331,7 +331,7 @@
   {
     "id": "champion_de_Janusia",
     "name": "Iris (Dragon)",
-    "badge": "Badge Mythe",
+    "badge": "Badge_Mythe",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",

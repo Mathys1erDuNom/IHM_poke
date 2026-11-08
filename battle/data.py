@@ -153,7 +153,12 @@ class BattleData:
                     "ivs": member.get("ivs") if isinstance(member.get("ivs"), dict) else {},
                 })
             if members:
-                teams.append({"id": team.get("id", normalize_name(team.get("name"))), "name": team.get("name", "Équipe"), "pokemon": members})
+                teams.append({
+                    "id": team.get("id", normalize_name(team.get("name"))),
+                    "name": team.get("name", "Équipe"),
+                    "badge": team.get("badge"),
+                    "pokemon": members,
+                })
         return teams
 
     def normalize_type(self, value):

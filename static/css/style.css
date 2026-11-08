@@ -655,6 +655,89 @@ body {
   padding: 18px 18px 10px;
 }
 
+.badge-collection {
+  margin-top: 26px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(28, 37, 65, 0.08);
+  border-radius: 18px;
+}
+
+.badge-collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-family: "Fredoka", sans-serif;
+}
+
+.badge-collection-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.badge-collection-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.badge-region-list {
+  display: grid;
+  gap: 8px;
+}
+
+.badge-region {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: rgba(28, 37, 65, 0.04);
+  border-radius: 8px;
+}
+
+.badge-region-heading {
+  display: grid;
+  gap: 2px;
+}
+
+.badge-region-heading strong {
+  color: var(--text-dark);
+  font-family: "Fredoka", sans-serif;
+}
+
+.badge-region-heading span {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.badge-items {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.badge-item {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  aspect-ratio: 1;
+}
+
+.badge-image {
+  display: block;
+  width: 100%;
+  height: 44px;
+  object-fit: contain;
+}
+
+.badge-item.is-locked .badge-image {
+  filter: grayscale(1) brightness(0.08);
+}
+
 .leaderboard-header {
   display: flex;
   justify-content: space-between;
@@ -1410,6 +1493,25 @@ body {
   /* --- Leaderboard --- */
   .leaderboard-box {
     padding: 14px 10px 8px;
+  }
+  .badge-collection {
+    padding: 14px 10px;
+  }
+  .badge-collection-header {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .badge-region {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px 6px;
+  }
+  .badge-items {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+  }
+  .badge-image {
+    height: 36px;
   }
   .leaderboard-header {
     flex-wrap: wrap;

@@ -111,6 +111,13 @@ def ensure_table_exists():
                 updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
             );
         """)
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS badges (
+                user_id TEXT,
+                badge_id INT,
+                UNIQUE(user_id, badge_id)
+            );
+        """)
         conn.commit()
     finally:
         conn.close()
@@ -144,6 +151,29 @@ def get_leaderboard(discord_user=None):
         }
         for row in rows
     ]
+
+
+def get_badges_by_region(user_id):
+    with get_cursor() as cur:
+        cur.execute("SELECT badge_id FROM badges WHERE user_id = %s", (str(user_id),))
+        owned_badges = {row["badge_id"] for row in cur.fetchall()}
+
+    with open(os.path.join(BASE_DIR, "badges.json"), encoding="utf-8") as badges_file:
+        badge_catalog = json.load(badges_file)
+
+    regions = []
+    for generation, region in enumerate(BATTLE_DATA.regions, start=1):
+        badges = []
+        for badge in badge_catalog:
+            if badge.get("generation") != generation:
+                continue
+            badges.append({
+                **badge,
+                "owned": badge["id"] in owned_badges,
+                "image_filename": os.path.basename(badge.get("image", "")),
+            })
+        regions.append({"name": region["name"], "badges": badges})
+    return regions
 
 
 def quiz_answer_digest(challenge_id, answer):
@@ -222,6 +252,7 @@ def index():
         "index.html",
         leaderboard=get_leaderboard(discord_user),
         discord_user=discord_user,
+        badges_by_region=get_badges_by_region(discord_user["id"]) if discord_user else None,
     )
 
 
@@ -234,6 +265,7 @@ def compte():
         "compte.html",
         leaderboard=get_leaderboard(discord_user),
         discord_user=discord_user,
+        badges_by_region=get_badges_by_region(discord_user["id"]),
     )
 
 
@@ -356,7 +388,8 @@ def create_battle():
         enemy_team = BATTLE_ENEMIES.random_wave_team(wave)
     elif enemy_mode == "predefined":
         team_id = payload.get("team_id", "")
-        if not any(team["id"] == team_id for team in region["teams"]):
+        trainer = next((team for team in region["teams"] if team["id"] == team_id), None)
+        if not trainer:
             return jsonify({"error": "Équipe prédéfinie introuvable."}), 400
         enemy_team = BATTLE_ENEMIES.predefined_team(team_id, region_id=region_id)
         wave = 0
@@ -367,6 +400,13 @@ def create_battle():
         return jsonify({"error": "Impossible de générer une équipe ennemie valide."}), 500
 
     state = BATTLE_ENGINE.create_battle(player_team, enemy_team, mode=mode, wave=wave)
+    if mode == "team" and enemy_mode == "predefined":
+        with open(os.path.join(BASE_DIR, "badges.json"), encoding="utf-8") as badges_file:
+            badge_catalog = json.load(badges_file)
+        badge = next((item for item in badge_catalog if item["name"] == trainer.get("badge")), None)
+        if badge:
+            state["badge_id"] = badge["id"]
+            state["badge_name"] = badge["name"]
     if mode == "waves":
         state["wave_tier"] = BATTLE_ENEMIES.wave_info(wave)
     battle_id = secrets.token_urlsafe(24)
@@ -429,6 +469,20 @@ def play_battle_turn(battle_id):
                 BATTLE_ENGINE.advance_wave(state, enemy_team)
             if state.get("mode") == "waves":
                 state["wave_tier"] = BATTLE_ENEMIES.wave_info(state["wave"])
+            if state.get("status") == "won" and state.get("badge_id") and not state.get("badge_awarded"):
+                cur.execute("""
+                    INSERT INTO badges (user_id, badge_id)
+                    VALUES (%s, %s)
+                    ON CONFLICT DO NOTHING
+                    RETURNING badge_id
+                """, (discord_user["id"], state["badge_id"]))
+                awarded_badge = cur.fetchone()
+                state["badge_awarded"] = True
+                if awarded_badge:
+                    state.setdefault("log", []).append({
+                        "text": f"Tu obtiens le {state['badge_name']} !",
+                        "kind": "system",
+                    })
         except ValueError as error:
             return jsonify({"error": str(error)}), 400
         cur.execute("""
@@ -700,6 +754,11 @@ def pokemon_gif(filename):
 @app.route("/images/coin.png")
 def coin_image():
     return send_from_directory(os.path.join(BASE_DIR, "images"), "coin.png")
+
+
+@app.route("/images/badges/<path:filename>")
+def badge_image(filename):
+    return send_from_directory(os.path.join(BASE_DIR, "images", "badges"), filename)
 
 
 @app.route("/api/collections")

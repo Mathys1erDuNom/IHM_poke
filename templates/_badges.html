@@ -1,0 +1,24 @@
+<section class="badge-collection" aria-labelledby="badge-collection-title">
+  <header class="badge-collection-header">
+    <h2 id="badge-collection-title">Mes badges</h2>
+    <p>Les badges des arènes par région</p>
+  </header>
+  <div class="badge-region-list">
+    {% for region in badges_by_region %}
+      <section class="badge-region" aria-label="{{ region.name }}">
+        <div class="badge-region-heading">
+          <strong>{{ region.name }}</strong>
+          <span>{{ region.badges|selectattr('owned')|list|length }} / {{ region.badges|length }}</span>
+        </div>
+        <div class="badge-items">
+          {% for badge in region.badges %}
+            <div class="badge-item{% if not badge.owned %} is-locked{% endif %}" title="{{ badge.name }}">
+              <img class="badge-image" src="{{ url_for('badge_image', filename=badge.image_filename) }}"
+                   alt="{{ badge.name }}{% if badge.owned %} obtenu{% else %} non obtenu{% endif %}" loading="lazy" />
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+</section>

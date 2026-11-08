@@ -7,6 +7,7 @@ class FakeDatabase:
     def __init__(self):
         self.battles = {}
         self.captures = []
+        self.badges = set()
 
     def connect(self, *args, **kwargs):
         return FakeConnection(self)
@@ -50,6 +51,17 @@ class FakeCursor:
                 self.row = {"state": state}
         elif compact.startswith("update web_battles"):
             self.database.battles[params[1]] = params[0].adapted
+        elif compact.startswith("select badge_id from badges"):
+            self.rows = [
+                {"badge_id": badge_id}
+                for user_id, badge_id in self.database.badges
+                if user_id == params[0]
+            ]
+        elif compact.startswith("insert into badges"):
+            badge = (params[0], params[1])
+            if badge not in self.database.badges:
+                self.database.badges.add(badge)
+                self.row = {"badge_id": params[1]}
 
     def fetchall(self):
         return self.rows
@@ -69,6 +81,7 @@ class BattleRouteTests(unittest.TestCase):
 
     def setUp(self):
         self.database.battles.clear()
+        self.database.badges.clear()
         self.database.captures = [{
             "name": "Pikachu",
             "ivs": {"hp": 20, "attack": 20, "defense": 20, "special_attack": 20, "special_defense": 20, "speed": 20},
@@ -163,6 +176,55 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(state["wave"], 2)
         self.assertEqual(state["status"], "ongoing")
         self.assertTrue(any("Vague 1 remportée" in entry["text"] for entry in state["log"]))
+
+    def test_predefined_trainer_victory_awards_badge_once(self):
+        region = self.site.BATTLE_DATA.regions[0]
+        trainer = next(team for team in region["teams"] if team.get("badge"))
+        with open(self.site.os.path.join(self.site.BASE_DIR, "badges.json"), encoding="utf-8") as badges_file:
+            badge_catalog = self.site.json.load(badges_file)
+        badge = next(item for item in badge_catalog if item["name"] == trainer["badge"])
+        started = self.client.post("/api/battles", json={
+            "mode": "team",
+            "region_id": region["id"],
+            "enemy_mode": "predefined",
+            "team_id": trainer["id"],
+            "pokemon_names": ["Pikachu"],
+        })
+        self.assertEqual(started.status_code, 200, started.json)
+        battle_id = started.json["battle_id"]
+        state = self.database.battles[battle_id]
+        won = None
+        for _ in range(len(state["enemy_team"])):
+            state = self.client.get(f"/api/battles/{battle_id}").json
+            state["player_team"][state["player_active"]]["stats"]["speed"] = 10000
+            enemy = state["enemy_team"][state["enemy_active"]]
+            enemy["types"] = ["normal"]
+            enemy["hp"] = 1
+            move = next(
+                move for move in state["player_team"][state["player_active"]]["moves"]
+                if move["power"] > 0
+            )
+            move["power"] = 999
+            move["accuracy"] = 100
+            self.database.battles[battle_id] = state
+            won = self.client.post(f"/api/battles/{battle_id}/turn", json={
+                "action": {"kind": "move", "move_id": move["id"]},
+            })
+            self.assertEqual(won.status_code, 200, won.json)
+
+        self.assertEqual(won.json["status"], "won")
+        self.assertIn(("trainer-1", badge["id"]), self.database.badges)
+        self.assertTrue(any(badge["name"] in entry["text"] for entry in won.json["log"]))
+
+    def test_account_shows_badges_by_region_and_darkens_unowned(self):
+        self.database.badges.add(("trainer-1", 17))
+
+        response = self.client.get("/compte")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Mes badges", response.data)
+        self.assertIn(b"Hoenn", response.data)
+        self.assertIn(b"is-locked", response.data)
 
     def test_invalid_enemy_team_and_unowned_pokemon_are_rejected(self):
         invalid_region = self.client.post("/api/battles", json={

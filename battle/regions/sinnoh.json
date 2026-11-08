@@ -2,7 +2,7 @@
   {
     "id": "champion_de_Charbourg",
     "name": "Pierrick (Roche)",
-    "badge": "Badge Charbon",
+    "badge": "Badge_Charbon",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -49,7 +49,7 @@
   {
     "id": "champion_de_Vestigion",
     "name": "Flor (Plante)",
-    "badge": "Badge Forêt",
+    "badge": "Badge_Foret",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -96,7 +96,7 @@
   {
     "id": "champion_de_Voilaroc",
     "name": "Mélina (Combat)",
-    "badge": "Badge Pavé",
+    "badge": "Badge_Pavé",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -143,7 +143,7 @@
   {
     "id": "champion_de_Verchamps",
     "name": "Lovis (Eau)",
-    "badge": "Badge Palustre",
+    "badge": "Badge_Palustre",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -190,7 +190,7 @@
   {
     "id": "champion_de_Unionpolis",
     "name": "Kiméra (Spectre)",
-    "badge": "Badge Fantôme",
+    "badge": "Badge_Fantôme",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -237,7 +237,7 @@
   {
     "id": "champion_de_Joliberges",
     "name": "Charles (Acier)",
-    "badge": "Badge Mine",
+    "badge": "Badge_Mine",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -284,7 +284,7 @@
   {
     "id": "champion_de_Frimapic",
     "name": "Gladys (Glace)",
-    "badge": "Badge Glaçon",
+    "badge": "Badge_Glaçon",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -342,7 +342,7 @@
   {
     "id": "champion_de_Rivamar",
     "name": "Tanguy (Electrique)",
-    "badge": "Badge Phare",
+    "badge": "Badge_Phare",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",

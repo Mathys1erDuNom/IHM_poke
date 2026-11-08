@@ -2,7 +2,7 @@
   {
     "id": "champion_de_Mérouville",
     "name": "Roxane (Roche)",
-    "badge": "Badge Roche",
+    "badge": "Badge_Roche_Hoenn",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -49,7 +49,7 @@
   {
     "id": "champion_de_Myokara",
     "name": "Bastien (Combat)",
-    "badge": "Badge Poing",
+    "badge": "Badge_Poing",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -96,7 +96,7 @@
   {
     "id": "champion_de_Lavandia",
     "name": "Voltère (Electrique)",
-    "badge": "Badge Dynamo",
+    "badge": "Badge_Dynamo",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -154,7 +154,7 @@
   {
     "id": "champion_de_Vermilava",
     "name": "Adriane (Feu)",
-    "badge": "Badge Chaleur",
+    "badge": "Badge_Chaleur",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -212,7 +212,7 @@
   {
     "id": "champion_de_Clémenti-Ville",
     "name": "Norman (Normal)",
-    "badge": "Badge Balancier",
+    "badge": "Badge_Balancier",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -270,7 +270,7 @@
   {
     "id": "champion_de_Cimetronelle",
     "name": "Alizée (Vol)",
-    "badge": "Badge Plume",
+    "badge": "Badge_Plume",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -339,7 +339,7 @@
   {
     "id": "champion_de_Algatia",
     "name": "Lévy&Tatia (Psy)",
-    "badge": "Badge Esprit",
+    "badge": "Badge_Esprit",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
@@ -397,7 +397,7 @@
   {
     "id": "champion_de_Atalanopolis",
     "name": "Juan (Eau)",
-    "badge": "Badge Pluie",
+    "badge": "Badge_Pluie",
     "repliques": {
       "start": "Bienvenue dans mon arène… Montre-moi ton lien avec la nature 🌿",
       "switch": "Intéressant… voyons ce que tu vaux face à celui-ci.",
