@@ -66,6 +66,11 @@ class FakeCursor:
         elif compact.startswith("insert into argent"):
             user_id, reward = params
             self.database.balances[user_id] = self.database.balances.get(user_id, 0) + reward
+        elif compact.startswith("update new_captures"):
+            _, pokemon_name = params
+            for capture in self.database.captures:
+                if capture["name"] == pokemon_name:
+                    capture["current_xp"] = capture.get("current_xp", 0) + 20
 
     def fetchall(self):
         return self.rows
@@ -206,6 +211,13 @@ class BattleRouteTests(unittest.TestCase):
         return won
 
     def test_predefined_trainer_victory_awards_badge_once(self):
+        self.database.captures.append({
+            "name": "Carapuce",
+            "ivs": {"hp": 15, "attack": 15, "defense": 15, "special_attack": 15, "special_defense": 15, "speed": 15},
+            "stats": {"hp": 74, "attack": 78, "defense": 95, "special_attack": 80, "special_defense": 95, "speed": 73},
+            "image": "",
+            "current_xp": 35,
+        })
         region = self.site.BATTLE_DATA.regions[0]
         trainer = next(team for team in region["teams"] if team.get("badge"))
         with open(self.site.os.path.join(self.site.BASE_DIR, "badges.json"), encoding="utf-8") as badges_file:
@@ -216,7 +228,7 @@ class BattleRouteTests(unittest.TestCase):
             "region_id": region["id"],
             "enemy_mode": "predefined",
             "team_id": trainer["id"],
-            "pokemon_names": ["Pikachu"],
+            "pokemon_names": ["Pikachu", "Carapuce"],
         })
         self.assertEqual(started.status_code, 200, started.json)
         battle_id = started.json["battle_id"]
@@ -225,6 +237,8 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(won.json["status"], "won")
         self.assertIn(("trainer-1", badge["id"]), self.database.badges)
         self.assertEqual(self.database.balances["trainer-1"], 500)
+        self.assertEqual(self.database.captures[0]["current_xp"], 20)
+        self.assertEqual(self.database.captures[1]["current_xp"], 55)
         self.assertTrue(any(badge["name"] in entry["text"] for entry in won.json["log"]))
 
     def test_previously_owned_badge_awards_20_croco_dollars(self):

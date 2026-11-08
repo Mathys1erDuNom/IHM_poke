@@ -485,12 +485,22 @@ def play_battle_turn(battle_id):
                     ON CONFLICT (user_id)
                     DO UPDATE SET balance = argent.balance + EXCLUDED.balance
                 """, (discord_user["id"], reward))
+                for pokemon in state["player_team"]:
+                    cur.execute("""
+                        UPDATE new_captures
+                        SET current_xp = COALESCE(current_xp, 0) + 20
+                        WHERE user_id = %s AND name = %s
+                    """, (discord_user["id"], pokemon["name"]))
                 state.setdefault("log", []).append({
                     "text": (
                         f"Tu obtiens le {state['badge_name']} et gagnes {reward} Croco Dollars !"
                         if awarded_badge
                         else f"Tu possèdes déjà le {state['badge_name']} et gagnes {reward} Croco Dollars !"
                     ),
+                    "kind": "system",
+                })
+                state["log"].append({
+                    "text": "Tous les Pokémon de ton équipe gagnent 20 XP !",
                     "kind": "system",
                 })
         except ValueError as error:
