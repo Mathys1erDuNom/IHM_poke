@@ -472,7 +472,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
     base_stats = target_species["base_stats"] if target_species else species["base_stats"]
     for stat, base_stat in base_stats.items():
         old_iv = max(0, min(31, int(current_ivs.get(stat, 0) or 0)))
-        new_iv = min(31, old_iv + 4)
+        new_iv = min(31, old_iv + 4) if target_species else old_iv
         ivs[stat] = new_iv
         if target_species:
             stats[stat] = max(1, int(base_stat) + new_iv)
