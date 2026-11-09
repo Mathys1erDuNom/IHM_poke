@@ -235,11 +235,11 @@ class BattleRouteTests(unittest.TestCase):
 
     def test_predefined_trainer_victory_awards_badge_once(self):
         bulbasaur = self.site.BATTLE_DATA.pokemon_by_id["bulbizarre"]
-        bulbasaur_ivs = {stat: 29 for stat in bulbasaur["base_stats"]}
+        bulbasaur_ivs = {stat: 10 for stat in bulbasaur["base_stats"]}
         self.database.captures.append({
             "name": "Bulbizarre",
             "ivs": bulbasaur_ivs,
-            "stats": {stat: value + 29 for stat, value in bulbasaur["base_stats"].items()},
+            "stats": {stat: value + 10 for stat, value in bulbasaur["base_stats"].items()},
             "image": bulbasaur["image"],
             "type": bulbasaur["type"],
             "attacks": bulbasaur["attacks"],
@@ -274,8 +274,8 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(evolved["name"], "Herbizarre")
         self.assertEqual(evolved["current_xp"], 510)
         self.assertEqual(evolved["xp_evo"], herbizarre["xp_evo"])
-        self.assertEqual(evolved["ivs"], {stat: 31 for stat in herbizarre["base_stats"]})
-        self.assertEqual(evolved["stats"], {stat: value + 31 for stat, value in herbizarre["base_stats"].items()})
+        self.assertEqual(evolved["ivs"], {stat: 14 for stat in herbizarre["base_stats"]})
+        self.assertEqual(evolved["stats"], {stat: value + 14 for stat, value in herbizarre["base_stats"].items()})
         self.assertEqual(evolved["evo"], herbizarre["evo"])
         self.assertTrue(any(badge["name"] in entry["text"] for entry in won.json["log"]))
 
