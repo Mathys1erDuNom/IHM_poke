@@ -455,7 +455,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
         return None
 
     old_xp = int(owned.get("current_xp", 0) or 0)
-    current_xp = old_xp + 200 #20
+    current_xp = old_xp + 20 #gain de 20 d'xp
     current_ivs = owned.get("ivs") or {}
     current_stats = owned.get("stats") or {}
     next_evolution = normalize_evolution_data(owned.get("evo"))
