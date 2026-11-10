@@ -353,12 +353,12 @@ def create_battle():
         return jsonify({"error": "Requête de combat invalide."}), 400
     mode = payload.get("mode")
     names = payload.get("pokemon_names")
-    enemy_mode = payload.get("enemy_mode", "random")
+    enemy_mode = payload.get("enemy_mode", "predefined")
     region_id = payload.get("region_id")
     max_team_size = BATTLE_DATA.config["combat"]["max_team_size"]
     if mode not in {"team", "waves"}:
         return jsonify({"error": "Mode de combat invalide."}), 400
-    if mode == "team" and enemy_mode not in {"random", "predefined"}:
+    if mode == "team" and enemy_mode != "predefined":
         return jsonify({"error": "Équipe adverse invalide."}), 400
     region = BATTLE_DATA.get_region(region_id) if mode == "team" else None
     if mode == "team" and not region:
@@ -386,15 +386,12 @@ def create_battle():
     if mode == "waves":
         wave = 1
         enemy_team = BATTLE_ENEMIES.random_wave_team(wave)
-    elif enemy_mode == "predefined":
+    else:
         team_id = payload.get("team_id", "")
         trainer = next((team for team in region["teams"] if team["id"] == team_id), None)
         if not trainer:
             return jsonify({"error": "Équipe prédéfinie introuvable."}), 400
         enemy_team = BATTLE_ENEMIES.predefined_team(team_id, region_id=region_id)
-        wave = 0
-    else:
-        enemy_team = BATTLE_ENEMIES.random_region_team(region_id, len(player_team))
         wave = 0
     if not enemy_team:
         return jsonify({"error": "Impossible de générer une équipe ennemie valide."}), 500

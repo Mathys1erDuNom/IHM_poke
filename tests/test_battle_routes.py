@@ -135,13 +135,15 @@ class BattleRouteTests(unittest.TestCase):
         response = self.client.post("/api/battles", json={
             "mode": "team",
             "region_id": "kanto",
-            "enemy_mode": "random",
+            "enemy_mode": "predefined",
+            "team_id": self.site.BATTLE_DATA.get_region("kanto")["teams"][0]["id"],
             "pokemon_names": ["Pikachu"],
         })
         self.assertEqual(response.status_code, 200, response.json)
         battle_id = response.json["battle_id"]
         state = self.client.get(f"/api/battles/{battle_id}").json
         state["player_team"][0]["stats"]["speed"] = 10000
+        state["enemy_team"] = state["enemy_team"][:1]
         state["enemy_team"][0]["types"] = ["normal"]
         state["enemy_team"][0]["hp"] = 1
         self.database.battles[battle_id] = state
@@ -348,6 +350,7 @@ class BattleRouteTests(unittest.TestCase):
         started = self.client.post("/api/battles", json={
             "mode": "team",
             "region_id": "kanto",
+            "team_id": self.site.BATTLE_DATA.get_region("kanto")["teams"][0]["id"],
             "pokemon_names": ["Pikachu", "Carapuce"],
         })
         self.assertEqual(started.status_code, 200, started.json)

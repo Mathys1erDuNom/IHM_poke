@@ -147,11 +147,6 @@ if (setup && form) {
     const region = regions.find((entry) => entry.id === enemyRegion.value);
     enemyMode.replaceChildren();
 
-    const randomOption = document.createElement("option");
-    randomOption.value = "random";
-    randomOption.textContent = "Équipe aléatoire de la région";
-    enemyMode.appendChild(randomOption);
-
     (region?.teams || []).forEach((team) => {
       const option = document.createElement("option");
       option.value = "predefined";
