@@ -281,6 +281,23 @@ class BattleRouteTests(unittest.TestCase):
         self.assertEqual(evolved["evo"], herbizarre["evo"])
         self.assertTrue(any(badge["name"] in entry["text"] for entry in won.json["log"]))
 
+    def test_non_evolving_pokemon_gets_iv_bonus_once_then_stops_gaining_xp(self):
+        pikachu = self.database.captures[0]
+        pikachu.update({"current_xp": 450, "xp_evo": 500, "ivs": {stat: 29 for stat in pikachu["ivs"]}})
+        old_stats = dict(pikachu["stats"])
+        cur = self.site.psycopg2.connect().cursor()
+
+        message = self.site.award_trainer_xp(cur, "trainer-1", "Pikachu")
+        self.assertIn("+4 IV", message)
+        self.assertEqual(pikachu["current_xp"], 500)
+        self.assertEqual(pikachu["ivs"], {stat: 31 for stat in pikachu["ivs"]})
+        self.assertEqual(pikachu["stats"], {stat: value + 2 for stat, value in old_stats.items()})
+
+        message = self.site.award_trainer_xp(cur, "trainer-1", "Pikachu")
+        self.assertIn("ne gagne plus", message)
+        self.assertEqual(pikachu["current_xp"], 500)
+        self.assertEqual(pikachu["ivs"], {stat: 31 for stat in pikachu["ivs"]})
+
     def test_previously_owned_badge_awards_20_croco_dollars(self):
         region = self.site.BATTLE_DATA.regions[0]
         trainer = next(team for team in region["teams"] if team.get("badge"))

@@ -454,22 +454,32 @@ def award_trainer_xp(cur, user_id, pokemon_name):
     if not species:
         return None
 
-    current_xp = int(owned.get("current_xp", 0) or 0) + 200 #20
+    old_xp = int(owned.get("current_xp", 0) or 0)
+    current_xp = old_xp + 200 #20
     current_ivs = owned.get("ivs") or {}
     current_stats = owned.get("stats") or {}
     next_evolution = normalize_evolution_data(owned.get("evo"))
     evolution_name = next_evolution.get("name")
+    owned_xp_evo = int(owned.get("xp_evo", -1) or -1)
     target_species = None
-    if evolution_name and evolution_name != "pas evo" and int(owned.get("xp_evo", -1) or -1) > 0:
-        if current_xp >= int(owned["xp_evo"]):
+    max_bonus = False
+    if evolution_name and evolution_name != "pas evo" and owned_xp_evo > 0:
+        if current_xp >= owned_xp_evo:
             target_species = BATTLE_DATA.pokemon_by_id.get(normalize_name(evolution_name))
+    elif owned_xp_evo > 0:
+        # Sans évolution : current_xp == xp_evo marque le bonus déjà reçu, plus d'XP ensuite.
+        if old_xp == owned_xp_evo:
+            return f"{owned['name']} est déjà au maximum et ne gagne plus d'XP."
+        if current_xp >= owned_xp_evo:
+            current_xp = owned_xp_evo
+            max_bonus = True
 
     ivs = {}
     stats = {}
     base_stats = target_species["base_stats"] if target_species else species["base_stats"]
     for stat, base_stat in base_stats.items():
         old_iv = max(0, min(31, int(current_ivs.get(stat, 0) or 0)))
-        new_iv = min(31, old_iv + 4) if target_species else old_iv
+        new_iv = min(31, old_iv + 4) if target_species or max_bonus else old_iv
         ivs[stat] = new_iv
         if target_species:
             stats[stat] = max(1, int(base_stat) + new_iv)
@@ -527,6 +537,8 @@ def award_trainer_xp(cur, user_id, pokemon_name):
     ))
     if target_species:
         return f"{owned['name']} évolue en {target_species['name']} !"
+    if max_bonus:
+        return f"{new_name} atteint son maximum et gagne +4 IV !"
     return f"{new_name} gagne 20 XP et renforce ses IV."
 
 
