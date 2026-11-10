@@ -410,12 +410,13 @@ function buildXpBlock(pokemon) {
   if (!pokemon.xp_evo || pokemon.xp_evo <= 0) {
     return "";
   }
-  // Teinte selon la proportion current_xp / xp_evo : 0 % rouge (0°) → ~57 % vert (120°) → 100 % bleu (210°).
   const pct = Math.min(100, Math.round((pokemon.current_xp / pokemon.xp_evo) * 100));
+  // Teinte selon la proportion : 0 % rouge (0°), 25 % orange (30°), 50 % jaune (60°), 75 % vert (135°), 100 % bleu (210°).
+  const hue = pct < 50 ? pct * 1.2 : 60 + (pct - 50) * 3;
   return `
     <div class="xp-block">
       <div class="xp-label"><span>Expérience</span><span>${pokemon.current_xp} / ${pokemon.xp_evo}</span></div>
-      <div class="xp-track"><span class="xp-fill" style="width:${pct}%;background:hsl(${pct * 2.1}, 75%, 48%)"></span></div>
+      <div class="xp-track"><span class="xp-fill" style="width:${pct}%;background:hsl(${hue}, 75%, 48%)"></span></div>
     </div>`;
 }
 
