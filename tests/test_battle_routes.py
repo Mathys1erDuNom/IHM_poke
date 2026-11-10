@@ -274,7 +274,7 @@ class BattleRouteTests(unittest.TestCase):
         evolved = self.database.captures[1]
         herbizarre = self.site.BATTLE_DATA.pokemon_by_id["herbizarre"]
         self.assertEqual(evolved["name"], "Herbizarre")
-        self.assertEqual(evolved["current_xp"], 510)
+        self.assertEqual(evolved["current_xp"], 0)
         self.assertEqual(evolved["xp_evo"], herbizarre["xp_evo"])
         self.assertEqual(evolved["ivs"], {stat: 14 for stat in herbizarre["base_stats"]})
         self.assertEqual(evolved["stats"], {stat: value + 14 for stat, value in herbizarre["base_stats"].items()})

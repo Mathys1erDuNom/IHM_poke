@@ -505,6 +505,7 @@ def award_trainer_xp(cur, user_id, pokemon_name):
         attacks = target_species.get("attacks", attacks)
         xp_evo = target_species.get("xp_evo", -1)
         evo = normalize_evolution_data(target_species.get("evo"))
+        current_xp = 0
 
     cur.execute("""
         UPDATE new_captures
