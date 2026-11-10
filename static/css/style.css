@@ -394,6 +394,7 @@ body {
 }
 
 .xp-fill {
+  display: block;
   height: 100%;
   background: var(--accent-yellow);
   border-radius: 4px;
