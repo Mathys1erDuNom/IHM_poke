@@ -36,6 +36,7 @@ function renderSide(side, pokemon) {
   byId(`${side}-name`).textContent = pokemon.name;
   byId(`${side}-status`).textContent = STATUS_LABELS[pokemon.status] || pokemon.status || "";
   byId(`${side}-status`).hidden = !pokemon.status;
+  byId(`${side}-status`).dataset.status = pokemon.status || "";
   const sprite = byId(`${side}-sprite`);
   sprite.src = pokemon.gif_url || pokemon.image || "";
   sprite.alt = pokemon.name;
@@ -93,7 +94,9 @@ function renderParty() {
     button.disabled = requestPending || pokemon.hp <= 0 || index === battleState.player_active || battleState.status !== "ongoing";
     button.innerHTML = `<span></span><small></small>`;
     button.querySelector("span").textContent = pokemon.name;
-    button.querySelector("small").textContent = pokemon.hp > 0 ? `${pokemon.hp}/${pokemon.max_hp} PV` : "K.O.";
+    button.querySelector("small").textContent = pokemon.hp > 0
+      ? `${pokemon.hp}/${pokemon.max_hp} PV${pokemon.status ? ` · ${STATUS_LABELS[pokemon.status] || pokemon.status}` : ""}`
+      : "K.O.";
     button.addEventListener("click", () => submitAction({ kind: "switch", index }));
     partyPanel.appendChild(button);
   });

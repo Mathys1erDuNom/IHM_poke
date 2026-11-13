@@ -4,6 +4,7 @@ import math
 import random
 
 from .messages import add_log, effectiveness_text
+from .status import StatusManager
 
 
 class BattleEngine:
@@ -13,6 +14,7 @@ class BattleEngine:
         self.rules = self.config["combat"]
         self.chart = self.config["effectiveness"]
         self.rng = rng or random.Random()
+        self.statuses = StatusManager(self.config, self.rng)
 
     def create_battle(self, player_team, enemy_team, mode="team", wave=0):
         if not player_team or not enemy_team:
@@ -70,8 +72,8 @@ class BattleEngine:
     def effective_stat(self, pokemon, stat):
         value = max(1, int(pokemon.get("stats", {}).get(stat, 1)))
         value *= self._stage_multiplier(pokemon.get("stages", {}).get(stat, 0))
-        if stat == "speed" and pokemon.get("status") == "paralysis":
-            value *= self.config["statuses"]["paralysis"]["speed_multiplier"]
+        if stat == "speed":
+            value *= self.statuses.speed_multiplier(pokemon)
         return max(1, int(value))
 
     def calculate_damage(self, attacker, defender, move):
@@ -83,8 +85,7 @@ class BattleEngine:
         attack_stat = "attack" if physical else "special_attack"
         defense_stat = "defense" if physical else "special_defense"
         attack_value = self.effective_stat(attacker, attack_stat)
-        if physical and attacker.get("status") == "burn":
-            attack_value = max(1, int(attack_value * self.config["statuses"]["burn"]["physical_attack_multiplier"]))
+        attack_value = max(1, int(attack_value * self.statuses.attack_multiplier(attacker, physical)))
         defense_value = self.effective_stat(defender, defense_stat)
         effectiveness = self.type_effectiveness(move.get("type"), defender.get("types", []))
         stab = self.data.normalize_type(move.get("type")) in attacker.get("types", [])
@@ -100,37 +101,6 @@ class BattleEngine:
             modifier *= self.rules["critical_multiplier"] if critical else 1
             damage = max(formula["minimum_damage"], math.floor(base * modifier * effectiveness))
         return {"damage": damage, "effectiveness": effectiveness, "critical": critical, "stab": stab}
-
-    def _status_effect(self, move):
-        effect = move.get("effect")
-        if effect in self.config["statuses"]:
-            return effect
-        if effect == "random_paralysis_sleep":
-            return self.rng.choice(["paralysis", "sleep"])
-        return None
-
-    def _apply_status(self, pokemon, status, state):
-        status_config = self.config["statuses"].get(status)
-        if not status_config:
-            return False
-        types = set(pokemon.get("types", []))
-        if types.intersection(status_config.get("immune_types", [])):
-            add_log(state, f"{pokemon['name']} ne peut pas subir ce statut.", "system")
-            return False
-        if pokemon.get("status"):
-            return False
-        pokemon["status"] = status
-        if status == "sleep":
-            pokemon["status_turns"] = self.rng.randint(status_config["minimum_turns"], status_config["maximum_turns"])
-        messages = {
-            "burn": f"{pokemon['name']} est brûlé !",
-            "poison": f"{pokemon['name']} est empoisonné !",
-            "paralysis": f"{pokemon['name']} est paralysé !",
-            "sleep": f"{pokemon['name']} s'endort !",
-            "freeze": f"{pokemon['name']} est gelé !",
-        }
-        add_log(state, messages.get(status, f"{pokemon['name']} subit {status_config['label']} !"), "status")
-        return True
 
     def _change_stage(self, pokemon, stat, delta, state):
         stages = pokemon.setdefault("stages", {})
@@ -162,32 +132,10 @@ class BattleEngine:
             user["hp"] += healed
             add_log(state, f"{user['name']} récupère {healed} PV !", "status")
             return
-        status = self._status_effect(move)
-        if status:
-            chance = max(0, min(100, int(move.get("effect_chance", 100))))
-            if self.rng.random() * 100 < chance:
-                self._apply_status(target, status, state)
+        self.statuses.try_inflict(target, move, state)
 
     def _can_act(self, pokemon, state):
-        status = pokemon.get("status")
-        if status == "sleep":
-            turns_left = max(0, int(pokemon.get("status_turns", 0)))
-            if turns_left > 0:
-                pokemon["status_turns"] = turns_left - 1
-                add_log(state, f"{pokemon['name']} dort profondément.", "status")
-                return False
-            pokemon["status"] = None
-            add_log(state, f"{pokemon['name']} se réveille !", "status")
-        elif status == "freeze":
-            if self.rng.random() >= self.config["statuses"]["freeze"]["thaw_chance"]:
-                add_log(state, f"{pokemon['name']} est gelé et ne peut pas agir !", "status")
-                return False
-            pokemon["status"] = None
-            add_log(state, f"{pokemon['name']} dégèle !", "status")
-        elif status == "paralysis" and self.rng.random() < self.config["statuses"]["paralysis"]["immobilize_chance"]:
-            add_log(state, f"{pokemon['name']} est paralysé ! Il ne peut pas attaquer.", "status")
-            return False
-        return True
+        return self.statuses.can_act(pokemon, state)
 
     def _accuracy(self, attacker, move):
         stage = attacker.get("stages", {}).get("accuracy", 0)
@@ -218,8 +166,7 @@ class BattleEngine:
             attack_stat = "attack" if physical else "special_attack"
             defense_stat = "defense" if physical else "special_defense"
             attack = self.effective_stat(enemy, attack_stat)
-            if physical and enemy.get("status") == "burn":
-                attack *= self.config["statuses"]["burn"]["physical_attack_multiplier"]
+            attack *= self.statuses.attack_multiplier(enemy, physical)
             defense = self.effective_stat(player, defense_stat)
             effectiveness = self.type_effectiveness(move.get("type"), player.get("types", []))
             if effectiveness == 0:
@@ -252,10 +199,9 @@ class BattleEngine:
                     return 0.0
                 return max(best_damage_score * 0.75, player["max_hp"] * 0.08) * accuracy
 
-            status = self._status_effect(move)
+            status = self.statuses.from_move(move)
             if status:
-                status_config = self.config["statuses"].get(status, {})
-                if player.get("status") or set(player.get("types", [])).intersection(status_config.get("immune_types", [])):
+                if player.get("status") or self.statuses.is_immune(player, status):
                     return damage_score(move)
                 chance = max(0, min(100, int(move.get("effect_chance", 100)))) / 100
                 tactical_value = max(best_damage_score * 0.85, player["max_hp"] * 0.1)
@@ -351,18 +297,7 @@ class BattleEngine:
         pokemon = self.active(state, side)
         if not self.alive(pokemon):
             return
-        status = pokemon.get("status")
-        status_config = self.config["statuses"].get(status, {})
-        damage_fraction = status_config.get("damage_fraction", 0)
-        if damage_fraction:
-            damage = max(1, int(pokemon["max_hp"] * damage_fraction))
-            pokemon["hp"] = max(0, pokemon["hp"] - damage)
-            if status == "burn":
-                add_log(state, f"{pokemon['name']} souffre de sa brûlure ({damage} PV) !", "status")
-            else:
-                add_log(state, f"Le poison inflige {damage} dégâts à {pokemon['name']} !", "status")
-            if pokemon["hp"] == 0:
-                add_log(state, f"{pokemon['name']} est K.O. !", "faint")
+        self.statuses.residual(pokemon, state)
 
     def _check_result(self, state):
         if not self.living_indices(state["player_team"]):

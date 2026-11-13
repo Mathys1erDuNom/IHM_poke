@@ -67,6 +67,12 @@ class BattleData:
             elif category not in {"physique", "statut"}:
                 category = "physique"
             effect_id = self.effect_aliases.get(normalize_name(record.get("effect")))
+            # probas_effect : pourcentage 0-100 ; null = 100 pour une attaque de statut, sinon secondary_status_chance
+            effect_chance = record.get("probas_effect")
+            if effect_chance is None:
+                effect_chance = 100 if category == "statut" else self.config["combat"]["secondary_status_chance"] * 100
+            elif 0 < effect_chance < 1:
+                raise ValueError(f"{record['name']} : probas_effect doit être un pourcentage (30 et non 0.3).")
             attacks[attack_id] = {
                 "id": attack_id,
                 "name": record["name"],
@@ -75,7 +81,7 @@ class BattleData:
                 "category": category,
                 "accuracy": max(0, min(100, int(record.get("accuracy", record.get("precision", defaults["attack_accuracy"])) or 0))),
                 "effect": effect_id,
-                "effect_chance": 100 if category == "statut" else int(self.config["combat"]["secondary_status_chance"] * 100),
+                "effect_chance": max(0, min(100, int(effect_chance))),
             }
 
         fallback = dict(defaults["fallback_move"])

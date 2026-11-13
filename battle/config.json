@@ -84,7 +84,7 @@
     "fee": {"combat": 2.0, "dragon": 2.0, "tenebres": 2.0, "feu": 0.5, "poison": 0.5, "acier": 0.5}
   },
   "statuses": {
-    "burn": {"label": "Brûlure", "icon": "BRU", "damage_fraction": 0.0625, "physical_attack_multiplier": 0.5, "immune_types": ["feu"]},
+    "burn": {"label": "Brûlure", "icon": "BRU", "damage_fraction": 0.0625, "physical_attack_multiplier": 0.5, "immune_types": ["feu"], "immune_if_no_effect_from": "feu"},
     "poison": {"label": "Poison", "icon": "PSN", "damage_fraction": 0.125, "immune_types": ["poison", "acier"]},
     "paralysis": {"label": "Paralysie", "icon": "PAR", "speed_multiplier": 0.5, "immobilize_chance": 0.25, "immune_types": ["electrik"]},
     "sleep": {"label": "Sommeil", "icon": "SOM", "minimum_turns": 1, "maximum_turns": 3},

@@ -1189,12 +1189,23 @@ body {
 
 .battle-status {
   justify-self: start;
-  min-height: 22px;
   margin-top: 4px;
-  color: var(--shell-red-dark);
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #6b7280;
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
+
+.battle-status[hidden] { display: none; }
+.battle-status[data-status="burn"] { background: #d9480f; }
+.battle-status[data-status="poison"] { background: #7b2cbf; }
+.battle-status[data-status="paralysis"] { background: #a67c00; }
+.battle-status[data-status="sleep"] { background: #5c677d; }
+.battle-status[data-status="freeze"] { background: #1c7ed6; }
 
 .battle-types {
   display: flex;

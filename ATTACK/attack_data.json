@@ -3,742 +3,1168 @@
     "name": "Charge",
     "type": "normal",
     "damage": 15,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Morsure",
     "type": "tenebres",
     "damage": 60,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Griffe",
     "type": "normal",
     "damage": 18,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Queue de fer",
     "type": "acier",
     "damage": 22,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Eclair",
     "type": "electrique",
     "damage": 25,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Fouet Lianes",
     "type": "plante",
     "damage": 35,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vampigraine",
     "type": "plante",
     "damage": 0,
     "category": "statut",
-    "effect": "recuperation"
+    "effect": "recuperation",
+    "probas_effect": null
   },
   {
     "name": "Canon Graine",
     "type": "plante",
     "damage": 40,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Flammeche",
     "type": "feu",
     "damage": 40,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Lance-Flammes",
     "type": "feu",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Dracochoc",
     "type": "dragon",
     "damage": 85,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Pistolet a O",
     "type": "eau",
     "damage": 40,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Hydrocanon",
     "type": "eau",
     "damage": 110,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Toxic",
     "type": "poison",
     "damage": 0,
     "category": "statut",
-    "effect": "poison"
+    "effect": "poison",
+    "probas_effect": null
   },
   {
     "name": "Boutefeu",
     "type": "feu",
     "damage": 0,
     "category": "statut",
-    "effect": "brule"
+    "effect": "brule",
+    "probas_effect": 1
   },
   {
     "name": "Coud’Boule",
     "type": "normal",
     "damage": 30,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vive-Attaque",
     "type": "normal",
     "damage": 40,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Groz’Yeux",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse defense"
+    "effect": "baisse defense",
+    "probas_effect": null
   },
   {
     "name": "Rugissement",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse attaque"
+    "effect": "baisse attaque",
+    "probas_effect": null
   },
   {
     "name": "Seisme",
     "type": "sol",
     "damage": 100,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Crocs Feu",
     "type": "feu",
     "damage": 65,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Ecume",
     "type": "eau",
     "damage": 20,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vive-Attaque",
     "type": "normal",
     "damage": 40,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Poudre Dodo",
     "type": "plante",
     "damage": 0,
     "category": "statut",
-    "effect": "sommeil"
+    "effect": "sommeil",
+    "probas_effect": null
   },
   {
     "name": "Parfum",
     "type": "plante",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse esquive"
+    "effect": "baisse esquive",
+    "probas_effect": null
   },
   {
     "name": "Dard-Venin",
     "type": "poison",
     "damage": 15,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Bomb-Beurk",
     "type": "poison",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
-  
   {
     "name": "Coup d'Boule",
     "type": "normal",
     "damage": 70,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Jet de Sable",
     "type": "sol",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse precision"
+    "effect": "baisse precision",
+    "probas_effect": null
   },
   {
     "name": "Armure",
     "type": "acier",
     "damage": 0,
     "category": "statut",
-    "effect": "augmente defense"
+    "effect": "augmente defense",
+    "probas_effect": null
   },
   {
     "name": "Laser Glace",
     "type": "glace",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Charme",
     "type": "fee",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse attaque"
+    "effect": "baisse attaque",
+    "probas_effect": null
   },
   {
     "name": "Choc Psy",
     "type": "psy",
     "damage": 70,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Psyko",
     "type": "psy",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Rafale Psy",
     "type": "psy",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Bluff",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "vole objet"
+    "effect": "vole objet",
+    "probas_effect": null
   },
   {
     "name": "Pique",
     "type": "insecte",
     "damage": 80,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Eclats Glace",
     "type": "glace",
     "damage": 40,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Boule Elek",
     "type": "electrique",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Poing Karate",
     "type": "combat",
     "damage": 50,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Cru-Aile",
     "type": "vol",
     "damage": 60,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Brouillard",
     "type": "glace",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse precision"
+    "effect": "baisse precision",
+    "probas_effect": null
   },
   {
     "name": "Transformation",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "copie"
+    "effect": "copie",
+    "probas_effect": null
   },
   {
     "name": "Trempette",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "aucun"
+    "effect": "aucun",
+    "probas_effect": null
   },
   {
     "name": "Plaquage",
     "type": "normal",
     "damage": 85,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vent Glace",
     "type": "glace",
     "damage": 55,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Braise",
     "type": "feu",
     "damage": 30,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Trempette",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "aucun"
+    "effect": "aucun",
+    "probas_effect": null
   },
   {
     "name": "Seisme",
     "type": "sol",
     "damage": 100,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Aura Sphere",
     "type": "combat",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Atterrissage",
     "type": "vol",
     "damage": 0,
     "category": "statut",
-    "effect": "recuperation"
+    "effect": "recuperation",
+    "probas_effect": null
   },
   {
     "name": "Bouclier",
     "type": "acier",
     "damage": 0,
     "category": "statut",
-    "effect": "augmente defense"
+    "effect": "augmente defense",
+    "probas_effect": null
   },
   {
     "name": "Boue-Bombe",
     "type": "sol",
     "damage": 65,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Balle Ombre",
     "type": "spectre",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Chant",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "endormissement"
+    "effect": "endormissement",
+    "probas_effect": null
   },
   {
     "name": "Constriction",
     "type": "normal",
     "damage": 10,
     "category": "physique",
-    "effect": "ralentissement"
+    "effect": "ralentissement",
+    "probas_effect": null
   },
   {
     "name": "Corps Perdu",
     "type": "normal",
     "damage": 60,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Explosion",
     "type": "normal",
     "damage": 250,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Gaz Toxik",
     "type": "poison",
     "damage": 0,
     "category": "statut",
-    "effect": "empoisonnement grave"
+    "effect": "empoisonnement grave",
+    "probas_effect": null
   },
   {
     "name": "Lance-Pierre",
     "type": "roche",
     "damage": 15,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Lance-Soleil",
     "type": "plante",
     "damage": 120,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Lechouille",
     "type": "spectre",
     "damage": 30,
     "category": "physique",
-    "effect": "ralentissement"
+    "effect": "ralentissement",
+    "probas_effect": null
   },
   {
     "name": "Marelle",
     "type": "fee",
     "damage": 60,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Picpic",
     "type": "vol",
     "damage": 35,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Pince",
     "type": "insecte",
     "damage": 25,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Piqure",
     "type": "insecte",
     "damage": 15,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Poing-Eclair",
     "type": "electrique",
     "damage": 75,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Pouvoir Lunaire",
     "type": "fee",
     "damage": 95,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Siphon",
     "type": "eau",
     "damage": 20,
     "category": "physique",
-    "effect": "recuperation"
+    "effect": "recuperation",
+    "probas_effect": null
   },
   {
     "name": "Spore",
     "type": "plante",
     "damage": 0,
     "category": "statut",
-    "effect": "paralysie/sommeil"
+    "effect": "paralysie/sommeil",
+    "probas_effect": null
   },
   {
     "name": "Tonnerre",
     "type": "electrique",
     "damage": 90,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Tranche",
     "type": "normal",
     "damage": 70,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Teleport",
     "type": "psy",
     "damage": 0,
     "category": "statut",
-    "effect": "fuite"
+    "effect": "fuite",
+    "probas_effect": null
   },
   {
     "name": "Ultrason",
     "type": "normal",
     "damage": 0,
     "category": "statut",
-    "effect": "baisse precision"
+    "effect": "baisse precision",
+    "probas_effect": null
   },
   {
     "name": "Ultralaser",
     "type": "normal",
     "damage": 130,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vent Violent",
     "type": "vol",
     "damage": 120,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vol",
     "type": "vol",
     "damage": 90,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Ecrasement",
     "type": "normal",
     "damage": 75,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
-  
-  { "name": "Puissance Cachee", "type": "normal", "damage": 0, "category": "speciale" },
-  { "name": "Poing Comete", "type": "normal", "damage": 18, "category": "physique" },
-  { "name": "EcraseFace", "type": "normal", "damage": 35, "category": "physique" },
-  { "name": "Poing Karate", "type": "combat", "damage": 50, "category": "physique" },
-  { "name": "Coupe-Vent", "type": "vol", "damage": 80, "category": "physique" },
-  { "name": "Poing Feu", "type": "feu", "damage": 75, "category": "speciale" },
-  { "name": "Tornade", "type": "vol", "damage": 40, "category": "physique" },
-  { "name": "Mawashi Geri", "type": "combat", "damage": 60, "category": "physique" },
-  { "name": "Torgnoles", "type": "normal", "damage": 15, "category": "physique" },
-  { "name": "Guillotine", "type": "normal", "damage": 50, "category": "physique" },
-  { "name": "Jackpot", "type": "normal", "damage": 40, "category": "physique" },
-  { "name": "Gribouille", "type": "normal", "damage": 0, "category": "physique" },
-  { "name": "Souplesse", "type": "normal", "damage": 80, "category": "physique" },
-  { "name": "Ecrasement", "type": "normal", "damage": 65, "category": "physique" },
-  { "name": "Danse Lames", "type": "normal", "damage": 0, "category": "physique" },
-  { "name": "Coup dBoule", "type": "normal", "damage": 70, "category": "physique" },
-  { "name": "Riposte", "type": "combat", "damage": 0, "category": "physique" },
-  { "name": "Poing Eclair", "type": "electrik", "damage": 75, "category": "speciale" },
-  { "name": "Double Pied", "type": "combat", "damage": 30, "category": "physique" },
-  { "name": "Cyclone", "type": "normal", "damage": 0, "category": "physique" },
-  { "name": "Ligotage", "type": "normal", "damage": 15, "category": "physique" },
-  { "name": "Amnesie", "type": "psy", "damage": 0, "category": "speciale" },
-  { "name": "KoudeKorne", "type": "glace", "damage": 40, "category": "speciale" },
-  { "name": "Belier", "type": "normal", "damage": 90, "category": "physique" },
-  { "name": "Furie", "type": "normal", "damage": 15, "category": "physique" },
-  { "name": "Pied Saute", "type": "combat", "damage": 70, "category": "physique" },
-  { "name": "Coupe", "type": "normal", "damage": 50, "category": "physique" },
-  { "name": "Damocles", "type": "normal", "damage": 120, "category": "physique" },
-  { "name": "Etreinte", "type": "normal", "damage": 15, "category": "physique" },
-  { "name": "Ultimawashi", "type": "combat", "damage": 100, "category": "physique" },
-  { "name": "Ultimapoing", "type": "combat", "damage": 80, "category": "physique" },
-  { "name": "Poing Glace", "type": "glace", "damage": 75, "category": "speciale" },
-  { "name": "Cru-Ailes", "type": "vol", "damage": 35, "category": "physique" },
   {
-    "name": "Brume",
-    "type": "glace",
+    "name": "Puissance Cachee",
+    "type": "normal",
     "damage": 0,
-    "category": "statut"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
-    "name": "Coup d’Boule",
+    "name": "Poing Comete",
     "type": "normal",
-    "damage": 70,
-    "category": "physique"
+    "damage": 18,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
-    "name": "Ecras’Face",
+    "name": "EcraseFace",
     "type": "normal",
-    "damage": 40,
-    "category": "physique"
+    "damage": 35,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
-    "name": "Force Poigne",
-    "type": "normal",
-    "damage": 55,
-    "category": "physique"
-  },
-  {
-    "name": "Mania",
-    "type": "normal",
-    "damage": 120,
-    "category": "physique"
-  },
-  {
-    "name": "Secretion",
-    "type": "insecte",
-    "damage": 0,
-    "category": "statut"
-  },
-  {
-    "name": "Jet de Pierre",
-    "type": "roche",
+    "name": "Poing Karate",
+    "type": "combat",
     "damage": 50,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
-    "name": "Frappe Psy",
-    "type": "psy",
-    "damage": 100,
-    "category": "speciale"
-  },
-  {
-    "name": "Tempete Verte",
-    "type": "plante",
-    "damage": 90,
-    "category": "speciale"
+    "name": "Coupe-Vent",
+    "type": "vol",
+    "damage": 80,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Poing Feu",
     "type": "feu",
     "damage": 75,
-    "category": "physique"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Tornade",
+    "type": "vol",
+    "damage": 40,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Mawashi Geri",
+    "type": "combat",
+    "damage": 60,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Torgnoles",
+    "type": "normal",
+    "damage": 15,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Guillotine",
+    "type": "normal",
+    "damage": 50,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Jackpot",
+    "type": "normal",
+    "damage": 40,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Gribouille",
+    "type": "normal",
+    "damage": 0,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Souplesse",
+    "type": "normal",
+    "damage": 80,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Ecrasement",
+    "type": "normal",
+    "damage": 65,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Danse Lames",
+    "type": "normal",
+    "damage": 0,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Coup dBoule",
+    "type": "normal",
+    "damage": 70,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Riposte",
+    "type": "combat",
+    "damage": 0,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Poing Eclair",
+    "type": "electrik",
+    "damage": 75,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Double Pied",
+    "type": "combat",
+    "damage": 30,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Cyclone",
+    "type": "normal",
+    "damage": 0,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Ligotage",
+    "type": "normal",
+    "damage": 15,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Amnesie",
+    "type": "psy",
+    "damage": 0,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "KoudeKorne",
+    "type": "glace",
+    "damage": 40,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Belier",
+    "type": "normal",
+    "damage": 90,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Furie",
+    "type": "normal",
+    "damage": 15,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Pied Saute",
+    "type": "combat",
+    "damage": 70,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Coupe",
+    "type": "normal",
+    "damage": 50,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Damocles",
+    "type": "normal",
+    "damage": 120,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Etreinte",
+    "type": "normal",
+    "damage": 15,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Ultimawashi",
+    "type": "combat",
+    "damage": 100,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Ultimapoing",
+    "type": "combat",
+    "damage": 80,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Poing Glace",
+    "type": "glace",
+    "damage": 75,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Cru-Ailes",
+    "type": "vol",
+    "damage": 35,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Brume",
+    "type": "glace",
+    "damage": 0,
+    "category": "statut",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Coup d’Boule",
+    "type": "normal",
+    "damage": 70,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Ecras’Face",
+    "type": "normal",
+    "damage": 40,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Force Poigne",
+    "type": "normal",
+    "damage": 55,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Mania",
+    "type": "normal",
+    "damage": 120,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Secretion",
+    "type": "insecte",
+    "damage": 0,
+    "category": "statut",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Jet de Pierre",
+    "type": "roche",
+    "damage": 50,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Frappe Psy",
+    "type": "psy",
+    "damage": 100,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Tempete Verte",
+    "type": "plante",
+    "damage": 90,
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Poing Feu",
+    "type": "feu",
+    "damage": 75,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Close Combat",
     "type": "combat",
     "damage": 90,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Surf",
     "type": "eau",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Griffe Acier",
     "type": "acier",
     "damage": 50,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Croc Eclair",
     "type": "electrik",
     "damage": 55,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Eclat Magique",
     "type": "fee",
     "damage": 70,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Eboulement",
     "type": "roche",
     "damage": 65,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vent Violent",
     "type": "vol",
     "damage": 70,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Bourdon",
     "type": "insecte",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Meteore",
     "type": "normal",
     "damage": 60,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Tranche-Nuit",
     "type": "tenebres",
     "damage": 70,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Vibrobscur",
     "type": "tenebres",
     "damage": 80,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Colere",
     "type": "dragon",
     "damage": 90,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Dracochoc",
     "type": "dragon",
     "damage": 85,
-    "category": "speciale"
+    "category": "speciale",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Dracogriffe",
     "type": "dragon",
     "damage": 80,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Direct Toxik",
     "type": "poison",
     "damage": 80,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Luminocanon",
     "type": "acier",
     "damage": 80,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Giga Impact",
     "type": "normal",
     "damage": 150,
-    "category": "physique"
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Laser Glace",
     "type": "glace",
     "damage": 90,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Hurle-Temps",
     "type": "dragon",
     "damage": 150,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Spatio-Rift",
     "type": "dragon",
     "damage": 150,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Telluriforce",
     "type": "sol",
     "damage": 90,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Aurasphere",
     "type": "combat",
     "damage": 80,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Cannicule",
     "type": "feu",
     "damage": 95,
-    "category": "special"
+    "category": "special",
+    "effect": "aucun",
+    "probas_effect": 1
   },
   {
     "name": "Lame de Roc",
     "type": "roche",
     "damage": 100,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   },
   {
     "name": "Jugement",
     "type": "normal",
     "damage": 100,
-    "category": "special"
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
   }
-  
-
-
-
 ]

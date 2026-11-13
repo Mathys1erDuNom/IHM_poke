@@ -113,6 +113,48 @@ class BattleEngineTests(unittest.TestCase):
             self.engine._apply_residual(state, "player")
             self.assertLess(pokemon["hp"], old_hp)
 
+    def test_burn_chance_residual_and_halved_attack(self):
+        target = self.pokemon("pikachu")
+        state = self.engine.create_battle([self.pokemon("carapuce")], [target])
+        move = self.move(power=0, category="statut", effect="burn", effect_chance=30)
+
+        self.rng.value = 0.5  # 50 >= 30 : la brûlure ne passe pas
+        self.assertFalse(self.engine.statuses.try_inflict(target, move, state))
+        self.assertIsNone(target.get("status"))
+        self.rng.value = 0.1  # 10 < 30 : elle passe
+        self.assertTrue(self.engine.statuses.try_inflict(target, move, state))
+        self.assertEqual(target["status"], "burn")
+
+        old_hp = target["hp"]
+        self.engine._apply_residual(state, "enemy")
+        self.assertEqual(old_hp - target["hp"], max(1, target["max_hp"] // 16))
+
+        self.rng.value = 0.99  # pas de coup critique
+        defender = self.pokemon("carapuce")
+        physical = self.move(power=80)
+        burned = self.engine.calculate_damage(target, defender, physical)["damage"]
+        target["status"] = None
+        healthy = self.engine.calculate_damage(target, defender, physical)["damage"]
+        self.assertLess(burned, healthy)
+        self.assertAlmostEqual(burned / healthy, 0.5, delta=0.1)
+
+        self.assertEqual(self.data.attacks["boutefeu"]["effect"], "burn")
+
+    def test_burn_immunity_for_fire_type_and_fire_immune_pokemon(self):
+        fire = self.pokemon("salameche")
+        water = self.pokemon("carapuce")
+        state = self.engine.create_battle([fire], [water])
+        self.assertFalse(self.engine.statuses.apply(fire, "burn", state))
+        self.assertIsNone(fire.get("status"))
+
+        chart = self.data.config["effectiveness"]["feu"]
+        old = chart["eau"]
+        self.addCleanup(chart.__setitem__, "eau", old)
+        chart["eau"] = 0  # simule un type immunisé au feu
+        self.assertFalse(self.engine.statuses.apply(water, "burn", state))
+        chart["eau"] = old
+        self.assertTrue(self.engine.statuses.apply(water, "burn", state))
+
     def test_sleep_duration_and_paralysis_speed(self):
         pokemon = self.pokemon("pikachu")
         state = self.engine.create_battle([pokemon], [self.pokemon("carapuce")])
