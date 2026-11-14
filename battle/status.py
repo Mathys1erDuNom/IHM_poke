@@ -11,7 +11,7 @@ INFLICT_MESSAGES = {
 }
 
 RESIDUAL_MESSAGES = {
-    "burn": "{name} souffre de sa brûlure ({damage} PV) !",
+    "burn": "La brûlure inflige {damage} dégâts à {name} !",
     "poison": "Le poison inflige {damage} dégâts à {name} !",
 }
 
