@@ -1148,7 +1148,7 @@
     "type": "feu",
     "damage": 95,
     "category": "special",
-    "effect": "brule",
+    "effect": "poison",
     "probas_effect": 1
   },
   {
