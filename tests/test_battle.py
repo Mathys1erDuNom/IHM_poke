@@ -138,9 +138,17 @@ class BattleEngineTests(unittest.TestCase):
         self.assertLess(burned, healthy)
         self.assertAlmostEqual(burned / healthy, 0.5, delta=0.1)
 
-        self.assertEqual(self.data.attacks["boutefeu"]["effect"], "burn")
-        canicule = self.data.attacks["cannicule"]  # probas_effect: 1 dans le JSON = 100 %
-        self.assertEqual((canicule["effect"], canicule["effect_chance"]), ("burn", 100))
+    def test_probas_effect_is_read_as_probability(self):
+        # indépendant des valeurs remplies à la main : probas_effect 1 = 100 %, 0.3 = 30 %
+        import json
+        from battle.data import PROJECT_DIR, normalize_name
+        records = json.loads((PROJECT_DIR / "ATTACK" / "attack_data.json").read_text(encoding="utf-8"))
+        for record in records:
+            chance = record.get("probas_effect")
+            if chance is not None and chance <= 1:
+                loaded = self.data.attacks[self.data._resolve_attack_id(record["name"])]
+                if normalize_name(loaded["name"]) == normalize_name(record["name"]):
+                    self.assertEqual(loaded["effect_chance"], int(chance * 100), record["name"])
 
     def test_burn_immunity_for_fire_type_and_fire_immune_pokemon(self):
         fire = self.pokemon("salameche")
@@ -171,7 +179,7 @@ class BattleEngineTests(unittest.TestCase):
 
         base_speed = self.engine.effective_stat(pokemon, "speed")
         pokemon["status"] = "paralysis"
-        self.assertEqual(self.engine.effective_stat(pokemon, "speed"), base_speed // 2)
+        self.assertEqual(self.engine.effective_stat(pokemon, "speed"), base_speed // 4)
 
     def test_fainted_enemy_is_replaced_without_free_action(self):
         player = self.pokemon("pikachu")

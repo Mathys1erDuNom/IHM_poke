@@ -86,7 +86,7 @@
   "statuses": {
     "burn": {"label": "Brûlure", "icon": "BRU", "damage_fraction": 0.0625, "physical_attack_multiplier": 0.5, "immune_types": ["feu"], "immune_if_no_effect_from": "feu"},
     "poison": {"label": "Poison", "icon": "PSN", "damage_fraction": 0.125, "immune_types": ["poison", "acier"]},
-    "paralysis": {"label": "Paralysie", "icon": "PAR", "speed_multiplier": 0.5, "immobilize_chance": 0.25, "immune_types": ["electrik"]},
+    "paralysis": {"label": "Paralysie", "icon": "PAR", "speed_multiplier": 0.25, "immobilize_chance": 0.25, "immune_types": ["electrik"]},
     "sleep": {"label": "Sommeil", "icon": "SOM", "minimum_turns": 1, "maximum_turns": 3},
     "freeze": {"label": "Gel", "icon": "GEL", "thaw_chance": 0.2, "immune_types": ["glace"]}
   },
@@ -99,6 +99,7 @@
     "gel": "freeze",
     "gele": "freeze",
     "freeze": "freeze",
+    "paralysie": "paralysis",
     "paralysie/sommeil": "random_paralysis_sleep",
     "baisse attaque": "lower_attack",
     "baisse defense": "lower_defense",
