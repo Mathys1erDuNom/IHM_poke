@@ -139,6 +139,8 @@ class BattleEngineTests(unittest.TestCase):
         self.assertAlmostEqual(burned / healthy, 0.5, delta=0.1)
 
         self.assertEqual(self.data.attacks["boutefeu"]["effect"], "burn")
+        canicule = self.data.attacks["cannicule"]  # probas_effect: 1 dans le JSON = 100 %
+        self.assertEqual((canicule["effect"], canicule["effect_chance"]), ("burn", 100))
 
     def test_burn_immunity_for_fire_type_and_fire_immune_pokemon(self):
         fire = self.pokemon("salameche")

@@ -67,12 +67,13 @@ class BattleData:
             elif category not in {"physique", "statut"}:
                 category = "physique"
             effect_id = self.effect_aliases.get(normalize_name(record.get("effect")))
-            # probas_effect : pourcentage 0-100 ; null = 100 pour une attaque de statut, sinon secondary_status_chance
+            # probas_effect : probabilité de 0 à 1 (0.3 = 30 %, 1 = 100 %) ; null = 100 % pour une attaque
+            # de statut, sinon secondary_status_chance. Une valeur > 1 est lue comme un pourcentage (30 = 30 %).
             effect_chance = record.get("probas_effect")
             if effect_chance is None:
                 effect_chance = 100 if category == "statut" else self.config["combat"]["secondary_status_chance"] * 100
-            elif 0 < effect_chance < 1:
-                raise ValueError(f"{record['name']} : probas_effect doit être un pourcentage (30 et non 0.3).")
+            elif effect_chance <= 1:
+                effect_chance *= 100
             attacks[attack_id] = {
                 "id": attack_id,
                 "name": record["name"],
