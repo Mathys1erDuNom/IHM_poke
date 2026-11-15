@@ -168,12 +168,21 @@ class BattleEngineTests(unittest.TestCase):
     def test_sleep_duration_and_paralysis_speed(self):
         pokemon = self.pokemon("pikachu")
         state = self.engine.create_battle([pokemon], [self.pokemon("carapuce")])
-        pokemon["status"] = "sleep"
-        pokemon["status_turns"] = 2
+        self.assertTrue(self.engine.statuses.apply(pokemon, "sleep", state))
+        self.rng.value = 0.0  # tour 1 : dort même avec le meilleur tirage
         self.assertFalse(self.engine._can_act(pokemon, state))
-        self.assertEqual(pokemon["status_turns"], 1)
+        self.rng.value = 0.4  # tour 2 : 0.4 >= 1/3, dort encore
         self.assertFalse(self.engine._can_act(pokemon, state))
-        self.assertEqual(pokemon["status_turns"], 0)
+        self.rng.value = 0.6  # tour 3 : 0.6 >= 0.5, dort encore
+        self.assertFalse(self.engine._can_act(pokemon, state))
+        self.rng.value = 0.99  # tour 4 : réveil garanti
+        self.assertTrue(self.engine._can_act(pokemon, state))
+        self.assertIsNone(pokemon["status"])
+
+        self.engine.statuses.apply(pokemon, "sleep", state)
+        self.rng.value = 0.0
+        self.assertFalse(self.engine._can_act(pokemon, state))
+        self.rng.value = 0.3  # tour 2 : 0.3 < 1/3, réveil
         self.assertTrue(self.engine._can_act(pokemon, state))
         self.assertIsNone(pokemon["status"])
 

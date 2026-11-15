@@ -61,7 +61,7 @@ class StatusManager:
             return False
         pokemon["status"] = status
         if status == "sleep":
-            pokemon["status_turns"] = self.rng.randint(status_config["minimum_turns"], status_config["maximum_turns"])
+            pokemon["status_turns"] = 0  # nombre de tours déjà passés à dormir
         message = INFLICT_MESSAGES.get(status, "{name} subit " + status_config["label"] + " !")
         add_log(state, message.format(name=pokemon["name"]), "status")
         return True
@@ -80,9 +80,11 @@ class StatusManager:
     def can_act(self, pokemon, state):
         status = pokemon.get("status")
         if status == "sleep":
-            turns_left = max(0, int(pokemon.get("status_turns", 0)))
-            if turns_left > 0:
-                pokemon["status_turns"] = turns_left - 1
+            # wake_chances[n] = chance de réveil au tour n+1 de sommeil (dort, 1/3, 1/2, réveil sûr)
+            chances = self.statuses["sleep"]["wake_chances"]
+            turns_slept = max(0, int(pokemon.get("status_turns", 0)))
+            if turns_slept < len(chances) - 1 and self.rng.random() >= chances[turns_slept]:
+                pokemon["status_turns"] = turns_slept + 1
                 add_log(state, f"{pokemon['name']} dort profondément.", "status")
                 return False
             pokemon["status"] = None
