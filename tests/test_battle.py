@@ -190,6 +190,21 @@ class BattleEngineTests(unittest.TestCase):
         pokemon["status"] = "paralysis"
         self.assertEqual(self.engine.effective_stat(pokemon, "speed"), base_speed // 4)
 
+    def test_buff_targets_user_and_debuff_targets_target(self):
+        user, target = self.pokemon("pikachu"), self.pokemon("carapuce")
+        state = self.engine.create_battle([user], [target])
+        aliases = self.data.effect_aliases
+        for stat_fr, stat in (
+            ("attaque", "attack"), ("defense", "defense"), ("attaque_spe", "special_attack"),
+            ("defense_spe", "special_defense"), ("vitesse", "speed"),
+        ):
+            buff = self.move(power=0, category="statut", effect=aliases[f"buff{stat_fr}".replace("_", "")])
+            debuff = self.move(power=0, category="statut", effect=aliases[f"debuff{stat_fr}".replace("_", "")])
+            self.engine._apply_move_effect(user, target, buff, state)
+            self.engine._apply_move_effect(user, target, debuff, state)
+            self.assertEqual(user["stages"][stat], 1, stat)
+            self.assertEqual(target["stages"][stat], -1, stat)
+
     def test_fainted_enemy_is_replaced_without_free_action(self):
         player = self.pokemon("pikachu")
         player["stats"]["speed"] = 10000

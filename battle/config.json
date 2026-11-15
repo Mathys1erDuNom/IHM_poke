@@ -107,7 +107,17 @@
     "baisse precision": "lower_accuracy",
     "baisse esquive": "lower_accuracy",
     "ralentissement": "lower_speed",
-    "recuperation": "heal"
+    "recuperation": "heal",
+    "buff_attaque": "raise_attack",
+    "buff_defense": "raise_defense",
+    "buff_attaque_spe": "raise_special_attack",
+    "buff_defense_spe": "raise_special_defense",
+    "buff_vitesse": "raise_speed",
+    "debuff_attaque": "lower_attack",
+    "debuff_defense": "lower_defense",
+    "debuff_attaque_spe": "lower_special_attack",
+    "debuff_defense_spe": "lower_special_defense",
+    "debuff_vitesse": "lower_speed"
   },
   "enemy_generation": {
     "team_mode": {"iv_min": 0, "iv_max": 31},

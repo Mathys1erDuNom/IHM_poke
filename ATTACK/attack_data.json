@@ -1148,7 +1148,7 @@
     "type": "feu",
     "damage": 10,
     "category": "special",
-    "effect": "sommeil",
+    "effect": "buff_attaque_spe",
     "probas_effect": 1
   },
   {

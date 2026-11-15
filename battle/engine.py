@@ -7,6 +7,16 @@ from .messages import add_log, effectiveness_text
 from .status import StatusManager
 
 
+STAT_LABELS = {
+    "attack": "L'attaque",
+    "defense": "La défense",
+    "special_attack": "L'attaque spéciale",
+    "special_defense": "La défense spéciale",
+    "speed": "La vitesse",
+    "accuracy": "La précision",
+}
+
+
 class BattleEngine:
     def __init__(self, data, rng=None):
         self.data = data
@@ -110,21 +120,18 @@ class BattleEngine:
         actual_delta = new - old
         if actual_delta:
             direction = "augmente" if actual_delta > 0 else "baisse"
-            add_log(state, f"{stat.replace('_', ' ').capitalize()} de {pokemon['name']} {direction} !", "status")
+            label = STAT_LABELS.get(stat, stat)
+            add_log(state, f"{label} de {pokemon['name']} {direction} !", "status")
         return actual_delta
 
     def _apply_move_effect(self, user, target, move, state):
         effect = move.get("effect")
-        effect_to_stage = {
-            "lower_attack": ("attack", -1),
-            "lower_defense": ("defense", -1),
-            "raise_defense": ("defense", 1),
-            "lower_accuracy": ("accuracy", -1),
-            "lower_speed": ("speed", -1),
-        }
-        if effect in effect_to_stage:
-            stat, delta = effect_to_stage[effect]
-            self._change_stage(target, stat, delta, state)
+        # raise_<stat> : buff du lanceur ; lower_<stat> : débuff de la cible
+        if effect.startswith("raise_"):
+            self._change_stage(user, effect[len("raise_"):], 1, state)
+            return
+        if effect.startswith("lower_"):
+            self._change_stage(target, effect[len("lower_"):], -1, state)
             return
         if effect == "heal":
             amount = max(1, int(user["max_hp"] * 0.5))
@@ -150,13 +157,6 @@ class BattleEngine:
         if not usable:
             fallback = self.data.get_moves_for_pokemon({"move_ids": []})[0]
             return {"kind": "move", "move_id": fallback["id"], "fallback": fallback}
-
-        stage_effects = {
-            "lower_attack": "attack",
-            "lower_defense": "defense",
-            "lower_accuracy": "accuracy",
-            "lower_speed": "speed",
-        }
 
         def damage_score(move):
             power = max(0, float(move.get("power", 0)))
@@ -193,9 +193,11 @@ class BattleEngine:
                 healing = min(missing_hp, enemy["max_hp"] * 0.5)
                 return max(best_damage_score * 1.05, healing * 0.8) * accuracy
 
-            if effect in stage_effects:
-                stat = stage_effects[effect]
-                if player.get("stages", {}).get(stat, 0) <= -2:
+            if effect and effect.startswith(("lower_", "raise_")):
+                # inutile d'insister au-delà de 2 crans
+                if effect.startswith("lower_") and player.get("stages", {}).get(effect[len("lower_"):], 0) <= -2:
+                    return 0.0
+                if effect.startswith("raise_") and enemy.get("stages", {}).get(effect[len("raise_"):], 0) >= 2:
                     return 0.0
                 return max(best_damage_score * 0.75, player["max_hp"] * 0.08) * accuracy
 
