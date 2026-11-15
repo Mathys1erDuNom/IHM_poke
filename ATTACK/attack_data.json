@@ -474,7 +474,7 @@
   {
     "name": "Lance-Pierre",
     "type": "roche",
-    "damage": 15,
+    "damage": 80,
     "category": "physique",
     "effect": null,
     "probas_effect": null
