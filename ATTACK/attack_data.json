@@ -475,7 +475,7 @@
     "name": "Lance-Pierre",
     "type": "roche",
     "damage": 80,
-    "category": "special",
+    "category": "physique",
     "effect": null,
     "probas_effect": null
   },
@@ -1148,7 +1148,7 @@
     "type": "feu",
     "damage": 10,
     "category": "special",
-    "effect": "buff_defense_spe",
+    "effect": "buff_vitesse",
     "probas_effect": 1
   },
   {
