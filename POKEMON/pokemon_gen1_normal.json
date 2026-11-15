@@ -1895,7 +1895,7 @@
             "hp": 40,
             "attack": 80,
             "special_attack": 30,
-            "speed": 130,
+            "speed": 20,
             "defense": 100,
             "special_defense": 30
         },
