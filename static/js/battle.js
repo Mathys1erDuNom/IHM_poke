@@ -22,8 +22,8 @@ const STATUS_LABELS = {
 };
 const STAT_LABELS = [
   ["attack", "ATQ"],
-  ["defense", "DEF"],
   ["special_attack", "ATQ SPÉ"],
+  ["defense", "DEF"],
   ["special_defense", "DEF SPÉ"],
   ["speed", "VIT"],
 ];
