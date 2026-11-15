@@ -20,8 +20,36 @@ const STATUS_LABELS = {
   sleep: "Sommeil",
   freeze: "Gel",
 };
+const STAT_LABELS = [
+  ["attack", "ATQ"],
+  ["defense", "DEF"],
+  ["special_attack", "ATQ SPÉ"],
+  ["special_defense", "DEF SPÉ"],
+  ["speed", "VIT"],
+];
 
 const byId = (id) => document.getElementById(id);
+
+// Même formule que _stage_multiplier dans battle/engine.py.
+// shortcut: n'inclut pas le malus de vitesse de la paralysie ni d'attaque de la brûlure ; à calculer côté serveur si on veut les afficher.
+function renderStats(side, pokemon) {
+  const list = byId(`${side}-stats`);
+  list.replaceChildren();
+  STAT_LABELS.forEach(([stat, label]) => {
+    const stage = pokemon.stages?.[stat] || 0;
+    const multiplier = stage >= 0 ? (2 + stage) / 2 : 2 / (2 - stage);
+    const value = Math.max(1, Math.floor((pokemon.stats?.[stat] || 1) * multiplier));
+    const item = document.createElement("div");
+    item.className = "battle-stat";
+    if (stage) item.dataset.change = stage > 0 ? "buff" : "debuff";
+    const name = document.createElement("dt");
+    name.textContent = label;
+    const amount = document.createElement("dd");
+    amount.textContent = stage ? `${value} ${stage > 0 ? "▲" : "▼"}${Math.abs(stage)}` : value;
+    item.append(name, amount);
+    list.appendChild(item);
+  });
+}
 
 function setHp(side, pokemon) {
   const current = Math.max(0, pokemon.hp);
@@ -54,6 +82,7 @@ function renderSide(side, pokemon) {
     types.appendChild(chip);
   });
   setHp(side, pokemon);
+  renderStats(side, pokemon);
 }
 
 function renderMoves() {

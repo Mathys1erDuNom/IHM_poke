@@ -1200,6 +1200,32 @@ body {
   text-transform: uppercase;
 }
 
+.battle-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.battle-stat {
+  display: flex;
+  gap: 4px;
+  padding: 2px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.battle-stat dt { color: var(--muted); }
+.battle-stat dd { margin: 0; font-weight: 700; }
+.battle-stat[data-change="buff"] { border-color: #2b8a3e; background: rgba(43, 138, 62, 0.12); }
+.battle-stat[data-change="buff"] dd { color: #2b8a3e; }
+.battle-stat[data-change="debuff"] { border-color: #c92a2a; background: rgba(201, 42, 42, 0.12); }
+.battle-stat[data-change="debuff"] dd { color: #c92a2a; }
+
 .battle-status[hidden] { display: none; }
 .battle-status[data-status="burn"] { background: #d9480f; }
 .battle-status[data-status="poison"] { background: #7b2cbf; }
