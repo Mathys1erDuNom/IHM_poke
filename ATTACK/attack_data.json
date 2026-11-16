@@ -1146,10 +1146,10 @@
   {
     "name": "Cannicule",
     "type": "feu",
-    "damage": 10,
+    "damage": 95,
     "category": "special",
-    "effect": "debuff_defense_spe",
-    "probas_effect": 1
+    "effect": "brule",
+    "probas_effect": 0.5
   },
   {
     "name": "Lame de Roc",
