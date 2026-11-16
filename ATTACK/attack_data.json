@@ -1147,8 +1147,8 @@
     "name": "Cannicule",
     "type": "feu",
     "damage": 10,
-    "category": "special",
-    "effect": "debuff_vitesse",
+    "category": "physique",
+    "effect": "debuff_defense",
     "probas_effect": 1
   },
   {
