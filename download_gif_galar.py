@@ -6,10 +6,11 @@ import unicodedata
 import requests
 from PIL import Image, ImageSequence
 
-# Formes de Galar (ids PokeAPI) présentes dans POKEMON/galar.json.
+# Formes de Galar (ids PokeAPI) présentes dans POKEMON/galar.json, plus leurs formes de base
+# (862 à 867 : Ixon, Berserkatt, Corayôme, Palarticho, M. Glaquette, Tutétékri).
 # 10178 (Darmanitan Galar Zen) est exclue : absente du JSON, et son nom de base
 # écraserait darmanitan.gif.
-IDS_GALAR = [i for i in range(10161, 10181) if i != 10178]
+IDS_GALAR = list(range(862, 868)) + [i for i in range(10161, 10181) if i != 10178]
 
 # Dossier de destination (doit correspondre à celui lu par l'appli web : images/gif/normal).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
@@ -66,7 +67,7 @@ def nom_francais(pokemon_id):
             nom = entree["name"]
             break
 
-    if pokemon["name"].endswith("-galar"):
+    if "-galar" in pokemon["name"]:  # ex. darmanitan-galar-standard (10177)
         nom += " de Galar"
     return nom
 
