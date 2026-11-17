@@ -7,15 +7,15 @@ import requests
 from PIL import Image, ImageSequence
 
 # Nombre de Pokémon à télécharger, à partir du n°1
-NB_POKEMON = 649
+NB_POKEMON = 10115
+NB_POKEMON_START = 10091
 
 # Dossier de destination (doit correspondre à celui utilisé par l'appli web).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif", "normal")
-DOSSIER_SHINY = os.path.join(SCRIPT_DIR, "images", "gif", "shiny")
+DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif", "alola", "shiny")
 
-os.makedirs(DOSSIER_SHINY, exist_ok=True)
+os.makedirs(DOSSIER, exist_ok=True)
 
 # --- Réglages de la normalisation des tailles ---
 
@@ -56,18 +56,29 @@ def slugify(nom):
 
 
 def nom_francais(pokemon_id):
-    """Récupère le nom français d'un Pokémon via l'endpoint pokemon-species de PokeAPI."""
-    url = f"https://pokeapi.co/api/v2/pokemon-species/{pokemon_id}"
+    """
+    Récupère le nom français d'un Pokémon. Les formes régionales (ids >= 10000, ex. 10091
+    = Rattata d'Alola) n'ont pas de species propre : on passe par le pokemon, puis son species,
+    et on ajoute le suffixe régional (ex. "Rattata d'Alola", comme dans POKEMON/alola.json).
+    """
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
     response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    pokemon = response.json()
+
+    response = requests.get(pokemon["species"]["url"], timeout=30)
     response.raise_for_status()
     data = response.json()
 
+    nom = data["name"]  # repli si jamais le nom français manquait
     for entree in data["names"]:
         if entree["language"]["name"] == "fr":
-            return entree["name"]
+            nom = entree["name"]
+            break
 
-    # Repli si jamais le nom français manquait (ne devrait pas arriver)
-    return data["name"]
+    if pokemon["name"].endswith("-alola"):
+        nom += " d'Alola"
+    return nom
 
 
 def hauteur_metres(pokemon_id):
@@ -141,7 +152,7 @@ def normaliser_gif(contenu_gif, taille_px):
 infos = {}  # pokemon_id -> {"nom": str, "slug": str, "hauteur_m": float}
 
 print("Récupération des noms et tailles réelles...")
-for pokemon_id in range(1, NB_POKEMON + 1):
+for pokemon_id in range(NB_POKEMON_START, NB_POKEMON + 1):
     try:
         nom = nom_francais(pokemon_id)
         hauteur_m = hauteur_metres(pokemon_id)
@@ -162,34 +173,7 @@ else:
 print(f"\nHauteur minimale observée : {hauteur_min_m} m")
 print(f"Hauteur d'écrêtage (au-delà, taille max à l'écran) : {HAUTEUR_MAX_M} m\n")
 
-# --- Étape 2 : télécharger chaque gif et le normaliser ---
-
-# --- Étape 2 : télécharger chaque gif (normal + shiny) et le normaliser ---
-
-def telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=False):
-    sous_dossier = "shiny" if shiny else ""
-    dossier_cible = DOSSIER_SHINY if shiny else DOSSIER
-    label = "shiny" if shiny else "normal"
-
-    url_gif = (
-        f"https://raw.githubusercontent.com/PokeAPI/sprites/"
-        f"master/sprites/pokemon/other/showdown/{sous_dossier + '/' if shiny else ''}{pokemon_id}.gif"
-    )
-    chemin = os.path.join(dossier_cible, f"{slug}.gif")
-
-    print(f"Téléchargement de {nom} ({label}) (#{pokemon_id}) -> {slug}.gif ...")
-
-    reponse = requests.get(url_gif, timeout=30)
-    reponse.raise_for_status()
-
-    px = taille_cible_px(hauteur_m, hauteur_min_m, HAUTEUR_MAX_M)
-    gif_normalise = normaliser_gif(reponse.content, px)
-
-    with open(chemin, "wb") as fichier:
-        fichier.write(gif_normalise)
-
-    print(f"✅ [{label}] {slug}.gif enregistré (hauteur réelle {hauteur_m} m -> {px}px)")
-
+# --- Étape 2 : télécharger chaque gif shiny et le normaliser ---
 
 for pokemon_id, info in infos.items():
     nom = info["nom"]
@@ -197,19 +181,28 @@ for pokemon_id, info in infos.items():
     hauteur_m = info["hauteur_m"]
 
     try:
-        telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=False)
+        url_gif = (
+            f"https://raw.githubusercontent.com/PokeAPI/sprites/"
+            f"master/sprites/pokemon/other/showdown/shiny/{pokemon_id}.gif"
+        )
+        chemin = os.path.join(DOSSIER, f"{slug}.gif")
+
+        print(f"Téléchargement de {nom} (shiny, #{pokemon_id}) -> {slug}.gif ...")
+
+        reponse = requests.get(url_gif, timeout=30)
+        reponse.raise_for_status()
+
+        px = taille_cible_px(hauteur_m, hauteur_min_m, HAUTEUR_MAX_M)
+        gif_normalise = normaliser_gif(reponse.content, px)
+
+        with open(chemin, "wb") as fichier:
+            fichier.write(gif_normalise)
+
+        print(f"✅ {slug}.gif enregistré (hauteur réelle {hauteur_m} m -> {px}px)")
+
     except requests.RequestException as erreur:
-        print(f"❌ Erreur de téléchargement (normal) pour {nom} (#{pokemon_id}) : {erreur}")
-    except Exception as erreur:
-        print(f"❌ Erreur de traitement (normal) pour {nom} (#{pokemon_id}) : {erreur}")
-
-    try:
-        telecharger_et_normaliser(pokemon_id, nom, slug, hauteur_m, shiny=True)
-    except requests.RequestException as erreur:
-        print(f"❌ Erreur de téléchargement (shiny) pour {nom} (#{pokemon_id}) : {erreur}")
-    except Exception as erreur:
-        print(f"❌ Erreur de traitement (shiny) pour {nom} (#{pokemon_id}) : {erreur}")
-
-
+        print(f"❌ Erreur de téléchargement pour {nom} (#{pokemon_id}) : {erreur}")
+    except Exception as erreur:  # sécurité : un gif corrompu ne doit pas arrêter le script
+        print(f"❌ Erreur de traitement pour {nom} (#{pokemon_id}) : {erreur}")
 
 print("\nTéléchargement terminé !")

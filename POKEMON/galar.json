@@ -1,0 +1,667 @@
+[
+    {
+        "name": "Miaouss_de_Galar",
+        "type": [
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10161.png",
+        "attacks": [
+            "Jackpot",
+            "Griffe",
+            "Danse Lames"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 65,
+            "special_attack": 40,
+            "speed": 40,
+            "defense": 55,
+            "special_defense": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 290,
+        "evo": {
+            "name": "Berserkatt",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Berserkatt",
+        "type": [
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/863.png",
+        "attacks": [
+            "Jackpot",
+            "Griffe",
+            "Danse Lames"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 110,
+            "special_attack": 50,
+            "speed": 50,
+            "defense": 100,
+            "special_defense": 60
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ponyta_de_Galar",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10162.png",
+        "attacks": [
+            "Écrasement",
+            "Double Pied",
+            "Empal’Korne"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 85,
+            "special_attack": 65,
+            "speed": 90,
+            "defense": 55,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "Galopa_de_Galar",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Galopa_de_Galar",
+        "type": [
+            "psy",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10163.png",
+        "attacks": [
+            "Jackpot",
+            "Danse Lames",
+            "Écrasement"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 100,
+            "special_attack": 80,
+            "speed": 105,
+            "defense": 70,
+            "special_defense": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ramoloss_de_Galar",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10164.png",
+        "attacks": [
+            "Jackpot",
+            "Écrasement",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 65,
+            "special_attack": 40,
+            "speed": 15,
+            "defense": 65,
+            "special_defense": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 315,
+        "evo": {
+            "name": "Flagadoss_de_Galar",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Flagadoss_de_Galar",
+        "type": [
+            "poison",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10165.png",
+        "attacks": [
+            "Ultimapoing",
+            "Jackpot",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 100,
+            "special_attack": 100,
+            "speed": 30,
+            "defense": 95,
+            "special_defense": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Roigada_de_Galar",
+        "type": [
+            "poison",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10172.png",
+        "attacks": [
+            "Ultimapoing",
+            "Jackpot",
+            "Poing Feu"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 65,
+            "special_attack": 110,
+            "speed": 30,
+            "defense": 80,
+            "special_defense": 110
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Canarticho_de_Galar",
+        "type": [
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10166.png",
+        "attacks": [
+            "Coupe-Vent",
+            "Danse Lames",
+            "Vol"
+        ],
+        "stats": {
+            "hp": 52,
+            "attack": 95,
+            "special_attack": 58,
+            "speed": 55,
+            "defense": 55,
+            "special_defense": 62
+        },
+        "current_xp": 0,
+        "xp_evo": 377,
+        "evo": {
+            "name": "Palarticho",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Palarticho",
+        "type": [
+            "combat"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/865.png",
+        "attacks": [
+            "Coupe-Vent",
+            "Danse Lames",
+            "Vol"
+        ],
+        "stats": {
+            "hp": 62,
+            "attack": 135,
+            "special_attack": 68,
+            "speed": 65,
+            "defense": 95,
+            "special_defense": 82
+        },
+        "current_xp": 0,
+        "xp_evo": 507,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Smogogo_de_Galar",
+        "type": [
+            "poison",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10167.png",
+        "attacks": [
+            "Charge",
+            "Plaquage",
+            "Bélier"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 90,
+            "special_attack": 85,
+            "speed": 60,
+            "defense": 120,
+            "special_defense": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 490,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "M._Mime_de_Galar",
+        "type": [
+            "glace",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10168.png",
+        "attacks": [
+            "Écras’Face",
+            "Poing Comète",
+            "Ultimapoing"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 65,
+            "special_attack": 90,
+            "speed": 100,
+            "defense": 65,
+            "special_defense": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 460,
+        "evo": {
+            "name": "M._Glaquette",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "M._Glaquette",
+        "type": [
+            "glace",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/866.png",
+        "attacks": [
+            "Écras’Face",
+            "Poing Comète",
+            "Ultimapoing"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 85,
+            "special_attack": 110,
+            "speed": 70,
+            "defense": 75,
+            "special_defense": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 520,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Artikodin_de_Galar",
+        "type": [
+            "psy",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10169.png",
+        "attacks": [
+            "Tornade",
+            "Vol",
+            "Bélier"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 85,
+            "special_attack": 125,
+            "speed": 95,
+            "defense": 85,
+            "special_defense": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Électhor_de_Galar",
+        "type": [
+            "combat",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10170.png",
+        "attacks": [
+            "Vol",
+            "Ultimawashi",
+            "Bélier"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 125,
+            "special_attack": 85,
+            "speed": 100,
+            "defense": 90,
+            "special_defense": 90
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Sulfura_de_Galar",
+        "type": [
+            "tenebres",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10171.png",
+        "attacks": [
+            "Tornade",
+            "Cru-Ailes",
+            "Vol"
+        ],
+        "stats": {
+            "hp": 90,
+            "attack": 85,
+            "special_attack": 100,
+            "speed": 90,
+            "defense": 90,
+            "special_defense": 125
+        },
+        "current_xp": 0,
+        "xp_evo": 580,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Corayon_de_Galar",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10173.png",
+        "attacks": [
+            "Charge",
+            "Plaquage",
+            "Entrave"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 55,
+            "special_attack": 65,
+            "speed": 30,
+            "defense": 100,
+            "special_defense": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 410,
+        "evo": {
+            "name": "Corayôme",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Corayôme",
+        "type": [
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/864.png",
+        "attacks": [
+            "Charge",
+            "Plaquage",
+            "Dard-Nuée"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 95,
+            "special_attack": 145,
+            "speed": 30,
+            "defense": 50,
+            "special_defense": 130
+        },
+        "current_xp": 0,
+        "xp_evo": 510,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Zigzaton_de_Galar",
+        "type": [
+            "tenebres",
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10174.png",
+        "attacks": [
+            "Jet de Sable",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 38,
+            "attack": 30,
+            "special_attack": 30,
+            "speed": 60,
+            "defense": 41,
+            "special_defense": 41
+        },
+        "current_xp": 0,
+        "xp_evo": 240,
+        "evo": {
+            "name": "Linéon_de_Galar",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Linéon_de_Galar",
+        "type": [
+            "tenebres",
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10175.png",
+        "attacks": [
+            "Jet de Sable",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 78,
+            "attack": 70,
+            "special_attack": 50,
+            "speed": 100,
+            "defense": 61,
+            "special_defense": 61
+        },
+        "current_xp": 0,
+        "xp_evo": 420,
+        "evo": {
+            "name": "Ixon",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Ixon",
+        "type": [
+            "tenebres",
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/862.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 93,
+            "attack": 90,
+            "special_attack": 60,
+            "speed": 95,
+            "defense": 101,
+            "special_defense": 81
+        },
+        "current_xp": 0,
+        "xp_evo": 520,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Darumarond_de_Galar",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10176.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 70,
+            "attack": 90,
+            "special_attack": 15,
+            "speed": 50,
+            "defense": 45,
+            "special_defense": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 315,
+        "evo": {
+            "name": "Darumacho_de_Galar",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Darumacho_de_Galar",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10177.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 105,
+            "attack": 140,
+            "special_attack": 30,
+            "speed": 95,
+            "defense": 55,
+            "special_defense": 55
+        },
+        "current_xp": 0,
+        "xp_evo": 480,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tutafeh_de_Galar",
+        "type": [
+            "sol",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10179.png",
+        "attacks": [
+            "Souplesse",
+            "Entrave",
+            "Cage Éclair"
+        ],
+        "stats": {
+            "hp": 38,
+            "attack": 55,
+            "special_attack": 30,
+            "speed": 30,
+            "defense": 85,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 303,
+        "evo": {
+            "name": "Tutétékri",
+            "file": "galar.json"
+        }
+    },
+    {
+        "name": "Tutétékri",
+        "type": [
+            "sol",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/867.png",
+        "attacks": [
+            "Souplesse",
+            "Entrave",
+            "Ultralaser"
+        ],
+        "stats": {
+            "hp": 58,
+            "attack": 95,
+            "special_attack": 50,
+            "speed": 30,
+            "defense": 145,
+            "special_defense": 105
+        },
+        "current_xp": 0,
+        "xp_evo": 483,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Limonde_de_Galar",
+        "type": [
+            "sol",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10180.png",
+        "attacks": [
+            "Étreinte",
+            "Charge",
+            "Pistolet à O"
+        ],
+        "stats": {
+            "hp": 109,
+            "attack": 81,
+            "special_attack": 66,
+            "speed": 32,
+            "defense": 99,
+            "special_defense": 84
+        },
+        "current_xp": 0,
+        "xp_evo": 471,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    }
+]

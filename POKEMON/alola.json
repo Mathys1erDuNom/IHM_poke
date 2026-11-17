@@ -1,0 +1,485 @@
+[
+    {
+        "name": "Rattata_d'Alola",
+        "type": [
+            "tenebres",
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10091.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Damoclès"
+        ],
+        "stats": {
+            "hp": 30,
+            "attack": 56,
+            "special_attack": 25,
+            "speed": 72,
+            "defense": 35,
+            "special_defense": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 253,
+        "evo": {
+            "name": "Rattatac_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Rattatac_d'Alola",
+        "type": [
+            "tenebres",
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10092.png",
+        "attacks": [
+            "Danse Lames",
+            "Coup d’Boule",
+            "Charge"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 71,
+            "special_attack": 40,
+            "speed": 77,
+            "defense": 70,
+            "special_defense": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 413,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Raichu_d'Alola",
+        "type": [
+            "electrique",
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10100.png",
+        "attacks": [
+            "Ultimapoing",
+            "Jackpot",
+            "Poing Éclair"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 85,
+            "special_attack": 95,
+            "speed": 110,
+            "defense": 50,
+            "special_defense": 85
+        },
+        "current_xp": 0,
+        "xp_evo": 485,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Sabelette_d'Alola",
+        "type": [
+            "glace",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10101.png",
+        "attacks": [
+            "Poing Glace",
+            "Griffe",
+            "Danse Lames"
+        ],
+        "stats": {
+            "hp": 50,
+            "attack": 75,
+            "special_attack": 10,
+            "speed": 40,
+            "defense": 90,
+            "special_defense": 35
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Sablaireau_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Sablaireau_d'Alola",
+        "type": [
+            "glace",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10102.png",
+        "attacks": [
+            "Poing Glace",
+            "Griffe",
+            "Danse Lames"
+        ],
+        "stats": {
+            "hp": 75,
+            "attack": 100,
+            "special_attack": 25,
+            "speed": 65,
+            "defense": 120,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 450,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Goupix_d'Alola",
+        "type": [
+            "glace"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10103.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 38,
+            "attack": 41,
+            "special_attack": 50,
+            "speed": 65,
+            "defense": 40,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 299,
+        "evo": {
+            "name": "Feunard_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Feunard_d'Alola",
+        "type": [
+            "glace",
+            "fee"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10104.png",
+        "attacks": [
+            "Coup d’Boule",
+            "Charge",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 73,
+            "attack": 67,
+            "special_attack": 81,
+            "speed": 109,
+            "defense": 75,
+            "special_defense": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 505,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Taupiqueur_d'Alola",
+        "type": [
+            "sol",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10105.png",
+        "attacks": [
+            "Griffe",
+            "Danse Lames",
+            "Jet de Sable"
+        ],
+        "stats": {
+            "hp": 10,
+            "attack": 55,
+            "special_attack": 35,
+            "speed": 90,
+            "defense": 30,
+            "special_defense": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 265,
+        "evo": {
+            "name": "Triopikeur_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Triopikeur_d'Alola",
+        "type": [
+            "sol",
+            "acier"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10106.png",
+        "attacks": [
+            "Griffe",
+            "Danse Lames",
+            "Jet de Sable"
+        ],
+        "stats": {
+            "hp": 35,
+            "attack": 100,
+            "special_attack": 50,
+            "speed": 110,
+            "defense": 60,
+            "special_defense": 70
+        },
+        "current_xp": 0,
+        "xp_evo": 425,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Miaouss_d'Alola",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10107.png",
+        "attacks": [
+            "Jackpot",
+            "Griffe",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 35,
+            "special_attack": 50,
+            "speed": 90,
+            "defense": 35,
+            "special_defense": 40
+        },
+        "current_xp": 0,
+        "xp_evo": 290,
+        "evo": {
+            "name": "Persian_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Persian_d'Alola",
+        "type": [
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10108.png",
+        "attacks": [
+            "Jackpot",
+            "Griffe",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 60,
+            "special_attack": 75,
+            "speed": 115,
+            "defense": 60,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 440,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Racaillou_d'Alola",
+        "type": [
+            "roche",
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10109.png",
+        "attacks": [
+            "Poing Feu",
+            "Poing Éclair",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 40,
+            "attack": 80,
+            "special_attack": 30,
+            "speed": 20,
+            "defense": 100,
+            "special_defense": 30
+        },
+        "current_xp": 0,
+        "xp_evo": 300,
+        "evo": {
+            "name": "Gravalanch_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Gravalanch_d'Alola",
+        "type": [
+            "roche",
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10110.png",
+        "attacks": [
+            "Poing Feu",
+            "Poing Éclair",
+            "Coup d’Boule"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 95,
+            "special_attack": 45,
+            "speed": 35,
+            "defense": 115,
+            "special_defense": 45
+        },
+        "current_xp": 0,
+        "xp_evo": 390,
+        "evo": {
+            "name": "Grolem_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Grolem_d'Alola",
+        "type": [
+            "roche",
+            "electrique"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10111.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Éclair"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 120,
+            "special_attack": 55,
+            "speed": 45,
+            "defense": 130,
+            "special_defense": 65
+        },
+        "current_xp": 0,
+        "xp_evo": 495,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Tadmorv_d'Alola",
+        "type": [
+            "poison",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10112.png",
+        "attacks": [
+            "Écras’Face",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 80,
+            "special_attack": 40,
+            "speed": 25,
+            "defense": 50,
+            "special_defense": 50
+        },
+        "current_xp": 0,
+        "xp_evo": 325,
+        "evo": {
+            "name": "Grotadmorv_d'Alola",
+            "file": "alola.json"
+        }
+    },
+    {
+        "name": "Grotadmorv_d'Alola",
+        "type": [
+            "poison",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10113.png",
+        "attacks": [
+            "Écras’Face",
+            "Poing Feu",
+            "Poing Glace"
+        ],
+        "stats": {
+            "hp": 105,
+            "attack": 105,
+            "special_attack": 65,
+            "speed": 50,
+            "defense": 75,
+            "special_defense": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 500,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Noadkoko_d'Alola",
+        "type": [
+            "plante",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10114.png",
+        "attacks": [
+            "Danse Lames",
+            "Coup d’Boule",
+            "Plaquage"
+        ],
+        "stats": {
+            "hp": 95,
+            "attack": 105,
+            "special_attack": 125,
+            "speed": 45,
+            "defense": 85,
+            "special_defense": 75
+        },
+        "current_xp": 0,
+        "xp_evo": 530,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Ossatueur_d'Alola",
+        "type": [
+            "feu",
+            "spectre"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10115.png",
+        "attacks": [
+            "Ultimapoing",
+            "Poing Feu",
+            "Poing Éclair"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 80,
+            "special_attack": 50,
+            "speed": 45,
+            "defense": 110,
+            "special_defense": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 425,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    }
+]

@@ -7,12 +7,13 @@ import requests
 from PIL import Image, ImageSequence
 
 # Nombre de Pokémon à télécharger, à partir du n°1
-NB_POKEMON = 649
+NB_POKEMON = 10115
+NB_POKEMON_START = 10091
 
 # Dossier de destination (doit correspondre à celui utilisé par l'appli web).
 # Ancré sur l'emplacement du script pour que ça marche peu importe d'où on le lance.
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif", "normal")
+DOSSIER = os.path.join(SCRIPT_DIR, "images", "gif", "alola", "normal")
 
 os.makedirs(DOSSIER, exist_ok=True)
 
@@ -55,18 +56,29 @@ def slugify(nom):
 
 
 def nom_francais(pokemon_id):
-    """Récupère le nom français d'un Pokémon via l'endpoint pokemon-species de PokeAPI."""
-    url = f"https://pokeapi.co/api/v2/pokemon-species/{pokemon_id}"
+    """
+    Récupère le nom français d'un Pokémon. Les formes régionales (ids >= 10000, ex. 10091
+    = Rattata d'Alola) n'ont pas de species propre : on passe par le pokemon, puis son species,
+    et on ajoute le suffixe régional (ex. "Rattata d'Alola", comme dans POKEMON/alola.json).
+    """
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
     response = requests.get(url, timeout=30)
+    response.raise_for_status()
+    pokemon = response.json()
+
+    response = requests.get(pokemon["species"]["url"], timeout=30)
     response.raise_for_status()
     data = response.json()
 
+    nom = data["name"]  # repli si jamais le nom français manquait
     for entree in data["names"]:
         if entree["language"]["name"] == "fr":
-            return entree["name"]
+            nom = entree["name"]
+            break
 
-    # Repli si jamais le nom français manquait (ne devrait pas arriver)
-    return data["name"]
+    if pokemon["name"].endswith("-alola"):
+        nom += " d'Alola"
+    return nom
 
 
 def hauteur_metres(pokemon_id):
@@ -140,7 +152,7 @@ def normaliser_gif(contenu_gif, taille_px):
 infos = {}  # pokemon_id -> {"nom": str, "slug": str, "hauteur_m": float}
 
 print("Récupération des noms et tailles réelles...")
-for pokemon_id in range(1, NB_POKEMON + 1):
+for pokemon_id in range(NB_POKEMON_START, NB_POKEMON + 1):
     try:
         nom = nom_francais(pokemon_id)
         hauteur_m = hauteur_metres(pokemon_id)
