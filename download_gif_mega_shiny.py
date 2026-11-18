@@ -1,5 +1,7 @@
 import io
 import os
+import re
+import unicodedata
 
 import requests
 from PIL import Image, ImageSequence
@@ -22,6 +24,12 @@ PX_MIN = 90
 PX_MAX = 240
 HAUTEUR_MAX_M = 2.5
 GAMMA = 0.55
+
+
+def slugify(nom):
+    """Nom de fichier attendu par l'appli : minuscules, sans accents, sans - ni espaces. Ex. "Mega-Dracaufeu-X" -> "megadracaufeux"."""
+    sans_accents = unicodedata.normalize("NFD", nom).encode("ascii", "ignore").decode("utf-8")
+    return re.sub(r"[^a-z0-9]+", "", sans_accents.lower())
 
 
 def nom_mega(nom_api, espece_fr):
@@ -139,7 +147,7 @@ for pokemon_id, info in infos.items():
             f"https://raw.githubusercontent.com/PokeAPI/sprites/"
             f"master/sprites/pokemon/other/showdown/shiny/{pokemon_id}.gif"
         )
-        chemin = os.path.join(DOSSIER, f"{nom}.gif")
+        chemin = os.path.join(DOSSIER, f"{slugify(nom)}.gif")
 
         print(f"Téléchargement de {nom} (shiny, #{pokemon_id}) -> {nom}.gif ...")
 
