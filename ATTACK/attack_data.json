@@ -76,8 +76,8 @@
     "type": "feu",
     "damage": 90,
     "category": "speciale",
-    "effect": null,
-    "probas_effect": null
+    "effect": "brule",
+    "probas_effect": 0.5
   },
   {
     "name": "Dracochoc",
@@ -212,8 +212,8 @@
     "type": "poison",
     "damage": 90,
     "category": "speciale",
-    "effect": null,
-    "probas_effect": null
+    "effect": "poison",
+    "probas_effect": 0.5
   },
   {
     "name": "Coup d'Boule",
@@ -268,8 +268,8 @@
     "type": "psy",
     "damage": 90,
     "category": "speciale",
-    "effect": null,
-    "probas_effect": null
+    "effect": "debuff_defense_spe",
+    "probas_effect": 0.5
   },
   {
     "name": "Rafale Psy",
@@ -428,8 +428,8 @@
     "type": "spectre",
     "damage": 80,
     "category": "speciale",
-    "effect": null,
-    "probas_effect": null
+    "effect": "debuff_defense_spe",
+    "probas_effect": 0.5
   },
   {
     "name": "Chant",
@@ -556,8 +556,8 @@
     "type": "plante",
     "damage": 0,
     "category": "statut",
-    "effect": "paralysie/sommeil",
-    "probas_effect": null
+    "effect": "sommeil",
+    "probas_effect": 1
   },
   {
     "name": "Tonnerre",
@@ -988,8 +988,8 @@
     "type": "acier",
     "damage": 50,
     "category": "physique",
-    "effect": null,
-    "probas_effect": null
+    "effect": "buff_attaque",
+    "probas_effect": 0.5
   },
   {
     "name": "Croc Eclair",
@@ -1002,7 +1002,7 @@
   {
     "name": "Eclat Magique",
     "type": "fee",
-    "damage": 70,
+    "damage": 80,
     "category": "speciale",
     "effect": null,
     "probas_effect": null
@@ -1092,8 +1092,8 @@
     "type": "acier",
     "damage": 80,
     "category": "special",
-    "effect": null,
-    "probas_effect": null
+    "effect": "debuff_defense_spe",
+    "probas_effect": 0.5
   },
   {
     "name": "Giga Impact",
@@ -1166,5 +1166,93 @@
     "category": "special",
     "effect": null,
     "probas_effect": null
+  },
+  {
+    "name": "Deflagration",
+    "type": "feu",
+    "damage": 110,
+    "category": "special",
+    "effect": "brule",
+    "probas_effect": 0.5
+  },
+  {
+    "name": "Lame d'Air",
+    "type": "vol",
+    "damage": 75,
+    "category": "special",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Draco-Charge",
+    "type": "dragon",
+    "damage": 100,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+  {
+    "name": "Pietisol",
+    "type": "sol",
+    "damage": 60,
+    "category": "physique",
+    "effect": "debuff_vitesse",
+    "probas_effect": 0.5
+  },
+  {
+    "name": "Machouille",
+    "type": "tenebres",
+    "damage": 80,
+    "category": "physique",
+    "effect": "debuff_defense",
+    "probas_effect": 0.5
+  },
+  {
+    "name": "Point Boost",
+    "type": "combat",
+    "damage": 40,
+    "category": "physique",
+    "effect": "buff_attaque",
+    "probas_effect": 1
+  },
+  {
+    "name": "Plaie Croix",
+    "type": "insecte",
+    "damage": 80,
+    "category": "physique",
+    "effect": null,
+    "probas_effect": null
+  },
+   {
+    "name": "Aboiement",
+    "type": "tenebres",
+    "damage": 55,
+    "category": "special",
+    "effect": "debuff_attaque_spe",
+    "probas_effect": 1
+  },
+  {
+    "name": "Balayette",
+    "type": "combat",
+    "damage": 65,
+    "category": "physique",
+    "effect": "debuff_vitesse",
+    "probas_effect": 1
+  },
+  {
+    "name": "Nitrocharge",
+    "type": "feu",
+    "damage": 50,
+    "category": "physique",
+    "effect": "buff_vitesse",
+    "probas_effect": 1
+  },
+  {
+    "name": "Calinerie",
+    "type": "fee",
+    "damage": 90,
+    "category": "physique",
+    "effect": "debuff_attaque",
+    "probas_effect": 0.5
   }
 ]
