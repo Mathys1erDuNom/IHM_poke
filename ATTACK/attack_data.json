@@ -1146,7 +1146,7 @@
   {
     "name": "Cannicule",
     "type": "feu",
-    "damage": 95,
+    "damage": 10,
     "category": "special",
     "effect": "freeze",
     "probas_effect": 1
