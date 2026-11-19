@@ -90,10 +90,10 @@ class StatusManager:
             pokemon["status"] = None
             add_log(state, f"{pokemon['name']} se réveille !", "status")
         elif status == "freeze":
-            # Chaque tour gelé : 20 % de dégel avant d'attaquer ; au dernier tour (max_turns), dégel forcé.
+            # 1er tour : gelé à coup sûr. Tours suivants : 20 % de dégel avant d'attaquer ; au dernier tour (max_turns), dégel forcé.
             freeze_config = self.statuses["freeze"]
             turns_frozen = max(0, int(pokemon.get("status_turns", 0)))
-            if turns_frozen < freeze_config["max_turns"] - 1 and self.rng.random() >= freeze_config["thaw_chance"]:
+            if turns_frozen == 0 or (turns_frozen < freeze_config["max_turns"] - 1 and self.rng.random() >= freeze_config["thaw_chance"]):
                 pokemon["status_turns"] = turns_frozen + 1
                 add_log(state, f"{pokemon['name']} est gelé et ne peut pas agir !", "status")
                 return False

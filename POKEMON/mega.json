@@ -1,0 +1,237 @@
+[
+    {
+        "name": "Mega-Florizarre",
+        "type": [
+            "plante",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10033.png",
+        "attacks": [
+            "Lance-Soleil",
+            "Bomb-Beurk"
+        ],
+        "stats": {
+            "hp": 80,
+            "attack": 100,
+            "defense": 123,
+            "special_attack": 122,
+            "special_defense": 120,
+            "speed": 80
+        },
+        "current_xp": 0,
+        "xp_evo": 0,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Dracaufeu-X",
+        "type": [
+            "feu",
+            "dragon"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10034.png",
+        "attacks": [
+            "Deflagration",
+            "Lame d'Air",
+            "Draco-Charge"
+        ],
+        "stats": {
+            "hp": 78,
+            "attack": 130,
+            "defense": 111,
+            "special_attack": 130,
+            "special_defense": 85,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Dracaufeu-Y",
+        "type": [
+            "feu",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10035.png",
+        "attacks": [
+            "Deflagration",
+            "Lame d'Air",
+            "Draco-Charge"
+        ],
+        "stats": {
+            "hp": 78,
+            "attack": 104,
+            "defense": 78,
+            "special_attack": 159,
+            "special_defense": 115,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Tortank",
+        "type": [
+            "eau"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10036.png",
+        "attacks": [
+            "Hydrocanon",
+            "Luminocanon"
+        ],
+        "stats": {
+            "hp": 79,
+            "attack": 103,
+            "defense": 120,
+            "special_attack": 135,
+            "special_defense": 115,
+            "speed": 78
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Alakazam",
+        "type": [
+            "psy"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10037.png",
+        "attacks": [
+            "Psyko",
+            "Eclat Magique"
+        ],
+        "stats": {
+            "hp": 55,
+            "attack": 50,
+            "defense": 65,
+            "special_attack": 175,
+            "special_defense": 105,
+            "speed": 150
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Ectoplasma",
+        "type": [
+            "spectre",
+            "poison"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10038.png",
+        "attacks": [
+            "Bomb-Beurk",
+            "Balle Ombre"
+        ],
+        "stats": {
+            "hp": 60,
+            "attack": 65,
+            "defense": 80,
+            "special_attack": 170,
+            "special_defense": 95,
+            "speed": 130
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Kangourex",
+        "type": [
+            "normal"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10039.png",
+        "attacks": [
+            "Coup dBoule",
+            "Morsure"
+        ],
+        "stats": {
+            "hp": 105,
+            "attack": 125,
+            "defense": 100,
+            "special_attack": 60,
+            "special_defense": 100,
+            "speed": 100
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Scarabrute",
+        "type": [
+            "insecte",
+            "vol"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10040.png",
+        "attacks": [
+            "Coup dBoule",
+            "Lame de Roc",
+            "Pietisol"
+        ],
+        "stats": {
+            "hp": 65,
+            "attack": 155,
+            "defense": 120,
+            "special_attack": 65,
+            "special_defense": 90,
+            "speed": 105
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    },
+    {
+        "name": "Mega-Leviator",
+        "type": [
+            "eau",
+            "tenebres"
+        ],
+        "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10041.png",
+        "attacks": [
+            "Morsure",
+            "Hydrocanon",
+            "Queue de fer"
+        ],
+        "stats": {
+            "hp": 170,
+            "attack": 155,
+            "defense": 109,
+            "special_attack": 70,
+            "special_defense": 130,
+            "speed": 81
+        },
+        "current_xp": 0,
+        "xp_evo": 550,
+        "evo": {
+            "name": "pas evo",
+            "file": "pas evo"
+        }
+    }
+]
