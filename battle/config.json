@@ -88,7 +88,7 @@
     "poison": {"label": "Poison", "icon": "PSN", "damage_fraction": 0.125, "immune_types": ["poison", "acier"]},
     "paralysis": {"label": "Paralysie", "icon": "PAR", "speed_multiplier": 0.25, "immobilize_chance": 0.25, "immune_types": ["electrik"]},
     "sleep": {"label": "Sommeil", "icon": "SOM", "wake_chances": [0, 0.3334, 0.5, 1]},
-    "freeze": {"label": "Gel", "icon": "GEL", "thaw_chance": 0.2, "immune_types": ["glace"]}
+    "freeze": {"label": "Gel", "icon": "GEL", "thaw_chance": 0.2, "max_turns": 3, "immune_types": ["glace"]}
   },
   "effect_aliases": {
     "brule": "burn",

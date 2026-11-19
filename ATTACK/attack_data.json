@@ -1148,8 +1148,8 @@
     "type": "feu",
     "damage": 95,
     "category": "special",
-    "effect": "brule",
-    "probas_effect": 0.5
+    "effect": "freeze",
+    "probas_effect": 1
   },
   {
     "name": "Lame de Roc",

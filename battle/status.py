@@ -60,8 +60,8 @@ class StatusManager:
         if pokemon.get("status"):
             return False
         pokemon["status"] = status
-        if status == "sleep":
-            pokemon["status_turns"] = 0  # nombre de tours déjà passés à dormir
+        if status in ("sleep", "freeze"):
+            pokemon["status_turns"] = 0  # nombre de tours déjà passés endormi / gelé
         message = INFLICT_MESSAGES.get(status, "{name} subit " + status_config["label"] + " !")
         add_log(state, message.format(name=pokemon["name"]), "status")
         return True
@@ -90,7 +90,11 @@ class StatusManager:
             pokemon["status"] = None
             add_log(state, f"{pokemon['name']} se réveille !", "status")
         elif status == "freeze":
-            if self.rng.random() >= self.statuses["freeze"]["thaw_chance"]:
+            # Chaque tour gelé : 20 % de dégel avant d'attaquer ; au dernier tour (max_turns), dégel forcé.
+            freeze_config = self.statuses["freeze"]
+            turns_frozen = max(0, int(pokemon.get("status_turns", 0)))
+            if turns_frozen < freeze_config["max_turns"] - 1 and self.rng.random() >= freeze_config["thaw_chance"]:
+                pokemon["status_turns"] = turns_frozen + 1
                 add_log(state, f"{pokemon['name']} est gelé et ne peut pas agir !", "status")
                 return False
             pokemon["status"] = None
